@@ -124,6 +124,12 @@ const iconsets: Iconset[] = [
     prefix: 'jam',
     colorAttr: 'fill',
   },
+  {
+    from: joinPathFragments(cwd(), 'node_modules', 'octicons', 'build', 'svg'),
+    to: joinPathFragments('packages', 'octicons', 'src', 'index.ts'),
+    prefix: 'oct',
+    colorAttr: 'fill',
+  },
 ];
 
 export default async function (tree: Tree): Promise<void> {

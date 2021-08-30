@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "packages/octicons",
+  "sourceRoot": "packages/octicons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/octicons"],
+      "options": {
+        "project": "packages/octicons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/octicons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/octicons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/octicons"],
+      "options": {
+        "jestConfig": "packages/octicons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/octicons/src/**/*.ts",
+          "packages/octicons/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

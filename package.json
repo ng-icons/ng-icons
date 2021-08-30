@@ -21,6 +21,7 @@
     "feather-icons": "^4.28.0",
     "heroicons": "^1.0.4",
     "jam-icons": "^2.0.0",
+    "octicons": "^8.5.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

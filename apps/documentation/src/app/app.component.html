@@ -31,3 +31,13 @@
     <p>{{ icon.key | dasherize }}</p>
   </div>
 </div>
+
+<h2>Octicons</h2>
+
+<div class="icon-grid">
+  <div *ngFor="let icon of octIcons | keyvalue" class="icon-preview">
+    <ng-icon [name]="icon.key" size="24px"></ng-icon>
+
+    <p>{{ icon.key | dasherize }}</p>
+  </div>
+</div>
