@@ -1,25 +1,46 @@
 import { formatFiles, joinPathFragments, names, Tree } from '@nrwl/devkit';
 import { readdir, readFile } from 'fs-extra';
-import { basename, extname, join } from 'path';
+import { basename, extname } from 'path';
 import { cwd } from 'process';
+import { AddAttributesToSVGElementPlugin, optimize } from 'svgo';
 import * as ts from 'typescript';
 
-async function loadSvgsInPath(
-  path: string,
-  prefix: string,
-  suffix: string = '',
-): Promise<Record<string, string>> {
+async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   // load all the svg files within the path
-  const files = (await readdir(path)).filter(file => extname(file) === '.svg');
+  const files = (await readdir(iconset.from)).filter(
+    file => extname(file) === '.svg',
+  );
 
   // read the contents of each file
   const output: Record<string, string> = {};
 
   for (const file of files) {
     const iconName = names(
-      prefix + '-' + basename(file, '.svg') + names(suffix).className,
+      iconset.prefix +
+        '-' +
+        basename(file, '.svg') +
+        names(iconset.suffix ?? '').className,
     ).className;
-    output[iconName] = await readFile(join(path, file), 'utf8');
+    let svg = await readFile(joinPathFragments(iconset.from, file), 'utf8');
+
+    if (iconset.colorAttr) {
+      svg = optimize(svg, {
+        plugins: [
+          {
+            name: 'addAttributesToSVGElement',
+            params: {
+              attributes: [
+                {
+                  [iconset.colorAttr]: 'currentColor',
+                },
+              ],
+            },
+          } as AddAttributesToSVGElementPlugin,
+        ],
+      }).data;
+    }
+
+    output[iconName] = svg;
   }
 
   return output;
@@ -43,11 +64,7 @@ function createIconDeclaration(name: string, svg: string): ts.Node {
 }
 
 async function createIconset(iconset: Iconset): Promise<string> {
-  const icons = await loadSvgsInPath(
-    iconset.from,
-    iconset.prefix,
-    iconset.suffix,
-  );
+  const icons = await loadIconset(iconset);
   const printer = ts.createPrinter();
   const sourceFile = ts.createSourceFile(
     'icons.ts',
@@ -75,6 +92,7 @@ interface Iconset {
   to: string;
   prefix: string;
   suffix?: string;
+  colorAttr?: 'fill' | 'stroke';
 }
 
 const iconsets: Iconset[] = [
@@ -104,6 +122,7 @@ const iconsets: Iconset[] = [
     from: joinPathFragments(cwd(), 'node_modules', 'jam-icons', 'svg'),
     to: joinPathFragments('packages', 'jam-icons', 'src', 'index.ts'),
     prefix: 'jam',
+    colorAttr: 'fill',
   },
 ];
 
