@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "lint": "nx affected:lint --parallel",
+    "compile": "nx affected:build --parallel",
     "serve:documentation": "nx serve documentation",
     "generate:iconsets": "nx workspace-generator svg-to-ts",
     "postinstall": "ngcc --properties es2015 browser module main"

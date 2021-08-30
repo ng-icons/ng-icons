@@ -1,3 +1,4 @@
+import { Clipboard } from '@angular/cdk/clipboard';
 import { KeyValue } from '@angular/common';
 import { Component } from '@angular/core';
 import * as featherIcons from '@ng-icons/feather-icons';
@@ -37,7 +38,13 @@ export class AppComponent {
 
   filter = '';
 
+  constructor(private readonly clipboard: Clipboard) {}
+
   trackBy(_: number, icon: KeyValue<string, unknown>): string {
     return icon.key;
+  }
+
+  copy(icon: string): void {
+    this.clipboard.copy(`<ng-icon name="${icon}"></ng-icon>`);
   }
 }

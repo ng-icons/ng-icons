@@ -1,3 +1,4 @@
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import { SearchPipe } from './pipes/search.pipe';
   imports: [
     BrowserModule,
     FormsModule,
+    ClipboardModule,
     NgIconsModule.withIcons({
       ...featherIcons,
       ...heroIcons,
