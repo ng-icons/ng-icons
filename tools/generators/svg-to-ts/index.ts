@@ -124,12 +124,12 @@ const iconsets: Iconset[] = [
   {
     from: joinPathFragments(cwd(), 'node_modules', 'heroicons', 'outline'),
     to: joinPathFragments('packages', 'heroicons', 'src', 'outline.ts'),
-    prefix: 'heroicon',
+    prefix: 'hero',
   },
   {
     from: joinPathFragments(cwd(), 'node_modules', 'heroicons', 'solid'),
     to: joinPathFragments('packages', 'heroicons', 'src', 'solid.ts'),
-    prefix: 'heroicon',
+    prefix: 'hero',
     suffix: 'solid',
   },
   {
@@ -147,6 +147,10 @@ const iconsets: Iconset[] = [
 
 export default async function (tree: Tree): Promise<void> {
   for (const iconset of iconsets) {
+    if (tree.exists(iconset.to)) {
+      tree.delete(iconset.to);
+    }
+
     tree.write(iconset.to, await createIconset(iconset));
   }
 
