@@ -130,6 +130,11 @@ const iconsets: Iconset[] = [
     prefix: 'oct',
     colorAttr: 'fill',
   },
+  {
+    from: joinPathFragments('packages', 'radix-icons', 'svg'),
+    to: joinPathFragments('packages', 'radix-icons', 'src', 'index.ts'),
+    prefix: 'radix',
+  },
 ];
 
 export default async function (tree: Tree): Promise<void> {

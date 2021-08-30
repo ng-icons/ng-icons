@@ -1,8 +1,10 @@
+import { KeyValue } from '@angular/common';
 import { Component } from '@angular/core';
 import * as featherIcons from '@ng-icons/feather-icons';
 import * as heroIcons from '@ng-icons/heroicons';
 import * as jamIcons from '@ng-icons/jam-icons';
 import * as octIcons from '@ng-icons/octicons';
+import * as radixIcons from '@ng-icons/radix-icons';
 
 @Component({
   selector: 'ng-icons-root',
@@ -10,8 +12,32 @@ import * as octIcons from '@ng-icons/octicons';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  readonly featherIcons: Record<string, string> = featherIcons;
-  readonly heroIcons: Record<string, string> = heroIcons;
-  readonly jamIcons: Record<string, string> = jamIcons;
-  readonly octIcons: Record<string, string> = octIcons;
+  readonly iconsets = [
+    {
+      title: 'Feather Icons',
+      icons: featherIcons,
+    },
+    {
+      title: 'Herocons',
+      icons: heroIcons,
+    },
+    {
+      title: 'Jam Icons',
+      icons: jamIcons,
+    },
+    {
+      title: 'Octicons',
+      icons: octIcons,
+    },
+    {
+      title: 'Radix UI Icons',
+      icons: radixIcons,
+    },
+  ];
+
+  filter = '';
+
+  trackBy(_: number, icon: KeyValue<string, unknown>): string {
+    return icon.key;
+  }
 }

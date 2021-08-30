@@ -6,7 +6,8 @@
     "feather-icons": "packages/feather-icons",
     "heroicons": "packages/heroicons",
     "jam-icons": "packages/jam-icons",
-    "octicons": "packages\\octicons"
+    "octicons": "packages/octicons",
+    "radix-icons": "packages\\radix-icons"
   },
   "cli": {
     "defaultCollection": "@nrwl/angular"

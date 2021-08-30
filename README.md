@@ -8,6 +8,7 @@ Currently we support the following libraries:
 - [Feather Icons](https://feathericons.com/)
 - [Jam Icons](https://jam-icons.com/)
 - [Octicons](https://github.com/primer/octicons)
+- [Radix UI Icons](https://icons.modulz.app/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -20,19 +21,20 @@ Ng Icons is comprised of multiple packages:
 - `@ng-icons/feather-icons` - The Feather Icons iconset.
 - `@ng-icons/jam-icons` - The Jam Icons iconset.
 - `@ng-icons/octicons` - The Octicons iconset.
+- `@ng-icons/radix-icons` - The Radix UI iconset.
 
 You must install the `@ng-icons/core` package, however you only need to install the iconset libraries you intend to use.
 
 E.g:
 
 ```bash
-npm i @ng-icons/core @ng-icons/heroicons @ng-icons/feather-icons @ng-icons/jam-icons @ng-icons/octicons
+npm i @ng-icons/core @ng-icons/heroicons ...
 ```
 
 or
 
 ```bash
-yarn add @ng-icons/core @ng-icons/heroicons @ng-icons/feather-icons @ng-icons/jam-icons @ng-icons/octicons
+yarn add @ng-icons/core @ng-icons/heroicons ...
 ```
 
 ## Usage
