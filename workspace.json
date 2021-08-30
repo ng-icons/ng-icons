@@ -1,7 +1,29 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "core": "packages/core",
+    "documentation": "apps/documentation",
+    "feather-icons": "packages/feather-icons",
+    "heroicons": "packages/heroicons"
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "none"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "core"
 }

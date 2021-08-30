@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "packages/heroicons",
+  "sourceRoot": "packages/heroicons/src",
+  "prefix": "ng-icons",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/heroicons"],
+      "options": {
+        "project": "packages/heroicons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/heroicons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/heroicons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/heroicons"],
+      "options": {
+        "jestConfig": "packages/heroicons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/heroicons/src/**/*.ts",
+          "packages/heroicons/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

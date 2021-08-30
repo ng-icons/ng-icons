@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "svg-to-ts",
+  "type": "object",
+  "properties": {},
+  "required": []
+}
