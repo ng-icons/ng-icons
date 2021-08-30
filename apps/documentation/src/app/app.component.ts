@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as featherIcons from '@ng-icons/feather-icons';
 import * as heroIcons from '@ng-icons/heroicons';
+import * as jamIcons from '@ng-icons/jam-icons';
 
 @Component({
   selector: 'ng-icons-root',
@@ -10,4 +11,5 @@ import * as heroIcons from '@ng-icons/heroicons';
 export class AppComponent {
   readonly featherIcons: Record<string, string> = featherIcons;
   readonly heroIcons: Record<string, string> = heroIcons;
+  readonly jamIcons: Record<string, string> = jamIcons;
 }

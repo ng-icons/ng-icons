@@ -18,6 +18,9 @@
     "libsDir": "packages"
   },
   "projects": {
-    "core": "packages/core"
+    "core": "packages/core",
+    "feather-icons": "packages/feather-icons",
+    "heroicons": "packages/heroicons",
+    "jam-icons": "packages/jam-icons"
   }
 }

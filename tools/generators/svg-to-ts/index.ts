@@ -100,6 +100,11 @@ const iconsets: Iconset[] = [
     to: joinPathFragments('packages', 'feather-icons', 'src', 'index.ts'),
     prefix: 'feather',
   },
+  {
+    from: joinPathFragments(cwd(), 'node_modules', 'jam-icons', 'svg'),
+    to: joinPathFragments('packages', 'jam-icons', 'src', 'index.ts'),
+    prefix: 'jam',
+  },
 ];
 
 export default async function (tree: Tree): Promise<void> {

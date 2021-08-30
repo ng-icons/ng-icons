@@ -4,7 +4,8 @@
     "core": "packages/core",
     "documentation": "apps/documentation",
     "feather-icons": "packages/feather-icons",
-    "heroicons": "packages/heroicons"
+    "heroicons": "packages/heroicons",
+    "jam-icons": "packages\\jam-icons"
   },
   "cli": {
     "defaultCollection": "@nrwl/angular"

@@ -2,18 +2,6 @@
 
 <h2>Feather Icons</h2>
 
-<h3>Installation</h3>
-
-<pre class="code-snippet">
-  <code>npm i @ng-icon/feather</code>
-</pre>
-
-<h3>Usage</h3>
-
-<pre class="code-snippet">
-  <code>&lt;ng-icon name=&quot;feather-airplay&quot; size=&quot;24px&quot;&gt;&lt;/ng-icon&gt;</code>
-</pre>
-
 <h3>Icons</h3>
 
 <div class="icon-grid">
@@ -28,6 +16,16 @@
 
 <div class="icon-grid">
   <div *ngFor="let icon of heroIcons | keyvalue" class="icon-preview">
+    <ng-icon [name]="icon.key" size="24px"></ng-icon>
+
+    <p>{{ icon.key | dasherize }}</p>
+  </div>
+</div>
+
+<h2>Jam Icons</h2>
+
+<div class="icon-grid">
+  <div *ngFor="let icon of jamIcons | keyvalue" class="icon-preview">
     <ng-icon [name]="icon.key" size="24px"></ng-icon>
 
     <p>{{ icon.key | dasherize }}</p>

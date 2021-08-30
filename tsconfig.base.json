@@ -17,7 +17,8 @@
     "paths": {
       "@ng-icons/core": ["packages/core/src/index.ts"],
       "@ng-icons/feather-icons": ["packages/feather-icons/src/index.ts"],
-      "@ng-icons/heroicons": ["packages/heroicons/src/index.ts"]
+      "@ng-icons/heroicons": ["packages/heroicons/src/index.ts"],
+      "@ng-icons/jam-icons": ["packages/jam-icons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

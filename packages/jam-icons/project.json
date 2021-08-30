@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "packages/jam-icons",
+  "sourceRoot": "packages/jam-icons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/jam-icons"],
+      "options": {
+        "project": "packages/jam-icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/jam-icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/jam-icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/jam-icons"],
+      "options": {
+        "jestConfig": "packages/jam-icons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/jam-icons/src/**/*.ts",
+          "packages/jam-icons/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

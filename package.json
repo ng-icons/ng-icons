@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "serve:documentation": "nx serve documentation",
     "generate:iconsets": "nx workspace-generator svg-to-ts",
     "postinstall": "ngcc --properties es2015 browser module main"
   },
@@ -19,6 +20,7 @@
     "@angular/router": "^12.1.0",
     "feather-icons": "^4.28.0",
     "heroicons": "^1.0.4",
+    "jam-icons": "^2.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

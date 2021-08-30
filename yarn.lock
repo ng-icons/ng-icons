@@ -5543,6 +5543,11 @@ jake@^10.6.1:
     filelist "^1.0.1"
     minimatch "^3.0.4"
 
+jam-icons@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/jam-icons/-/jam-icons-2.0.0.tgz#7036006f867d21d1ab9ad83743eb9b41cafa70a0"
+  integrity sha512-AbfqqvNpRGAsGvKterHUkvt+lVTWMB++lBK29o27WEvi4Ji/KVsABmE+odL5mLDiXU3ZPEKjRvSmcO20u8nIgA==
+
 jasmine-marbles@~0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/jasmine-marbles/-/jasmine-marbles-0.8.3.tgz#a27253d1d52dfe49d8f145aba63f0bf18147b4ff"
