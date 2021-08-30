@@ -17,7 +17,7 @@ async function loadSvgsInPath(
 
   for (const file of files) {
     const iconName = names(
-      prefix + '-' + basename(file, '.svg') + suffix,
+      prefix + '-' + basename(file, '.svg') + names(suffix).className,
     ).className;
     output[iconName] = await readFile(join(path, file), 'utf8');
   }
@@ -40,24 +40,6 @@ function createIconDeclaration(name: string, svg: string): ts.Node {
       ts.NodeFlags.Const,
     ),
   );
-}
-
-function createIconNameType(names: string[]): ts.Node {
-  const node = ts.factory.createTypeAliasDeclaration(
-    undefined,
-    [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
-    ts.factory.createIdentifier('HeroIconName'),
-    undefined,
-    ts.factory.createUnionTypeNode(
-      names.map(name =>
-        ts.factory.createLiteralTypeNode(ts.factory.createStringLiteral(name)),
-      ),
-    ),
-  );
-
-  walk(node, [convertToSingleQuote]);
-
-  return node;
 }
 
 async function createIconset(iconset: Iconset): Promise<string> {
@@ -85,32 +67,7 @@ async function createIconset(iconset: Iconset): Promise<string> {
     output.push(content);
   }
 
-  const typeDefinition = createIconNameType(Object.keys(icons));
-  const typeOutput = printer.printNode(
-    ts.EmitHint.Unspecified,
-    typeDefinition,
-    sourceFile,
-  );
-
-  output.push(typeOutput);
-
   return output.join('\n');
-}
-
-function convertToSingleQuote(node: ts.Node): void {
-  if (ts.isStringLiteral(node)) {
-    // tslint:disable-next-line:no-any
-    (node as any).singleQuote = true;
-  }
-}
-
-function walk(node: ts.Node, cbArray: Array<(node: ts.Node) => void>): void {
-  ts.forEachChild(node, n => {
-    for (const cb of cbArray) {
-      cb(n);
-    }
-    walk(n, cbArray);
-  });
 }
 
 interface Iconset {

@@ -1,1 +1,2 @@
-export * from './lib/heroicons.module';
+export * from './outline';
+export * from './solid';

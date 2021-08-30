@@ -11,6 +11,7 @@ import { Icons } from './icon.provider';
 @Component({
   selector: 'ng-icon',
   template: '',
+  styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[style.width]': 'size',
@@ -20,11 +21,10 @@ import { Icons } from './icon.provider';
 export class IconComponent {
   /** Define the name of the icon to display */
   @Input() set name(name: string) {
-    debugger;
     name = this.toUpperCamelCase(name);
 
     // if there is no icon with this name warn the user as they probably forgot to import it
-    if (!this.icons.hasOwnProperty(name)) {
+    if (!this.icons.icons.hasOwnProperty(name)) {
       console.warn(
         `No icon named ${name} was found. You may need to import it using the withIcons function.`,
       );
