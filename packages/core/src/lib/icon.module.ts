@@ -11,7 +11,7 @@ import { Icons } from './icon.provider';
   declarations: [IconComponent],
   exports: [IconComponent],
 })
-export class NgIconModule {
+export class NgIconsModule {
   constructor(@Optional() private readonly icons: Icons) {
     if (!this.icons) {
       throw new Error(
@@ -27,9 +27,9 @@ export class NgIconModule {
    */
   static withIcons(
     icons: Record<string, string>,
-  ): ModuleWithProviders<NgIconModule> {
+  ): ModuleWithProviders<NgIconsModule> {
     return {
-      ngModule: NgIconModule,
+      ngModule: NgIconsModule,
       providers: [
         {
           provide: Icons,

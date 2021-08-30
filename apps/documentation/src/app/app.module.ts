@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgIconModule } from '@ng-icons/core';
-import { FeatherAirplay } from '@ng-icons/feather-icons';
+import { NgIconsModule } from '@ng-icons/core';
+import * as featherIcons from '@ng-icons/feather-icons';
+import * as heroIcons from '@ng-icons/heroicons';
 import { AppComponent } from './app.component';
+import { DasherizePipe } from './pipes/dasherize.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DasherizePipe],
   imports: [
     BrowserModule,
-    NgIconModule.withIcons({
-      FeatherAirplay,
+    NgIconsModule.withIcons({
+      ...featherIcons,
+      ...heroIcons,
     }),
   ],
   bootstrap: [AppComponent],

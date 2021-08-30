@@ -1,4 +1,3 @@
-import { coerceCssPixelValue } from '@angular/cdk/coercion';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -40,15 +39,7 @@ export class IconComponent {
   }
 
   /** Define the size of the icon */
-  @Input() set size(size: string) {
-    this._size = coerceCssPixelValue(size);
-  }
-
-  get size(): string {
-    return this._size;
-  }
-
-  private _size: string = '1em';
+  @Input() size: string = '1em';
 
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
