@@ -6,6 +6,7 @@ import * as heroIcons from '@ng-icons/heroicons';
 import * as jamIcons from '@ng-icons/jam-icons';
 import * as octIcons from '@ng-icons/octicons';
 import * as radixIcons from '@ng-icons/radix-icons';
+import { dasherize } from './pipes/dasherize.pipe';
 
 @Component({
   selector: 'ng-icons-root',
@@ -45,6 +46,6 @@ export class AppComponent {
   }
 
   copy(icon: string): void {
-    this.clipboard.copy(`<ng-icon name="${icon}"></ng-icon>`);
+    this.clipboard.copy(`<ng-icon name="${dasherize(icon)}"></ng-icon>`);
   }
 }

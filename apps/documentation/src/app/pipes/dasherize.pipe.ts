@@ -5,9 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DasherizePipe implements PipeTransform {
   transform(value: string): string {
-    return value
-      .replace(/([a-z\d])([A-Z])/g, '$1_$2')
-      .toLowerCase()
-      .replace(/[ _]/g, '-');
+    return dasherize(value);
   }
+}
+
+export function dasherize(value: string): string {
+  return value
+    .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+    .toLowerCase()
+    .replace(/[ _]/g, '-');
 }
