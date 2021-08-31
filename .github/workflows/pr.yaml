@@ -6,6 +6,8 @@ name: Node.js CI
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -28,11 +30,3 @@ jobs:
     - run: yarn lint
     - run: yarn generate:iconsets
     - run: yarn compile
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@4.1.4
-      with:
-        branch: gh-pages # The branch the action should deploy to.
-        folder: dist/apps/documentation # The folder the action should deploy.
-
-
-
