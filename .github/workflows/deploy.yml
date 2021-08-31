@@ -30,6 +30,7 @@ jobs:
     - run: yarn lint
     - run: yarn generate:iconsets
     - run: yarn compile
+    - run: ls -la ./dist
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
