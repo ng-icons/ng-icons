@@ -29,5 +29,5 @@ jobs:
     - run: yarn install
     - run: yarn lint
     - run: yarn generate:iconsets
-    - run: yarn compile --prod
+    - run: yarn compile
 
