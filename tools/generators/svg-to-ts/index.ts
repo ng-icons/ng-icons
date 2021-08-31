@@ -1,7 +1,6 @@
 import { formatFiles, joinPathFragments, names, Tree } from '@nrwl/devkit';
 import { readdir, readFile } from 'fs-extra';
 import { basename, extname } from 'path';
-import { cwd } from 'process';
 import { AddAttributesToSVGElementPlugin, optimize } from 'svgo';
 import * as ts from 'typescript';
 
@@ -97,35 +96,29 @@ interface Iconset {
 
 const iconsets: Iconset[] = [
   {
-    from: joinPathFragments(cwd(), 'node_modules', 'heroicons', 'outline'),
+    from: joinPathFragments('node_modules', 'heroicons', 'outline'),
     to: joinPathFragments('packages', 'heroicons', 'src', 'outline.ts'),
     prefix: 'hero',
   },
   {
-    from: joinPathFragments(cwd(), 'node_modules', 'heroicons', 'solid'),
+    from: joinPathFragments('node_modules', 'heroicons', 'solid'),
     to: joinPathFragments('packages', 'heroicons', 'src', 'solid.ts'),
     prefix: 'hero',
     suffix: 'solid',
   },
   {
-    from: joinPathFragments(
-      cwd(),
-      'node_modules',
-      'feather-icons',
-      'dist',
-      'icons',
-    ),
+    from: joinPathFragments('node_modules', 'feather-icons', 'dist', 'icons'),
     to: joinPathFragments('packages', 'feather-icons', 'src', 'index.ts'),
     prefix: 'feather',
   },
   {
-    from: joinPathFragments(cwd(), 'node_modules', 'jam-icons', 'svg'),
+    from: joinPathFragments('node_modules', 'jam-icons', 'svg'),
     to: joinPathFragments('packages', 'jam-icons', 'src', 'index.ts'),
     prefix: 'jam',
     colorAttr: 'fill',
   },
   {
-    from: joinPathFragments(cwd(), 'node_modules', 'octicons', 'build', 'svg'),
+    from: joinPathFragments('node_modules', 'octicons', 'build', 'svg'),
     to: joinPathFragments('packages', 'octicons', 'src', 'index.ts'),
     prefix: 'oct',
     colorAttr: 'fill',
