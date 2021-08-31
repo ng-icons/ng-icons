@@ -36,6 +36,12 @@
           "packages/jam-icons/src/**/*.html"
         ]
       }
+    },
+    "deploy": {
+      "builder": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
     }
   },
   "tags": []
