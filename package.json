@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "nx affected:lint --parallel",
-    "compile": "nx affected:build --parallel",
+    "compile": "nx affected:build --all --parallel",
     "serve:documentation": "nx serve documentation",
     "generate:iconsets": "nx workspace-generator svg-to-ts",
     "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=12.0.0",
