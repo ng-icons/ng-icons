@@ -15,7 +15,7 @@ export class NgIconsModule {
   constructor(@Optional() private readonly icons: Icons) {
     if (!this.icons) {
       throw new Error(
-        'No icons have been provided. Ensure to include some icons by importing them using IconModule.withIcons({ ... }).',
+        'No icons have been provided. Ensure to include some icons by importing them using NgIconsModule.withIcons({ ... }).',
       );
     }
   }
