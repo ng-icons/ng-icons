@@ -1,6 +1,11 @@
 {
   "name": "@ng-icons/jam-icons",
   "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/ashley-hunter/ng-icons"
+  },
+  "homepage": "https://ashley-hunter.github.io/ng-icons/",
   "peerDependencies": {
     "@angular/common": "^12.1.0",
     "@angular/core": "^12.1.0"
