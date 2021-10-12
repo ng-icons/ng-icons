@@ -7,8 +7,8 @@
   },
   "homepage": "https://ashley-hunter.github.io/ng-icons/",
   "peerDependencies": {
-    "@angular/common": "^12.1.0",
-    "@angular/core": "^12.1.0"
+    "@angular/common": ">=11.0.0",
+    "@angular/core": ">=11.0.0"
   },
   "dependencies": {
     "tslib": "^2.2.0"
