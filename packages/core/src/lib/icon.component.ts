@@ -2,10 +2,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  Inject,
   Input,
   Renderer2,
 } from '@angular/core';
-import { Icons } from './icon.provider';
+import { IconsToken } from './icon.token';
 
 @Component({
   selector: 'ng-icon',
@@ -23,7 +24,7 @@ export class IconComponent {
     name = this.toUpperCamelCase(name);
 
     // if there is no icon with this name warn the user as they probably forgot to import it
-    if (!this.icons.icons.hasOwnProperty(name)) {
+    if (!this.iconset.hasOwnProperty(name)) {
       console.warn(
         `No icon named ${name} was found. You may need to import it using the withIcons function.`,
       );
@@ -34,17 +35,22 @@ export class IconComponent {
     this.renderer.setProperty(
       this.elementRef.nativeElement,
       'innerHTML',
-      this.icons.icons[name],
+      this.iconset[name],
     );
   }
 
   /** Define the size of the icon */
   @Input() size: string = '1em';
 
+  /** Flatten the iconsets */
+  get iconset(): Record<string, string> {
+    return Object.assign({}, ...this.icons);
+  }
+
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
     private readonly renderer: Renderer2,
-    private readonly icons: Icons,
+    @Inject(IconsToken) private readonly icons: Record<string, string>[],
   ) {}
 
   /**

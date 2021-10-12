@@ -1,18 +1,17 @@
-import {
-  ModuleWithProviders,
-  NgModule,
-  Optional,
-  SkipSelf,
-} from '@angular/core';
+import { Inject, ModuleWithProviders, NgModule, Optional } from '@angular/core';
 import { IconComponent } from './icon.component';
-import { Icons } from './icon.provider';
+import { IconsToken } from './icon.token';
 
 @NgModule({
   declarations: [IconComponent],
   exports: [IconComponent],
 })
 export class NgIconsModule {
-  constructor(@Optional() private readonly icons: Icons) {
+  constructor(
+    @Optional()
+    @Inject(IconsToken)
+    private readonly icons: Record<string, string>[],
+  ) {
     if (!this.icons) {
       throw new Error(
         'No icons have been provided. Ensure to include some icons by importing them using NgIconsModule.withIcons({ ... }).',
@@ -30,15 +29,7 @@ export class NgIconsModule {
   ): ModuleWithProviders<NgIconsModule> {
     return {
       ngModule: NgIconsModule,
-      providers: [
-        {
-          provide: Icons,
-          useFactory: (parentIcons?: Record<string, string>) => {
-            return new Icons({ ...icons, ...parentIcons });
-          },
-          deps: [[new Optional(), new SkipSelf(), Icons]],
-        },
-      ],
+      providers: [{ provide: IconsToken, multi: true, useValue: icons }],
     };
   }
 }
