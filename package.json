@@ -7,7 +7,7 @@
     "compile": "nx affected:build --all --parallel",
     "serve:documentation": "nx serve documentation",
     "generate:iconsets": "nx workspace-generator svg-to-ts",
-    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=12.0.1",
+    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=12.1.0",
     "postinstall": "ngcc --properties es2015 browser module main"
   },
   "private": true,
