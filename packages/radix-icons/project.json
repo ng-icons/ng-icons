@@ -35,10 +35,11 @@
           "packages/radix-icons/src/**/*.ts",
           "packages/radix-icons/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "deploy": {
-      "builder": "ngx-deploy-npm:deploy",
+      "executor": "ngx-deploy-npm:deploy",
       "options": {
         "access": "public"
       }

@@ -68,7 +68,8 @@
           "apps/documentation/src/**/*.ts",
           "apps/documentation/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",

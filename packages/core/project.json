@@ -35,10 +35,11 @@
           "packages/core/src/**/*.ts",
           "packages/core/src/**/*.html"
         ]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "deploy": {
-      "builder": "ngx-deploy-npm:deploy",
+      "executor": "ngx-deploy-npm:deploy",
       "options": {
         "access": "public"
       }
