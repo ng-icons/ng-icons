@@ -1,12 +1,15 @@
 import { libraryGenerator } from '@nrwl/angular/generators';
+import { getTsSourceFile } from '@nrwl/angular/src/utils/nx-devkit/ast-utils';
 import { UnitTestRunner } from '@nrwl/angular/src/utils/test-runners';
 import {
   formatFiles,
+  names,
   readProjectConfiguration,
   Tree,
   updateJson,
   updateProjectConfiguration,
 } from '@nrwl/devkit';
+import ts, { factory } from 'typescript';
 import { iconGenerator } from '../svg-to-ts/index';
 
 interface Schema {
@@ -84,5 +87,67 @@ export default async function (tree: Tree, schema: Schema) {
 
   await iconGenerator(tree);
 
+  // adding documentation
+  const sourceFile = getTsSourceFile(
+    tree,
+    'apps/documentation/src/app/app.component.ts',
+  );
+
+  const output = ts.transform(sourceFile, [arrayTransformer(schema.name)]);
+
   await formatFiles(tree);
+}
+
+function arrayTransformer(name: string): ts.TransformerFactory<ts.SourceFile> {
+  return context => {
+    return sourceFile => {
+      const visitor = (node: ts.Node): ts.Node => {
+        if (
+          ts.isPropertyDeclaration(node) &&
+          ts.isIdentifier(node.name) &&
+          node.name.text === 'iconsets' &&
+          ts.isArrayLiteralExpression(node.initializer)
+        ) {
+          return factory.createPropertyDeclaration(
+            undefined,
+            [factory.createModifier(ts.SyntaxKind.ReadonlyKeyword)],
+            factory.createIdentifier('iconsets'),
+            undefined,
+            undefined,
+            factory.createArrayLiteralExpression(
+              [
+                ...node.initializer.elements,
+                factory.createObjectLiteralExpression(
+                  [
+                    factory.createPropertyAssignment(
+                      factory.createIdentifier('title'),
+                      factory.createStringLiteral(
+                        name
+                          .split('-')
+                          .map(
+                            word =>
+                              word.charAt(0).toUpperCase() + word.slice(1),
+                          )
+                          .join(' '),
+                      ),
+                    ),
+                    factory.createPropertyAssignment(
+                      factory.createIdentifier('icons'),
+                      factory.createIdentifier(names(name).propertyName),
+                    ),
+                  ],
+                  true,
+                ),
+              ],
+              true,
+            ),
+          );
+        }
+
+        return node;
+      };
+
+      return ts.visitNode(sourceFile, visitor);
+    };
+  };
 }
