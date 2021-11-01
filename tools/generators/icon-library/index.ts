@@ -1,8 +1,20 @@
 import { libraryGenerator } from '@nrwl/angular/generators';
 import { UnitTestRunner } from '@nrwl/angular/src/utils/test-runners';
-import { formatFiles, Tree } from '@nrwl/devkit';
+import {
+  formatFiles,
+  readProjectConfiguration,
+  Tree,
+  updateJson,
+  updateProjectConfiguration,
+} from '@nrwl/devkit';
 
-export default async function (tree: Tree, schema: { name: string }) {
+interface Schema {
+  name: string;
+  svgPath: string;
+  prefix: string;
+}
+
+export default async function (tree: Tree, schema: Schema) {
   await libraryGenerator(tree, {
     name: schema.name,
     publishable: true,
@@ -16,5 +28,58 @@ export default async function (tree: Tree, schema: { name: string }) {
   });
 
   tree.delete(`packages/${schema.name}/src/lib/${schema.name}.module.ts`);
+
+  const configuration = readProjectConfiguration(tree, schema.name);
+
+  configuration.targets.deploy = {
+    executor: 'ngx-deploy-npm:deploy',
+    options: {
+      access: 'public',
+    },
+  };
+
+  updateProjectConfiguration(tree, schema.name, configuration);
+
+  updateJson(tree, `packages/${schema.name}/tsconfig.json`, json => {
+    json.compilerOptions = {
+      forceConsistentCasingInFileNames: true,
+      strict: true,
+      noImplicitReturns: true,
+      noFallthroughCasesInSwitch: true,
+    };
+    json.angularCompilerOptions = {
+      strictInjectionParameters: true,
+      strictInputAccessModifiers: true,
+      strictTemplates: true,
+    };
+    return json;
+  });
+
+  updateJson(tree, `packages/${schema.name}/tsconfig.lib.json`, json => {
+    json.angularCompilerOptions = {
+      skipTemplateCodegen: true,
+      strictMetadataEmit: true,
+      enableResourceInlining: true,
+    };
+    return json;
+  });
+
+  updateJson(tree, `packages/${schema.name}/tsconfig.lib.prod.json`, json => {
+    json.angularCompilerOptions = {
+      enableIvy: false,
+    };
+    return json;
+  });
+
+  updateJson(tree, 'tools/generators/svg-to-ts/iconsets.json', json => {
+    json.push({
+      from: schema.svgPath,
+      to: `packages/${schema.name}/src/index.ts`,
+      prefix: schema.prefix,
+    });
+
+    return json;
+  });
+
   await formatFiles(tree);
 }

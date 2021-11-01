@@ -1,0 +1,35 @@
+[
+  {
+    "from": "node_modules/heroicons/outline",
+    "to": "packages/heroicons/src/outline.ts",
+    "prefix": "hero"
+  },
+  {
+    "from": "node_modules/heroicons/solid",
+    "to": "packages/heroicons/src/solid.ts",
+    "prefix": "hero",
+    "suffix": "solid"
+  },
+  {
+    "from": "node_modules/feather-icons/dist/icons",
+    "to": "packages/feather-icons/src/index.ts",
+    "prefix": "feather"
+  },
+  {
+    "from": "node_modules/jam-icons/svg",
+    "to": "packages/jam-icons/src/index.ts",
+    "prefix": "jam",
+    "colorAttr": "fill"
+  },
+  {
+    "from": "node_modules/octicons/build/svg",
+    "to": "packages/octicons/src/index.ts",
+    "prefix": "oct",
+    "colorAttr": "fill"
+  },
+  {
+    "from": "packages/radix-icons/svg",
+    "to": "packages/radix-icons/src/index.ts",
+    "prefix": "radix"
+  }
+]

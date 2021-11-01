@@ -3,6 +3,7 @@ import { readdir, readFile } from 'fs-extra';
 import { basename, extname } from 'path';
 import { AddAttributesToSVGElementPlugin, optimize } from 'svgo';
 import * as ts from 'typescript';
+import iconsets from './iconsets.json';
 
 async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   // load all the svg files within the path
@@ -94,44 +95,8 @@ interface Iconset {
   colorAttr?: 'fill' | 'stroke';
 }
 
-const iconsets: Iconset[] = [
-  {
-    from: joinPathFragments('node_modules', 'heroicons', 'outline'),
-    to: joinPathFragments('packages', 'heroicons', 'src', 'outline.ts'),
-    prefix: 'hero',
-  },
-  {
-    from: joinPathFragments('node_modules', 'heroicons', 'solid'),
-    to: joinPathFragments('packages', 'heroicons', 'src', 'solid.ts'),
-    prefix: 'hero',
-    suffix: 'solid',
-  },
-  {
-    from: joinPathFragments('node_modules', 'feather-icons', 'dist', 'icons'),
-    to: joinPathFragments('packages', 'feather-icons', 'src', 'index.ts'),
-    prefix: 'feather',
-  },
-  {
-    from: joinPathFragments('node_modules', 'jam-icons', 'svg'),
-    to: joinPathFragments('packages', 'jam-icons', 'src', 'index.ts'),
-    prefix: 'jam',
-    colorAttr: 'fill',
-  },
-  {
-    from: joinPathFragments('node_modules', 'octicons', 'build', 'svg'),
-    to: joinPathFragments('packages', 'octicons', 'src', 'index.ts'),
-    prefix: 'oct',
-    colorAttr: 'fill',
-  },
-  {
-    from: joinPathFragments('packages', 'radix-icons', 'svg'),
-    to: joinPathFragments('packages', 'radix-icons', 'src', 'index.ts'),
-    prefix: 'radix',
-  },
-];
-
 export default async function (tree: Tree): Promise<void> {
-  for (const iconset of iconsets) {
+  for (const iconset of iconsets as Iconset[]) {
     if (tree.exists(iconset.to)) {
       tree.delete(iconset.to);
     }

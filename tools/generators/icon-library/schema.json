@@ -11,7 +11,17 @@
         "$source": "argv",
         "index": 0
       }
+    },
+    "prefix": {
+      "type": "string",
+      "description": "The iconset prefix",
+      "x-prompt": "The iconset prefix"
+    },
+    "svgPath": {
+      "type": "string",
+      "description": "Path to the svg files name",
+      "x-prompt": "Path to the svg files name"
     }
   },
-  "required": ["name"]
+  "required": ["name", "prefix", "svgPath"]
 }
