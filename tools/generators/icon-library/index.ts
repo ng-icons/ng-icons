@@ -9,7 +9,8 @@ import {
   updateJson,
   updateProjectConfiguration,
 } from '@nrwl/devkit';
-import ts, { factory } from 'typescript';
+import * as ts from 'typescript';
+import { factory } from 'typescript';
 import { iconGenerator } from '../svg-to-ts/index';
 
 interface Schema {
