@@ -7,6 +7,7 @@ import {
   updateJson,
   updateProjectConfiguration,
 } from '@nrwl/devkit';
+import { iconGenerator } from '../svg-to-ts/index';
 
 interface Schema {
   name: string;
@@ -80,6 +81,8 @@ export default async function (tree: Tree, schema: Schema) {
 
     return json;
   });
+
+  await iconGenerator(tree);
 
   await formatFiles(tree);
 }

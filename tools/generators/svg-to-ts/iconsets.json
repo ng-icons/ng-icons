@@ -31,5 +31,10 @@
     "from": "packages/radix-icons/svg",
     "to": "packages/radix-icons/src/index.ts",
     "prefix": "radix"
+  },
+  {
+    "from": "node_modules/@tabler/icons/icons",
+    "to": "packages/tabler/src/index.ts",
+    "prefix": "tabler"
   }
 ]

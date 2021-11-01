@@ -7,6 +7,7 @@
     "heroicons": "packages/heroicons",
     "jam-icons": "packages/jam-icons",
     "octicons": "packages/octicons",
-    "radix-icons": "packages/radix-icons"
+    "radix-icons": "packages/radix-icons",
+    "tabler": "packages/tabler"
   }
 }

@@ -95,7 +95,7 @@ interface Iconset {
   colorAttr?: 'fill' | 'stroke';
 }
 
-export default async function (tree: Tree): Promise<void> {
+export async function iconGenerator(tree: Tree): Promise<void> {
   for (const iconset of iconsets as Iconset[]) {
     if (tree.exists(iconset.to)) {
       tree.delete(iconset.to);
@@ -106,3 +106,5 @@ export default async function (tree: Tree): Promise<void> {
 
   await formatFiles(tree);
 }
+
+export default iconGenerator;
