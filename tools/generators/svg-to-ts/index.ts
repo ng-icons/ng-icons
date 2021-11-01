@@ -3,7 +3,7 @@ import { readdir, readFile } from 'fs-extra';
 import { basename, extname } from 'path';
 import { AddAttributesToSVGElementPlugin, optimize } from 'svgo';
 import * as ts from 'typescript';
-import iconsets from './iconsets.json';
+import * as iconsets from './iconsets.json';
 
 async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   // load all the svg files within the path
