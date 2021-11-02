@@ -1,0 +1,48 @@
+{
+  "projectType": "library",
+  "root": "packages/tabler-icons",
+  "sourceRoot": "packages/tabler-icons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/tabler-icons"],
+      "options": {
+        "project": "packages/tabler-icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/tabler-icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/tabler-icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/tabler-icons"],
+      "options": {
+        "jestConfig": "packages/tabler-icons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/tabler-icons/src/**/*.ts",
+          "packages/tabler-icons/src/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

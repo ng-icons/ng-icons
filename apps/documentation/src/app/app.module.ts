@@ -8,6 +8,7 @@ import * as heroIcons from '@ng-icons/heroicons';
 import * as jamIcons from '@ng-icons/jam-icons';
 import * as octIcons from '@ng-icons/octicons';
 import * as radixIcons from '@ng-icons/radix-icons';
+import * as tablerIcons from '@ng-icons/tabler-icons';
 import { AppComponent } from './app.component';
 import { NgModelChangeDebouncedDirective } from './directives/debounce.directive';
 import { DasherizePipe } from './pipes/dasherize.pipe';
@@ -30,6 +31,7 @@ import { SearchPipe } from './pipes/search.pipe';
       ...jamIcons,
       ...octIcons,
       ...radixIcons,
+      ...tablerIcons,
     }),
   ],
   bootstrap: [AppComponent],
