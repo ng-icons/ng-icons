@@ -27,6 +27,6 @@ jobs:
         cache: 'yarn'
     - run: git fetch
     - run: yarn install
-    - run: yarn lint --base=remotes/origin/master
+    - run: yarn lint
     - run: yarn generate:iconsets
     - run: yarn compile
