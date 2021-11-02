@@ -7,7 +7,8 @@
     "target": "es5",
     "types": ["node"],
     "importHelpers": false,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "downlevelIteration": true
   },
   "include": ["**/*.ts"]
 }
