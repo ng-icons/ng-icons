@@ -95,7 +95,13 @@ interface Iconset {
 }
 
 export async function iconGenerator(tree: Tree): Promise<void> {
-  const iconsets = await import('./iconsets.json');
+  const iconsets = JSON.parse(
+    tree
+      .read(
+        joinPathFragments('tools', 'generators', 'svg-to-ts', 'iconsets.json'),
+      )
+      .toString(),
+  );
 
   for (const iconset of iconsets as Iconset[]) {
     if (tree.exists(iconset.to)) {
