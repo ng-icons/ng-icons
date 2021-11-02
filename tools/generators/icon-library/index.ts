@@ -95,6 +95,18 @@ export default async function (tree: Tree, schema: Schema) {
   );
 
   const output = ts.transform(sourceFile, [arrayTransformer(schema.name)]);
+  const printer = ts.createPrinter();
+  const transformed = printer.printFile(output.transformed[0]);
+
+  tree.write(
+    'apps/documentation/src/app/app.component.ts',
+    [
+      `import * as ${names(schema.name).propertyName} from '@ng-icons/${
+        schema.name
+      }';`,
+      transformed,
+    ].join('\n'),
+  );
 
   await formatFiles(tree);
 }
@@ -145,7 +157,7 @@ function arrayTransformer(name: string): ts.TransformerFactory<ts.SourceFile> {
           );
         }
 
-        return node;
+        return ts.visitEachChild(node, visitor, context);
       };
 
       return ts.visitNode(sourceFile, visitor);
