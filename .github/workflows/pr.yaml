@@ -25,6 +25,6 @@ jobs:
         cache: 'yarn'
     - run: git fetch --no-tags --prune --depth=1 origin master
     - run: yarn install
-    - run: yarn lint --base=main~1 --head=master
+    - run: yarn lint --base=main~1 --head=HEAD
     - run: yarn generate:iconsets
     - run: yarn compile
