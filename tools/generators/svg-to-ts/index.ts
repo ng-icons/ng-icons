@@ -3,7 +3,6 @@ import { readdir, readFile } from 'fs-extra';
 import { basename, extname } from 'path';
 import { AddAttributesToSVGElementPlugin, optimize } from 'svgo';
 import * as ts from 'typescript';
-import * as iconsets from './iconsets.json';
 
 async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   // load all the svg files within the path
@@ -96,6 +95,8 @@ interface Iconset {
 }
 
 export async function iconGenerator(tree: Tree): Promise<void> {
+  const iconsets = await import('./iconsets.json');
+
   for (const iconset of iconsets as Iconset[]) {
     if (tree.exists(iconset.to)) {
       tree.delete(iconset.to);
