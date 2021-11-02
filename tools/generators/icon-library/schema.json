@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "icon-library",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Library name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "prefix": {
+      "type": "string",
+      "description": "The iconset prefix",
+      "x-prompt": "The iconset prefix"
+    },
+    "svgPath": {
+      "type": "string",
+      "description": "Path to the svg files name",
+      "x-prompt": "Path to the svg files name"
+    }
+  },
+  "required": ["name", "prefix", "svgPath"]
+}

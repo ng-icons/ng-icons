@@ -20,7 +20,8 @@
       "@ng-icons/heroicons": ["packages/heroicons/src/index.ts"],
       "@ng-icons/jam-icons": ["packages/jam-icons/src/index.ts"],
       "@ng-icons/octicons": ["packages/octicons/src/index.ts"],
-      "@ng-icons/radix-icons": ["packages/radix-icons/src/index.ts"]
+      "@ng-icons/radix-icons": ["packages/radix-icons/src/index.ts"],
+      "@ng-icons/tabler-icons": ["packages/tabler-icons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
