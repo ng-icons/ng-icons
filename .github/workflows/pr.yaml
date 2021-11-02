@@ -23,6 +23,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
+    - run: git fetch --no-tags --prune --depth=1 origin master
     - run: yarn install
     - run: yarn lint --base=origin/master
     - run: yarn generate:iconsets
