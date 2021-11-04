@@ -1,7 +1,7 @@
 import { formatFiles, joinPathFragments, names, Tree } from '@nrwl/devkit';
 import { readdir, readFile } from 'fs-extra';
 import { basename, extname } from 'path';
-import { AddAttributesToSVGElementPlugin, optimize } from 'svgo';
+import { AddAttributesToSVGElementPlugin, optimize, Plugin } from 'svgo';
 import * as ts from 'typescript';
 
 async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
@@ -22,24 +22,64 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
     ).className;
     let svg = await readFile(joinPathFragments(iconset.from, file), 'utf8');
 
-    if (iconset.colorAttr) {
-      svg = optimize(svg, {
-        plugins: [
-          {
-            name: 'addAttributesToSVGElement',
-            params: {
-              attributes: [
-                {
-                  [iconset.colorAttr]: 'currentColor',
-                },
-              ],
+    const plugins = [
+      {
+        name: 'insertCssVariables',
+        type: 'visitor',
+        description: 'Insert CSS variables',
+        params: {},
+        fn: function (data) {
+          return {
+            element: {
+              enter: node => {
+                if (node.name === 'svg') {
+                  delete node.attributes['width'];
+                  delete node.attributes['height'];
+
+                  node.style.setProperty(
+                    'width',
+                    'var(--ng-icon__size, 1em)',
+                    '',
+                  );
+
+                  node.style.setProperty(
+                    'height',
+                    'var(--ng-icon__size, 1em)',
+                    '',
+                  );
+                }
+
+                if (node.attributes['stroke-width']) {
+                  node.style.setProperty(
+                    'stroke-width',
+                    `var(--ng-icon__stroke-width, ${node.attributes['stroke-width']})`,
+                    '',
+                  );
+
+                  delete node.attributes['stroke-width'];
+                }
+              },
             },
-          } as AddAttributesToSVGElementPlugin,
-        ],
-      }).data;
+          };
+        },
+      } as Plugin,
+    ];
+
+    if (iconset.colorAttr) {
+      plugins.push({
+        name: 'addAttributesToSVGElement',
+        params: {
+          attributes: [
+            {
+              [iconset.colorAttr]: 'currentColor',
+            },
+          ],
+        },
+      } as AddAttributesToSVGElementPlugin);
     }
 
-    output[iconName] = svg;
+    const result = await optimize(svg, { plugins: plugins as Plugin[] });
+    output[iconName] = result.data;
   }
 
   return output;

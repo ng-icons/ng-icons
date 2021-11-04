@@ -1,8 +1,8 @@
 # Ng Icons
 
-The all in one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
+The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
 
-Currently we support the following libraries:
+Currently, we support the following libraries:
 
 - [Heroicons](https://heroicons.com/)
 - [Feather Icons](https://feathericons.com/)
@@ -15,7 +15,7 @@ Got suggestions for additional iconsets? Create an issue and we can consider add
 
 ## Installation
 
-Ng Icons is comprised of multiple packages:
+Ng Icons consists of multiple packages:
 
 - `@ng-icons/core` - This contains the icon component and the `NgIconsModule` that is used to register the icons you want to include in your application.
 - `@ng-icons/heroicons` - The Heroicons iconset including both outline and solid variants.
@@ -65,4 +65,7 @@ You can then use the icon in your templates:
 <ng-icon name="feather-airplay"></ng-icon>
 ```
 
-Additionally there is a `size` input which allows you to specify the size of the icon as a CSS size value. By default icons are set to `1em` which will make them the same size as the font set on it's container.
+| Name        | Type             | Description                          |
+| ----------- | ---------------- | ------------------------------------ |
+| size        | string           | Define the size of the icon.         |
+| strokeWidth | string \| number | Define the stroke-width of the icon. |

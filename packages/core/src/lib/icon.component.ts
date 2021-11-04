@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  HostBinding,
   Inject,
   Input,
   Renderer2,
@@ -13,10 +14,6 @@ import { IconsToken } from './icon.token';
   template: '',
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '[style.width]': 'size',
-    '[style.height]': 'size',
-  },
 })
 export class IconComponent {
   /** Define the name of the icon to display */
@@ -40,7 +37,14 @@ export class IconComponent {
   }
 
   /** Define the size of the icon */
-  @Input() size: string = '1em';
+  @HostBinding('style.--ng-icon__size')
+  @Input()
+  size: string = '1em';
+
+  /** Define the stroke-width of the icon */
+  @HostBinding('style.--ng-icon__stroke-width')
+  @Input()
+  strokeWidth?: string | number;
 
   /** Flatten the iconsets */
   get iconset(): Record<string, string> {
