@@ -5,9 +5,9 @@ import {
   HostBinding,
   Inject,
   Input,
-  Renderer2,
 } from '@angular/core';
 import { IconsToken } from './icon.token';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'ng-icon',
@@ -29,12 +29,11 @@ export class IconComponent {
     }
 
     // insert the SVG into the template
-    this.renderer.setProperty(
-      this.elementRef.nativeElement,
-      'innerHTML',
-      this.iconset[name],
-    );
+    this.template = this.sanitizer.bypassSecurityTrustHtml(this.iconset[name]);
   }
+
+  /** Store the formatted icon name */
+  @HostBinding('innerHTML') template?: SafeHtml;
 
   /** Define the size of the icon */
   @HostBinding('style.--ng-icon__size')
@@ -53,7 +52,7 @@ export class IconComponent {
 
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
-    private readonly renderer: Renderer2,
+    private readonly sanitizer: DomSanitizer,
     @Inject(IconsToken) private readonly icons: Record<string, string>[],
   ) {}
 

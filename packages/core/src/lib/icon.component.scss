@@ -1,10 +1,5 @@
 :host {
   display: inline-block;
-
-  ::ng-deep {
-    svg {
-      width: inherit;
-      height: inherit;
-    }
-  }
+  width: var(--ng-icon__size);
+  height: var(--ng-icon__size);
 }
