@@ -2,21 +2,18 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  HostBinding,
   Inject,
   Input,
-  Renderer2,
 } from '@angular/core';
 import { IconsToken } from './icon.token';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'ng-icon',
   template: '',
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '[style.width]': 'size',
-    '[style.height]': 'size',
-  },
 })
 export class IconComponent {
   /** Define the name of the icon to display */
@@ -32,15 +29,21 @@ export class IconComponent {
     }
 
     // insert the SVG into the template
-    this.renderer.setProperty(
-      this.elementRef.nativeElement,
-      'innerHTML',
-      this.iconset[name],
-    );
+    this.template = this.sanitizer.bypassSecurityTrustHtml(this.iconset[name]);
   }
 
+  /** Store the formatted icon name */
+  @HostBinding('innerHTML') template?: SafeHtml;
+
   /** Define the size of the icon */
-  @Input() size: string = '1em';
+  @HostBinding('style.--ng-icon__size')
+  @Input()
+  size: string = '1em';
+
+  /** Define the stroke-width of the icon */
+  @HostBinding('style.--ng-icon__stroke-width')
+  @Input()
+  strokeWidth?: string | number;
 
   /** Flatten the iconsets */
   get iconset(): Record<string, string> {
@@ -49,7 +52,7 @@ export class IconComponent {
 
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
-    private readonly renderer: Renderer2,
+    private readonly sanitizer: DomSanitizer,
     @Inject(IconsToken) private readonly icons: Record<string, string>[],
   ) {}
 
