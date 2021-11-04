@@ -1,6 +1,7 @@
-import { IconComponent, NgIconsModule } from '@ng-icons/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FeatherAlertCircle } from '@ng-icons/feather-icons';
+import { IconComponent } from './icon.component';
+import { NgIconsModule } from './icon.module';
 
 describe('IconComponent', () => {
   let component: IconComponent;
