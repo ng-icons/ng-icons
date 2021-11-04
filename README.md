@@ -1,4 +1,8 @@
-# Ng Icons
+# Ng Icons (Fork)
+
+This a fork from [ashley-hunter/ng-icons](https://github.com/ashley-hunter/ng-icons) to support custom stroke-width specification.
+
+---
 
 The all in one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
 

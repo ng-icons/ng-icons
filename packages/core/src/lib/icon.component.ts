@@ -37,10 +37,16 @@ export class IconComponent {
       'innerHTML',
       this.iconset[name],
     );
+
+    // set stroke-width attribute to the SVG Icon
+    this.renderer.setAttribute(this.elementRef.nativeElement.children[0], 'stroke-width', this.strokeWidth);
   }
 
   /** Define the size of the icon */
   @Input() size: string = '1em';
+
+  /** Define the stroke-width of the icon */
+  @Input() strokeWidth: string = '2';
 
   /** Flatten the iconsets */
   get iconset(): Record<string, string> {
