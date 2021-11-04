@@ -1,6 +1,8 @@
 {
-  "name": "ng-icons",
-  "version": "0.0.0",
+  "name": "ng-icons-sw",
+  "description": "A temporary fork from the original ng-icons customized to set stroke-width.",
+  "private": false,
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "lint": "nx affected:lint --parallel",
@@ -10,7 +12,6 @@
     "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=12.2.0",
     "postinstall": "ngcc --properties es2015 browser module main"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "12.2.11",
     "@angular/cdk": "12.2.11",
