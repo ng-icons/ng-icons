@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/documentation",
   "sourceRoot": "apps/documentation/src",
-  "prefix": "ng-icons",
+  "prefix": "app",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",

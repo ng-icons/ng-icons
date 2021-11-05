@@ -1,0 +1,20 @@
+:host {
+  @apply text-white
+  flex
+  gap-3
+  items-center
+  px-2
+  py-2
+  text-sm
+  font-medium
+  rounded-md
+  hover:bg-blue-600 hover:bg-opacity-75;
+
+  &.active {
+    @apply bg-blue-800;
+  }
+}
+
+.sidebar-item-icon {
+  @apply flex-shrink-0 h-6 w-6 text-blue-300;
+}

@@ -1,0 +1,16 @@
+:host {
+  @apply bg-blue-700 overflow-y-auto flex flex-col items-center w-64 pt-5 pb-4;
+}
+
+.sidebar-items {
+  @apply flex flex-col gap-2 mt-5 flex-1 px-2 w-full;
+}
+
+.sidebar-brand {
+  @apply flex items-center flex-shrink-0 px-4 w-full text-white font-bold text-lg gap-4;
+  font-family: Poppins;
+}
+
+.sidebar-icon {
+  @apply h-8 w-auto;
+}
