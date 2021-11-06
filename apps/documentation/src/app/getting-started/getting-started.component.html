@@ -1,0 +1,94 @@
+<div class="prose mx-8">
+  <h1 id="ng-icons">Ng Icons</h1>
+  <p>
+    The all-in-one icon library for Angular. This allows you to use icons from
+    multiple icon sets with a single icon component.
+  </p>
+  <p>Currently, we support the following libraries:</p>
+  <ul>
+    <li><a href="https://heroicons.com/">Heroicons</a></li>
+    <li><a href="https://feathericons.com/">Feather Icons</a></li>
+    <li><a href="https://jam-icons.com/">Jam Icons</a></li>
+    <li><a href="https://github.com/primer/octicons">Octicons</a></li>
+    <li><a href="https://icons.modulz.app/">Radix UI Icons</a></li>
+    <li><a href="https://tabler-icons.io/">Tabler Icons</a></li>
+  </ul>
+  <p>
+    Got suggestions for additional iconsets? Create an issue and we can consider
+    adding them!
+  </p>
+  <h2 id="installation">Installation</h2>
+  <p>Ng Icons consists of multiple packages:</p>
+  <ul>
+    <li>
+      <code>@ng-icons/core</code> - This contains the icon component and the
+      <code>NgIconsModule</code> that is used to register the icons you want to
+      include in your application.
+    </li>
+    <li>
+      <code>@ng-icons/heroicons</code> - The Heroicons iconset including both
+      outline and solid variants.
+    </li>
+    <li><code>@ng-icons/feather-icons</code> - The Feather Icons iconset.</li>
+    <li><code>@ng-icons/jam-icons</code> - The Jam Icons iconset.</li>
+    <li><code>@ng-icons/octicons</code> - The Octicons iconset.</li>
+    <li><code>@ng-icons/radix-icons</code> - The Radix UI iconset.</li>
+    <li><code>@ng-icons/tabler-icons</code> - The Tabler iconset.</li>
+  </ul>
+  <p>
+    You must install the <code>@ng-icons/core</code> package, however you only
+    need to install the iconset libraries you intend to use.
+  </p>
+  <p>E.g:</p>
+  <pre><code class="lang-bash"><span class="hljs-built_in">npm</span> i @ng-icons/core @ng-icons/heroicons ...
+</code></pre>
+  <p>or</p>
+  <pre><code class="lang-bash"><span class="hljs-selector-tag">yarn</span> <span class="hljs-selector-tag">add</span> @<span class="hljs-keyword">ng</span>-<span class="hljs-keyword">icons</span>/<span class="hljs-keyword">core</span> @ng-icons/heroicons ...
+</code></pre>
+  <h2 id="usage">Usage</h2>
+  <p>
+    Import the <code>NgIconsModule</code> and register the icons you wish to
+    use:
+  </p>
+  <pre><code class="lang-ts"><span class="hljs-keyword">import</span> {{ '{' }} NgIconsModule {{ '}' }} <span class="hljs-keyword">from</span> <span class="hljs-string">'@ng-icons/core'</span>;
+<span class="hljs-keyword">import</span> {{ '{' }} FeatherAirplay {{ '}' }} <span class="hljs-keyword">from</span> <span class="hljs-string">'@ng-icons/feather-icons'</span>;
+<span class="hljs-keyword">import</span> {{ '{' }} HeroUsers {{ '}' }} <span class="hljs-keyword">from</span> <span class="hljs-string">'@ng-icons/heroicons'</span>;
+
+@NgModule({{ '{' }}
+    imports: [
+      BrowserModule,
+      NgIconsModule.withIcons({{ '{' }} FeatherAirplay, HeroUsers {{ '}' }}),
+  ],
+{{ '}' }})
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppModule</span> {{ '{' }}{{ '}' }}</span>
+</code></pre>
+  <p>
+    You can register icons in multiple modules, this allows icons to be lazy
+    loaded in child modules.
+  </p>
+  <p>You can then use the icon in your templates:</p>
+  <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ng-icon</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"feather-airplay"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ng-icon</span>&gt;</span>
+</code></pre>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>size</td>
+        <td>string</td>
+        <td>Define the size of the icon.</td>
+      </tr>
+      <tr>
+        <td>strokeWidth</td>
+        <td>string</td>
+        <td>number</td>
+        <td>Define the stroke-width of the icon.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

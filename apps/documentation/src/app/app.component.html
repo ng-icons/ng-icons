@@ -1,5 +1,12 @@
 <app-sidebar>
-  <a app-sidebar-item href="#" icon="hero-home">Getting Started</a>
+  <a
+    app-sidebar-item
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    icon="hero-home"
+    >Getting Started</a
+  >
   <a
     app-sidebar-item
     routerLink="/heroicons"
