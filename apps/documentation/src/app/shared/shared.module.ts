@@ -13,6 +13,7 @@ import { TablerTools } from '@ng-icons/tabler-icons';
 import { IconCardComponent } from './components/icon-card/icon-card.component';
 import { IconCardListComponent } from './components/icon-card-list/icon-card-list.component';
 import { DashPipe } from './pipes/dash.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,14 @@ import { DashPipe } from './pipes/dash.pipe';
     IconCardListComponent,
     DashPipe,
   ],
-  exports: [SidebarComponent, SidebarItemComponent, NavigationBarComponent, IconCardComponent, IconCardListComponent, DashPipe],
+  exports: [
+    SidebarComponent,
+    SidebarItemComponent,
+    NavigationBarComponent,
+    IconCardComponent,
+    IconCardListComponent,
+    DashPipe,
+  ],
   imports: [
     CommonModule,
     NgIconsModule.withIcons({
@@ -38,6 +46,7 @@ import { DashPipe } from './pipes/dash.pipe';
       RadixModulzLogo,
       TablerTools,
     }),
+    FormsModule,
   ],
 })
 export class SharedModule {}

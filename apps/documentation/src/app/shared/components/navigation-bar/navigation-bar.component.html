@@ -6,6 +6,8 @@
   class="search-input"
   placeholder="Search all icons"
   type="search"
+  [ngModel]="searchService.search$ | async"
+  (ngModelChange)="searchService.search($event)"
 />
 
 <div class="navigation-bar-actions">

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -6,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./navigation-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavigationBarComponent {}
+export class NavigationBarComponent {
+  constructor(public readonly searchService: SearchService) {}
+}

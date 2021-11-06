@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { HeroiconsRoutingModule } from './heroicons-routing.module';
 import { HeroiconsComponent } from './heroicons.component';
 import { NgIconsModule } from '@ng-icons/core';

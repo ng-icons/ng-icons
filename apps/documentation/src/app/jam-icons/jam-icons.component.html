@@ -9,7 +9,7 @@
 
 <app-icon-card-list>
   <app-icon-card
-    *ngFor="let icon of icons | keyvalue"
-    [icon]="icon.key"
+    *ngFor="let icon of icons$ | async; trackBy: trackByFn"
+    [icon]="icon"
   ></app-icon-card>
 </app-icon-card-list>
