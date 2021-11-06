@@ -1,0 +1,18 @@
+:host {
+  @apply inline-flex
+  flex-col
+  items-center
+  bg-white
+  rounded
+  shadow-sm
+  p-4
+  gap-2
+  hover:scale-105
+  transition-transform
+  duration-150
+  cursor-pointer;
+}
+
+.icon-card-label {
+  @apply text-xs;
+}

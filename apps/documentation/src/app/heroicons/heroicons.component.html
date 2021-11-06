@@ -1,0 +1,15 @@
+<div class="prose max-w-full mb-8">
+  <h3>Heroicons</h3>
+
+  <p>
+    Install the <code>@ng-icons/heroicons</code> package to use the following
+    icons within your application.
+  </p>
+</div>
+
+<app-icon-card-list>
+  <app-icon-card
+    *ngFor="let icon of icons | keyvalue"
+    [icon]="icon.key"
+  ></app-icon-card>
+</app-icon-card-list>

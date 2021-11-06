@@ -10,14 +10,20 @@ import { FeatherFeather, FeatherShield } from '@ng-icons/feather-icons';
 import { JamGlassFilled } from '@ng-icons/jam-icons';
 import { RadixModulzLogo } from '@ng-icons/radix-icons';
 import { TablerTools } from '@ng-icons/tabler-icons';
+import { IconCardComponent } from './components/icon-card/icon-card.component';
+import { IconCardListComponent } from './components/icon-card-list/icon-card-list.component';
+import { DashPipe } from './pipes/dash.pipe';
 
 @NgModule({
   declarations: [
     SidebarComponent,
     SidebarItemComponent,
     NavigationBarComponent,
+    IconCardComponent,
+    IconCardListComponent,
+    DashPipe,
   ],
-  exports: [SidebarComponent, SidebarItemComponent, NavigationBarComponent],
+  exports: [SidebarComponent, SidebarItemComponent, NavigationBarComponent, IconCardComponent, IconCardListComponent, DashPipe],
   imports: [
     CommonModule,
     NgIconsModule.withIcons({
