@@ -10,6 +10,7 @@
   rounded-md
   hover:bg-blue-600 hover:bg-opacity-75
   focus:outline-none focus-visible:ring-2 focus-visible:ring-white;
+  text-decoration: none;
 
   &.active {
     @apply bg-blue-800;
