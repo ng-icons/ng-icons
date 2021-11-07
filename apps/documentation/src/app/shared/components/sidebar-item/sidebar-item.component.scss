@@ -17,5 +17,5 @@
 }
 
 .sidebar-item-icon {
-  @apply flex-shrink-0 h-6 w-6 text-blue-300;
+  @apply flex-shrink-0 h-6 w-6 text-blue-300 mx-auto md:mx-0;
 }

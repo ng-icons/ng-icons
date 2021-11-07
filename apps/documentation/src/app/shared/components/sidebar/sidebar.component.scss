@@ -1,5 +1,5 @@
 :host {
-  @apply bg-blue-700 overflow-y-auto flex flex-col items-center w-64 pt-5 pb-4;
+  @apply bg-blue-700 overflow-y-auto flex flex-col items-center md:w-64 pt-5 pb-4 sm:w-auto;
 }
 
 .sidebar-items {
