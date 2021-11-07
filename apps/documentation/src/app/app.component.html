@@ -1,78 +1,86 @@
-<div class="fixed top-0 w-full h-16 bg-white border-b border-gray-300 z-10">
-  <div class="container px-4 mx-auto h-full flex items-center justify-between">
-    <h1 class="font-bold text-xl">NgIcons</h1>
+<app-sidebar>
+  <a
+    app-sidebar-item
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    icon="hero-home"
+    >Getting Started</a
+  >
+  <a
+    app-sidebar-item
+    routerLink="/heroicons"
+    routerLinkActive="active"
+    icon="feather-shield"
+    >Heroicons</a
+  >
+  <a
+    app-sidebar-item
+    routerLink="/feather-icons"
+    routerLinkActive="active"
+    icon="feather-feather"
+    >Feather Icons</a
+  >
+  <a
+    app-sidebar-item
+    routerLink="/jam-icons"
+    routerLinkActive="active"
+    icon="jam-glass-filled"
+    >Jam Icons</a
+  >
+  <a
+    app-sidebar-item
+    routerLink="/octicons"
+    routerLinkActive="active"
+    icon="oct-octoface"
+    >Octicons</a
+  >
+  <a
+    app-sidebar-item
+    routerLink="/radix-icons"
+    routerLinkActive="active"
+    icon="radix-modulz-logo"
+    >Radix Icons</a
+  >
+  <a
+    app-sidebar-item
+    routerLink="/tabler-icons"
+    routerLinkActive="active"
+    icon="tabler-tools"
+    >Tabler Icons</a
+  >
+</app-sidebar>
 
-    <div
-      class="
-        flex
-        items-center
-        rounded-lg
-        px-3
-        py-2
-        bg-gray-200
-        focus-within:ring
-      "
-    >
-      <ng-icon class="text-gray-700 mr-2" name="feather-search"></ng-icon>
-      <input
-        type="text"
-        class="bg-transparent outline-none text-sm"
-        placeholder="Search..."
-        [ngModel]="filter"
-        (ngModelChangeDebounced)="filter = $event"
-        [ngModelChangeDebounceTime]="1000"
-      />
-    </div>
-  </div>
-</div>
+<div class="flex-1 flex flex-col overflow-hidden">
+  <app-navigation-bar></app-navigation-bar>
 
-<div *ngFor="let iconset of iconsets" class="container mx-auto px-4 pt-24">
-  <h2 class="text-lg font-semibold mb-4">{{ iconset.title }}</h2>
-
-  <div class="grid grid-cols-4">
-    <div
-      *ngFor="
-        let icon of iconset.icons | keyvalue | search: filter;
-        trackBy: trackBy
-      "
-      class="
-        icon-preview
-        relative
-        flex flex-col
-        items-center
-        justify-center
-        rounded-lg
-        px-2
-        py-4
-        hover:bg-gray-200
-        transition-all
-        cursor-pointer
-      "
-      (click)="copy(icon.key)"
-    >
-      <ng-icon [name]="icon.key" size="24px"></ng-icon>
-
-      <p class="text-xs text-center mt-2">{{ icon.key | dasherize }}</p>
-
-      <div
-        class="
-          icon-copy
-          absolute
-          bg-gray-900
-          text-white
-          opacity-0
-          translate-y-5
-          px-2
-          py-1
-          rounded-full
-          text-xs
-          top-6
-          text-center
-          transition-all
-        "
+  <div class="py-6 px-12 overflow-auto">
+    <!--  Loading Indicator  -->
+    <div *ngIf="loading$ | async" class="flex flex-col items-center">
+      <svg
+        class="animate-spin h-10 w-10 text-blue-700 mb-3"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
       >
-        Copy
-      </div>
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        ></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
+      </svg>
+      <span class="text-sm text-gray-800">Loading Icons</span>
     </div>
+
+    <!--  Page Content  -->
+    <router-outlet *ngIf="(loading$ | async) === false"></router-outlet>
   </div>
 </div>

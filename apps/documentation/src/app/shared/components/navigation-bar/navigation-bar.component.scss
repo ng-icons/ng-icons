@@ -1,0 +1,46 @@
+:host {
+  @apply w-full relative
+  z-10
+  h-16
+  bg-white
+  border-b border-gray-200
+  shadow-sm
+  flex
+  pl-6
+  pr-3
+  flex-none
+  items-center w-full text-gray-400 focus-within:text-gray-600;
+}
+
+.search-input {
+  @apply h-full
+  w-full
+  border-transparent
+  py-2
+  pl-3
+  pr-3
+  text-base text-gray-900
+  placeholder-gray-500
+  focus:outline-none
+  focus:ring-0
+  focus:border-transparent
+  focus:placeholder-gray-400;
+}
+
+.navigation-bar-actions {
+  @apply ml-4 flex items-center;
+}
+
+.navigation-bar-action {
+  @apply inline-flex
+  items-center
+  justify-center
+  bg-white
+  p-1
+  w-10
+  h-10
+  rounded-full
+  text-gray-400
+  hover:text-gray-500
+  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+}

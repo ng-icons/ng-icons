@@ -1,51 +1,25 @@
-import * as tablerIcons from '@ng-icons/tabler-icons';
-import { Clipboard } from '@angular/cdk/clipboard';
-import { KeyValue } from '@angular/common';
-import { Component } from '@angular/core';
-import * as featherIcons from '@ng-icons/feather-icons';
-import * as heroIcons from '@ng-icons/heroicons';
-import * as jamIcons from '@ng-icons/jam-icons';
-import * as octIcons from '@ng-icons/octicons';
-import * as radixIcons from '@ng-icons/radix-icons';
-import { dasherize } from './pipes/dasherize.pipe';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+
 @Component({
-  selector: 'ng-icons-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  readonly iconsets = [
-    {
-      title: 'Feather Icons',
-      icons: featherIcons,
-    },
-    {
-      title: 'Herocons',
-      icons: heroIcons,
-    },
-    {
-      title: 'Jam Icons',
-      icons: jamIcons,
-    },
-    {
-      title: 'Octicons',
-      icons: octIcons,
-    },
-    {
-      title: 'Radix UI Icons',
-      icons: radixIcons,
-    },
-    {
-      title: 'Tabler Icons',
-      icons: tablerIcons,
-    },
-  ];
-  filter = '';
-  constructor(private readonly clipboard: Clipboard) {}
-  trackBy(_: number, icon: KeyValue<string, unknown>): string {
-    return icon.key;
-  }
-  copy(icon: string): void {
-    this.clipboard.copy(`<ng-icon name="${dasherize(icon)}"></ng-icon>`);
+export class AppComponent implements OnInit {
+  loading$ = new BehaviorSubject<boolean>(false);
+
+  constructor(private readonly router: Router) {}
+
+  ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.loading$.next(true);
+      }
+      if (event instanceof NavigationEnd) {
+        this.loading$.next(false);
+      }
+    });
   }
 }

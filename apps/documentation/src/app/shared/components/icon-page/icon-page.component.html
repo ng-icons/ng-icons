@@ -1,0 +1,24 @@
+<div class="prose max-w-full mb-8">
+  <h1>{{ library.split('-').join(' ') | titlecase }}</h1>
+
+  <p>
+    Install the <code>@ng-icons/{{ library }}</code> package to use the
+    following icons within your application.
+  </p>
+
+  <p class="text-sm">
+    <a target="_blank" [href]="website">View Website</a> -
+    <span>{{ license }} License</span>
+  </p>
+</div>
+
+<app-icon-card-list>
+  <app-icon-card
+    *ngFor="let icon of icons$ | async; trackBy: trackByFn"
+    [icon]="icon"
+    (click)="showDialog(icon)"
+    (keydown.enter)="showDialog(icon)"
+  >
+    ></app-icon-card
+  >
+</app-icon-card-list>

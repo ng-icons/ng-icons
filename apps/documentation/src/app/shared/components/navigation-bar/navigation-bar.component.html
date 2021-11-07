@@ -1,0 +1,21 @@
+<ng-icon name="hero-search" size="1.25rem"></ng-icon>
+
+<input
+  name="search-field"
+  id="search-field"
+  class="search-input"
+  placeholder="Search all icons"
+  type="search"
+  [ngModel]="searchService.search$ | async"
+  (ngModelChange)="searchService.search($event)"
+/>
+
+<div class="navigation-bar-actions">
+  <a
+    href="https://github.com/ashley-hunter/ng-icons/"
+    class="navigation-bar-action"
+    target="_blank"
+  >
+    <ng-icon name="oct-mark-github" size="1.5rem"></ng-icon>
+  </a>
+</div>

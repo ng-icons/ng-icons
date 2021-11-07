@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'dasherize',
+  name: 'dash',
 })
-export class DasherizePipe implements PipeTransform {
+export class DashPipe implements PipeTransform {
   transform(value: string): string {
     return dasherize(value);
   }
