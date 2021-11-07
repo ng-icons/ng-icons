@@ -27,27 +27,7 @@ import {{ '{' }} {{ icon }} {{ '}' }} from '@ng-icons/{{ library }}';
     </div>
   </div>
   <div class="mt-5 sm:mt-6">
-    <button
-      type="button"
-      class="
-        inline-flex
-        justify-center
-        w-full
-        rounded-md
-        border border-transparent
-        shadow-sm
-        px-4
-        py-2
-        bg-blue-600
-        text-base
-        font-medium
-        text-white
-        hover:bg-blue-700
-        focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-        sm:text-sm
-      "
-      (click)="dialogRef.close()"
-    >
+    <button type="button" class="dialog-btn" (click)="dialogRef.close()">
       Close
     </button>
   </div>
