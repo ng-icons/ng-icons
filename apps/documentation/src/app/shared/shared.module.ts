@@ -14,6 +14,7 @@ import { IconCardComponent } from './components/icon-card/icon-card.component';
 import { IconCardListComponent } from './components/icon-card-list/icon-card-list.component';
 import { DashPipe } from './pipes/dash.pipe';
 import { FormsModule } from '@angular/forms';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     IconCardComponent,
     IconCardListComponent,
     DashPipe,
+    DialogComponent,
   ],
   exports: [
     SidebarComponent,

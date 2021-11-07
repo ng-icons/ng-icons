@@ -1,25 +1,12 @@
 import { Component } from '@angular/core';
 import * as radixIcons from '@ng-icons/radix-icons';
-import { map } from 'rxjs/operators';
-import { SearchService } from '../shared/services/search.service';
+import { IconPageComponent } from '../shared/components/icon-page/icon-page.component';
 
 @Component({
   selector: 'app-radix-icons',
-  templateUrl: './radix-icons.component.html',
-  styleUrls: ['./radix-icons.component.css'],
+  templateUrl: '../shared/components/icon-page/icon-page.component.html',
 })
-export class RadixIconsComponent {
-  icons$ = this.searchService.search$.pipe(
-    map(query =>
-      Object.keys(radixIcons).filter(key =>
-        key.toLowerCase().includes(query.toLowerCase()),
-      ),
-    ),
-  );
-
-  constructor(private readonly searchService: SearchService) {}
-
-  trackByFn(_: number, name: string): string {
-    return name;
-  }
+export class RadixIconsComponent extends IconPageComponent {
+  iconset = radixIcons;
+  library = 'radix-icons';
 }

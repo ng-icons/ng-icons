@@ -1,9 +1,9 @@
 <div class="prose max-w-full mb-8">
-  <h3>Heroicons</h3>
+  <h3>{{ library }}</h3>
 
   <p>
-    Install the <code>@ng-icons/heroicons</code> package to use the following
-    icons within your application.
+    Install the <code>@ng-icons/{{ library }}</code> package to use the
+    following icons within your application.
   </p>
 </div>
 
@@ -11,6 +11,7 @@
   <app-icon-card
     *ngFor="let icon of icons$ | async; trackBy: trackByFn"
     [icon]="icon"
+    (click)="showDialog(icon)"
   >
     ></app-icon-card
   >

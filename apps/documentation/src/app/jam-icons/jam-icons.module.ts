@@ -6,6 +6,7 @@ import { JamIconsComponent } from './jam-icons.component';
 import { NgIconsModule } from '@ng-icons/core';
 import * as jamIcons from '@ng-icons/jam-icons';
 import { SharedModule } from '../shared/shared.module';
+import { DialogModule } from '@angular/cdk-experimental/dialog';
 
 @NgModule({
   declarations: [JamIconsComponent],
@@ -14,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     JamIconsRoutingModule,
     NgIconsModule.withIcons(jamIcons),
     SharedModule,
+    DialogModule,
   ],
 })
 export class JamIconsModule {}

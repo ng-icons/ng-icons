@@ -6,6 +6,7 @@ import { RadixIconsComponent } from './radix-icons.component';
 import { NgIconsModule } from '@ng-icons/core';
 import * as radixIcons from '@ng-icons/radix-icons';
 import { SharedModule } from '../shared/shared.module';
+import { DialogModule } from '@angular/cdk-experimental/dialog';
 
 @NgModule({
   declarations: [RadixIconsComponent],
@@ -14,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     RadixIconsRoutingModule,
     NgIconsModule.withIcons(radixIcons),
     SharedModule,
+    DialogModule,
   ],
 })
 export class RadixIconsModule {}

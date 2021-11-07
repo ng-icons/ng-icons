@@ -6,6 +6,7 @@ import { TablerIconsComponent } from './tabler-icons.component';
 import { NgIconsModule } from '@ng-icons/core';
 import * as tablerIcons from '@ng-icons/tabler-icons';
 import { SharedModule } from '../shared/shared.module';
+import { DialogModule } from '@angular/cdk-experimental/dialog';
 
 @NgModule({
   declarations: [TablerIconsComponent],
@@ -14,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     TablerIconsRoutingModule,
     NgIconsModule.withIcons(tablerIcons),
     SharedModule,
+    DialogModule,
   ],
 })
 export class TablerIconsModule {}

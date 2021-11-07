@@ -6,6 +6,7 @@ import { OcticonsComponent } from './octicons.component';
 import { NgIconsModule } from '@ng-icons/core';
 import * as octIcons from '@ng-icons/octicons';
 import { SharedModule } from '../shared/shared.module';
+import { DialogModule } from '@angular/cdk-experimental/dialog';
 
 @NgModule({
   declarations: [OcticonsComponent],
@@ -14,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     OcticonsRoutingModule,
     NgIconsModule.withIcons(octIcons),
     SharedModule,
+    DialogModule,
   ],
 })
 export class OcticonsModule {}

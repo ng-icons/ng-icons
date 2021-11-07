@@ -5,6 +5,7 @@ import { HeroiconsComponent } from './heroicons.component';
 import { NgIconsModule } from '@ng-icons/core';
 import * as heroIcons from '@ng-icons/heroicons';
 import { SharedModule } from '../shared/shared.module';
+import { DialogModule } from '@angular/cdk-experimental/dialog';
 
 @NgModule({
   declarations: [HeroiconsComponent],
@@ -13,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     HeroiconsRoutingModule,
     NgIconsModule.withIcons(heroIcons),
     SharedModule,
+    DialogModule,
   ],
 })
 export class HeroiconsModule {}
