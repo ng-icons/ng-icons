@@ -10,7 +10,11 @@
   hover:scale-105
   transition-transform
   duration-150
-  cursor-pointer;
+  cursor-pointer
+  focus-visible:outline-none
+  focus-visible:ring-2
+  focus-visible:ring-offset-2
+  focus-visible:ring-blue-500;
 }
 
 .icon-card-label {

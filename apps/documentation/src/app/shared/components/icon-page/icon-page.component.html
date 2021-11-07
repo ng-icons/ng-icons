@@ -12,6 +12,7 @@
     *ngFor="let icon of icons$ | async; trackBy: trackByFn"
     [icon]="icon"
     (click)="showDialog(icon)"
+    (keydown.enter)="showDialog(icon)"
   >
     ></app-icon-card
   >

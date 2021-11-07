@@ -5,6 +5,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   templateUrl: './icon-card.component.html',
   styleUrls: ['./icon-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    tabindex: '0',
+  },
 })
 export class IconCardComponent {
   /**

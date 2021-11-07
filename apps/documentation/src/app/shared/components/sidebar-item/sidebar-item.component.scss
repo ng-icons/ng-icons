@@ -8,7 +8,8 @@
   text-sm
   font-medium
   rounded-md
-  hover:bg-blue-600 hover:bg-opacity-75;
+  hover:bg-blue-600 hover:bg-opacity-75
+  focus:outline-none focus-visible:ring-2 focus-visible:ring-white;
 
   &.active {
     @apply bg-blue-800;
