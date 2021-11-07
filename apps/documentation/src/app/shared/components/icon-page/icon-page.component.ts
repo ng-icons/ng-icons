@@ -9,6 +9,8 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export abstract class IconPageComponent {
   abstract library: string;
+  abstract website: string;
+  abstract license: string;
   abstract iconset: Record<string, string>;
 
   icons$ = this.searchService.search$.pipe(

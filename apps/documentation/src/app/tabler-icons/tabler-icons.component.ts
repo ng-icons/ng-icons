@@ -9,4 +9,6 @@ import { IconPageComponent } from '../shared/components/icon-page/icon-page.comp
 export class TablerIconsComponent extends IconPageComponent {
   iconset = tablerIcons;
   library = 'tabler-icons';
+  website = 'https://tabler-icons.io/';
+  license = 'MIT';
 }

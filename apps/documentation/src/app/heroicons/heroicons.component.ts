@@ -9,4 +9,6 @@ import { IconPageComponent } from '../shared/components/icon-page/icon-page.comp
 export class HeroiconsComponent extends IconPageComponent {
   iconset = heroIcons;
   library = 'heroicons';
+  website = 'https://heroicons.com/';
+  license = 'MIT';
 }

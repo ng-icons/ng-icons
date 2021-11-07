@@ -9,4 +9,6 @@ import { IconPageComponent } from '../shared/components/icon-page/icon-page.comp
 export class RadixIconsComponent extends IconPageComponent {
   iconset = radixIcons;
   library = 'radix-icons';
+  website = 'https://icons.modulz.app/';
+  license = 'MIT';
 }

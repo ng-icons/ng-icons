@@ -9,4 +9,6 @@ import { IconPageComponent } from '../shared/components/icon-page/icon-page.comp
 export class FeatherIconsComponent extends IconPageComponent {
   iconset = featherIcons;
   library = 'feather-icons';
+  website = 'https://feathericons.com/';
+  license = 'MIT';
 }

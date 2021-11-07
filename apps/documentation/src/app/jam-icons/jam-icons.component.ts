@@ -9,4 +9,6 @@ import { IconPageComponent } from '../shared/components/icon-page/icon-page.comp
 export class JamIconsComponent extends IconPageComponent {
   iconset = jamIcons;
   library = 'jam-icons';
+  website = 'https://jam-icons.com/';
+  license = 'MIT';
 }

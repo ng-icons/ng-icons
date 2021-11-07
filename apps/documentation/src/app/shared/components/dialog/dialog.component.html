@@ -1,31 +1,16 @@
-<div
-  class="
-    inline-block
-    align-bottom
-    bg-white
-    rounded-lg
-    px-4
-    pt-5
-    pb-4
-    text-left
-    overflow-hidden
-    shadow-xl
-    transform
-    transition-all
-    sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6
-  "
->
-  <div>
-    <div class="text-center">
-      <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-        Usage Instructions
-      </h3>
-      <div class="mt-2">
-        <div class="prose text-sm text-gray-500">
-          Add the following import to the appropriate
-          <code>@NgModule</code>:
+<div class="dialog">
+  <h3
+    class="text-center text-lg leading-6 font-medium text-gray-900"
+    id="modal-title"
+  >
+    Usage Instructions
+  </h3>
+  <div class="mt-2">
+    <div class="prose text-sm text-gray-500">
+      Add the following import to the appropriate
+      <code>@NgModule</code>:
 
-          <pre class="text-left">
+      <pre class="text-left">
 import {{ '{' }} {{ icon }} {{ '}' }} from '@ng-icons/{{ library }}';
 
 @NgModule({{ '{' }}
@@ -33,14 +18,12 @@ import {{ '{' }} {{ icon }} {{ '}' }} from '@ng-icons/{{ library }}';
     NgIconsModule.withIcons({{ '{' }} {{ icon }} {{ '}' }})
   ]
 {{ '}' }})</pre
-          >
-          In your component, add the following code:
+      >
+      In your component, add the following code:
 
-          <pre class="text-left">
+      <pre class="text-left">
 &lt;ng-icon name="{{ icon | dash }}"&gt;&lt;/ng-icon&gt;</pre
-          >
-        </div>
-      </div>
+      >
     </div>
   </div>
   <div class="mt-5 sm:mt-6">
