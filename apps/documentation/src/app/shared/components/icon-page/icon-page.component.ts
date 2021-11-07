@@ -7,7 +7,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 @Directive({
   selector: '[appIconPage]',
 })
-export abstract class IconPageComponent {
+export abstract class IconPageDirective {
   abstract library: string;
   abstract website: string;
   abstract license: string;

@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IconPageComponent } from './icon-page.component';
+import { IconPageDirective } from './icon-page.component';
 
 describe('IconPageComponent', () => {
-  let component: IconPageComponent;
-  let fixture: ComponentFixture<IconPageComponent>;
+  let component: IconPageDirective;
+  let fixture: ComponentFixture<IconPageDirective>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IconPageComponent ]
-    })
-    .compileComponents();
+      declarations: [IconPageDirective],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IconPageComponent);
+    fixture = TestBed.createComponent(IconPageDirective);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
