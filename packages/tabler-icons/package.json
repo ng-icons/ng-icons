@@ -1,11 +1,16 @@
 {
   "name": "@ng-icons/tabler-icons",
   "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/ng-icons/ng-icons"
+  },
+  "homepage": "https://ng-icons.github.io/ng-icons/",
   "peerDependencies": {
-    "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0"
+    "@angular/common": ">=11.0.0",
+    "@angular/core": ">=11.0.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.2.0"
   }
 }
