@@ -46,7 +46,7 @@ export default async function (tree: Tree, schema: Schema) {
     json.repository = {
       url: 'https://github.com/ng-icons/ng-icons'
     };
-    json.homepage: 'https://ng-icons.github.io/ng-icons/';
+    json.homepage = 'https://ng-icons.github.io/ng-icons/';
     json.peerDependencies = {
       '@angular/common': '>=11.0.0',
       '@angular/core': '>=11.0.0'
