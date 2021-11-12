@@ -1,21 +1,21 @@
 {
   "projectType": "library",
-  "root": "packages/radix-icons",
-  "sourceRoot": "packages/radix-icons/src",
+  "root": "packages/css-gg",
+  "sourceRoot": "packages/css-gg/src",
   "prefix": "ng",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/radix-icons"],
+      "outputs": ["dist/packages/css-gg"],
       "options": {
-        "project": "packages/radix-icons/ng-package.json"
+        "project": "packages/css-gg/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "packages/radix-icons/tsconfig.lib.prod.json"
+          "tsConfig": "packages/css-gg/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "packages/radix-icons/tsconfig.lib.json"
+          "tsConfig": "packages/css-gg/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -24,11 +24,10 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "packages/radix-icons/src/**/*.ts",
-          "packages/radix-icons/src/**/*.html"
+          "packages/css-gg/src/**/*.ts",
+          "packages/css-gg/src/**/*.html"
         ]
-      },
-      "outputs": ["{options.outputFile}"]
+      }
     },
     "deploy": {
       "executor": "ngx-deploy-npm:deploy",
