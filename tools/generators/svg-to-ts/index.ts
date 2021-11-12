@@ -152,7 +152,7 @@ export async function iconGenerator(tree: Tree): Promise<void> {
 
   for (const iconset of iconsets as Iconset[]) {
     if (tree.exists(iconset.to)) {
-      tree.delete(iconset.to);
+      // tree.delete(iconset.to);
     }
 
     tree.write(iconset.to, await createIconset(iconset));
