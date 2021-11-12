@@ -129,8 +129,7 @@ async function createIconset(iconset: Iconset): Promise<string> {
     output.push(content);
   }
 
-  console.log(output.join('\n'));
-
+ 
   return output.join('\n');
 }
 
