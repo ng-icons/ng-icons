@@ -8,6 +8,7 @@ import {
   updateProjectConfiguration,
 } from '@nrwl/devkit';
 import { iconGenerator } from '../svg-to-ts/index';
+import { wrapAngularDevkitSchematic } from '@nrwl/tao/src/commands/ngcli-adapter';
 
 interface Schema {
   name: string;
@@ -108,6 +109,13 @@ export default async function (tree: Tree, schema: Schema) {
   tree.delete(`packages/${schema.name}/src/test-setup.ts`);
 
   await iconGenerator(tree);
+
+  await wrapAngularDevkitSchematic('@schematics/angular', 'module')(tree, {
+    module: 'app',
+    routing: true,
+    route: schema.name,
+    project: 'documentation',
+  });
 
   await formatFiles(tree);
 }
