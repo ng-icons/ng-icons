@@ -5,6 +5,7 @@ The all-in-one icon library for Angular. This allows you to use icons from multi
 Currently, we support the following libraries:
 
 - [Heroicons](https://heroicons.com/)
+- [CSS.gg](https://css.gg/)
 - [Feather Icons](https://feathericons.com/)
 - [Jam Icons](https://jam-icons.com/)
 - [Octicons](https://github.com/primer/octicons)
@@ -19,6 +20,7 @@ Ng Icons consists of multiple packages:
 
 - `@ng-icons/core` - This contains the icon component and the `NgIconsModule` that is used to register the icons you want to include in your application.
 - `@ng-icons/heroicons` - The Heroicons iconset including both outline and solid variants.
+- `@ng-icons/css.gg` - The CSS.gg iconset.
 - `@ng-icons/feather-icons` - The Feather Icons iconset.
 - `@ng-icons/jam-icons` - The Jam Icons iconset.
 - `@ng-icons/octicons` - The Octicons iconset.
