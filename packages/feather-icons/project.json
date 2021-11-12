@@ -20,14 +20,6 @@
       },
       "defaultConfiguration": "production"
     },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/feather-icons"],
-      "options": {
-        "jestConfig": "packages/feather-icons/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {

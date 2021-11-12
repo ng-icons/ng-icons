@@ -41,6 +41,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./octicons/octicons.module').then(m => m.OcticonsModule),
   },
+  {
+    path: 'css-gg',
+    loadChildren: () =>
+      import('./css-gg/css-gg.module').then(m => m.CssGgModule),
+  },
 ];
 
 @NgModule({

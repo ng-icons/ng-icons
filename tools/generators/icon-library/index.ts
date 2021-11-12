@@ -8,6 +8,7 @@ import {
   updateProjectConfiguration,
 } from '@nrwl/devkit';
 import { iconGenerator } from '../svg-to-ts/index';
+import { wrapAngularDevkitSchematic } from '@nrwl/tao/src/commands/ngcli-adapter';
 
 interface Schema {
   name: string;
@@ -39,22 +40,25 @@ export default async function (tree: Tree, schema: Schema) {
     },
   };
 
+  // remove test target
+  delete configuration.targets.test;
+
   updateProjectConfiguration(tree, schema.name, configuration);
-  
+
   updateJson(tree, `packages/${schema.name}/package.json`, json => {
     json.license = 'MIT';
     json.repository = {
-      url: 'https://github.com/ng-icons/ng-icons'
+      url: 'https://github.com/ng-icons/ng-icons',
     };
     json.homepage = 'https://ng-icons.github.io/ng-icons/';
     json.peerDependencies = {
       '@angular/common': '>=11.0.0',
-      '@angular/core': '>=11.0.0'
+      '@angular/core': '>=11.0.0',
     };
     json.dependencies = {
-      'tslib': '^2.2.0'
+      tslib: '^2.2.0',
     };
-    
+
     return json;
   });
 
@@ -99,7 +103,19 @@ export default async function (tree: Tree, schema: Schema) {
     return json;
   });
 
+  // remove the test files
+  tree.delete(`packages/${schema.name}/jest.config.js`);
+  tree.delete(`packages/${schema.name}/tsconfig.spec.json`);
+  tree.delete(`packages/${schema.name}/src/test-setup.ts`);
+
   await iconGenerator(tree);
+
+  await wrapAngularDevkitSchematic('@schematics/angular', 'module')(tree, {
+    module: 'app',
+    routing: true,
+    route: schema.name,
+    project: 'documentation',
+  });
 
   await formatFiles(tree);
 }

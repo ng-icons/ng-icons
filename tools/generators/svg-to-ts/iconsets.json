@@ -36,5 +36,10 @@
     "from": "node_modules/@tabler/icons/icons",
     "to": "packages/tabler-icons/src/index.ts",
     "prefix": "tabler"
+  },
+  {
+    "from": "node_modules/css.gg/icons/svg",
+    "to": "packages/css-gg/src/index.ts",
+    "prefix": "css"
   }
 ]

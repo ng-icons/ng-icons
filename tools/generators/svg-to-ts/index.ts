@@ -10,6 +10,12 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
     file => extname(file) === '.svg',
   );
 
+  if (files.length === 0) {
+    throw new Error('No icons found for iconset: ' + iconset.from);
+  }
+
+  console.log('Found ' + files.length + ' icons in ' + iconset.from);
+
   // read the contents of each file
   const output: Record<string, string> = {};
 
@@ -123,6 +129,7 @@ async function createIconset(iconset: Iconset): Promise<string> {
     output.push(content);
   }
 
+ 
   return output.join('\n');
 }
 
@@ -145,7 +152,7 @@ export async function iconGenerator(tree: Tree): Promise<void> {
 
   for (const iconset of iconsets as Iconset[]) {
     if (tree.exists(iconset.to)) {
-      tree.delete(iconset.to);
+      // tree.delete(iconset.to);
     }
 
     tree.write(iconset.to, await createIconset(iconset));
