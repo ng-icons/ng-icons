@@ -10,6 +10,12 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
     file => extname(file) === '.svg',
   );
 
+  if (files.length === 0) {
+    throw new Error('No icons found for iconset: ' + iconset.from);
+  }
+
+  console.log('Found ' + files.length + ' icons in ' + iconset.from);
+
   // read the contents of each file
   const output: Record<string, string> = {};
 
