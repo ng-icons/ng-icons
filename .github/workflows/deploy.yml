@@ -28,6 +28,7 @@ jobs:
     - run: yarn lint
     - run: yarn generate:iconsets
     - run: yarn compile
+    - run: yarn nx build documentation --prod
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
