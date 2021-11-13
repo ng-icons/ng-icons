@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ng-icons/akar-icons": ["packages/akar-icons/src/index.ts"],
       "@ng-icons/core": ["packages/core/src/index.ts"],
       "@ng-icons/css.gg": ["packages/css-gg/src/index.ts"],
       "@ng-icons/feather-icons": ["packages/feather-icons/src/index.ts"],

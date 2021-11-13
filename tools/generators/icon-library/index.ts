@@ -111,6 +111,7 @@ export default async function (tree: Tree, schema: Schema) {
   await iconGenerator(tree);
 
   await wrapAngularDevkitSchematic('@schematics/angular', 'module')(tree, {
+    name: schema.name,
     module: 'app',
     routing: true,
     route: schema.name,

@@ -6,6 +6,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { NgIconsModule } from '@ng-icons/core';
 import { HeroCollection, HeroHome, HeroSearch } from '@ng-icons/heroicons';
 import { OctMarkGithub, OctOctoface } from '@ng-icons/octicons';
+import { AkarRadish } from '@ng-icons/akar-icons';
 import { FeatherFeather, FeatherShield } from '@ng-icons/feather-icons';
 import { JamGlassFilled } from '@ng-icons/jam-icons';
 import { RadixModulzLogo } from '@ng-icons/radix-icons';
@@ -54,6 +55,7 @@ import { IconPageComponent } from './components/icon-page/icon-page.component';
       RadixModulzLogo,
       TablerTools,
       CssShapeHexagon,
+      AkarRadish,
     }),
     FormsModule,
   ],

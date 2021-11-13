@@ -7,6 +7,7 @@
     "name": {
       "type": "string",
       "description": "Library name",
+      "x-prompt": "What should the library be called?",
       "$default": {
         "$source": "argv",
         "index": 0

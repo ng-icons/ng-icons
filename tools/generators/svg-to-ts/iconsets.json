@@ -41,5 +41,12 @@
     "from": "node_modules/css.gg/icons/svg",
     "to": "packages/css-gg/src/index.ts",
     "prefix": "css"
+  },
+  {
+    "from": "packages/akar-icons/svg",
+    "to": "packages/akar-icons/src/index.ts",
+    "prefix": "akar",
+    "colorAttr": "stroke",
+    "removeStroke": true
   }
 ]

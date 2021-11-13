@@ -1,0 +1,40 @@
+{
+  "projectType": "library",
+  "root": "packages/akar-icons",
+  "sourceRoot": "packages/akar-icons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/akar-icons"],
+      "options": {
+        "project": "packages/akar-icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/akar-icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/akar-icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/akar-icons/src/**/*.ts",
+          "packages/akar-icons/src/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "akar-icons": "packages/akar-icons",
     "core": "packages/core",
     "css-gg": "packages/css-gg",
     "documentation": "apps/documentation",
