@@ -18,6 +18,16 @@ Currently, we support the following libraries:
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
+## Supported Versions
+
+| Angular Version | Ng Icon Version    |
+| --------------- | ------------------ |
+| 11.x.x          | 12.x.x             |
+| 12.x.x          | 13.x.x (or 12.x.x) |
+| 13.x.x          | 13.x.x             |
+
+> Note: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
+
 ## Installation
 
 Ng Icons consists of multiple packages:
