@@ -2023,6 +2023,11 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@stencil/core@~2.10.0":
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.10.0.tgz#acf44b9ae6578a20f0d09bf94296e833beadc885"
+  integrity sha512-15rWMTPQ/sp0lSV82HVCXkIya3QLN+uBl7pqK4JnTrp4HiLrzLmNbWjbvgCs55gw0lULbCIGbRIEsFz+Pe/Q+A==
+
 "@tabler/icons@^1.41.2":
   version "1.41.2"
   resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.41.2.tgz#effccbb261539b68609cc7dc660a058683170ee1"
@@ -5589,6 +5594,13 @@ internal-slot@^1.0.3:
     get-intrinsic "^1.1.0"
     has "^1.0.3"
     side-channel "^1.0.4"
+
+ionicons@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-6.0.0.tgz#c7c0d253d62b33ba3fa47568ff58586a5d8bdcd1"
+  integrity sha512-p83W1T8jZUlllHAjuIWaDQbI36OYqdrwcf8MhYbKW7+9rjGlCMP9+5OaR0W7tl0QfM004uAiy/zkc7HTpDNKgA==
+  dependencies:
+    "@stencil/core" "~2.10.0"
 
 ip-regex@^2.1.0:
   version "2.1.0"

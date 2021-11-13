@@ -4,6 +4,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { NgIconsModule } from '@ng-icons/core';
+import { IonLogoIonic } from '@ng-icons/ionicons';
 import { HeroCollection, HeroHome, HeroSearch } from '@ng-icons/heroicons';
 import { OctMarkGithub, OctOctoface } from '@ng-icons/octicons';
 import { AkarRadish } from '@ng-icons/akar-icons';
@@ -58,6 +59,7 @@ import { IconPageComponent } from './components/icon-page/icon-page.component';
       TablerTools,
       CssShapeHexagon,
       AkarRadish,
+      IonLogoIonic,
     }),
     FormsModule,
   ],

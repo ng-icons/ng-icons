@@ -1,0 +1,40 @@
+{
+  "projectType": "library",
+  "root": "packages/ionicons",
+  "sourceRoot": "packages/ionicons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/ionicons"],
+      "options": {
+        "project": "packages/ionicons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/ionicons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/ionicons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/ionicons/src/**/*.ts",
+          "packages/ionicons/src/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

@@ -58,6 +58,11 @@ const routes: Routes = [
         m => m.BootstrapIconsModule,
       ),
   },
+  {
+    path: 'ionicons',
+    loadChildren: () =>
+      import('./ionicons/ionicons.module').then(m => m.IoniconsModule),
+  },
 ];
 
 @NgModule({

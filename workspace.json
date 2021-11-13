@@ -8,6 +8,7 @@
     "documentation": "apps/documentation",
     "feather-icons": "packages/feather-icons",
     "heroicons": "packages/heroicons",
+    "ionicons": "packages/ionicons",
     "jam-icons": "packages/jam-icons",
     "octicons": "packages/octicons",
     "radix-icons": "packages/radix-icons",
