@@ -46,6 +46,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./css-gg/css-gg.module').then(m => m.CssGgModule),
   },
+  {
+    path: 'akar-icons',
+    loadChildren: () =>
+      import('./akar-icons/akar-icons.module').then(m => m.AkarIconsModule),
+  },
 ];
 
 @NgModule({

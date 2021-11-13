@@ -53,6 +53,11 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
                     'var(--ng-icon__size, 1em)',
                     '',
                   );
+                } else {
+                  // if this is not the svg element remove the stroke property
+                  if (iconset.removeStroke && node.attributes['stroke-width']) {
+                    delete node.attributes['stroke'];
+                  }
                 }
 
                 if (node.attributes['stroke-width']) {
@@ -129,7 +134,6 @@ async function createIconset(iconset: Iconset): Promise<string> {
     output.push(content);
   }
 
- 
   return output.join('\n');
 }
 
@@ -139,6 +143,7 @@ interface Iconset {
   prefix: string;
   suffix?: string;
   colorAttr?: 'fill' | 'stroke';
+  removeStroke?: boolean;
 }
 
 export async function iconGenerator(tree: Tree): Promise<void> {
@@ -151,11 +156,13 @@ export async function iconGenerator(tree: Tree): Promise<void> {
   );
 
   for (const iconset of iconsets as Iconset[]) {
-    if (tree.exists(iconset.to)) {
-      // tree.delete(iconset.to);
+    if (tree.exists(iconset.from)) {
+      tree.write(iconset.to, await createIconset(iconset));
+    } else {
+      console.warn(
+        'Skipping iconset ' + iconset.from + ' because it does not exist',
+      );
     }
-
-    tree.write(iconset.to, await createIconset(iconset));
   }
 
   await formatFiles(tree);

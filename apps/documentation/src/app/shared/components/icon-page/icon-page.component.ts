@@ -1,17 +1,19 @@
-import { Directive } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { SearchService } from '../../services/search.service';
 import { Dialog } from '@angular/cdk-experimental/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 
-@Directive({
-  selector: '[appIconPage]',
+@Component({
+  selector: 'app-icon-page',
+  templateUrl: './icon-page.component.html',
+  styleUrls: ['./icon-page.component.scss'],
 })
-export abstract class IconPageDirective {
-  abstract library: string;
-  abstract website: string;
-  abstract license: string;
-  abstract iconset: Record<string, string>;
+export class IconPageComponent {
+  @Input() library!: string;
+  @Input() website!: string;
+  @Input() license!: string;
+  @Input() iconset!: Record<string, string>;
 
   icons$ = this.searchService.search$.pipe(
     map(query =>

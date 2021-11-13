@@ -111,11 +111,30 @@ export default async function (tree: Tree, schema: Schema) {
   await iconGenerator(tree);
 
   await wrapAngularDevkitSchematic('@schematics/angular', 'module')(tree, {
+    name: schema.name,
     module: 'app',
     routing: true,
     route: schema.name,
     project: 'documentation',
   });
+
+  // delete the spec file
+  tree.delete(
+    `apps/documentation/src/app/${schema.name}/${schema.name}.component.spec.ts`,
+  );
+
+  // insert the default html
+  tree.write(
+    `apps/documentation/src/app/${schema.name}/${schema.name}.component.html`,
+    '<app-icon-page\n' +
+      '  [iconset]="iconset"\n' +
+      '  library="' +
+      schema.name +
+      '"\n' +
+      '  website=""\n' +
+      '  license="MIT"\n' +
+      '></app-icon-page>\n',
+  );
 
   await formatFiles(tree);
 }
