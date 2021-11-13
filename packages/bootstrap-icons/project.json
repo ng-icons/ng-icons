@@ -1,0 +1,40 @@
+{
+  "projectType": "library",
+  "root": "packages/bootstrap-icons",
+  "sourceRoot": "packages/bootstrap-icons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/bootstrap-icons"],
+      "options": {
+        "project": "packages/bootstrap-icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/bootstrap-icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/bootstrap-icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/bootstrap-icons/src/**/*.ts",
+          "packages/bootstrap-icons/src/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

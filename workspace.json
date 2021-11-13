@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "akar-icons": "packages/akar-icons",
+    "bootstrap-icons": "packages/bootstrap-icons",
     "core": "packages/core",
     "css-gg": "packages/css-gg",
     "documentation": "apps/documentation",
