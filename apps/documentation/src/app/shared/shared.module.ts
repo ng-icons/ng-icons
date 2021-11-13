@@ -16,6 +16,8 @@ import { IconCardListComponent } from './components/icon-card-list/icon-card-lis
 import { DashPipe } from './pipes/dash.pipe';
 import { FormsModule } from '@angular/forms';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { DialogModule } from '@angular/cdk-experimental/dialog';
+import { IconPageComponent } from './components/icon-page/icon-page.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     IconCardListComponent,
     DashPipe,
     DialogComponent,
+    IconPageComponent,
   ],
   exports: [
     SidebarComponent,
@@ -34,9 +37,11 @@ import { DialogComponent } from './components/dialog/dialog.component';
     IconCardComponent,
     IconCardListComponent,
     DashPipe,
+    IconPageComponent,
   ],
   imports: [
     CommonModule,
+    DialogModule,
     NgIconsModule.withIcons({
       HeroHome,
       HeroCollection,

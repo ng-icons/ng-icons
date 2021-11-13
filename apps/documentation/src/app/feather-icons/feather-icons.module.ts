@@ -5,7 +5,6 @@ import { FeatherIconsRoutingModule } from './feather-icons-routing.module';
 import { FeatherIconsComponent } from './feather-icons.component';
 import { NgIconsModule } from '@ng-icons/core';
 import { SharedModule } from '../shared/shared.module';
-import { DialogModule } from '@angular/cdk-experimental/dialog';
 
 @NgModule({
   declarations: [FeatherIconsComponent],
@@ -14,7 +13,6 @@ import { DialogModule } from '@angular/cdk-experimental/dialog';
     FeatherIconsRoutingModule,
     NgIconsModule.withIcons(featherIcons),
     SharedModule,
-    DialogModule,
   ],
 })
 export class FeatherIconsModule {}
