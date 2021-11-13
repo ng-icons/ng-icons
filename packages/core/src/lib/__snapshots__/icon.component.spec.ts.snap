@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`IconComponent should insert the expected template 1`] = `
+exports[`Icon should insert the expected template 1`] = `
 <div
   id="root0"
   style="--ng-icon__size: 1em;"

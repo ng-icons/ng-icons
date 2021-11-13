@@ -3,7 +3,7 @@ import { FeatherAlertCircle } from '@ng-icons/feather-icons';
 import { IconComponent } from './icon.component';
 import { NgIconsModule } from './icon.module';
 
-describe('IconComponent', () => {
+describe('Icon', () => {
   let component: IconComponent;
   let fixture: ComponentFixture<IconComponent>;
   let nativeElement: HTMLElement;
