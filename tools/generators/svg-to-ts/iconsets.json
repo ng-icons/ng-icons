@@ -53,5 +53,11 @@
     "from": "node_modules/bootstrap-icons/icons",
     "to": "packages/bootstrap-icons/src/index.ts",
     "prefix": "bootstrap"
+  },
+  {
+    "from": "node_modules/ionicons/dist/svg",
+    "to": "packages/ionicons/src/index.ts",
+    "prefix": "ion",
+    "colorAttr": "fill"
   }
 ]

@@ -1,12 +1,13 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 6000+ icons for you to use in your projects.
+Containing over 7000+ icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
 - [Heroicons](https://heroicons.com/)
+- [Ionicons](https://ionic.io/ionicons)
 - [CSS.gg](https://css.gg/)
 - [Feather Icons](https://feathericons.com/)
 - [Jam Icons](https://jam-icons.com/)
@@ -24,6 +25,7 @@ Ng Icons consists of multiple packages:
 - `@ng-icons/core` - This contains the icon component and the `NgIconsModule` that is used to register the icons you want to include in your application.
 - `@ng-icons/bootstrap-icons` - The Bootstrap iconset including both outline and solid variants.
 - `@ng-icons/heroicons` - The Heroicons iconset including both outline and solid variants.
+- `@ng-icons/ionicons` - The Ionicons iconset including both outline and solid variants.
 - `@ng-icons/css.gg` - The CSS.gg iconset.
 - `@ng-icons/feather-icons` - The Feather Icons iconset.
 - `@ng-icons/jam-icons` - The Jam Icons iconset.
