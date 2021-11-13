@@ -51,6 +51,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./akar-icons/akar-icons.module').then(m => m.AkarIconsModule),
   },
+  {
+    path: 'bootstrap-icons',
+    loadChildren: () =>
+      import('./bootstrap-icons/bootstrap-icons.module').then(
+        m => m.BootstrapIconsModule,
+      ),
+  },
 ];
 
 @NgModule({

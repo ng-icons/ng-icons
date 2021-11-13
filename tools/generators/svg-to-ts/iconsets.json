@@ -48,5 +48,10 @@
     "prefix": "akar",
     "colorAttr": "stroke",
     "removeStroke": true
+  },
+  {
+    "from": "node_modules/bootstrap-icons/icons",
+    "to": "packages/bootstrap-icons/src/index.ts",
+    "prefix": "bootstrap"
   }
 ]

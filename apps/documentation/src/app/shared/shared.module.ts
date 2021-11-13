@@ -11,6 +11,7 @@ import { FeatherFeather, FeatherShield } from '@ng-icons/feather-icons';
 import { JamGlassFilled } from '@ng-icons/jam-icons';
 import { RadixModulzLogo } from '@ng-icons/radix-icons';
 import { TablerTools } from '@ng-icons/tabler-icons';
+import { BootstrapBootstrap } from '@ng-icons/bootstrap-icons';
 import { CssShapeHexagon } from '@ng-icons/css.gg';
 import { IconCardComponent } from './components/icon-card/icon-card.component';
 import { IconCardListComponent } from './components/icon-card-list/icon-card-list.component';
@@ -49,6 +50,7 @@ import { IconPageComponent } from './components/icon-page/icon-page.component';
       HeroSearch,
       OctMarkGithub,
       FeatherShield,
+      BootstrapBootstrap,
       FeatherFeather,
       JamGlassFilled,
       OctOctoface,

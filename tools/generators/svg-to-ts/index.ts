@@ -4,6 +4,8 @@ import { basename, extname } from 'path';
 import { AddAttributesToSVGElementPlugin, optimize, Plugin } from 'svgo';
 import * as ts from 'typescript';
 
+let iconCount = 0;
+
 async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   // load all the svg files within the path
   const files = (await readdir(iconset.from)).filter(
@@ -13,6 +15,8 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   if (files.length === 0) {
     throw new Error('No icons found for iconset: ' + iconset.from);
   }
+
+  iconCount += files.length;
 
   console.log('Found ' + files.length + ' icons in ' + iconset.from);
 
@@ -164,6 +168,8 @@ export async function iconGenerator(tree: Tree): Promise<void> {
       );
     }
   }
+
+  console.log(`✅ Generated ${iconCount} icons.`);
 
   await formatFiles(tree);
 }
