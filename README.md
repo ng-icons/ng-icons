@@ -1,13 +1,14 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 7000+ icons for you to use in your projects.
+Containing over 17000+ icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
 - [Heroicons](https://heroicons.com/)
 - [Ionicons](https://ionic.io/ionicons)
+- [Material Icons](https://fonts.google.com/icons?selected=Material+Icons)
 - [CSS.gg](https://css.gg/)
 - [Feather Icons](https://feathericons.com/)
 - [Jam Icons](https://jam-icons.com/)
@@ -48,19 +49,20 @@ yarn add @ng-icons/core @ng-icons/heroicons ...
 
 The following packages are available:
 
-| Package                     | License |
-|-----------------------------|---------|
-| `@ng-icons/core`            | MIT     |
-| `@ng-icons/bootstrap-icons` | MIT     |
-| `@ng-icons/heroicons`       | MIT     |
-| `@ng-icons/ionicons`        | MIT     |
-| `@ng-icons/css.gg`          | MIT     |
-| `@ng-icons/feather-icons`   | MIT     |
-| `@ng-icons/jam-icons`       | MIT     |
-| `@ng-icons/octicons`        | MIT     |
-| `@ng-icons/radix-icons`     | MIT     |
-| `@ng-icons/tabler-icons`    | MIT     |
-| `@ng-icons/akar-icons`      | MIT     |
+| Package                     | License    |
+| --------------------------- | ---------- |
+| `@ng-icons/core`            | MIT        |
+| `@ng-icons/bootstrap-icons` | MIT        |
+| `@ng-icons/heroicons`       | MIT        |
+| `@ng-icons/ionicons`        | MIT        |
+| `@ng-icons/material-icons`  | Apache 2.0 |
+| `@ng-icons/css.gg`          | MIT        |
+| `@ng-icons/feather-icons`   | MIT        |
+| `@ng-icons/jam-icons`       | MIT        |
+| `@ng-icons/octicons`        | MIT        |
+| `@ng-icons/radix-icons`     | MIT        |
+| `@ng-icons/tabler-icons`    | MIT        |
+| `@ng-icons/akar-icons`      | MIT        |
 
 ## Usage
 

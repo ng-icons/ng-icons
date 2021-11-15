@@ -1,4 +1,10 @@
-import { Inject, ModuleWithProviders, NgModule, Optional } from '@angular/core';
+import {
+  Inject,
+  ModuleWithProviders,
+  NgModule,
+  Optional,
+  SkipSelf,
+} from '@angular/core';
 import { IconComponent } from './icon.component';
 import { IconsToken } from './icon.token';
 
@@ -29,7 +35,16 @@ export class NgIconsModule {
   ): ModuleWithProviders<NgIconsModule> {
     return {
       ngModule: NgIconsModule,
-      providers: [{ provide: IconsToken, multi: true, useValue: icons }],
+      providers: [
+        {
+          provide: IconsToken,
+          useFactory: (existingIcons: Record<string, string> = {}) => ({
+            ...existingIcons,
+            ...icons,
+          }),
+          deps: [[new Optional(), new SkipSelf(), new Inject(IconsToken)]],
+        },
+      ],
     };
   }
 }

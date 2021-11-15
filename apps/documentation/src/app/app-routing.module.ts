@@ -63,6 +63,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./ionicons/ionicons.module').then(m => m.IoniconsModule),
   },
+  {
+    path: 'material-icons',
+    loadChildren: () =>
+      import('./material-icons/material-icons.module').then(
+        m => m.MaterialIconsModule,
+      ),
+  },
 ];
 
 @NgModule({

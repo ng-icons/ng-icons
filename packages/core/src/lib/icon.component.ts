@@ -45,15 +45,10 @@ export class IconComponent {
   @Input()
   strokeWidth?: string | number;
 
-  /** Flatten the iconsets */
-  get iconset(): Record<string, string> {
-    return Object.assign({}, ...this.icons);
-  }
-
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
     private readonly sanitizer: DomSanitizer,
-    @Inject(IconsToken) private readonly icons: Record<string, string>[],
+    @Inject(IconsToken) private readonly iconset: Record<string, string>,
   ) {}
 
   /**

@@ -20,9 +20,8 @@
     },
     "svgPath": {
       "type": "string",
-      "description": "Path to the svg files name",
-      "x-prompt": "Path to the svg files name"
+      "description": "Path to the svg files name"
     }
   },
-  "required": ["name", "prefix", "svgPath"]
+  "required": ["name", "prefix"]
 }

@@ -1,36 +1,55 @@
-import { formatFiles, joinPathFragments, names, Tree } from '@nrwl/devkit';
-import { readdir, readFile } from 'fs-extra';
-import { basename, extname } from 'path';
+import { formatFiles, names, Tree } from '@nrwl/devkit';
+import { readFile } from 'fs-extra';
+import { sync } from 'glob';
+import { basename } from 'path';
 import { AddAttributesToSVGElementPlugin, optimize, Plugin } from 'svgo';
 import * as ts from 'typescript';
+import { Iconset, iconsets } from './iconsets';
 
 let iconCount = 0;
 
-async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
-  // load all the svg files within the path
-  const files = (await readdir(iconset.from)).filter(
-    file => extname(file) === '.svg',
-  );
+function fileNameFormatter(name: string, prefix: string) {
+  return prefix + '-' + names(basename(name, '.svg')).fileName;
+}
 
-  if (files.length === 0) {
-    throw new Error('No icons found for iconset: ' + iconset.from);
+async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
+  // load all the svg iconDetails within the path
+  const iconDetails: IconDetails[] = [];
+
+  for (const variant of iconset.variants) {
+    const dirFiles = sync(variant.glob).map<IconDetails>(path => ({
+      name: variant.formatter
+        ? variant.formatter(
+            fileNameFormatter(path, iconset.prefix),
+            path,
+            iconset.prefix,
+          )
+        : fileNameFormatter(path, iconset.prefix),
+      path,
+    }));
+
+    iconDetails.push(...dirFiles);
   }
 
-  iconCount += files.length;
+  if (iconDetails.length === 0) {
+    throw new Error('No icons found for iconset: ' + iconset.variants);
+  }
 
-  console.log('Found ' + files.length + ' icons in ' + iconset.from);
+  iconCount += iconDetails.length;
+
+  console.log(
+    'Found ' +
+      iconDetails.length +
+      ' icons in ' +
+      iconset.variants.map(variant => variant.glob).join(', '),
+  );
 
   // read the contents of each file
   const output: Record<string, string> = {};
 
-  for (const file of files) {
-    const iconName = names(
-      iconset.prefix +
-        '-' +
-        basename(file, '.svg') +
-        names(iconset.suffix ?? '').className,
-    ).className;
-    let svg = await readFile(joinPathFragments(iconset.from, file), 'utf8');
+  for (const iconDetail of iconDetails) {
+    const iconName = names(iconDetail.name).className;
+    let svg = await readFile(iconDetail.path, 'utf8');
 
     const plugins = [
       {
@@ -59,7 +78,10 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
                   );
                 } else {
                   // if this is not the svg element remove the stroke property
-                  if (iconset.removeStroke && node.attributes['stroke-width']) {
+                  if (
+                    iconset.svg?.removeStroke &&
+                    node.attributes['stroke-width']
+                  ) {
                     delete node.attributes['stroke'];
                   }
                 }
@@ -80,13 +102,13 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
       } as Plugin,
     ];
 
-    if (iconset.colorAttr) {
+    if (iconset.svg?.colorAttr) {
       plugins.push({
         name: 'addAttributesToSVGElement',
         params: {
           attributes: [
             {
-              [iconset.colorAttr]: 'currentColor',
+              [iconset.svg!.colorAttr]: 'currentColor',
             },
           ],
         },
@@ -141,37 +163,25 @@ async function createIconset(iconset: Iconset): Promise<string> {
   return output.join('\n');
 }
 
-interface Iconset {
-  from: string;
-  to: string;
-  prefix: string;
-  suffix?: string;
-  colorAttr?: 'fill' | 'stroke';
-  removeStroke?: boolean;
-}
-
 export async function iconGenerator(tree: Tree): Promise<void> {
-  const iconsets = JSON.parse(
-    tree
-      .read(
-        joinPathFragments('tools', 'generators', 'svg-to-ts', 'iconsets.json'),
-      )
-      .toString(),
-  );
-
-  for (const iconset of iconsets as Iconset[]) {
-    if (tree.exists(iconset.from)) {
-      tree.write(iconset.to, await createIconset(iconset));
-    } else {
-      console.warn(
-        'Skipping iconset ' + iconset.from + ' because it does not exist',
-      );
+  for (const iconset of iconsets) {
+    // if there is no path then skip
+    if (!iconset.variants || iconset.variants.length === 0) {
+      console.warn('⚠️ Skipping iconset because there are no paths defined');
+      continue;
     }
+
+    tree.write(iconset.output, await createIconset(iconset));
   }
 
   console.log(`✅ Generated ${iconCount} icons.`);
 
   await formatFiles(tree);
+}
+
+interface IconDetails {
+  name: string;
+  path: string;
 }
 
 export default iconGenerator;

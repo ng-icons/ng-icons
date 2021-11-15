@@ -1,13 +1,14 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 7000+ icons for you to use in your projects.
+Containing over 17000+ icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
 - [Heroicons](https://heroicons.com/)
 - [Ionicons](https://ionic.io/ionicons)
+- [Material Icons](https://fonts.google.com/icons?selected=Material+Icons)
 - [CSS.gg](https://css.gg/)
 - [Feather Icons](https://feathericons.com/)
 - [Jam Icons](https://jam-icons.com/)
@@ -30,20 +31,6 @@ Got suggestions for additional iconsets? Create an issue and we can consider add
 
 ## Installation
 
-Ng Icons consists of multiple packages:
-
-- `@ng-icons/core` - This contains the icon component and the `NgIconsModule` that is used to register the icons you want to include in your application.
-- `@ng-icons/bootstrap-icons` - The Bootstrap iconset including both outline and solid variants.
-- `@ng-icons/heroicons` - The Heroicons iconset including both outline and solid variants.
-- `@ng-icons/ionicons` - The Ionicons iconset including both outline and solid variants.
-- `@ng-icons/css.gg` - The CSS.gg iconset.
-- `@ng-icons/feather-icons` - The Feather Icons iconset.
-- `@ng-icons/jam-icons` - The Jam Icons iconset.
-- `@ng-icons/octicons` - The Octicons iconset.
-- `@ng-icons/radix-icons` - The Radix UI iconset.
-- `@ng-icons/tabler-icons` - The Tabler iconset.
-- `@ng-icons/akar-icons` - The Akar iconset.
-
 You must install the `@ng-icons/core` package, however you only need to install the iconset libraries you intend to use.
 
 E.g:
@@ -57,6 +44,25 @@ or
 ```bash
 yarn add @ng-icons/core @ng-icons/heroicons ...
 ```
+
+## Packages
+
+The following packages are available:
+
+| Package                     | License    |
+| --------------------------- | ---------- |
+| `@ng-icons/core`            | MIT        |
+| `@ng-icons/bootstrap-icons` | MIT        |
+| `@ng-icons/heroicons`       | MIT        |
+| `@ng-icons/ionicons`        | MIT        |
+| `@ng-icons/material-icons`  | Apache 2.0 |
+| `@ng-icons/css.gg`          | MIT        |
+| `@ng-icons/feather-icons`   | MIT        |
+| `@ng-icons/jam-icons`       | MIT        |
+| `@ng-icons/octicons`        | MIT        |
+| `@ng-icons/radix-icons`     | MIT        |
+| `@ng-icons/tabler-icons`    | MIT        |
+| `@ng-icons/akar-icons`      | MIT        |
 
 ## Usage
 

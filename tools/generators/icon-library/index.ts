@@ -7,12 +7,12 @@ import {
   updateJson,
   updateProjectConfiguration,
 } from '@nrwl/devkit';
-import { iconGenerator } from '../svg-to-ts/index';
 import { wrapAngularDevkitSchematic } from '@nrwl/tao/src/commands/ngcli-adapter';
+import { iconGenerator } from '../svg-to-ts/index';
 
 interface Schema {
   name: string;
-  svgPath: string;
+  svgPath?: string;
   prefix: string;
 }
 
@@ -52,8 +52,8 @@ export default async function (tree: Tree, schema: Schema) {
     };
     json.homepage = 'https://ng-icons.github.io/ng-icons/';
     json.peerDependencies = {
-      '@angular/common': '>=11.0.0',
-      '@angular/core': '>=11.0.0',
+      '@angular/common': '>=12.0.0',
+      '@angular/core': '>=12.0.0',
     };
     json.dependencies = {
       tslib: '^2.2.0',
@@ -86,29 +86,25 @@ export default async function (tree: Tree, schema: Schema) {
     return json;
   });
 
-  updateJson(tree, `packages/${schema.name}/tsconfig.lib.prod.json`, json => {
-    json.angularCompilerOptions = {
-      enableIvy: false,
-    };
-    return json;
-  });
-
-  updateJson(tree, 'tools/generators/svg-to-ts/iconsets.json', json => {
-    json.push({
-      from: schema.svgPath,
-      to: `packages/${schema.name}/src/index.ts`,
-      prefix: schema.prefix,
-    });
-
-    return json;
-  });
+  // TODO - Make this work
+  // updateJson(tree, 'tools/generators/svg-to-ts/iconsets.json', json => {
+  //   json.push({
+  //     from: schema.svgPath ? [schema.svgPath] : [],
+  //     to: `packages/${schema.name}/src/index.ts`,
+  //     prefix: schema.prefix,
+  //   });
+  //
+  //   return json;
+  // });
 
   // remove the test files
   tree.delete(`packages/${schema.name}/jest.config.js`);
   tree.delete(`packages/${schema.name}/tsconfig.spec.json`);
   tree.delete(`packages/${schema.name}/src/test-setup.ts`);
 
-  await iconGenerator(tree);
+  if (schema.svgPath) {
+    await iconGenerator(tree);
+  }
 
   await wrapAngularDevkitSchematic('@schematics/angular', 'module')(tree, {
     name: schema.name,
