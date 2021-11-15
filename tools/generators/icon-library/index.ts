@@ -8,12 +8,13 @@ import {
   updateProjectConfiguration,
 } from '@nrwl/devkit';
 import { wrapAngularDevkitSchematic } from '@nrwl/tao/src/commands/ngcli-adapter';
-import { iconGenerator } from '../svg-to-ts/index';
+import { iconGenerator } from '../svg-to-ts';
 
 interface Schema {
   name: string;
   svgPath?: string;
   prefix: string;
+  license: string;
 }
 
 export default async function (tree: Tree, schema: Schema) {
@@ -46,7 +47,7 @@ export default async function (tree: Tree, schema: Schema) {
   updateProjectConfiguration(tree, schema.name, configuration);
 
   updateJson(tree, `packages/${schema.name}/package.json`, json => {
-    json.license = 'MIT';
+    json.license = schema.license;
     json.repository = {
       url: 'https://github.com/ng-icons/ng-icons',
     };
