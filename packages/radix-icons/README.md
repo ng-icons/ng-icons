@@ -90,7 +90,8 @@ You can then use the icon in your templates:
 <ng-icon name="feather-airplay"></ng-icon>
 ```
 
-| Name        | Type             | Description                          |
-| ----------- | ---------------- | ------------------------------------ |
-| size        | string           | Define the size of the icon.         |
-| strokeWidth | string \| number | Define the stroke-width of the icon. |
+| Name        | Type                 | Description                                                                        |
+| ----------- | -------------------- | ---------------------------------------------------------------------------------- |
+| size        | `string`             | Define the size of the icon. This defaults to the current font size.               |
+| color       | `string`             | Define the color of the icon. This defaults to the current text color.             |
+| strokeWidth | `string` \| `number` | Define the stroke-width of the icon. This only works on iconsets that use strokes. |

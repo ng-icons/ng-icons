@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { IconsToken } from './icon.token';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { toUpperCamelCase } from './utils/format';
 
 @Component({
   selector: 'ng-icon',
@@ -18,10 +19,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class IconComponent {
   /** Define the name of the icon to display */
   @Input() set name(name: string) {
-    name = this.toUpperCamelCase(name);
+    name = toUpperCamelCase(name);
 
     // if there is no icon with this name warn the user as they probably forgot to import it
-    if (!this.iconset.hasOwnProperty(name)) {
+    if (!this.icons.hasOwnProperty(name)) {
       console.warn(
         `No icon named ${name} was found. You may need to import it using the withIcons function.`,
       );
@@ -29,7 +30,7 @@ export class IconComponent {
     }
 
     // insert the SVG into the template
-    this.template = this.sanitizer.bypassSecurityTrustHtml(this.iconset[name]);
+    this.template = this.sanitizer.bypassSecurityTrustHtml(this.icons[name]);
   }
 
   /** Store the formatted icon name */
@@ -45,35 +46,14 @@ export class IconComponent {
   @Input()
   strokeWidth?: string | number;
 
+  /** Define the color of the icon */
+  @HostBinding('style.color')
+  @Input()
+  color?: string;
+
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
     private readonly sanitizer: DomSanitizer,
-    @Inject(IconsToken) private readonly iconset: Record<string, string>,
+    @Inject(IconsToken) private readonly icons: Record<string, string>,
   ) {}
-
-  /**
-   * Hyphenated to UpperCamelCase
-   */
-  private toUpperCamelCase(str: string): string {
-    return this.toCapitalCase(this.toPropertyName(str));
-  }
-
-  /**
-   * Hyphenated to lowerCamelCase
-   */
-  private toPropertyName(str: string): string {
-    return str
-      .replace(/([^a-zA-Z0-9])+(.)?/g, (_, __, chr) =>
-        chr ? chr.toUpperCase() : '',
-      )
-      .replace(/[^a-zA-Z\d]/g, '')
-      .replace(/^([A-Z])/, m => m.toLowerCase());
-  }
-
-  /**
-   * Capitalizes the first letter of a string
-   */
-  private toCapitalCase(str: string): string {
-    return str.charAt(0).toUpperCase() + str.substr(1);
-  }
 }
