@@ -10,20 +10,19 @@
       Add the following import to the appropriate
       <code>@NgModule</code>:
 
-      <pre class="text-left">
-import {{ '{' }} {{ icon }} {{ '}' }} from '@ng-icons/{{ library }}';
+      <pre
+        class="text-left"
+      ><code class="language-typescript">import {{ '{' }} {{ icon }} {{ '}' }} from '@ng-icons/{{ library }}';
 
 @NgModule({{ '{' }}
   imports: [
     NgIconsModule.withIcons({{ '{' }} {{ icon }} {{ '}' }})
   ]
-{{ '}' }})</pre
-      >
+{{ '}' }})</code></pre>
       In your component, add the following code:
 
       <pre class="text-left">
-&lt;ng-icon name="{{ icon | dash }}"&gt;&lt;/ng-icon&gt;</pre
-      >
+        <code class="language-typescript">&lt;ng-icon name="{{ icon | dash }}"&gt;&lt;/ng-icon&gt;</code></pre>
     </div>
   </div>
   <div class="mt-5 sm:mt-6">
