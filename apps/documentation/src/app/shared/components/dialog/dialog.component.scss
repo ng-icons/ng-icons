@@ -31,3 +31,11 @@
   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
   sm:text-sm;
 }
+
+pre {
+  font-size: 0;
+}
+
+pre code {
+  font-size: 0.825rem;
+}

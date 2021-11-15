@@ -1,5 +1,11 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+} from '@angular/core';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk-experimental/dialog';
+import hljs from 'highlight.js';
 
 @Component({
   selector: 'app-dialog',
@@ -7,7 +13,7 @@ import { DIALOG_DATA, DialogRef } from '@angular/cdk-experimental/dialog';
   styleUrls: ['./dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DialogComponent {
+export class DialogComponent implements AfterViewInit {
   library!: string;
   icon!: string;
 
@@ -17,6 +23,10 @@ export class DialogComponent {
   ) {
     this.library = data.library;
     this.icon = data.icon;
+  }
+
+  ngAfterViewInit(): void {
+    hljs.highlightAll();
   }
 }
 

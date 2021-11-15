@@ -1,0 +1,40 @@
+{
+  "projectType": "library",
+  "root": "packages/material-icons",
+  "sourceRoot": "packages/material-icons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/material-icons"],
+      "options": {
+        "project": "packages/material-icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/material-icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/material-icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/material-icons/src/**/*.ts",
+          "packages/material-icons/src/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

@@ -18,11 +18,15 @@
       "description": "The iconset prefix",
       "x-prompt": "The iconset prefix"
     },
+    "license": {
+      "type": "string",
+      "description": "The iconset license",
+      "x-prompt": "The iconset license"
+    },
     "svgPath": {
       "type": "string",
-      "description": "Path to the svg files name",
-      "x-prompt": "Path to the svg files name"
+      "description": "Path to the svg files name"
     }
   },
-  "required": ["name", "prefix", "svgPath"]
+  "required": ["name", "prefix", "license"]
 }

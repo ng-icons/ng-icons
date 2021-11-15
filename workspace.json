@@ -10,6 +10,7 @@
     "heroicons": "packages/heroicons",
     "ionicons": "packages/ionicons",
     "jam-icons": "packages/jam-icons",
+    "material-icons": "packages/material-icons",
     "octicons": "packages/octicons",
     "radix-icons": "packages/radix-icons",
     "tabler-icons": "packages/tabler-icons"
