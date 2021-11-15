@@ -8,7 +8,8 @@
     "compile": "nx affected:build --all --parallel && nx workspace-generator update-readmes",
     "serve:documentation": "nx serve documentation",
     "generate:iconsets": "nx workspace-generator svg-to-ts",
-    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=13.0.0"
+    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=13.0.0",
+    "g": "nx workspace-generator icon-library sample --dry-run --verbose"
   },
   "private": true,
   "dependencies": {
