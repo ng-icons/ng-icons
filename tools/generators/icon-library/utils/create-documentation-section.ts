@@ -6,6 +6,9 @@ import {
   addCallToNgModuleImport,
   addImportToNgModule,
   addNamespaceImport,
+  insertClassProperty,
+  removeAllMethods,
+  removeNgOnInitImplements,
 } from './ast-utils';
 import ts = require('typescript');
 
@@ -14,6 +17,31 @@ export async function createDocumentationSection(tree: Tree, schema: Schema) {
   removeUnusedFiles(tree, schema);
   insertComponentTemplate(tree, schema);
   insertModuleImports(tree, schema);
+  updateComponentClass(tree, schema);
+}
+
+function updateComponentClass(tree: Tree, schema: Schema) {
+  // find the component file
+  const componentPath = joinPathFragments(
+    'apps',
+    'documentation',
+    'src',
+    'app',
+    schema.name,
+    `${schema.name}.component.ts`,
+  );
+
+  let sourceFile = getSourceFile(tree, componentPath);
+  sourceFile = removeAllMethods(sourceFile);
+  sourceFile = removeNgOnInitImplements(sourceFile);
+  sourceFile = addNamespaceImport(
+    sourceFile,
+    `@ng-icons/${schema.name}`,
+    'iconset',
+  );
+  sourceFile = insertClassProperty(sourceFile, 'iconset', 'iconset');
+
+  writeSourceFile(tree, componentPath, sourceFile);
 }
 
 function insertModuleImports(tree: Tree, schema: Schema) {
@@ -49,9 +77,12 @@ function insertModuleImports(tree: Tree, schema: Schema) {
     'NgIconsModule',
   );
 
-  sourceFile = addCallToNgModuleImport(sourceFile, 'withIcons', [
-    ts.factory.createIdentifier('iconset'),
-  ]);
+  sourceFile = addCallToNgModuleImport(
+    sourceFile,
+    'NgIconsModule',
+    'withIcons',
+    [ts.factory.createIdentifier('iconset')],
+  );
 
   writeSourceFile(tree, modulePath, sourceFile);
 }
