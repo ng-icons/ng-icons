@@ -1,7 +1,12 @@
 import { joinPathFragments, Tree } from '@nrwl/devkit';
-import { addImportToModule } from '@nrwl/angular/src/utils/nx-devkit/ast-utils';
 import { Schema } from '../schema';
 import { wrapAngularDevkitSchematic } from '@nrwl/tao/src/commands/ngcli-adapter';
+import { getSourceFile, writeSourceFile } from './source-file';
+import {
+  addCallToNgModuleImport,
+  addImportToNgModule,
+  addNamespaceImport,
+} from './ast-utils';
 import ts = require('typescript');
 
 export async function createDocumentationSection(tree: Tree, schema: Schema) {
@@ -13,7 +18,7 @@ export async function createDocumentationSection(tree: Tree, schema: Schema) {
 
 function insertModuleImports(tree: Tree, schema: Schema) {
   // find the ng module file
-  const ngModuleFile = joinPathFragments(
+  const modulePath = joinPathFragments(
     'apps',
     'documentation',
     'src',
@@ -23,15 +28,32 @@ function insertModuleImports(tree: Tree, schema: Schema) {
   );
 
   // create typescript source file from ngModuleFile
-  const sourceFile = ts.createSourceFile(
-    ngModuleFile,
-    tree.read(ngModuleFile).toString(),
-    ts.ScriptTarget.Latest,
-    true,
-  );
+  let sourceFile = getSourceFile(tree, modulePath);
 
   // insert the ng module imports
-  addImportToModule(tree, sourceFile, '', '');
+  sourceFile = addImportToNgModule(
+    sourceFile,
+    '../shared/shared.module',
+    'SharedModule',
+  );
+
+  sourceFile = addNamespaceImport(
+    sourceFile,
+    `@ng-icons/${schema.name}`,
+    'iconset',
+  );
+
+  sourceFile = addImportToNgModule(
+    sourceFile,
+    '@ng-icons/core',
+    'NgIconsModule',
+  );
+
+  sourceFile = addCallToNgModuleImport(sourceFile, 'withIcons', [
+    ts.factory.createIdentifier('iconset'),
+  ]);
+
+  writeSourceFile(tree, modulePath, sourceFile);
 }
 
 function insertComponentTemplate(tree: Tree, schema: Schema) {
