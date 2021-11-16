@@ -23,9 +23,9 @@
       "description": "The iconset license",
       "x-prompt": "The iconset license"
     },
-    "svgPath": {
+    "svgGlob": {
       "type": "string",
-      "description": "Path to the svg files name"
+      "description": "Glob to the svg files name"
     }
   },
   "required": ["name", "prefix", "license"]

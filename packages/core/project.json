@@ -8,7 +8,8 @@
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/packages/core"],
       "options": {
-        "project": "packages/core/ng-package.json"
+        "project": "packages/core/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {
