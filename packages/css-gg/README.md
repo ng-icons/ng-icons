@@ -1,3 +1,6 @@
+
+<img width="847" alt="logo" src="https://user-images.githubusercontent.com/20795331/142078474-da890691-b524-4144-9640-2f7f9da3a3a3.png">
+ 
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
