@@ -58,7 +58,6 @@ class ChildModule {}
 class ParentModule {}
 
 describe('Icon with multiple modules', () => {
-  let component: TestComponent;
   let fixture: ComponentFixture<TestComponent>;
   let nativeElement: HTMLElement;
 
@@ -70,7 +69,6 @@ describe('Icon with multiple modules', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
     nativeElement = fixture.nativeElement;
   });
