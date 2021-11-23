@@ -3,12 +3,11 @@ import {
   Component,
   ElementRef,
   HostBinding,
-  Inject,
   Input,
 } from '@angular/core';
-import { IconsToken } from './icon.token';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { toUpperCamelCase } from './utils/format';
+import { IconService } from './icon.service';
 
 @Component({
   selector: 'ng-icon',
@@ -22,7 +21,7 @@ export class IconComponent {
     name = toUpperCamelCase(name);
 
     // if there is no icon with this name warn the user as they probably forgot to import it
-    if (!this.icons.hasOwnProperty(name)) {
+    if (!this.iconService.icons.hasOwnProperty(name)) {
       console.warn(
         `No icon named ${name} was found. You may need to import it using the withIcons function.`,
       );
@@ -30,7 +29,9 @@ export class IconComponent {
     }
 
     // insert the SVG into the template
-    this.template = this.sanitizer.bypassSecurityTrustHtml(this.icons[name]);
+    this.template = this.sanitizer.bypassSecurityTrustHtml(
+      this.iconService.icons[name],
+    );
   }
 
   /** Store the formatted icon name */
@@ -54,6 +55,6 @@ export class IconComponent {
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
     private readonly sanitizer: DomSanitizer,
-    @Inject(IconsToken) private readonly icons: Record<string, string>,
+    private readonly iconService: IconService,
   ) {}
 }
