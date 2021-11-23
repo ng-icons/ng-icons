@@ -5,6 +5,7 @@ import {
 } from '@ng-icons/feather-icons';
 import { IconComponent } from './icon.component';
 import { NgIconsModule } from './icon.module';
+import { Component, NgModule } from '@angular/core';
 
 describe('Icon', () => {
   let component: IconComponent;
@@ -36,5 +37,47 @@ describe('Icon', () => {
     component.name = 'feather-alert-triangle';
     fixture.detectChanges();
     expect(nativeElement).toMatchSnapshot();
+  });
+});
+
+@Component({
+  template: ` <ng-icon name="feather-alert-circle"></ng-icon>
+    <ng-icon name="feather-alert-triangle"></ng-icon>`,
+})
+class TestComponent {}
+
+@NgModule({
+  imports: [NgIconsModule.withIcons({ FeatherAlertTriangle })],
+  declarations: [TestComponent],
+})
+class ChildModule {}
+
+@NgModule({
+  imports: [ChildModule, NgIconsModule.withIcons({ FeatherAlertCircle })],
+})
+class ParentModule {}
+
+describe('Icon with multiple modules', () => {
+  let component: TestComponent;
+  let fixture: ComponentFixture<TestComponent>;
+  let nativeElement: HTMLElement;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ParentModule],
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TestComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    nativeElement = fixture.nativeElement;
+  });
+
+  it('should display icons registered in both parent and child modules', () => {
+    const icons = nativeElement.querySelectorAll('ng-icon');
+    expect(icons.item(0).innerHTML).toMatchSnapshot();
+    expect(icons.item(1).innerHTML).toMatchSnapshot();
   });
 });
