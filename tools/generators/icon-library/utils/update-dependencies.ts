@@ -9,8 +9,8 @@ export function updateDependencies(tree: Tree, schema: Schema) {
     };
     json.homepage = 'https://ng-icons.github.io/ng-icons/';
     json.peerDependencies = {
-      '@angular/common': '>=12.0.0',
-      '@angular/core': '>=12.0.0',
+      '@angular/common': '>=12.0.0 <14.0.0',
+      '@angular/core': '>=12.0.0 <14.0.0',
     };
     json.dependencies = {
       tslib: '^2.2.0',

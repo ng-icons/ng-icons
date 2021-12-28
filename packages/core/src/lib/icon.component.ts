@@ -40,7 +40,16 @@ export class IconComponent {
   /** Define the size of the icon */
   @HostBinding('style.--ng-icon__size')
   @Input()
-  size: string = '1em';
+  set size(size: string) {
+    // if the size only contains numbers, assume it is in pixels
+    this._size =  coerceCssPixelValue(size);
+  }
+
+  get size(): string {
+    return this._size;
+  }
+
+  private _size: string = '1em';
 
   /** Define the stroke-width of the icon */
   @HostBinding('style.--ng-icon__stroke-width')
@@ -57,4 +66,12 @@ export class IconComponent {
     private readonly sanitizer: DomSanitizer,
     private readonly iconService: IconService,
   ) {}
+}
+
+function coerceCssPixelValue(value: string): string {
+  if (value == null) {
+    return '';
+  }
+
+  return /^\d+$/.test(value) ? `${value}px` : value;
 }
