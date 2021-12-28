@@ -7,8 +7,8 @@
   },
   "homepage": "https://ng-icons.github.io/ng-icons/",
   "peerDependencies": {
-    "@angular/common": ">=12.0.0",
-    "@angular/core": ">=12.0.0"
+    "@angular/common": ">=12.0.0 <14.0.0",
+    "@angular/core": ">=12.0.0 <14.0.0"
   },
   "dependencies": {
     "tslib": "^2.2.0"
