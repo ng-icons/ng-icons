@@ -1845,10 +1845,10 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-1.0.0.tgz#3fdf5798f0b49e90155896f6291df186eac06c83"
   integrity sha512-9oLAnygRMi8Q5QkYEU4XWK04B+nuoXoxjRvRxgjuChkLZFBja0YPSgdZ7dZtwhncLBcQe/I/E+fLuk5qxcYVJA==
 
-"@material-icons/svg@^1.0.21":
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/@material-icons/svg/-/svg-1.0.21.tgz#e03bbc216e0ee80764df59f17fff895a2a8f5428"
-  integrity sha512-B1xxb19huNKZIwNH+3GHGrHF5GuFtZuEeFWq4GJEKou3lR82BJ6MEJwhRj3Ot1WV8kRym0nROBzZy8eCg6gEVQ==
+"@material-icons/svg@^1.0.23":
+  version "1.0.23"
+  resolved "https://registry.yarnpkg.com/@material-icons/svg/-/svg-1.0.23.tgz#84d6fd925907f8ddcc51b27a8a2b3be64d1351d4"
+  integrity sha512-BYYClbv9XjPhKP8mNmfyuTETiT1WoX9uKoRlGdlklbqNna4tSV0DccCfyo+c7pUCeBklq9BOlxbXRiqqQs+NTA==
 
 "@ngneat/tailwind@^7.0.3":
   version "7.0.3"
@@ -2161,10 +2161,10 @@
   resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.10.0.tgz#acf44b9ae6578a20f0d09bf94296e833beadc885"
   integrity sha512-15rWMTPQ/sp0lSV82HVCXkIya3QLN+uBl7pqK4JnTrp4HiLrzLmNbWjbvgCs55gw0lULbCIGbRIEsFz+Pe/Q+A==
 
-"@tabler/icons@^1.41.2":
-  version "1.41.2"
-  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.41.2.tgz#effccbb261539b68609cc7dc660a058683170ee1"
-  integrity sha512-X6cQmMC24hiwg0p2BzasvU3IeCCdOk0f/9d6gNNtJM4lzG2TCloTns1bVvU5MAFkITGukxUqjPFE3Ecd6kGsfw==
+"@tabler/icons@^1.50.0":
+  version "1.50.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.50.0.tgz#f4cb8912b8ee848be40c89132600d3f93e5d63ec"
+  integrity sha512-0HYdiGk5Z9OnHpt6yEn1EAkrkWGgsRWcNJpTUoc32psliVXD7613QMX/VSHdJppIZS4zts7IjHmBz8nHDBC0NA==
 
 "@tailwindcss/typography@0.4.1":
   version "0.4.1"
@@ -3102,10 +3102,10 @@ boolbase@^1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap-icons@^1.7.1:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.7.1.tgz#c17840862845bc11dcc5f69e4ed6f853415df2fd"
-  integrity sha512-Hkuoo0qrWegA9cdzwS68YPSOLf7d42gqnMzT1tIy/SWvnxnI+Y5PFvK2qIbM/L7knH8SdC8FPgjA+bktzmGcAw==
+bootstrap-icons@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.7.2.tgz#4024e081e2c850602552e1fed6451e682d09322a"
+  integrity sha512-NiR2PqC73AQOPdVSu6GJfnk+hN2z6powcistXk1JgPnKuoV2FSdSl26w931Oz9HYbKCcKUSB6ncZTYJAYJl3QQ==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
