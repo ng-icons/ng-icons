@@ -1,5 +1,5 @@
 import { names } from '@nrwl/devkit';
-import { dirname, sep } from 'path';
+import { dirname } from 'path';
 
 export const iconsets: Iconset[] = [
   {
@@ -76,35 +76,36 @@ export const iconsets: Iconset[] = [
       {
         glob: 'node_modules/@material-icons/svg/svg/**/baseline.svg',
         formatter: (name, path, prefix) => {
-          const iconName = dirname(path).split(sep).pop();
+          // regex to split by backslash and forward slash
+          const iconName = dirname(path).split(/[\\/]/).pop();
           return names(prefix + '-' + iconName).fileName;
         },
       },
       {
         glob: 'node_modules/@material-icons/svg/svg/**/outline.svg',
         formatter: (name, path, prefix) => {
-          const iconName = dirname(path).split(sep).pop();
+          const iconName = dirname(path).split(/[\\/]/).pop();
           return names(prefix + '-' + iconName + '-outline').fileName;
         },
       },
       {
         glob: 'node_modules/@material-icons/svg/svg/**/round.svg',
         formatter: (name, path, prefix) => {
-          const iconName = dirname(path).split(sep).pop();
+          const iconName = dirname(path).split(/[\\/]/).pop();
           return names(prefix + '-' + iconName + '-round').fileName;
         },
       },
       {
         glob: 'node_modules/@material-icons/svg/svg/**/sharp.svg',
         formatter: (name, path, prefix) => {
-          const iconName = dirname(path).split(sep).pop();
+          const iconName = dirname(path).split(/[\\/]/).pop();
           return names(prefix + '-' + iconName + '-sharp').fileName;
         },
       },
       {
         glob: 'node_modules/@material-icons/svg/svg/**/twotone.svg',
         formatter: (name, path, prefix) => {
-          const iconName = dirname(path).split(sep).pop();
+          const iconName = dirname(path).split(/[\\/]/).pop();
           return names(prefix + '-' + iconName + '-twotone').fileName;
         },
       },

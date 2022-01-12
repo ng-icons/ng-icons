@@ -4,6 +4,14 @@
   "sourceRoot": "packages/ionicons/src",
   "prefix": "ng",
   "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/ionicons"],
+      "options": {
+        "jestConfig": "packages/ionicons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/packages/ionicons"],

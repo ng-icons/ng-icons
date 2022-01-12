@@ -4,6 +4,14 @@
   "sourceRoot": "packages/heroicons/src",
   "prefix": "ng-icons",
   "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/heroicons"],
+      "options": {
+        "jestConfig": "packages/heroicons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/packages/heroicons"],

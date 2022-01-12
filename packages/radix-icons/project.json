@@ -4,6 +4,14 @@
   "sourceRoot": "packages/radix-icons/src",
   "prefix": "ng",
   "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/radix-icons"],
+      "options": {
+        "jestConfig": "packages/radix-icons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/packages/radix-icons"],

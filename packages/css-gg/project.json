@@ -4,6 +4,14 @@
   "sourceRoot": "packages/css-gg/src",
   "prefix": "ng",
   "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/css-gg"],
+      "options": {
+        "jestConfig": "packages/css-gg/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/packages/css-gg"],

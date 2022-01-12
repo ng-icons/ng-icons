@@ -7,6 +7,7 @@ import { updateDependencies } from './utils/update-dependencies';
 import { updateTsConfig } from './utils/update-ts-config';
 import { createDocumentationSection } from './utils/create-documentation-section';
 import { createIconsetDeclaration } from './utils/create-iconset-declaration';
+import { generateIconTest } from './utils/icon-test';
 
 export default async function (tree: Tree, schema: Schema) {
   await generateIconLibrary(tree, schema);
@@ -14,6 +15,7 @@ export default async function (tree: Tree, schema: Schema) {
   updateDependencies(tree, schema);
   updateTsConfig(tree, schema);
   createIconsetDeclaration(tree, schema);
+  generateIconTest(tree, schema);
   await iconGenerator(tree);
   await createDocumentationSection(tree, schema);
   await formatFiles(tree);
