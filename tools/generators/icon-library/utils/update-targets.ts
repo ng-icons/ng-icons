@@ -15,8 +15,5 @@ export function updateTargets(tree: Tree, schema: Schema) {
     },
   };
 
-  // remove test target
-  delete configuration.targets.test;
-
   updateProjectConfiguration(tree, schema.name, configuration);
 }

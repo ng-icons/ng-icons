@@ -17,8 +17,4 @@ export async function generateIconLibrary(tree: Tree, schema: Schema) {
   });
 
   tree.delete(`packages/${schema.name}/src/lib/${schema.name}.module.ts`);
-  // remove the test files
-  tree.delete(`packages/${schema.name}/jest.config.js`);
-  tree.delete(`packages/${schema.name}/tsconfig.spec.json`);
-  tree.delete(`packages/${schema.name}/src/test-setup.ts`);
 }

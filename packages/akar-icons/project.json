@@ -20,6 +20,14 @@
       },
       "defaultConfiguration": "production"
     },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/akar-icons"],
+      "options": {
+        "jestConfig": "packages/akar-icons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {

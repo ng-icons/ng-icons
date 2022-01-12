@@ -4,6 +4,14 @@
   "sourceRoot": "packages/tabler-icons/src",
   "prefix": "ng",
   "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/tabler-icons"],
+      "options": {
+        "jestConfig": "packages/tabler-icons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/packages/tabler-icons"],

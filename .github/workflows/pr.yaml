@@ -30,3 +30,4 @@ jobs:
     - run: yarn lint
     - run: yarn generate:iconsets
     - run: yarn compile
+    - run: yarn test

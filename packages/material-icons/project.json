@@ -4,6 +4,14 @@
   "sourceRoot": "packages/material-icons/src",
   "prefix": "ng",
   "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/material-icons"],
+      "options": {
+        "jestConfig": "packages/material-icons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/packages/material-icons"],
