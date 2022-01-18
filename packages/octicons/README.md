@@ -1,10 +1,9 @@
-
 <img width="847" alt="logo" src="https://user-images.githubusercontent.com/20795331/142078474-da890691-b524-4144-9640-2f7f9da3a3a3.png">
  
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 17000+ icons for you to use in your projects.
+Containing almost 19,000 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -19,6 +18,7 @@ Currently, we support the following libraries:
 - [Radix UI Icons](https://icons.modulz.app/)
 - [Tabler Icons](https://tabler-icons.io/)
 - [Akar Icons](https://akaricons.com/)
+- [Iconoir](https://iconoir.com/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -53,7 +53,7 @@ yarn add @ng-icons/core @ng-icons/heroicons ...
 The following packages are available:
 
 | Package                     | License    |
-| --------------------------- | ---------- |
+|-----------------------------| ---------- |
 | `@ng-icons/core`            | MIT        |
 | `@ng-icons/bootstrap-icons` | MIT        |
 | `@ng-icons/heroicons`       | MIT        |
@@ -66,6 +66,7 @@ The following packages are available:
 | `@ng-icons/radix-icons`     | MIT        |
 | `@ng-icons/tabler-icons`    | MIT        |
 | `@ng-icons/akar-icons`      | MIT        |
+| `@ng-icons/iconoir`         | MIT        |
 
 ## Usage
 
