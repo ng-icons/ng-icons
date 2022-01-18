@@ -8,7 +8,8 @@
     "compile": "nx affected:build --all --parallel && nx workspace-generator update-readmes",
     "serve:documentation": "nx serve documentation",
     "generate:iconsets": "nx workspace-generator svg-to-ts",
-    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=13.2.1"
+    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=13.2.1",
+    "postinstall": "ngcc --properties es2015 browser module main"
   },
   "private": true,
   "dependencies": {
@@ -40,6 +41,7 @@
     "@angular-eslint/eslint-plugin": "13.0.1",
     "@angular-eslint/eslint-plugin-template": "13.0.1",
     "@angular-eslint/template-parser": "13.0.1",
+    "@angular/cli": "~13.1.0",
     "@angular/compiler-cli": "13.1.1",
     "@angular/language-service": "13.1.1",
     "@ngneat/tailwind": "^7.0.3",
@@ -66,6 +68,7 @@
     "glob": "^7.2.0",
     "highlight.js": "^11.3.1",
     "html-loader": "^3.0.1",
+    "iconoir": "^1.0.0",
     "jest": "27.2.3",
     "jest-preset-angular": "11.0.0-rc.3",
     "markdown-loader": "^6.0.0",

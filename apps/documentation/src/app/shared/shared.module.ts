@@ -12,6 +12,7 @@ import { FeatherFeather, FeatherShield } from '@ng-icons/feather-icons';
 import { JamGlassFilled } from '@ng-icons/jam-icons';
 import { RadixModulzLogo } from '@ng-icons/radix-icons';
 import { TablerBrandGoogle, TablerTools } from '@ng-icons/tabler-icons';
+import { IconoirIconoir } from '@ng-icons/iconoir';
 import { BootstrapBootstrap } from '@ng-icons/bootstrap-icons';
 import { CssShapeHexagon } from '@ng-icons/css.gg';
 import { IconCardComponent } from './components/icon-card/icon-card.component';
@@ -61,6 +62,7 @@ import { IconPageComponent } from './components/icon-page/icon-page.component';
       AkarRadish,
       IonLogoIonic,
       TablerBrandGoogle,
+      IconoirIconoir
     }),
     FormsModule,
   ],
