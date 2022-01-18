@@ -2,6 +2,7 @@
   "name": "@ng-icons/core",
   "version": "0.0.1",
   "license": "MIT",
+  "keywords": ["angular", "icons", "ng-icons"],
   "repository": {
     "url": "https://github.com/ng-icons/ng-icons"
   },

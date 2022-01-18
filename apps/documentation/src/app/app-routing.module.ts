@@ -70,6 +70,11 @@ const routes: Routes = [
         m => m.MaterialIconsModule,
       ),
   },
+  {
+    path: 'iconoir',
+    loadChildren: () =>
+      import('./iconoir/iconoir.module').then(m => m.IconoirModule),
+  },
 ];
 
 @NgModule({

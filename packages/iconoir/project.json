@@ -1,0 +1,48 @@
+{
+  "projectType": "library",
+  "root": "packages/iconoir",
+  "sourceRoot": "packages/iconoir/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/iconoir"],
+      "options": {
+        "project": "packages/iconoir/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/iconoir/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/iconoir/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/iconoir"],
+      "options": {
+        "jestConfig": "packages/iconoir/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/iconoir/src/**/*.ts",
+          "packages/iconoir/src/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

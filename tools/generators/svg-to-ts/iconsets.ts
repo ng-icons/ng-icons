@@ -1,6 +1,5 @@
 import { names } from '@nrwl/devkit';
 import { dirname } from 'path';
-
 export const iconsets: Iconset[] = [
   {
     variants: [
@@ -116,20 +115,22 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    variants: [{ glob: 'node_modules/iconoir/icons/**/*.svg' }],
+    output: 'packages/iconoir/src/index.ts',
+    prefix: 'iconoir',
+  },
 ];
-
 export interface Iconset {
   variants: IconVariant[];
   output: string;
   prefix: string;
   svg?: SvgOptions;
 }
-
 export interface IconVariant {
   glob: string;
   formatter?: (name: string, path: string, prefix: string) => string;
 }
-
 export interface SvgOptions {
   colorAttr?: 'fill' | 'stroke';
   removeStroke?: boolean;

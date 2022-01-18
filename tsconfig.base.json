@@ -21,6 +21,7 @@
       "@ng-icons/css.gg": ["packages/css-gg/src/index.ts"],
       "@ng-icons/feather-icons": ["packages/feather-icons/src/index.ts"],
       "@ng-icons/heroicons": ["packages/heroicons/src/index.ts"],
+      "@ng-icons/iconoir": ["packages/iconoir/src/index.ts"],
       "@ng-icons/ionicons": ["packages/ionicons/src/index.ts"],
       "@ng-icons/jam-icons": ["packages/jam-icons/src/index.ts"],
       "@ng-icons/material-icons": ["packages/material-icons/src/index.ts"],
