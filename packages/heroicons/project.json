@@ -33,7 +33,11 @@
       "options": {
         "lintFilePatterns": [
           "packages/heroicons/src/**/*.ts",
-          "packages/heroicons/src/**/*.html"
+          "packages/heroicons/src/**/*.html",
+          "packages/heroicons/outline/**/*.ts",
+          "packages/heroicons/outline/**/*.html",
+          "packages/heroicons/solid/**/*.ts",
+          "packages/heroicons/solid/**/*.html"
         ]
       },
       "outputs": ["{options.outputFile}"]

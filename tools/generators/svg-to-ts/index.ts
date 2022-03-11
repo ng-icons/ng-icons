@@ -2,122 +2,33 @@ import { formatFiles, names, Tree } from '@nrwl/devkit';
 import { readFile } from 'fs-extra';
 import { sync } from 'glob';
 import { basename } from 'path';
-import { AddAttributesToSVGElementPlugin, optimize, Plugin } from 'svgo';
 import * as ts from 'typescript';
 import { Iconset, iconsets } from './iconsets';
+import { optimizeIcon } from './optimize-icon';
 
 let iconCount = 0;
 
-function fileNameFormatter(name: string, prefix: string) {
-  return prefix + '-' + names(basename(name, '.svg')).fileName;
-}
-
 async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   // load all the svg iconDetails within the path
-  const iconDetails: IconDetails[] = [];
+  const iconPaths = sync(iconset.glob);
 
-  for (const variant of iconset.variants) {
-    const dirFiles = sync(variant.glob).map<IconDetails>(path => ({
-      name: variant.formatter
-        ? variant.formatter(
-            fileNameFormatter(path, iconset.prefix),
-            path,
-            iconset.prefix,
-          )
-        : fileNameFormatter(path, iconset.prefix),
-      path,
-    }));
-
-    iconDetails.push(...dirFiles);
+  if (iconPaths.length === 0) {
+    throw new Error('No icons found for iconset: ' + iconset.glob);
   }
 
-  if (iconDetails.length === 0) {
-    throw new Error('No icons found for iconset: ' + iconset.variants);
-  }
-
-  iconCount += iconDetails.length;
-
-  console.log(
-    'Found ' +
-      iconDetails.length +
-      ' icons in ' +
-      iconset.variants.map(variant => variant.glob).join(', '),
-  );
+  console.log('Found ' + iconPaths.length + ' icons in ' + iconset.glob);
 
   // read the contents of each file
   const output: Record<string, string> = {};
 
-  for (const iconDetail of iconDetails) {
-    const iconName = names(iconDetail.name).className;
-    let svg = await readFile(iconDetail.path, 'utf8');
-
-    const plugins = [
-      {
-        name: 'insertCssVariables',
-        type: 'visitor',
-        description: 'Insert CSS variables',
-        params: {},
-        fn: function (data) {
-          return {
-            element: {
-              enter: node => {
-                if (node.name === 'svg') {
-                  delete node.attributes['width'];
-                  delete node.attributes['height'];
-
-                  node.style.setProperty(
-                    'width',
-                    'var(--ng-icon__size, 1em)',
-                    '',
-                  );
-
-                  node.style.setProperty(
-                    'height',
-                    'var(--ng-icon__size, 1em)',
-                    '',
-                  );
-                } else {
-                  // if this is not the svg element remove the stroke property
-                  if (
-                    iconset.svg?.removeStroke &&
-                    node.attributes['stroke-width']
-                  ) {
-                    delete node.attributes['stroke'];
-                  }
-                }
-
-                if (node.attributes['stroke-width']) {
-                  node.style.setProperty(
-                    'stroke-width',
-                    `var(--ng-icon__stroke-width, ${node.attributes['stroke-width']})`,
-                    '',
-                  );
-
-                  delete node.attributes['stroke-width'];
-                }
-              },
-            },
-          };
-        },
-      } as Plugin,
-    ];
-
-    if (iconset.svg?.colorAttr) {
-      plugins.push({
-        name: 'addAttributesToSVGElement',
-        params: {
-          attributes: [
-            {
-              [iconset.svg!.colorAttr]: 'currentColor',
-            },
-          ],
-        },
-      } as AddAttributesToSVGElementPlugin);
-    }
-
-    const result = await optimize(svg, { plugins: plugins as Plugin[] });
-    output[iconName] = result.data;
+  for (const iconPath of iconPaths) {
+    const iconName = names(basename(iconPath)).className;
+    let svg = await readFile(iconPath, 'utf8');
+    svg = await optimizeIcon(svg, iconset.svg);
+    output[iconName] = svg;
   }
+
+  iconCount += iconPaths.length;
 
   return output;
 }
@@ -165,23 +76,12 @@ async function createIconset(iconset: Iconset): Promise<string> {
 
 export async function iconGenerator(tree: Tree): Promise<void> {
   for (const iconset of iconsets) {
-    // if there is no path then skip
-    if (!iconset.variants || iconset.variants.length === 0) {
-      console.warn('⚠️ Skipping iconset because there are no paths defined');
-      continue;
-    }
-
     tree.write(iconset.output, await createIconset(iconset));
   }
 
   console.log(`✅ Generated ${iconCount} icons.`);
 
   await formatFiles(tree);
-}
-
-interface IconDetails {
-  name: string;
-  path: string;
 }
 
 export default iconGenerator;

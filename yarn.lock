@@ -2095,10 +2095,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@material-icons/svg@^1.0.23":
-  version "1.0.23"
-  resolved "https://registry.yarnpkg.com/@material-icons/svg/-/svg-1.0.23.tgz#84d6fd925907f8ddcc51b27a8a2b3be64d1351d4"
-  integrity sha512-BYYClbv9XjPhKP8mNmfyuTETiT1WoX9uKoRlGdlklbqNna4tSV0DccCfyo+c7pUCeBklq9BOlxbXRiqqQs+NTA==
+"@material-icons/svg@^1.0.25":
+  version "1.0.25"
+  resolved "https://registry.yarnpkg.com/@material-icons/svg/-/svg-1.0.25.tgz#b7d2d91262589ab20985985d1b4845be7e397447"
+  integrity sha512-EdDkA3/WOL8WU5e87ReqZHLwxk94CB8YZzCweOLuvjoMqWFdanJVgOhDLe0VxfQB1iZds6c8IUwleZuEc3IUmQ==
 
 "@ngneat/tailwind@^7.0.3":
   version "7.0.3"
@@ -2447,10 +2447,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@stencil/core@~2.10.0":
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.10.0.tgz#acf44b9ae6578a20f0d09bf94296e833beadc885"
-  integrity sha512-15rWMTPQ/sp0lSV82HVCXkIya3QLN+uBl7pqK4JnTrp4HiLrzLmNbWjbvgCs55gw0lULbCIGbRIEsFz+Pe/Q+A==
+"@stencil/core@~2.12.0":
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.12.1.tgz#92364d3e57337b8d36dd9b70cfbed2833929f22d"
+  integrity sha512-u24TZ+FEvjnZt5ZgIkLjLpUNsO6Ml3mUZqwmqk81w6RWWz75hgB5p4RFI5rvuErFeh2xvMIGo+pNdG24XUBz1A==
 
 "@swc-node/core@^1.8.2":
   version "1.8.2"
@@ -2563,10 +2563,10 @@
     "@swc/core-win32-ia32-msvc" "1.2.153"
     "@swc/core-win32-x64-msvc" "1.2.153"
 
-"@tabler/icons@^1.50.0":
-  version "1.50.0"
-  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.50.0.tgz#f4cb8912b8ee848be40c89132600d3f93e5d63ec"
-  integrity sha512-0HYdiGk5Z9OnHpt6yEn1EAkrkWGgsRWcNJpTUoc32psliVXD7613QMX/VSHdJppIZS4zts7IjHmBz8nHDBC0NA==
+"@tabler/icons@^1.54.0":
+  version "1.54.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.54.0.tgz#c8cf4e777e61b19004d0e21443c9a7fae31d70c4"
+  integrity sha512-X0SjUMWlu6IWsWIZP6gtMZhi9Q7pO2+BQ9vex28rOu+gtym7fZjnDXWG0okzVhtt4mlOwJ2BHQllRky29lsn7Q==
 
 "@tailwindcss/typography@0.4.1":
   version "0.4.1"
@@ -3695,10 +3695,10 @@ boolbase@^1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap-icons@^1.7.2:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.7.2.tgz#4024e081e2c850602552e1fed6451e682d09322a"
-  integrity sha512-NiR2PqC73AQOPdVSu6GJfnk+hN2z6powcistXk1JgPnKuoV2FSdSl26w931Oz9HYbKCcKUSB6ncZTYJAYJl3QQ==
+bootstrap-icons@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.8.1.tgz#773c1625bcbf3e86090ea9da4386c2c6459c5582"
+  integrity sha512-IXUqislddPJfwq6H+2nTkHyr9epO9h6u1AG0OZCx616w+TgzeoCjfmI3qJMQqt1J586gN2IxzB4M99Ip4sTZ1w==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -5951,10 +5951,10 @@ he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-heroicons@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/heroicons/-/heroicons-1.0.5.tgz#75c8bc02ecd707d93dc86f4a058569ee24ecfe6c"
-  integrity sha512-QMidnnCbBSmnuN0ieh6lDvAmIFeUoPyPv0z1/3Q2gM8c69aIcoolMCg9i0MZXwnNE//jWU1sxEFY4T2o1fYgeg==
+heroicons@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/heroicons/-/heroicons-1.0.6.tgz#1c2b2e0935a46516c3513afacfcaea71f0b68dd7"
+  integrity sha512-5bxTsG2hyNBF0l+BrFlZlR5YngQNMfl0ggJjIRkMSADBQbaZMoTg47OIQzq6f1mpEZ85HEIgSC4wt5AeFM9J2Q==
 
 highlight.js@*, highlight.js@^11.3.1:
   version "11.3.1"
@@ -6289,12 +6289,12 @@ inquirer@8.2.0:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-ionicons@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-6.0.0.tgz#c7c0d253d62b33ba3fa47568ff58586a5d8bdcd1"
-  integrity sha512-p83W1T8jZUlllHAjuIWaDQbI36OYqdrwcf8MhYbKW7+9rjGlCMP9+5OaR0W7tl0QfM004uAiy/zkc7HTpDNKgA==
+ionicons@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-6.0.1.tgz#e7dc8c9d6d6cff33f3c64c095b5df645fbedd917"
+  integrity sha512-xQekOJsxH82O7oB+3F60zeRggCdND9pJ/k0E6IJDVUGGlCj5mlyFqNgxUimytKgstPGv3S+3EmCxjefvtGgWUg==
   dependencies:
-    "@stencil/core" "~2.10.0"
+    "@stencil/core" "~2.12.0"
 
 ip@^1.1.0, ip@^1.1.5:
   version "1.1.5"
