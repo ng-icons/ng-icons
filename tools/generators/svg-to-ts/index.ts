@@ -22,7 +22,7 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   const output: Record<string, string> = {};
 
   for (const iconPath of iconPaths) {
-    const iconName = names(basename(iconPath)).className;
+    const iconName = iconset.getIconName(names(basename(iconPath)).className);
     let svg = await readFile(iconPath, 'utf8');
     svg = await optimizeIcon(svg, iconset.svg);
     output[iconName] = svg;
