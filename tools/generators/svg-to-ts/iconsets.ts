@@ -1,3 +1,6 @@
+import { dirname } from 'path';
+import { names } from '@nrwl/devkit';
+
 export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/heroicons/outline/**/*.svg',
@@ -46,7 +49,7 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `Css${name}`,
   },
   {
-    glob: 'svg/akat-icons/**/*.svg',
+    glob: 'svg/akar-icons/**/*.svg',
     output: 'packages/akar-icons/src/index.ts',
     getIconName: (name: string) => `Akar${name}`,
     svg: {
@@ -70,7 +73,10 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/@material-icons/svg/svg/**/baseline.svg',
     output: 'packages/material-icons/baseline/src/index.ts',
-    getIconName: (name: string) => `Mat${name}`,
+    getIconName: (name: string, path: string) => {
+      const iconName = names(dirname(path).split(/[\\/]/).pop()).className;
+      return `Mat${iconName}`;
+    },
     svg: {
       colorAttr: 'fill',
     },
@@ -78,7 +84,10 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/@material-icons/svg/svg/**/outline.svg',
     output: 'packages/material-icons/outline/src/index.ts',
-    getIconName: (name: string) => `Mat${name}Outline`,
+    getIconName: (name: string, path: string) => {
+      const iconName = names(dirname(path).split(/[\\/]/).pop()).className;
+      return `Mat${iconName}Outline`;
+    },
     svg: {
       colorAttr: 'fill',
     },
@@ -86,7 +95,10 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/@material-icons/svg/svg/**/round.svg',
     output: 'packages/material-icons/round/src/index.ts',
-    getIconName: (name: string) => `Mat${name}Round`,
+    getIconName: (name: string, path: string) => {
+      const iconName = names(dirname(path).split(/[\\/]/).pop()).className;
+      return `Mat${iconName}Round`;
+    },
     svg: {
       colorAttr: 'fill',
     },
@@ -94,7 +106,10 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/@material-icons/svg/svg/**/sharp.svg',
     output: 'packages/material-icons/sharp/src/index.ts',
-    getIconName: (name: string) => `Mat${name}Sharp`,
+    getIconName: (name: string, path: string) => {
+      const iconName = names(dirname(path).split(/[\\/]/).pop()).className;
+      return `Mat${iconName}Sharp`;
+    },
     svg: {
       colorAttr: 'fill',
     },
@@ -108,7 +123,7 @@ export const iconsets: Iconset[] = [
 
 export interface Iconset {
   glob: string;
-  getIconName: (name: string) => string;
+  getIconName: (name: string, path: string) => string;
   output: string;
   svg?: SvgOptions;
 }

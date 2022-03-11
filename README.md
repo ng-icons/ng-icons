@@ -28,7 +28,7 @@ Got suggestions for additional iconsets? Create an issue and we can consider add
 | --------------- | ------------------ |
 | 11.x.x          | 12.x.x             |
 | 12.x.x          | 13.x.x (or 12.x.x) |
-| 13.x.x          | 13.x.x             |
+| 13.x.x          | 13.x.x or 14.x.x   |
 
 > Note: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 
@@ -53,7 +53,7 @@ yarn add @ng-icons/core @ng-icons/heroicons ...
 The following packages are available:
 
 | Package                     | License    |
-|-----------------------------| ---------- |
+| --------------------------- | ---------- |
 | `@ng-icons/core`            | MIT        |
 | `@ng-icons/bootstrap-icons` | MIT        |
 | `@ng-icons/heroicons`       | MIT        |
