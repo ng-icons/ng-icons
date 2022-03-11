@@ -29,6 +29,18 @@
       "@ng-icons/ionicons": ["packages/ionicons/src/index.ts"],
       "@ng-icons/jam-icons": ["packages/jam-icons/src/index.ts"],
       "@ng-icons/material-icons": ["packages/material-icons/src/index.ts"],
+      "@ng-icons/material-icons/baseline": [
+        "packages/material-icons/baseline/src/index.ts"
+      ],
+      "@ng-icons/material-icons/outline": [
+        "packages/material-icons/outline/src/index.ts"
+      ],
+      "@ng-icons/material-icons/round": [
+        "packages/material-icons/round/src/index.ts"
+      ],
+      "@ng-icons/material-icons/sharp": [
+        "packages/material-icons/sharp/src/index.ts"
+      ],
       "@ng-icons/octicons": ["packages/octicons/src/index.ts"],
       "@ng-icons/radix-icons": ["packages/radix-icons/src/index.ts"],
       "@ng-icons/tabler-icons": ["packages/tabler-icons/src/index.ts"]

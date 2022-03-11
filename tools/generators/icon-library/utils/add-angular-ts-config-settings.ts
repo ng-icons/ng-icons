@@ -1,7 +1,7 @@
 import { Tree, updateJson } from '@nrwl/devkit';
 import { Schema } from '../schema';
 
-export function updateTsConfig(tree: Tree, schema: Schema) {
+export function addAngularTsConfigSettings(tree: Tree, schema: Schema) {
   updateJson(tree, `packages/${schema.name}/tsconfig.json`, json => {
     json.compilerOptions = {
       forceConsistentCasingInFileNames: true,

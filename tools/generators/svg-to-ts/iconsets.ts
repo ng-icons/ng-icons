@@ -67,51 +67,38 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
-  // {
-  //   variants: [
-  //     {
-  //       glob: 'node_modules/@material-icons/svg/svg/**/baseline.svg',
-  //       formatter: (name, path, prefix) => {
-  //         // regex to split by backslash and forward slash
-  //         const iconName = dirname(path).split(/[\\/]/).pop();
-  //         return names(prefix + '-' + iconName).fileName;
-  //       },
-  //     },
-  //     {
-  //       glob: 'node_modules/@material-icons/svg/svg/**/outline.svg',
-  //       formatter: (name, path, prefix) => {
-  //         const iconName = dirname(path).split(/[\\/]/).pop();
-  //         return names(prefix + '-' + iconName + '-outline').fileName;
-  //       },
-  //     },
-  //     {
-  //       glob: 'node_modules/@material-icons/svg/svg/**/round.svg',
-  //       formatter: (name, path, prefix) => {
-  //         const iconName = dirname(path).split(/[\\/]/).pop();
-  //         return names(prefix + '-' + iconName + '-round').fileName;
-  //       },
-  //     },
-  //     {
-  //       glob: 'node_modules/@material-icons/svg/svg/**/sharp.svg',
-  //       formatter: (name, path, prefix) => {
-  //         const iconName = dirname(path).split(/[\\/]/).pop();
-  //         return names(prefix + '-' + iconName + '-sharp').fileName;
-  //       },
-  //     },
-  //     {
-  //       glob: 'node_modules/@material-icons/svg/svg/**/twotone.svg',
-  //       formatter: (name, path, prefix) => {
-  //         const iconName = dirname(path).split(/[\\/]/).pop();
-  //         return names(prefix + '-' + iconName + '-twotone').fileName;
-  //       },
-  //     },
-  //   ],
-  //   output: 'packages/material-icons/src/index.ts',
-  //   prefix: 'mat',
-  //   svg: {
-  //     colorAttr: 'fill',
-  //   },
-  // },
+  {
+    glob: 'node_modules/@material-icons/svg/svg/**/baseline.svg',
+    output: 'packages/material-icons/baseline/src/index.ts',
+    getIconName: (name: string) => `Mat${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/@material-icons/svg/svg/**/outline.svg',
+    output: 'packages/material-icons/outline/src/index.ts',
+    getIconName: (name: string) => `Mat${name}Outline`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/@material-icons/svg/svg/**/round.svg',
+    output: 'packages/material-icons/round/src/index.ts',
+    getIconName: (name: string) => `Mat${name}Round`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/@material-icons/svg/svg/**/sharp.svg',
+    output: 'packages/material-icons/sharp/src/index.ts',
+    getIconName: (name: string) => `Mat${name}Sharp`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
   {
     glob: 'node_modules/iconoir/icons/**/*.svg',
     output: 'packages/iconoir/src/index.ts',

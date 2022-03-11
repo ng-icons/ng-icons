@@ -5,7 +5,7 @@ import {
 } from '@nrwl/devkit';
 import { Schema } from '../schema';
 
-export function updateTargets(tree: Tree, schema: Schema) {
+export function addDeployTarget(tree: Tree, schema: Schema) {
   const configuration = readProjectConfiguration(tree, schema.name);
 
   configuration.targets.deploy = {
