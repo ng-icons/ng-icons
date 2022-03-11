@@ -34,7 +34,7 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'packages/radix-icons/svg/**/*.svg',
+    glob: 'svg/radix-icons/**/*.svg',
     output: 'packages/radix-icons/src/index.ts',
     getIconName: (name: string) => `Radix${name}`,
   },
