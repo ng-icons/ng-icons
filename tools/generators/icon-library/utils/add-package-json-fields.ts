@@ -1,7 +1,7 @@
 import { Tree, updateJson } from '@nrwl/devkit';
 import { Schema } from '../schema';
 
-export function updateDependencies(tree: Tree, schema: Schema) {
+export function addPackageJsonFields(tree: Tree, schema: Schema) {
   updateJson(tree, `packages/${schema.name}/package.json`, json => {
     json.license = schema.license;
     json.repository = {

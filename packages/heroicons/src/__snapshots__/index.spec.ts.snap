@@ -232,6 +232,11 @@ Array [
   "HeroX",
   "HeroZoomIn",
   "HeroZoomOut",
+]
+`;
+
+exports[`Heroicons Icons should ensure the export names have not changed unexpectedly 2`] = `
+Array [
   "HeroAcademicCapSolid",
   "HeroAdjustmentsSolid",
   "HeroAnnotationSolid",

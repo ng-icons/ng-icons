@@ -10,6 +10,7 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrls: ['./icon-page.component.scss'],
 })
 export class IconPageComponent {
+  @Input() name!: string;
   @Input() library!: string;
   @Input() website!: string;
   @Input() license!: string;

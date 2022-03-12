@@ -5,7 +5,10 @@ import { MaterialIconsRoutingModule } from './material-icons-routing.module';
 import { MaterialIconsComponent } from './material-icons.component';
 import { SharedModule } from '../shared/shared.module';
 import { NgIconsModule } from '@ng-icons/core';
-import * as materialIcons from '@ng-icons/material-icons';
+import * as baselineMaterialIcons from '@ng-icons/material-icons/baseline';
+import * as outlineMaterialIcons from '@ng-icons/material-icons/outline';
+import * as roundMaterialIcons from '@ng-icons/material-icons/round';
+import * as sharpMaterialIcons from '@ng-icons/material-icons/sharp';
 
 @NgModule({
   declarations: [MaterialIconsComponent],
@@ -13,7 +16,12 @@ import * as materialIcons from '@ng-icons/material-icons';
     CommonModule,
     MaterialIconsRoutingModule,
     SharedModule,
-    NgIconsModule.withIcons(materialIcons),
+    NgIconsModule.withIcons({
+      ...baselineMaterialIcons,
+      ...outlineMaterialIcons,
+      ...roundMaterialIcons,
+      ...sharpMaterialIcons,
+    }),
   ],
 })
 export class MaterialIconsModule {}

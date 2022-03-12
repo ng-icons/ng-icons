@@ -18,13 +18,32 @@
       "@ng-icons/akar-icons": ["packages/akar-icons/src/index.ts"],
       "@ng-icons/bootstrap-icons": ["packages/bootstrap-icons/src/index.ts"],
       "@ng-icons/core": ["packages/core/src/index.ts"],
+      "@ng-icons/cryptocurrency-icons": [
+        "packages/cryptocurrency-icons/src/index.ts"
+      ],
       "@ng-icons/css.gg": ["packages/css-gg/src/index.ts"],
       "@ng-icons/feather-icons": ["packages/feather-icons/src/index.ts"],
       "@ng-icons/heroicons": ["packages/heroicons/src/index.ts"],
+      "@ng-icons/heroicons/outline": [
+        "packages/heroicons/outline/src/index.ts"
+      ],
+      "@ng-icons/heroicons/solid": ["packages/heroicons/solid/src/index.ts"],
       "@ng-icons/iconoir": ["packages/iconoir/src/index.ts"],
       "@ng-icons/ionicons": ["packages/ionicons/src/index.ts"],
       "@ng-icons/jam-icons": ["packages/jam-icons/src/index.ts"],
       "@ng-icons/material-icons": ["packages/material-icons/src/index.ts"],
+      "@ng-icons/material-icons/baseline": [
+        "packages/material-icons/baseline/src/index.ts"
+      ],
+      "@ng-icons/material-icons/outline": [
+        "packages/material-icons/outline/src/index.ts"
+      ],
+      "@ng-icons/material-icons/round": [
+        "packages/material-icons/round/src/index.ts"
+      ],
+      "@ng-icons/material-icons/sharp": [
+        "packages/material-icons/sharp/src/index.ts"
+      ],
       "@ng-icons/octicons": ["packages/octicons/src/index.ts"],
       "@ng-icons/radix-icons": ["packages/radix-icons/src/index.ts"],
       "@ng-icons/tabler-icons": ["packages/tabler-icons/src/index.ts"]

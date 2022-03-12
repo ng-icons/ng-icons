@@ -1,0 +1,48 @@
+{
+  "projectType": "library",
+  "root": "packages/cryptocurrency-icons",
+  "sourceRoot": "packages/cryptocurrency-icons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/cryptocurrency-icons"],
+      "options": {
+        "project": "packages/cryptocurrency-icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/cryptocurrency-icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/cryptocurrency-icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cryptocurrency-icons"],
+      "options": {
+        "jestConfig": "packages/cryptocurrency-icons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/cryptocurrency-icons/src/**/*.ts",
+          "packages/cryptocurrency-icons/src/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

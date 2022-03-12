@@ -75,6 +75,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./iconoir/iconoir.module').then(m => m.IconoirModule),
   },
+  {
+    path: 'cryptocurrency-icons',
+    loadChildren: () =>
+      import('./cryptocurrency-icons/cryptocurrency-icons.module').then(
+        m => m.CryptocurrencyIconsModule,
+      ),
+  },
 ];
 
 @NgModule({
