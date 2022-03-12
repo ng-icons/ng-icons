@@ -1,4 +1,4 @@
-import { joinPathFragments, Tree } from '@nrwl/devkit';
+import { joinPathFragments, names, Tree } from '@nrwl/devkit';
 import { Schema } from '../schema';
 import { wrapAngularDevkitSchematic } from '@nrwl/tao/src/commands/ngcli-adapter';
 import { getSourceFile, writeSourceFile } from './source-file';
@@ -92,6 +92,7 @@ function insertComponentTemplate(tree: Tree, schema: Schema) {
   tree.write(
     `apps/documentation/src/app/${schema.name}/${schema.name}.component.html`,
     '<app-icon-page\n' +
+      '  name="' + names(schema.name).className + '"\n' +
       '  [iconset]="iconset"\n' +
       '  library="' +
       schema.name +

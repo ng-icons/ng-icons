@@ -5,7 +5,7 @@ import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.com
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { NgIconsModule } from '@ng-icons/core';
 import { IonLogoIonic } from '@ng-icons/ionicons';
-import { HeroCollection, HeroHome, HeroSearch } from '@ng-icons/heroicons';
+import { HeroCollection, HeroHome, HeroSearch } from '@ng-icons/heroicons/outline';
 import { OctMarkGithub, OctOctoface } from '@ng-icons/octicons';
 import { AkarRadish } from '@ng-icons/akar-icons';
 import { FeatherFeather, FeatherShield } from '@ng-icons/feather-icons';
