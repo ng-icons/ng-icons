@@ -2452,6 +2452,11 @@
   resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.12.1.tgz#92364d3e57337b8d36dd9b70cfbed2833929f22d"
   integrity sha512-u24TZ+FEvjnZt5ZgIkLjLpUNsO6Ml3mUZqwmqk81w6RWWz75hgB5p4RFI5rvuErFeh2xvMIGo+pNdG24XUBz1A==
 
+"@svg-icons/crypto@^1.86.0":
+  version "1.86.0"
+  resolved "https://registry.yarnpkg.com/@svg-icons/crypto/-/crypto-1.86.0.tgz#bdf70407d187a3b6984fa4853b42ebec5fcd1f00"
+  integrity sha512-Pi56ZOfs7Tarb0L5CrRWreqsV5BJ4l3gAsP6goTGg3AjVc1p87m9ulPhePpJUxZyL+/2xC6nJ2eCZOgW5S5Qag==
+
 "@swc-node/core@^1.8.2":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@swc-node/core/-/core-1.8.2.tgz#950ad394a8e8385658e6a951ec554bbf61a1693e"

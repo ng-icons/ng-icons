@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "start": "nx serve documentation",
     "lint": "nx affected:lint --parallel",
     "test": "nx affected:test --all --parallel",
     "compile": "nx affected:build --all --parallel && nx workspace-generator update-readmes",
     "serve:documentation": "nx serve documentation",
     "generate:iconsets": "nx workspace-generator svg-to-ts",
-    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=13.2.1",
+    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=14.0.0",
     "postinstall": "ngcc --properties es2015 browser module main"
   },
   "private": true,
@@ -24,6 +25,7 @@
     "@angular/platform-browser-dynamic": "13.2.6",
     "@angular/router": "13.2.6",
     "@material-icons/svg": "^1.0.25",
+    "@svg-icons/crypto": "^1.86.0",
     "@tabler/icons": "^1.54.0",
     "bootstrap-icons": "^1.8.1",
     "css.gg": "^2.0.0",
@@ -85,4 +87,3 @@
     "typescript": "4.5.5"
   }
 }
-

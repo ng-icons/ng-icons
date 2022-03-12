@@ -119,6 +119,14 @@ export const iconsets: Iconset[] = [
     output: 'packages/iconoir/src/index.ts',
     getIconName: (name: string) => `Iconoir${name}`,
   },
+  {
+    glob: 'node_modules/@svg-icons/crypto/**/*.svg',
+    output: 'packages/cryptocurrency-icons/src/index.ts',
+    getIconName: (name: string) => `Crypto${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
 ];
 
 export interface Iconset {

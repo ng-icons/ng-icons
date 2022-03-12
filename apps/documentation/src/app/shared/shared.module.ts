@@ -5,7 +5,11 @@ import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.com
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { NgIconsModule } from '@ng-icons/core';
 import { IonLogoIonic } from '@ng-icons/ionicons';
-import { HeroCollection, HeroHome, HeroSearch } from '@ng-icons/heroicons/outline';
+import {
+  HeroCollection,
+  HeroHome,
+  HeroSearch,
+} from '@ng-icons/heroicons/outline';
 import { OctMarkGithub, OctOctoface } from '@ng-icons/octicons';
 import { AkarRadish } from '@ng-icons/akar-icons';
 import { FeatherFeather, FeatherShield } from '@ng-icons/feather-icons';
@@ -22,6 +26,7 @@ import { FormsModule } from '@angular/forms';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { DialogModule } from '@angular/cdk-experimental/dialog';
 import { IconPageComponent } from './components/icon-page/icon-page.component';
+import { CryptoBtc } from '@ng-icons/cryptocurrency-icons';
 
 @NgModule({
   declarations: [
@@ -62,7 +67,8 @@ import { IconPageComponent } from './components/icon-page/icon-page.component';
       AkarRadish,
       IonLogoIonic,
       TablerBrandGoogle,
-      IconoirIconoir
+      IconoirIconoir,
+      CryptoBtc,
     }),
     FormsModule,
   ],
