@@ -16,6 +16,7 @@
     "octicons": "packages/octicons",
     "radix-icons": "packages/radix-icons",
     "simple-icons": "packages/simple-icons",
-    "tabler-icons": "packages/tabler-icons"
+    "tabler-icons": "packages/tabler-icons",
+    "typicons": "packages/typicons"
   }
 }

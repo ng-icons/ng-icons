@@ -89,6 +89,11 @@ const routes: Routes = [
         m => m.SimpleIconsModule,
       ),
   },
+  {
+    path: 'typicons',
+    loadChildren: () =>
+      import('./typicons/typicons.module').then(m => m.TypiconsModule),
+  },
 ];
 
 @NgModule({

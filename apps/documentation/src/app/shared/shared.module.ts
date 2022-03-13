@@ -28,6 +28,7 @@ import { DialogModule } from '@angular/cdk-experimental/dialog';
 import { IconPageComponent } from './components/icon-page/icon-page.component';
 import { CryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { SimpleSimpleicons } from '@ng-icons/simple-icons';
+import { TypInfinityOutline } from '@ng-icons/typicons';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { SimpleSimpleicons } from '@ng-icons/simple-icons';
       IconoirIconoir,
       CryptoBtc,
       SimpleSimpleicons,
+      TypInfinityOutline,
     }),
     FormsModule,
   ],
