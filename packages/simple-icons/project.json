@@ -1,0 +1,48 @@
+{
+  "projectType": "library",
+  "root": "packages/simple-icons",
+  "sourceRoot": "packages/simple-icons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/simple-icons"],
+      "options": {
+        "project": "packages/simple-icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/simple-icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/simple-icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/simple-icons"],
+      "options": {
+        "jestConfig": "packages/simple-icons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/simple-icons/src/**/*.ts",
+          "packages/simple-icons/src/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

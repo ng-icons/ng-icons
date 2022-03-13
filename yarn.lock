@@ -2457,6 +2457,16 @@
   resolved "https://registry.yarnpkg.com/@svg-icons/crypto/-/crypto-1.86.0.tgz#bdf70407d187a3b6984fa4853b42ebec5fcd1f00"
   integrity sha512-Pi56ZOfs7Tarb0L5CrRWreqsV5BJ4l3gAsP6goTGg3AjVc1p87m9ulPhePpJUxZyL+/2xC6nJ2eCZOgW5S5Qag==
 
+"@svg-icons/simple-icons@^1.86.0":
+  version "1.86.0"
+  resolved "https://registry.yarnpkg.com/@svg-icons/simple-icons/-/simple-icons-1.86.0.tgz#6cce6f79a566ce0499d285d064e7c0104ac0e493"
+  integrity sha512-bfVE2K4oxcBOh6nWYixAYNgJRI+G8ziPBQWUSjOY8SUwcm7lNWA4tuxdhebYRciizqR2O8fsywePPBCQl3EY1A==
+
+"@svg-icons/typicons@^1.86.0":
+  version "1.86.0"
+  resolved "https://registry.yarnpkg.com/@svg-icons/typicons/-/typicons-1.86.0.tgz#302182673ba47b9a334ecc83c6ebab76b7a5073f"
+  integrity sha512-Mzq6ITJES1QkwoF3c+0XxrKVCnhcBgEI4tx/gjgklAXfBTxKvgXYrwtuDb+btJycQb7EM6cGzzx1xFWsZCG4pg==
+
 "@swc-node/core@^1.8.2":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@swc-node/core/-/core-1.8.2.tgz#950ad394a8e8385658e6a951ec554bbf61a1693e"

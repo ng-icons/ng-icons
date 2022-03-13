@@ -1,0 +1,48 @@
+{
+  "projectType": "library",
+  "root": "packages/typicons",
+  "sourceRoot": "packages/typicons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/typicons"],
+      "options": {
+        "project": "packages/typicons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/typicons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/typicons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/typicons"],
+      "options": {
+        "jestConfig": "packages/typicons/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/typicons/src/**/*.ts",
+          "packages/typicons/src/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

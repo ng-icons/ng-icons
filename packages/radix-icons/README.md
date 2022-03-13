@@ -69,6 +69,7 @@ The following packages are available:
 | `@ng-icons/akar-icons`           | MIT        |
 | `@ng-icons/iconoir`              | MIT        |
 | `@ng-icons/cryptocurrency-icons` | CC0-1.0    |
+| `@ng-icons/simple-icons`         | CC0-1.0    |
 
 ## Usage
 

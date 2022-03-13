@@ -127,6 +127,22 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    glob: 'node_modules/@svg-icons/simple-icons/**/*.svg',
+    output: 'packages/simple-icons/src/index.ts',
+    getIconName: (name: string) => `Simple${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/@svg-icons/typicons/**/*.svg',
+    output: 'packages/typicons/src/index.ts',
+    getIconName: (name: string) => `Typ${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
 ];
 
 export interface Iconset {
