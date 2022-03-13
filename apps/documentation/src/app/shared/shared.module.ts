@@ -27,6 +27,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { DialogModule } from '@angular/cdk-experimental/dialog';
 import { IconPageComponent } from './components/icon-page/icon-page.component';
 import { CryptoBtc } from '@ng-icons/cryptocurrency-icons';
+import { SimpleSimpleicons } from '@ng-icons/simple-icons';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { CryptoBtc } from '@ng-icons/cryptocurrency-icons';
       TablerBrandGoogle,
       IconoirIconoir,
       CryptoBtc,
+      SimpleSimpleicons,
     }),
     FormsModule,
   ],

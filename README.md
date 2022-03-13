@@ -3,7 +3,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing almost 18,000 icons for you to use in your projects.
+Containing almost 20,000 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -69,6 +69,7 @@ The following packages are available:
 | `@ng-icons/akar-icons`           | MIT        |
 | `@ng-icons/iconoir`              | MIT        |
 | `@ng-icons/cryptocurrency-icons` | CC0-1.0    |
+| `@ng-icons/simple-icons`         | CC0-1.0    |
 
 ## Usage
 

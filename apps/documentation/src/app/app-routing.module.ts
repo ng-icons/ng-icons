@@ -82,6 +82,13 @@ const routes: Routes = [
         m => m.CryptocurrencyIconsModule,
       ),
   },
+  {
+    path: 'simple-icons',
+    loadChildren: () =>
+      import('./simple-icons/simple-icons.module').then(
+        m => m.SimpleIconsModule,
+      ),
+  },
 ];
 
 @NgModule({
