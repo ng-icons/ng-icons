@@ -20,6 +20,8 @@ Currently, we support the following libraries:
 - [Akar Icons](https://akaricons.com/)
 - [Iconoir](https://iconoir.com/)
 - [Cryptocurrency Icons](http://cryptoicons.co/)
+- [Simple Icons](https://simpleicons.org/)
+- [Typicons](https://www.s-ings.com/typicons/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
