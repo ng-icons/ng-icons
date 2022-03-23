@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { OcticonsRoutingModule } from './octicons-routing.module';
 import { OcticonsComponent } from './octicons.component';
 import { NgIconsModule } from '@ng-icons/core';
-import * as octIcons from '@ng-icons/octicons';
+import * as smallOctIcons from '@ng-icons/octicons';
+import * as largeOctIcons from '@ng-icons/octicons/large';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -12,7 +13,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     OcticonsRoutingModule,
-    NgIconsModule.withIcons(octIcons),
+    NgIconsModule.withIcons({ ...smallOctIcons, ...largeOctIcons }),
     SharedModule,
   ],
 })

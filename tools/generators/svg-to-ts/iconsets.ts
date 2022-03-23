@@ -26,9 +26,17 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/octicons/build/svg/**/*.svg',
+    glob: 'node_modules/@primer/octicons/build/svg/**/*-16.svg',
     output: 'packages/octicons/src/index.ts',
-    getIconName: (name: string) => `Oct${name}`,
+    getIconName: (name: string) => `Oct${name.replace('16', '')}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/@primer/octicons/build/svg/**/*-24.svg',
+    output: 'packages/octicons/large/src/index.ts',
+    getIconName: (name: string) => `Oct${name.replace('24', '')}Large`,
     svg: {
       colorAttr: 'fill',
     },
@@ -150,6 +158,8 @@ export interface Iconset {
   getIconName: (name: string, path: string) => string;
   output: string;
   svg?: SvgOptions;
+  deprecated?: boolean;
+  deprecatedMessage?: string;
 }
 
 export interface SvgOptions {

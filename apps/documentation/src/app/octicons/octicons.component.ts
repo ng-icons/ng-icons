@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as octIcons from '@ng-icons/octicons';
+import * as largeOctIcons from '@ng-icons/octicons/large';
 
 @Component({
   selector: 'app-octicons',
@@ -7,4 +8,5 @@ import * as octIcons from '@ng-icons/octicons';
 })
 export class OcticonsComponent {
   iconset = octIcons;
+  largeIconset = largeOctIcons;
 }
