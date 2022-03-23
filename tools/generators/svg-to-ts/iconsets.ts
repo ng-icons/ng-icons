@@ -32,6 +32,9 @@ export const iconsets: Iconset[] = [
     svg: {
       colorAttr: 'fill',
     },
+    deprecated: true,
+    deprecatedMessage:
+      "Import icons from the '@ng-icons/octicons/16' or '@ng-icons/octicons/24' package instead. This import path will be removed in the next major release.",
   },
   {
     glob: 'svg/radix-icons/**/*.svg',
@@ -150,6 +153,8 @@ export interface Iconset {
   getIconName: (name: string, path: string) => string;
   output: string;
   svg?: SvgOptions;
+  deprecated?: boolean;
+  deprecatedMessage?: string;
 }
 
 export interface SvgOptions {

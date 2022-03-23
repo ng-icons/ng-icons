@@ -66,6 +66,18 @@ async function createIconset(iconset: Iconset): Promise<string> {
 
   for (const icon in icons) {
     const node = createIconDeclaration(icon, icons[icon]);
+
+    // if the iconset is deprecated, add a comment to the icon
+    if (iconset.deprecated) {
+      const comment = `@deprecated ${iconset.deprecatedMessage}`;
+      ts.addSyntheticLeadingComment(
+        node,
+        ts.SyntaxKind.MultiLineCommentTrivia,
+        comment,
+        true,
+      );
+    }
+
     const content = printer.printNode(
       ts.EmitHint.Unspecified,
       node,
