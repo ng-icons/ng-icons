@@ -69,7 +69,7 @@ async function createIconset(iconset: Iconset): Promise<string> {
 
     // if the iconset is deprecated, add a comment to the icon
     if (iconset.deprecated) {
-      const comment = `@deprecated ${iconset.deprecatedMessage}`;
+      const comment = `* @deprecated ${iconset.deprecatedMessage} `;
       ts.addSyntheticLeadingComment(
         node,
         ts.SyntaxKind.MultiLineCommentTrivia,
