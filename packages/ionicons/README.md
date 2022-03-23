@@ -3,7 +3,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing almost 18,000 icons for you to use in your projects.
+Containing over 20,000 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -20,16 +20,18 @@ Currently, we support the following libraries:
 - [Akar Icons](https://akaricons.com/)
 - [Iconoir](https://iconoir.com/)
 - [Cryptocurrency Icons](http://cryptoicons.co/)
+- [Simple Icons](https://simpleicons.org/)
+- [Typicons](https://www.s-ings.com/typicons/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
 ## Supported Versions
 
-| Angular Version | Ng Icon Version    |
-| --------------- | ------------------ |
-| 11.x.x          | 12.x.x             |
-| 12.x.x          | 13.x.x (or 12.x.x) |
-| 13.x.x          | 13.x.x or 14.x.x   |
+| Angular Version | Ng Icon Version          |
+| --------------- | ------------------------ |
+| 11.x.x          | 12.x.x                   |
+| 12.x.x          | 13.x.x or 12.x.x         |
+| 13.x.x          | 13.x.x, 14.x.x or 15.x.x |
 
 > Note: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 
@@ -53,23 +55,24 @@ yarn add @ng-icons/core @ng-icons/heroicons ...
 
 The following packages are available:
 
-| Package                          | License    |
-| -------------------------------- | ---------- |
-| `@ng-icons/core`                 | MIT        |
-| `@ng-icons/bootstrap-icons`      | MIT        |
-| `@ng-icons/heroicons`            | MIT        |
-| `@ng-icons/ionicons`             | MIT        |
-| `@ng-icons/material-icons`       | Apache 2.0 |
-| `@ng-icons/css.gg`               | MIT        |
-| `@ng-icons/feather-icons`        | MIT        |
-| `@ng-icons/jam-icons`            | MIT        |
-| `@ng-icons/octicons`             | MIT        |
-| `@ng-icons/radix-icons`          | MIT        |
-| `@ng-icons/tabler-icons`         | MIT        |
-| `@ng-icons/akar-icons`           | MIT        |
-| `@ng-icons/iconoir`              | MIT        |
-| `@ng-icons/cryptocurrency-icons` | CC0-1.0    |
-| `@ng-icons/simple-icons`         | CC0-1.0    |
+| Package                          | License      |
+| -------------------------------- | ------------ |
+| `@ng-icons/core`                 | MIT          |
+| `@ng-icons/bootstrap-icons`      | MIT          |
+| `@ng-icons/heroicons`            | MIT          |
+| `@ng-icons/ionicons`             | MIT          |
+| `@ng-icons/material-icons`       | Apache 2.0   |
+| `@ng-icons/css.gg`               | MIT          |
+| `@ng-icons/feather-icons`        | MIT          |
+| `@ng-icons/jam-icons`            | MIT          |
+| `@ng-icons/octicons`             | MIT          |
+| `@ng-icons/radix-icons`          | MIT          |
+| `@ng-icons/tabler-icons`         | MIT          |
+| `@ng-icons/akar-icons`           | MIT          |
+| `@ng-icons/iconoir`              | MIT          |
+| `@ng-icons/cryptocurrency-icons` | CC0-1.0      |
+| `@ng-icons/simple-icons`         | CC0-1.0      |
+| `@ng-icons/typicons`             | CC-BY-SA-4.0 |
 
 ## Usage
 

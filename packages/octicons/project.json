@@ -34,8 +34,6 @@
         "lintFilePatterns": [
           "packages/octicons/src/**/*.ts",
           "packages/octicons/src/**/*.html",
-          "packages/octicons/small/**/*.ts",
-          "packages/octicons/small/**/*.html",
           "packages/octicons/large/**/*.ts",
           "packages/octicons/large/**/*.html"
         ]

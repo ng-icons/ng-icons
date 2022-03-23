@@ -26,19 +26,8 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/octicons/build/svg/**/*.svg',
-    output: 'packages/octicons/src/index.ts',
-    getIconName: (name: string) => `Oct${name}`,
-    svg: {
-      colorAttr: 'fill',
-    },
-    deprecated: true,
-    deprecatedMessage:
-      "Import icons from the '@ng-icons/octicons/small' or '@ng-icons/octicons/large' package instead. This import path will be removed in the next major release.",
-  },
-  {
     glob: 'node_modules/@primer/octicons/build/svg/**/*-16.svg',
-    output: 'packages/octicons/small/src/index.ts',
+    output: 'packages/octicons/src/index.ts',
     getIconName: (name: string) => `Oct${name.replace('16', '')}`,
     svg: {
       colorAttr: 'fill',
@@ -47,7 +36,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/@primer/octicons/build/svg/**/*-24.svg',
     output: 'packages/octicons/large/src/index.ts',
-    getIconName: (name: string) => `Oct${name.replace('24', '')}`,
+    getIconName: (name: string) => `Oct${name.replace('24', '')}Large`,
     svg: {
       colorAttr: 'fill',
     },

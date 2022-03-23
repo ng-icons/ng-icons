@@ -10,7 +10,7 @@ import {
   HeroHome,
   HeroSearch,
 } from '@ng-icons/heroicons/outline';
-import { OctMarkGithub, OctOctoface } from '@ng-icons/octicons';
+import { OctMarkGithub } from '@ng-icons/octicons';
 import { AkarRadish } from '@ng-icons/akar-icons';
 import { FeatherFeather, FeatherShield } from '@ng-icons/feather-icons';
 import { JamGlassFilled } from '@ng-icons/jam-icons';
@@ -62,7 +62,6 @@ import { TypInfinityOutline } from '@ng-icons/typicons';
       BootstrapBootstrap,
       FeatherFeather,
       JamGlassFilled,
-      OctOctoface,
       RadixModulzLogo,
       TablerTools,
       CssShapeHexagon,
