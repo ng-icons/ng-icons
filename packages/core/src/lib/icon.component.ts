@@ -6,8 +6,9 @@ import {
   Input,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { toUpperCamelCase } from './utils/format';
+import { IconName } from './icon-name';
 import { IconService } from './icon.service';
+import { toUpperCamelCase } from './utils/format';
 
 @Component({
   selector: 'ng-icon',
@@ -17,7 +18,7 @@ import { IconService } from './icon.service';
 })
 export class IconComponent {
   /** Define the name of the icon to display */
-  @Input() set name(name: string) {
+  @Input() set name(name: IconName | string) {
     name = toUpperCamelCase(name);
 
     // if there is no icon with this name warn the user as they probably forgot to import it
@@ -42,7 +43,7 @@ export class IconComponent {
   @Input()
   set size(size: string) {
     // if the size only contains numbers, assume it is in pixels
-    this._size =  coerceCssPixelValue(size);
+    this._size = coerceCssPixelValue(size);
   }
 
   get size(): string {

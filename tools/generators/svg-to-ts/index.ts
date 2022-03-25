@@ -1,4 +1,4 @@
-import { formatFiles, names, Tree } from '@nrwl/devkit';
+import { formatFiles, joinPathFragments, names, Tree } from '@nrwl/devkit';
 import { readFile } from 'fs-extra';
 import { sync } from 'glob';
 import { basename } from 'path';
@@ -7,6 +7,8 @@ import { Iconset, iconsets } from './iconsets';
 import { optimizeIcon } from './optimize-icon';
 
 let iconCount = 0;
+
+const iconList = new Set<string>();
 
 async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   // load all the svg iconDetails within the path
@@ -29,6 +31,8 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
     let svg = await readFile(iconPath, 'utf8');
     svg = await optimizeIcon(svg, iconset.svg);
     output[iconName] = svg;
+
+    iconList.add(iconName);
   }
 
   iconCount += iconPaths.length;
@@ -89,10 +93,23 @@ async function createIconset(iconset: Iconset): Promise<string> {
   return output.join('\n');
 }
 
+async function generateIconNameType(tree: Tree): Promise<void> {
+  const iconNamesType = `export type IconName = ${Array.from(iconList)
+    .map(name => `'${names(name).fileName}'`)
+    .join(' | ')};`;
+
+  tree.write(
+    joinPathFragments('packages', 'core', 'src', 'lib', 'icon-name.ts'),
+    iconNamesType,
+  );
+}
+
 export async function iconGenerator(tree: Tree): Promise<void> {
   for (const iconset of iconsets) {
     tree.write(iconset.output, await createIconset(iconset));
   }
+
+  await generateIconNameType(tree);
 
   console.log(`✅ Generated ${iconCount} icons.`);
 
