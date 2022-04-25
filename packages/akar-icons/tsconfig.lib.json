@@ -9,7 +9,7 @@
     "types": [],
     "lib": ["dom", "es2018"]
   },
-  "exclude": ["src/test-setup.ts", "**/*.spec.ts"],
+  "exclude": ["src/test-setup.ts", "**/*.spec.ts", "jest.config.ts"],
   "include": ["**/*.ts"],
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,

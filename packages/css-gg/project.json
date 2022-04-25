@@ -8,7 +8,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/css-gg"],
       "options": {
-        "jestConfig": "packages/css-gg/jest.config.js",
+        "jestConfig": "packages/css-gg/jest.config.ts",
         "passWithNoTests": true
       }
     },

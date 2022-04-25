@@ -1,5 +1,16 @@
 # Migration Guide
 
+## Version 15 to 16
+
+The following iconsets have been updated:
+
+- Feather Icons
+- Material Icons
+- Tabler Icons
+- Iconoir
+
+As part of these updates a few icons may have been removed or renamed.
+
 ## Version 14 to 15
 
 The Octicons package has been updated to use `@primer/octicons` instead of `octicons`.
