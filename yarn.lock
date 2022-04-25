@@ -2159,10 +2159,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@material-icons/svg@^1.0.25":
-  version "1.0.25"
-  resolved "https://registry.yarnpkg.com/@material-icons/svg/-/svg-1.0.25.tgz#b7d2d91262589ab20985985d1b4845be7e397447"
-  integrity sha512-EdDkA3/WOL8WU5e87ReqZHLwxk94CB8YZzCweOLuvjoMqWFdanJVgOhDLe0VxfQB1iZds6c8IUwleZuEc3IUmQ==
+"@material-icons/svg@^1.0.26":
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/@material-icons/svg/-/svg-1.0.26.tgz#f96f9259f3dacd6686692873f055f1d933bd3f0a"
+  integrity sha512-a6uUmheSW+kVAr2z96v3/8r+XagD2z/+zju4iZDJWbwsSLj5Gf6Dogt+3SHu5uY+4UNylYVN5HzZIaObQRNoBw==
 
 "@ngneat/tailwind@^7.0.3":
   version "7.0.3"
@@ -2776,10 +2776,10 @@
     "@swc/core-win32-ia32-msvc" "1.2.171"
     "@swc/core-win32-x64-msvc" "1.2.171"
 
-"@tabler/icons@^1.54.0":
-  version "1.54.0"
-  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.54.0.tgz#c8cf4e777e61b19004d0e21443c9a7fae31d70c4"
-  integrity sha512-X0SjUMWlu6IWsWIZP6gtMZhi9Q7pO2+BQ9vex28rOu+gtym7fZjnDXWG0okzVhtt4mlOwJ2BHQllRky29lsn7Q==
+"@tabler/icons@^1.67.0":
+  version "1.67.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.67.0.tgz#04894c9512c73aa2dfe290238d425cbc1467296b"
+  integrity sha512-t+XiVYMU+dSZcGqI0d9mCZJEbVAzrrUIiUtre78Rcp16au677WAC0YwS7+DNnbDuEj4XEnClaF9eXt+VMjka+w==
 
 "@tailwindcss/typography@0.4.1":
   version "0.4.1"
@@ -5725,10 +5725,10 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
-feather-icons@^4.28.0:
-  version "4.28.0"
-  resolved "https://registry.yarnpkg.com/feather-icons/-/feather-icons-4.28.0.tgz#e1892a401fe12c4559291770ff6e68b0168e760f"
-  integrity sha512-gRdqKESXRBUZn6Nl0VBq2wPHKRJgZz7yblrrc2lYsS6odkNFDnA4bqvrlEVRUPjE1tFax+0TdbJKZ31ziJuzjg==
+feather-icons@^4.29.0:
+  version "4.29.0"
+  resolved "https://registry.yarnpkg.com/feather-icons/-/feather-icons-4.29.0.tgz#4e40e3cbb7bf359ffbbf700edbebdde4e4a74ab6"
+  integrity sha512-Y7VqN9FYb8KdaSF0qD1081HCkm0v4Eq/fpfQYQnubpqi0hXx14k+gF9iqtRys1SIcTEi97xDi/fmsPFZ8xo0GQ==
   dependencies:
     classnames "^2.2.5"
     core-js "^3.1.3"
@@ -6301,10 +6301,10 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-iconoir@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/iconoir/-/iconoir-1.0.0.tgz#8c9ade1c12044872dda1fdef5b0f5fc643cd4bc8"
-  integrity sha512-rZ4ZMMOarUfsRrfH7h3MGIFVNrcWsThtJWpTuZOp/FYhSomaa32HhHg8WH0V3VlN7MIVK4VMD2O7jNq6jRKY3w==
+iconoir@^4.9.1:
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/iconoir/-/iconoir-4.9.1.tgz#1181874374f4e47ad557f8d5ed46afb394541d67"
+  integrity sha512-Iz/3MwDF9ce3rIvGzTt9c/H6swTNtNp+HTorH4U8FHtsa2yykhO7e8Th+igQqLW4ioalGNCaAoO1ZGQvYeX7wg==
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@^0.4.4:
   version "0.4.24"
@@ -8300,13 +8300,6 @@ obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
-
-octicons@^8.5.0:
-  version "8.5.0"
-  resolved "https://registry.yarnpkg.com/octicons/-/octicons-8.5.0.tgz#b64383093e1469dc169fd2a76946fccc25f6bbf1"
-  integrity sha512-l4GCHwBvStuwVfIuqUx/ktFJQJdCqLnd0bi2dvYZzkza6wj9EUksfMUlTqyVMULbPIvRTXxOqn/W07fsMu1bXA==
-  dependencies:
-    object-assign "^4.1.1"
 
 on-finished@~2.3.0:
   version "2.3.0"
