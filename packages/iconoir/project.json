@@ -24,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/iconoir"],
       "options": {
-        "jestConfig": "packages/iconoir/jest.config.js",
+        "jestConfig": "packages/iconoir/jest.config.ts",
         "passWithNoTests": true
       }
     },

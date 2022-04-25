@@ -24,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/typicons"],
       "options": {
-        "jestConfig": "packages/typicons/jest.config.js",
+        "jestConfig": "packages/typicons/jest.config.ts",
         "passWithNoTests": true
       }
     },

@@ -8,7 +8,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/radix-icons"],
       "options": {
-        "jestConfig": "packages/radix-icons/jest.config.js",
+        "jestConfig": "packages/radix-icons/jest.config.ts",
         "passWithNoTests": true
       }
     },

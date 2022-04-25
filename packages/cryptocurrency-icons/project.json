@@ -24,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/cryptocurrency-icons"],
       "options": {
-        "jestConfig": "packages/cryptocurrency-icons/jest.config.js",
+        "jestConfig": "packages/cryptocurrency-icons/jest.config.ts",
         "passWithNoTests": true
       }
     },

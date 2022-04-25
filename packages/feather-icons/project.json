@@ -8,7 +8,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/feather-icons"],
       "options": {
-        "jestConfig": "packages/feather-icons/jest.config.js",
+        "jestConfig": "packages/feather-icons/jest.config.ts",
         "passWithNoTests": true
       }
     },

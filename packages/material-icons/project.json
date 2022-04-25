@@ -8,7 +8,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/material-icons"],
       "options": {
-        "jestConfig": "packages/material-icons/jest.config.js",
+        "jestConfig": "packages/material-icons/jest.config.ts",
         "passWithNoTests": true
       }
     },

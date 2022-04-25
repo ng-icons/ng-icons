@@ -24,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/akar-icons"],
       "options": {
-        "jestConfig": "packages/akar-icons/jest.config.js",
+        "jestConfig": "packages/akar-icons/jest.config.ts",
         "passWithNoTests": true
       }
     },

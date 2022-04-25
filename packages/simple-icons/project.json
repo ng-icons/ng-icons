@@ -24,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/simple-icons"],
       "options": {
-        "jestConfig": "packages/simple-icons/jest.config.js",
+        "jestConfig": "packages/simple-icons/jest.config.ts",
         "passWithNoTests": true
       }
     },
