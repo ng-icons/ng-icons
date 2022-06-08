@@ -1,10 +1,10 @@
+import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   Inject,
 } from '@angular/core';
-import { DIALOG_DATA, DialogRef } from '@angular/cdk-experimental/dialog';
 import hljs from 'highlight.js';
 
 @Component({
