@@ -74,7 +74,7 @@
     "jest-preset-angular": "11.1.2",
     "markdown-loader": "^6.0.0",
     "ng-packagr": "^13.0.0",
-    "ngx-deploy-npm": "^3.1.9",
+    "ngx-deploy-npm": "^2.1.0",
     "nx": "14.2.2",
     "postcss": "^8.4.14",
     "postcss-import": "14.1.0",

@@ -2868,17 +2868,6 @@
     webpack "^4 || ^5"
     webpack-node-externals "^3.0.0"
 
-"@nrwl/devkit@14.0.5":
-  version "14.0.5"
-  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-14.0.5.tgz#708670d28ccca66dbde683de93470fae9a885219"
-  integrity sha512-2kGv3tquuf3xko9FVG+Q6gUMt+RsOigdieANZtvsPaNUAxJOD5DabxHA1pwkd8AUg6bewpv64cVLgvhUIBj1MQ==
-  dependencies:
-    ejs "^3.1.5"
-    ignore "^5.0.4"
-    rxjs "^6.5.4"
-    semver "7.3.4"
-    tslib "^2.3.0"
-
 "@nrwl/devkit@14.2.2":
   version "14.2.2"
   resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-14.2.2.tgz#c81b83d224276c825edcb9a0e333b4e3915a26e3"
@@ -5262,7 +5251,7 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-ejs@^3.1.5, ejs@^3.1.7:
+ejs@^3.1.7:
   version "3.1.8"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-3.1.8.tgz#758d32910c78047585c7ef1f92f9ee041c1c190b"
   integrity sha512-/sXZeMlhS0ArkfX2Aw780gJzXSMPnKjtspYZv+f3NiKLlubezAHDU5+9xz6gd3/NhG3txQCo6xlglmTS+oTGEQ==
@@ -8386,12 +8375,10 @@ ng-packagr@^13.0.0:
   optionalDependencies:
     esbuild "^0.14.0"
 
-ngx-deploy-npm@^3.1.9:
-  version "3.1.9"
-  resolved "https://registry.yarnpkg.com/ngx-deploy-npm/-/ngx-deploy-npm-3.1.9.tgz#f08b1d6f984237dc43d0d5bfcd0884c2a79ffc84"
-  integrity sha512-JedTEbpqwgyrfoItu8RE9mofVPDM3AR/bfKFSfUlJITfnZTuFPktcw4MAImMQ54lZ8jiVZhIAeDC/Q7b6PJX2Q==
-  dependencies:
-    "@nrwl/devkit" "14.0.5"
+ngx-deploy-npm@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-deploy-npm/-/ngx-deploy-npm-2.1.0.tgz#7e128f1bbc29658b4b1235af9453278c3ae832ca"
+  integrity sha512-hmpH7RY1UMRfKjsPg0fnMzv6KoGtfgO9be4nvc6AussP9gkUDYnL79qRLPrnbZ9SjYdVM+S/d9rDE6AtdnXgzA==
 
 nice-napi@^1.0.2:
   version "1.0.2"
