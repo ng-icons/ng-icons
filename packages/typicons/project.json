@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "packages/typicons",
   "sourceRoot": "packages/typicons/src",
   "prefix": "ng",
   "targets": {

@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "packages/feather-icons",
   "sourceRoot": "packages/feather-icons/src",
   "prefix": "ng-icons",
   "targets": {

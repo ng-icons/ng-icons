@@ -1,5 +1,9 @@
 # Migration Guide
 
+## Version 16 to 17
+
+Angular 12 is no longer officially supported.
+
 ## Version 15 to 16
 
 The following iconsets have been updated:
