@@ -37,5 +37,6 @@
       "style": "scss"
     }
   },
-  "defaultProject": "core"
+  "defaultProject": "core",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json"
 }

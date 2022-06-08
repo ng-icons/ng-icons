@@ -1,5 +1,18 @@
 # Migration Guide
 
+## Version 16 to 17
+
+Angular 12 is no longer officially supported.
+
+The following iconsets have been updated:
+
+- Tabler Icons
+- Material Icons
+- Octicons
+- Iconoir
+
+As part of these updates a few icons may have been removed or renamed.
+
 ## Version 15 to 16
 
 The following iconsets have been updated:

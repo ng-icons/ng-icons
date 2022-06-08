@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "packages/simple-icons",
   "sourceRoot": "packages/simple-icons/src",
   "prefix": "ng",
   "targets": {

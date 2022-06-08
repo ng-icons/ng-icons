@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "packages/core",
   "sourceRoot": "packages/core/src",
   "prefix": "ng",
   "targets": {

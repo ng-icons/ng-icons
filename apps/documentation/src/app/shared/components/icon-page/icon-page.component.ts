@@ -1,7 +1,7 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { Component, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { SearchService } from '../../services/search.service';
-import { Dialog } from '@angular/cdk-experimental/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
@@ -34,7 +34,7 @@ export class IconPageComponent {
   }
 
   showDialog(icon: string): void {
-    this.dialog.openFromComponent(DialogComponent, {
+    this.dialog.open(DialogComponent, {
       data: {
         icon,
         library: this.library,

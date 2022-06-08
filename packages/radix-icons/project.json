@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "packages/radix-icons",
   "sourceRoot": "packages/radix-icons/src",
   "prefix": "ng",
   "targets": {

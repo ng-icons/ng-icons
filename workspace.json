@@ -18,5 +18,6 @@
     "simple-icons": "packages/simple-icons",
     "tabler-icons": "packages/tabler-icons",
     "typicons": "packages/typicons"
-  }
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

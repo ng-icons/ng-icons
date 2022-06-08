@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
+import { DialogModule } from '@angular/cdk/dialog';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { NgIconsModule } from '@ng-icons/core';
+import * as outlineHeroIcons from '@ng-icons/heroicons/outline';
+import * as solidHeroIcons from '@ng-icons/heroicons/solid';
+import { SharedModule } from '../shared/shared.module';
 import { HeroiconsRoutingModule } from './heroicons-routing.module';
 import { HeroiconsComponent } from './heroicons.component';
-import { NgIconsModule } from '@ng-icons/core';
-import * as solidHeroIcons from '@ng-icons/heroicons/solid';
-import * as outlineHeroIcons from '@ng-icons/heroicons/outline';
-import { SharedModule } from '../shared/shared.module';
-import { DialogModule } from '@angular/cdk-experimental/dialog';
 
 @NgModule({
   declarations: [HeroiconsComponent],
