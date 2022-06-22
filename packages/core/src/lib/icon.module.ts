@@ -32,4 +32,4 @@ export class NgIconsModule {
 /**
  * Exporting component array for support with standalone components
  */
-export const NG_ICON_DIRECTIVES = [IconComponent];
+export const NG_ICON_DIRECTIVES = IconComponent;
