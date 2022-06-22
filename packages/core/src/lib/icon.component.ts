@@ -17,7 +17,7 @@ import { toUpperCamelCase } from './utils/format';
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IconComponent {
+export class NgIconComponent {
   /** Define the name of the icon to display */
   @Input() set name(name: IconName | string) {
     name = toUpperCamelCase(name);

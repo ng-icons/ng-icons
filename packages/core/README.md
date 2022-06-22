@@ -112,16 +112,16 @@ You can then use the icon in your templates:
 As of version 18.0.0 Ng Icons nows supports standalone components. You can import icons using the `provideIcons` function which can be placed anywhere you can register providers. The optimal location
 would be in the `@Component` providers array.
 
-You can also import the component directly by importing `IconComponent` or the by importing `NG_ICON_DIRECTIVES`.
+You can also import the component directly by importing `NgIconComponent`.
 
 ```ts
-import { NG_ICON_DIRECTIVES, provideIcons } from '@ng-icons/core';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { FeatherAirplay } from '@ng-icons/feather-icons';
 import { HeroUsers } from '@ng-icons/heroicons/outline';
 
 @Component({
   standalone: true,
-  imports: [NG_ICON_DIRECTIVES],
+  imports: [NgIconComponent],
   providers: [provideIcons({ FeatherAirplay, HeroUsers })],
 })
 export class AppComponent {}

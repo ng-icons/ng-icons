@@ -1,5 +1,10 @@
 # Migration Guide
 
+## Version 17 to 18
+
+- Angular 13 is no longer officially supported.
+- `IconComponent` has been renamed to `NgIconComponent`
+
 ## Version 16 to 17
 
 Angular 12 is no longer officially supported.

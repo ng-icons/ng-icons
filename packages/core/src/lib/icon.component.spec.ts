@@ -4,13 +4,13 @@ import {
   FeatherAlertCircle,
   FeatherAlertTriangle,
 } from '@ng-icons/feather-icons';
-import { IconComponent } from './icon.component';
-import { NgIconsModule, NG_ICON_DIRECTIVES } from './icon.module';
+import { NgIconComponent } from './icon.component';
+import { NgIconsModule } from './icon.module';
 import { provideIcons } from './icon.provider';
 
 describe('Icon', () => {
-  let component: IconComponent;
-  let fixture: ComponentFixture<IconComponent>;
+  let component: NgIconComponent;
+  let fixture: ComponentFixture<NgIconComponent>;
   let nativeElement: HTMLElement;
 
   beforeEach(async () => {
@@ -22,7 +22,7 @@ describe('Icon', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IconComponent);
+    fixture = TestBed.createComponent(NgIconComponent);
     component = fixture.componentInstance;
     component.name = 'feather-alert-circle';
     fixture.detectChanges();
@@ -83,7 +83,7 @@ describe('Icon with multiple modules', () => {
 @Component({
   standalone: true,
   template: '<ng-icon name="feather-alert-circle"></ng-icon>',
-  imports: [NG_ICON_DIRECTIVES],
+  imports: [NgIconComponent],
   providers: [provideIcons({ FeatherAlertCircle })],
 })
 class StandaloneComponent {}

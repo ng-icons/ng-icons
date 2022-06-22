@@ -1,10 +1,10 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { IconComponent } from './icon.component';
+import { NgIconComponent } from './icon.component';
 import { IconService } from './icon.service';
 
 @NgModule({
-  imports: [IconComponent],
-  exports: [IconComponent],
+  imports: [NgIconComponent],
+  exports: [NgIconComponent],
 })
 export class NgIconsModule {
   constructor(private readonly iconService: IconService) {
@@ -28,8 +28,3 @@ export class NgIconsModule {
     return { ngModule: NgIconsModule };
   }
 }
-
-/**
- * Exporting component array for support with standalone components
- */
-export const NG_ICON_DIRECTIVES = IconComponent;
