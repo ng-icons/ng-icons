@@ -3,7 +3,7 @@ import { IconComponent } from './icon.component';
 import { IconService } from './icon.service';
 
 @NgModule({
-  declarations: [IconComponent],
+  imports: [IconComponent],
   exports: [IconComponent],
 })
 export class NgIconsModule {
@@ -28,3 +28,8 @@ export class NgIconsModule {
     return { ngModule: NgIconsModule };
   }
 }
+
+/**
+ * Exporting component array for support with standalone components
+ */
+export const NG_ICON_DIRECTIVES = [IconComponent];

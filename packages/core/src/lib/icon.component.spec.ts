@@ -1,11 +1,12 @@
+import { Component, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   FeatherAlertCircle,
   FeatherAlertTriangle,
 } from '@ng-icons/feather-icons';
 import { IconComponent } from './icon.component';
-import { NgIconsModule } from './icon.module';
-import { Component, NgModule } from '@angular/core';
+import { NgIconsModule, NG_ICON_DIRECTIVES } from './icon.module';
+import { provideIcons } from './icon.provider';
 
 describe('Icon', () => {
   let component: IconComponent;
@@ -17,7 +18,6 @@ describe('Icon', () => {
       imports: [
         NgIconsModule.withIcons({ FeatherAlertCircle, FeatherAlertTriangle }),
       ],
-      declarations: [IconComponent],
     }).compileComponents();
   });
 
@@ -77,5 +77,35 @@ describe('Icon with multiple modules', () => {
     const icons = nativeElement.querySelectorAll('ng-icon');
     expect(icons.item(0).innerHTML).toMatchSnapshot();
     expect(icons.item(1).innerHTML).toMatchSnapshot();
+  });
+});
+
+@Component({
+  standalone: true,
+  template: '<ng-icon name="feather-alert-circle"></ng-icon>',
+  imports: [NG_ICON_DIRECTIVES],
+  providers: [provideIcons({ FeatherAlertCircle })],
+})
+class StandaloneComponent {}
+
+describe('Standalone icon component', () => {
+  let fixture: ComponentFixture<TestComponent>;
+  let nativeElement: HTMLElement;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [StandaloneComponent],
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TestComponent);
+    fixture.detectChanges();
+    nativeElement = fixture.nativeElement;
+  });
+
+  it('should display the icon', () => {
+    const icon = nativeElement.querySelector<HTMLElement>('ng-icon');
+    expect(icon?.innerHTML).toMatchSnapshot();
   });
 });

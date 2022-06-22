@@ -32,7 +32,7 @@ Got suggestions for additional iconsets? Create an issue and we can consider add
 | 11.x.x          | 12.x.x          |
 | 12.x.x          | 12.x.x - 13.x.x |
 | 13.x.x          | 13.x.x - 17.x.x |
-| 14.x.x          | 17.x.x          |
+| 14.x.x          | 17.x.x - 18.x.x |
 
 > Note: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 
@@ -106,3 +106,23 @@ You can then use the icon in your templates:
 | size        | `string`             | Define the size of the icon. This defaults to the current font size.               |
 | color       | `string`             | Define the color of the icon. This defaults to the current text color.             |
 | strokeWidth | `string` \| `number` | Define the stroke-width of the icon. This only works on iconsets that use strokes. |
+
+### Standalone Components
+
+As of version 18.0.0 Ng Icons nows supports standalone components. You can import icons using the `provideIcons` function which can be placed anywhere you can register providers. The optimal location
+would be in the `@Component` providers array.
+
+You can also import the component directly by importing `IconComponent` or the by importing `NG_ICON_DIRECTIVES`.
+
+```ts
+import { NG_ICON_DIRECTIVES, provideIcons } from '@ng-icons/core';
+import { FeatherAirplay } from '@ng-icons/feather-icons';
+import { HeroUsers } from '@ng-icons/heroicons/outline';
+
+@Component({
+  standalone: true,
+  imports: [NG_ICON_DIRECTIVES],
+  providers: [provideIcons({ FeatherAirplay, HeroUsers })],
+})
+export class AppComponent {}
+```
