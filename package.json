@@ -9,7 +9,7 @@
     "compile": "nx affected:build --all --parallel && nx workspace-generator update-readmes",
     "serve:documentation": "nx serve documentation",
     "generate:iconsets": "nx workspace-generator svg-to-ts",
-    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=17.0.0",
+    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=18.0.0",
     "postinstall": "ngcc --properties es2020 browser module main"
   },
   "private": true,
@@ -87,4 +87,3 @@
     "typescript": "4.6.2"
   }
 }
-

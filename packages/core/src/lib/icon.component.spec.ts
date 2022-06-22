@@ -18,7 +18,6 @@ describe('Icon', () => {
       imports: [
         NgIconsModule.withIcons({ FeatherAlertCircle, FeatherAlertTriangle }),
       ],
-      declarations: [IconComponent],
     }).compileComponents();
   });
 
