@@ -13,6 +13,7 @@ import { toUpperCamelCase } from './utils/format';
 @Component({
   selector: 'ng-icon',
   template: '',
+  standalone: true,
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
