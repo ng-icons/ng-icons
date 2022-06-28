@@ -5,7 +5,7 @@ import {
   FeatherAlertTriangle,
 } from '@ng-icons/feather-icons';
 import { NgIconComponent } from './icon.component';
-import { NgIconsModule } from './icon.module';
+import { NgIconsModule, NG_ICON_DIRECTIVES } from './icon.module';
 import { provideIcons } from './icon.provider';
 
 describe('Icon', () => {
@@ -83,7 +83,7 @@ describe('Icon with multiple modules', () => {
 @Component({
   standalone: true,
   template: '<ng-icon name="feather-alert-circle"></ng-icon>',
-  imports: [NgIconComponent],
+  imports: [NG_ICON_DIRECTIVES],
   providers: [provideIcons({ FeatherAlertCircle })],
 })
 class StandaloneComponent {}

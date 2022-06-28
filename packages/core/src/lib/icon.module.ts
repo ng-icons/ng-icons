@@ -1,10 +1,15 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
 import { NgIconComponent } from './icon.component';
 import { IconService } from './icon.service';
 
+/**
+ * A barrel export of all directives for use in standalone apps
+ */
+export const NG_ICON_DIRECTIVES: Provider[] = [NgIconComponent];
+
 @NgModule({
-  imports: [NgIconComponent],
-  exports: [NgIconComponent],
+  imports: [NG_ICON_DIRECTIVES],
+  exports: [NG_ICON_DIRECTIVES],
 })
 export class NgIconsModule {
   constructor(private readonly iconService: IconService) {
