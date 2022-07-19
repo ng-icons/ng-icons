@@ -1,5 +1,9 @@
 # Migration Guide
 
+## Version 18 to 19
+
+- A few icon names were incorrectly named in the `IconName` type, these have now been corrected.
+
 ## Version 17 to 18
 
 - Angular 13 is no longer officially supported.
