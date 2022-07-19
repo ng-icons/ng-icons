@@ -1,5 +1,5 @@
-import { dirname } from 'path';
 import { names } from '@nrwl/devkit';
+import { dirname } from 'path';
 
 export const iconsets: Iconset[] = [
   {
@@ -82,7 +82,7 @@ export const iconsets: Iconset[] = [
     glob: 'node_modules/@material-icons/svg/svg/**/baseline.svg',
     output: 'packages/material-icons/baseline/src/index.ts',
     getIconName: (name: string, path: string) => {
-      const iconName = names(dirname(path).split(/[\\/]/).pop()).className;
+      const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
       return `Mat${iconName}`;
     },
     svg: {
@@ -93,7 +93,7 @@ export const iconsets: Iconset[] = [
     glob: 'node_modules/@material-icons/svg/svg/**/outline.svg',
     output: 'packages/material-icons/outline/src/index.ts',
     getIconName: (name: string, path: string) => {
-      const iconName = names(dirname(path).split(/[\\/]/).pop()).className;
+      const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
       return `Mat${iconName}Outline`;
     },
     svg: {
@@ -104,7 +104,7 @@ export const iconsets: Iconset[] = [
     glob: 'node_modules/@material-icons/svg/svg/**/round.svg',
     output: 'packages/material-icons/round/src/index.ts',
     getIconName: (name: string, path: string) => {
-      const iconName = names(dirname(path).split(/[\\/]/).pop()).className;
+      const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
       return `Mat${iconName}Round`;
     },
     svg: {
@@ -115,7 +115,7 @@ export const iconsets: Iconset[] = [
     glob: 'node_modules/@material-icons/svg/svg/**/sharp.svg',
     output: 'packages/material-icons/sharp/src/index.ts',
     getIconName: (name: string, path: string) => {
-      const iconName = names(dirname(path).split(/[\\/]/).pop()).className;
+      const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
       return `Mat${iconName}Sharp`;
     },
     svg: {

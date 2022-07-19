@@ -11,7 +11,9 @@ export class DashPipe implements PipeTransform {
 
 export function dasherize(value: string): string {
   return value
-    .replace(/([a-z\d])([A-Z])/g, '$1_$2')
-    .toLowerCase()
-    .replace(/[ _]/g, '-');
+    .replace(/([A-Z])/g, ' $1')
+    .trim()
+    .split(' ')
+    .join('-')
+    .toLowerCase();
 }
