@@ -40,10 +40,10 @@
       },
       "outputs": ["{options.outputFile}"]
     },
-    "publish": {
-      "executor": "@nrwl/workspace:run-commands",
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
       "options": {
-        "command": "node tools/scripts/publish.mjs octicons {args.ver} {args.tag}"
+        "access": "public"
       }
     }
   },
