@@ -46,8 +46,7 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "node tools/scripts/publish.mjs heroicons {args.ver} {args.tag}"
-      },
-      "dependsOn": ["build"]
+      }
     }
   },
   "tags": []

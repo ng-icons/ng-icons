@@ -1,5 +1,9 @@
 # Migration Guide
 
+## Version 19 to 20
+
+- Updating iconsets, in particuar Heroicons v2. This may result in some names changing or icons being removed.
+
 ## Version 18 to 19
 
 - A few icon names were incorrectly named in the `IconName` type, these have now been corrected.

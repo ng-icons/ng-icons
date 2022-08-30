@@ -43,8 +43,7 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "node tools/scripts/publish.mjs core {args.ver} {args.tag}"
-      },
-      "dependsOn": ["build"]
+      }
     }
   },
   "tags": []

@@ -49,8 +49,7 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "node tools/scripts/publish.mjs material-icons {args.ver} {args.tag}"
-      },
-      "dependsOn": ["build"]
+      }
     }
   },
   "tags": []
