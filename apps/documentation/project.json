@@ -78,6 +78,13 @@
         "jestConfig": "apps/documentation/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs documentation {args.ver} {args.tag}"
+      },
+      "dependsOn": ["build"]
     }
   },
   "tags": []

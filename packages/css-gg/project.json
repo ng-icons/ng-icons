@@ -37,11 +37,12 @@
         ]
       }
     },
-    "deploy": {
-      "executor": "ngx-deploy-npm:deploy",
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "access": "public"
-      }
+        "command": "node tools/scripts/publish.mjs css-gg {args.ver} {args.tag}"
+      },
+      "dependsOn": ["build"]
     }
   },
   "tags": []

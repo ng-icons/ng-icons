@@ -2808,10 +2808,10 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@material-icons/svg@^1.0.28":
-  version "1.0.28"
-  resolved "https://registry.yarnpkg.com/@material-icons/svg/-/svg-1.0.28.tgz#ac111059a7e597c7b53e27b8be22e17839ba5ecc"
-  integrity sha512-qil+dMa6oN2fxrmmBPH0oKBheIehOrlu6rIrcE5wvceo6cong6x7qWN/7fOUaDOVDoAxSnUKFy9Q3xXXJuPYkQ==
+"@material-icons/svg@^1.0.32":
+  version "1.0.32"
+  resolved "https://registry.yarnpkg.com/@material-icons/svg/-/svg-1.0.32.tgz#5db079911795356eedb8d414e2def45323de989a"
+  integrity sha512-CkLRMXPj45h2o6Mjb5Vb0x018fUnEghP+YBImM5vFw2OChdwPsqdek2PJs2nQkPsFbhhyzCStAuN6Y0/8ga9FQ==
 
 "@ngtools/webpack@14.0.0":
   version "14.0.0"
@@ -3225,10 +3225,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@primer/octicons@^17.3.0":
-  version "17.3.0"
-  resolved "https://registry.yarnpkg.com/@primer/octicons/-/octicons-17.3.0.tgz#52f86d57ffacb04d1e3d792710a14181c7853ef4"
-  integrity sha512-4zPwwloYWdR6RznMafV7Fsw3n2CeDPp/+qEIQbaX/tBbPY1KmU0OAXmhRfhD5AzgB5kdV1aQ7KnQr1GeQXl9Dg==
+"@primer/octicons@^17.5.0":
+  version "17.5.0"
+  resolved "https://registry.yarnpkg.com/@primer/octicons/-/octicons-17.5.0.tgz#a89a658c54524adb0b0eae95b0eb5a98a904097b"
+  integrity sha512-Bx/IfCMXZSq0YBPspoRoALVou5LiAdSg4yNtwEoYDZ137aq238Glnb6SBE5BtRSyzegTv7wFp/uYUPXMXT2MRg==
   dependencies:
     object-assign "^4.1.1"
 
@@ -3347,10 +3347,10 @@
   resolved "https://registry.yarnpkg.com/@svg-icons/typicons/-/typicons-1.86.0.tgz#302182673ba47b9a334ecc83c6ebab76b7a5073f"
   integrity sha512-Mzq6ITJES1QkwoF3c+0XxrKVCnhcBgEI4tx/gjgklAXfBTxKvgXYrwtuDb+btJycQb7EM6cGzzx1xFWsZCG4pg==
 
-"@tabler/icons@^1.68.0":
-  version "1.68.0"
-  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.68.0.tgz#047bd88966cc24ef957b3c429a13bb82cca95561"
-  integrity sha512-UseBEEhv7r+Drl3iZih7rkwqkfJJZscjd5ZvK1WdIIulQsBa+qE8WBDGdAO0RtjkCclEK88z9kC0s5wiVPIvkw==
+"@tabler/icons@^1.91.0":
+  version "1.91.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.91.0.tgz#0d5e6790ef592a15352275a06209222f14917e4a"
+  integrity sha512-hh3ly553MhAXvwU4rWwlvIKGKI2/Y9pqKUWHUpZF4hEa06DGjXUA4fJKwyf9TNq3xa2tcvD8J0tG3TaP18ZCtw==
 
 "@tailwindcss/typography@0.5.2":
   version "0.5.2"
@@ -4544,10 +4544,10 @@ boolbase@^1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap-icons@^1.8.3:
-  version "1.8.3"
-  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.8.3.tgz#14c15e26deaddd42af9f88c4d81f7c45bf26aa98"
-  integrity sha512-s5kmttnbq4BXbx3Bwnj39y+t7Vc3blTtyD77W3aYQ1LlNoS3lNbbGvSYhIbg26Im8KmjScyFpHEevlPOBcIDdA==
+bootstrap-icons@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.9.1.tgz#cf22d91a25447645e45c49ebde4e56eafdfe761b"
+  integrity sha512-d4ZkO30MIkAhQ2nNRJqKXJVEQorALGbLWTuRxyCTJF96lRIV6imcgMehWGJUiJMJhglN0o2tqLIeDnMdiQEE9g==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -7061,10 +7061,10 @@ he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-heroicons@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/heroicons/-/heroicons-1.0.6.tgz#1c2b2e0935a46516c3513afacfcaea71f0b68dd7"
-  integrity sha512-5bxTsG2hyNBF0l+BrFlZlR5YngQNMfl0ggJjIRkMSADBQbaZMoTg47OIQzq6f1mpEZ85HEIgSC4wt5AeFM9J2Q==
+heroicons@^2.0.10:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/heroicons/-/heroicons-2.0.10.tgz#ab421e0190cfc4fcf642a116b80b9a2ee55f149f"
+  integrity sha512-4f2UYy2cf2oHswZzdH2frENVk89RV/RLoNnDL577ulV1xsdTWBkM39Gzo2e9AXgTWJ3H95ol/Qs9JBSSU+APBg==
 
 highlight.js@*, highlight.js@^11.3.1:
   version "11.3.1"
@@ -7278,10 +7278,10 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-iconoir@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/iconoir/-/iconoir-5.0.0.tgz#79cdcd338a503a5c05943fcd9418dacd0aa75342"
-  integrity sha512-PhCQB4Hw/cmLQaqkiJxZT1OyLvwb4Sur7v6CHqoiCIby+hLHa7rAFD6g1SkZuwTr4R8CQFAa1OA0Q+O6iJsuhA==
+iconoir@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/iconoir/-/iconoir-5.2.0.tgz#dec70e25936dea73845d2d31553d868fa2d31c91"
+  integrity sha512-xqFkFlU04Oes5yIeLfK3exxDEXiwYLABQv+yL5inVyyWWKc9UBmxdDa4utjZjwL43RW2rxsnh5RGTNM5eqwRfQ==
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@^0.4.4:
   version "0.4.24"
@@ -7442,10 +7442,10 @@ inquirer@8.2.4:
     through "^2.3.6"
     wrap-ansi "^7.0.0"
 
-ionicons@^6.0.2:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-6.0.2.tgz#82c01bb7021cb84b28fa46591fde142d078b6d05"
-  integrity sha512-AyKfFaUKVoBz4eB8XkU7H1R5HFnVsgq5ijqSdbXC0lES9PDK/J6LUQz6XUJq0mVVQF5k9kczSPOLMW3mszG0mQ==
+ionicons@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-6.0.3.tgz#d1610e764109b121ddf006febbda80fcd7db0454"
+  integrity sha512-kVOWER991EMqLiVShrCSWKMHkgHZP7XfVdyN6YPMuoO33W7pc5CPNVNfR8OMe/I8rYEbaunyBs6dXNYpR6gGZw==
   dependencies:
     "@stencil/core" "~2.16.0"
 
