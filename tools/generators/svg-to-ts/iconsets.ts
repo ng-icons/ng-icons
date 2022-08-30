@@ -3,12 +3,12 @@ import { dirname } from 'path';
 
 export const iconsets: Iconset[] = [
   {
-    glob: 'node_modules/heroicons/outline/**/*.svg',
+    glob: 'node_modules/heroicons/24/outline/**/*.svg',
     output: 'packages/heroicons/outline/src/index.ts',
     getIconName: (name: string) => `Hero${name}`,
   },
   {
-    glob: 'node_modules/heroicons/solid/**/*.svg',
+    glob: 'node_modules/heroicons/24/solid/**/*.svg',
     output: 'packages/heroicons/solid/src/index.ts',
     getIconName: (name: string) => `Hero${name}Solid`,
   },

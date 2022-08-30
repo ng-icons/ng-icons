@@ -1,15 +1,22 @@
-import { ModuleWithProviders, NgModule, Type } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { NgIconComponent } from './icon.component';
 import { IconService } from './icon.service';
 
 /**
  * A barrel export of all directives for use in standalone apps
  */
-export const NG_ICON_DIRECTIVES: Type<NgIconComponent>[] = [NgIconComponent];
+const NgIconComponents = [NgIconComponent];
+
+// This is a temporary workaround for ng-packagr issue #2398
+@NgModule({
+  imports: [NgIconComponents],
+  exports: [NgIconComponents],
+})
+export class NG_ICON_DIRECTIVES {}
 
 @NgModule({
-  imports: [NG_ICON_DIRECTIVES],
-  exports: [NG_ICON_DIRECTIVES],
+  imports: [NgIconComponents],
+  exports: [NgIconComponents],
 })
 export class NgIconsModule {
   constructor(private readonly iconService: IconService) {

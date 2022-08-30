@@ -9,9 +9,9 @@ import { CryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { CssShapeHexagon } from '@ng-icons/css.gg';
 import { FeatherFeather, FeatherShield } from '@ng-icons/feather-icons';
 import {
-  HeroCollection,
   HeroHome,
-  HeroSearch,
+  HeroMagnifyingGlass,
+  HeroRectangleStack,
 } from '@ng-icons/heroicons/outline';
 import { IconoirIconoir } from '@ng-icons/iconoir';
 import { IonLogoIonic } from '@ng-icons/ionicons';
@@ -55,8 +55,8 @@ import { DashPipe } from './pipes/dash.pipe';
     DialogModule,
     NgIconsModule.withIcons({
       HeroHome,
-      HeroCollection,
-      HeroSearch,
+      HeroRectangleStack,
+      HeroMagnifyingGlass,
       OctMarkGithub,
       FeatherShield,
       BootstrapBootstrap,
