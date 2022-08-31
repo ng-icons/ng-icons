@@ -32,7 +32,7 @@ Got suggestions for additional iconsets? Create an issue and we can consider add
 | 11.x.x          | 12.x.x          |
 | 12.x.x          | 12.x.x - 13.x.x |
 | 13.x.x          | 13.x.x - 17.x.x |
-| 14.x.x          | 17.x.x - 19.x.x |
+| 14.x.x          | 17.x.x - 21.x.x |
 
 > Note: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 
@@ -81,13 +81,13 @@ Import the `NgIconsModule` and register the icons you wish to use:
 
 ```ts
 import { NgIconsModule } from '@ng-icons/core';
-import { FeatherAirplay } from '@ng-icons/feather-icons';
-import { HeroUsers } from '@ng-icons/heroicons/outline';
+import { featherAirplay } from '@ng-icons/feather-icons';
+import { heroUsers } from '@ng-icons/heroicons/outline';
 
 @NgModule({
   imports: [
     BrowserModule,
-    NgIconsModule.withIcons({ FeatherAirplay, HeroUsers }),
+    NgIconsModule.withIcons({ featherAirplay, heroUsers }),
   ],
 })
 export class AppModule {}
@@ -98,7 +98,7 @@ You can register icons in multiple modules, this allows icons to be lazy loaded 
 You can then use the icon in your templates:
 
 ```html
-<ng-icon name="feather-airplay"></ng-icon>
+<ng-icon name="featherAirplay"></ng-icon>
 ```
 
 | Name        | Type                 | Description                                                                        |
@@ -116,13 +116,13 @@ You can also import the component directly by importing `NgIconComponent` or the
 
 ```ts
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { FeatherAirplay } from '@ng-icons/feather-icons';
-import { HeroUsers } from '@ng-icons/heroicons/outline';
+import { featherAirplay } from '@ng-icons/feather-icons';
+import { heroUsers } from '@ng-icons/heroicons/outline';
 
 @Component({
   standalone: true,
   imports: [NgIconComponent],
-  providers: [provideIcons({ FeatherAirplay, HeroUsers })],
+  providers: [provideIcons({ featherAirplay, heroUsers })],
 })
 export class AppComponent {}
 ```

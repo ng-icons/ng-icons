@@ -1,7 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { dasherize } from '../../pipes/dash.pipe';
 import { SearchService } from '../../services/search.service';
 import { DialogComponent } from '../dialog/dialog.component';
 
@@ -19,9 +18,9 @@ export class IconPageComponent {
 
   icons$ = this.searchService.search$.pipe(
     map(query =>
-      Object.keys(this.iconset)
-        .map(icon => dasherize(icon))
-        .filter(icon => icon.toLowerCase().includes(query.toLowerCase())),
+      Object.keys(this.iconset).filter(icon =>
+        icon.toLowerCase().includes(query.toLowerCase()),
+      ),
     ),
   );
 

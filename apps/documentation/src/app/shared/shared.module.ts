@@ -2,25 +2,25 @@ import { DialogModule } from '@angular/cdk/dialog';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AkarRadish } from '@ng-icons/akar-icons';
-import { BootstrapBootstrap } from '@ng-icons/bootstrap-icons';
+import { akarRadish } from '@ng-icons/akar-icons';
+import { bootstrapBootstrap } from '@ng-icons/bootstrap-icons';
 import { NgIconsModule } from '@ng-icons/core';
-import { CryptoBtc } from '@ng-icons/cryptocurrency-icons';
-import { CssShapeHexagon } from '@ng-icons/css.gg';
-import { FeatherFeather, FeatherShield } from '@ng-icons/feather-icons';
+import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
+import { cssShapeHexagon } from '@ng-icons/css.gg';
+import { featherFeather, featherShield } from '@ng-icons/feather-icons';
 import {
-  HeroHome,
-  HeroMagnifyingGlass,
-  HeroRectangleStack,
+  heroHome,
+  heroMagnifyingGlass,
+  heroRectangleStack,
 } from '@ng-icons/heroicons/outline';
-import { IconoirIconoir } from '@ng-icons/iconoir';
-import { IonLogoIonic } from '@ng-icons/ionicons';
-import { JamGlassFilled } from '@ng-icons/jam-icons';
-import { OctMarkGithub } from '@ng-icons/octicons';
-import { RadixModulzLogo } from '@ng-icons/radix-icons';
-import { SimpleSimpleicons } from '@ng-icons/simple-icons';
-import { TablerBrandGoogle, TablerTools } from '@ng-icons/tabler-icons';
-import { TypInfinityOutline } from '@ng-icons/typicons';
+import { iconoirIconoir } from '@ng-icons/iconoir';
+import { ionLogoIonic } from '@ng-icons/ionicons';
+import { jamGlassFilled } from '@ng-icons/jam-icons';
+import { octMarkGithub } from '@ng-icons/octicons';
+import { radixModulzLogo } from '@ng-icons/radix-icons';
+import { simpleSimpleicons } from '@ng-icons/simple-icons';
+import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
+import { typInfinityOutline } from '@ng-icons/typicons';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { IconCardListComponent } from './components/icon-card-list/icon-card-list.component';
 import { IconCardComponent } from './components/icon-card/icon-card.component';
@@ -51,24 +51,24 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     CommonModule,
     DialogModule,
     NgIconsModule.withIcons({
-      HeroHome,
-      HeroRectangleStack,
-      HeroMagnifyingGlass,
-      OctMarkGithub,
-      FeatherShield,
-      BootstrapBootstrap,
-      FeatherFeather,
-      JamGlassFilled,
-      RadixModulzLogo,
-      TablerTools,
-      CssShapeHexagon,
-      AkarRadish,
-      IonLogoIonic,
-      TablerBrandGoogle,
-      IconoirIconoir,
-      CryptoBtc,
-      SimpleSimpleicons,
-      TypInfinityOutline,
+      heroHome,
+      heroRectangleStack,
+      heroMagnifyingGlass,
+      octMarkGithub,
+      featherShield,
+      bootstrapBootstrap,
+      featherFeather,
+      jamGlassFilled,
+      radixModulzLogo,
+      tablerTools,
+      cssShapeHexagon,
+      akarRadish,
+      ionLogoIonic,
+      tablerBrandGoogle,
+      iconoirIconoir,
+      cryptoBtc,
+      simpleSimpleicons,
+      typInfinityOutline,
     }),
     FormsModule,
   ],

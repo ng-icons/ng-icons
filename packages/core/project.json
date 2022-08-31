@@ -34,7 +34,8 @@
       "options": {
         "lintFilePatterns": [
           "packages/core/src/**/*.ts",
-          "packages/core/src/**/*.html"
+          "packages/core/src/**/*.html",
+          "packages/core/migrations.json"
         ]
       },
       "outputs": ["{options.outputFile}"]

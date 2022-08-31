@@ -1,0 +1,85 @@
+{
+  "generators": {
+    "rename-icon-imports": {
+      "version": "21.0.0",
+      "description": "Rename all icons to lower camel case",
+      "cli": "nx",
+      "implementation": "./src/migrations/rename-icon-imports/rename-icon-imports"
+    }
+  },
+  "schematics": {
+    "rename-icon-imports": {
+      "version": "21.0.0",
+      "description": "Rename all icons to lower camel case",
+      "cli": "ng",
+      "implementation": "./src/migrations/rename-icon-imports/rename-icon-imports#schematic"
+    }
+  },
+  "packageJsonUpdates": {
+    "21.0.0": {
+      "version": "21.0.0",
+      "packages": {
+        "@ng-icons/heroicons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/bootstrap-icons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/ionicons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/material-icons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/css.gg": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/feather-icons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/jam-icons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/octicons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/radix-icons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/tabler-icons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/akar-icons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/iconoir": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/cryptocurrency-icons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/simple-icons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        },
+        "@ng-icons/typicons": {
+          "version": "21.0.0",
+          "alwaysAddToPackageJson": false
+        }
+      }
+    }
+  }
+}
