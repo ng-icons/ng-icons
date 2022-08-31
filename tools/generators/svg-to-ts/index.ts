@@ -46,7 +46,7 @@ function createIconDeclaration(name: string, svg: string): ts.Node {
     ts.factory.createVariableDeclarationList(
       [
         ts.factory.createVariableDeclaration(
-          ts.factory.createIdentifier(names(name).className),
+          ts.factory.createIdentifier(names(name).propertyName),
           undefined,
           undefined,
           ts.factory.createNoSubstitutionTemplateLiteral(svg.trim()),

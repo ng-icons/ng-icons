@@ -1,14 +1,13 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   HostBinding,
   Input,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { IconName } from './icon-name';
 import { IconService } from './icon.service';
-import { toUpperCamelCase } from './utils/format';
+import { toPropertyName } from './utils/format';
 
 @Component({
   selector: 'ng-icon',
@@ -20,7 +19,7 @@ import { toUpperCamelCase } from './utils/format';
 export class NgIconComponent {
   /** Define the name of the icon to display */
   @Input() set name(name: IconName | string) {
-    name = toUpperCamelCase(name);
+    name = toPropertyName(name);
 
     // if there is no icon with this name warn the user as they probably forgot to import it
     if (!this.iconService.icons.hasOwnProperty(name)) {
@@ -64,7 +63,6 @@ export class NgIconComponent {
   color?: string;
 
   constructor(
-    private readonly elementRef: ElementRef<HTMLElement>,
     private readonly sanitizer: DomSanitizer,
     private readonly iconService: IconService,
   ) {}

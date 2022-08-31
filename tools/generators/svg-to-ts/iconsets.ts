@@ -5,22 +5,22 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/heroicons/24/outline/**/*.svg',
     output: 'packages/heroicons/outline/src/index.ts',
-    getIconName: (name: string) => `Hero${name}`,
+    getIconName: (name: string) => `hero${name}`,
   },
   {
     glob: 'node_modules/heroicons/24/solid/**/*.svg',
     output: 'packages/heroicons/solid/src/index.ts',
-    getIconName: (name: string) => `Hero${name}Solid`,
+    getIconName: (name: string) => `hero${name}Solid`,
   },
   {
     glob: 'node_modules/feather-icons/dist/icons/**/*.svg',
     output: 'packages/feather-icons/src/index.ts',
-    getIconName: (name: string) => `Feather${name}`,
+    getIconName: (name: string) => `feather${name}`,
   },
   {
     glob: 'node_modules/jam-icons/svg/**/*.svg',
     output: 'packages/jam-icons/src/index.ts',
-    getIconName: (name: string) => `Jam${name}`,
+    getIconName: (name: string) => `jam${name}`,
     svg: {
       colorAttr: 'fill',
     },
@@ -28,7 +28,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/@primer/octicons/build/svg/**/*-16.svg',
     output: 'packages/octicons/src/index.ts',
-    getIconName: (name: string) => `Oct${name.replace('16', '')}`,
+    getIconName: (name: string) => `oct${name.replace('16', '')}`,
     svg: {
       colorAttr: 'fill',
     },
@@ -36,7 +36,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/@primer/octicons/build/svg/**/*-24.svg',
     output: 'packages/octicons/large/src/index.ts',
-    getIconName: (name: string) => `Oct${name.replace('24', '')}Large`,
+    getIconName: (name: string) => `oct${name.replace('24', '')}Large`,
     svg: {
       colorAttr: 'fill',
     },
@@ -44,22 +44,22 @@ export const iconsets: Iconset[] = [
   {
     glob: 'svg/radix-icons/**/*.svg',
     output: 'packages/radix-icons/src/index.ts',
-    getIconName: (name: string) => `Radix${name}`,
+    getIconName: (name: string) => `radix${name}`,
   },
   {
     glob: 'node_modules/@tabler/icons/icons/**/*.svg',
     output: 'packages/tabler-icons/src/index.ts',
-    getIconName: (name: string) => `Tabler${name}`,
+    getIconName: (name: string) => `tabler${name}`,
   },
   {
     glob: 'node_modules/css.gg/icons/svg/**/*.svg',
     output: 'packages/css-gg/src/index.ts',
-    getIconName: (name: string) => `Css${name}`,
+    getIconName: (name: string) => `css${name}`,
   },
   {
     glob: 'svg/akar-icons/**/*.svg',
     output: 'packages/akar-icons/src/index.ts',
-    getIconName: (name: string) => `Akar${name}`,
+    getIconName: (name: string) => `akar${name}`,
     svg: {
       colorAttr: 'stroke',
       removeStroke: true,
@@ -68,12 +68,12 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/bootstrap-icons/icons/**/*.svg',
     output: 'packages/bootstrap-icons/src/index.ts',
-    getIconName: (name: string) => `Bootstrap${name}`,
+    getIconName: (name: string) => `bootstrap${name}`,
   },
   {
     glob: 'node_modules/ionicons/dist/svg/**/*.svg',
     output: 'packages/ionicons/src/index.ts',
-    getIconName: (name: string) => `Ion${name}`,
+    getIconName: (name: string) => `ion${name}`,
     svg: {
       colorAttr: 'fill',
     },
@@ -83,7 +83,7 @@ export const iconsets: Iconset[] = [
     output: 'packages/material-icons/baseline/src/index.ts',
     getIconName: (name: string, path: string) => {
       const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
-      return `Mat${iconName}`;
+      return `mat${iconName}`;
     },
     svg: {
       colorAttr: 'fill',
@@ -94,7 +94,7 @@ export const iconsets: Iconset[] = [
     output: 'packages/material-icons/outline/src/index.ts',
     getIconName: (name: string, path: string) => {
       const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
-      return `Mat${iconName}Outline`;
+      return `mat${iconName}Outline`;
     },
     svg: {
       colorAttr: 'fill',
@@ -105,7 +105,7 @@ export const iconsets: Iconset[] = [
     output: 'packages/material-icons/round/src/index.ts',
     getIconName: (name: string, path: string) => {
       const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
-      return `Mat${iconName}Round`;
+      return `mat${iconName}Round`;
     },
     svg: {
       colorAttr: 'fill',
@@ -116,7 +116,7 @@ export const iconsets: Iconset[] = [
     output: 'packages/material-icons/sharp/src/index.ts',
     getIconName: (name: string, path: string) => {
       const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
-      return `Mat${iconName}Sharp`;
+      return `mat${iconName}Sharp`;
     },
     svg: {
       colorAttr: 'fill',
@@ -125,12 +125,12 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/iconoir/icons/**/*.svg',
     output: 'packages/iconoir/src/index.ts',
-    getIconName: (name: string) => `Iconoir${name}`,
+    getIconName: (name: string) => `iconoir${name}`,
   },
   {
     glob: 'node_modules/@svg-icons/crypto/**/*.svg',
     output: 'packages/cryptocurrency-icons/src/index.ts',
-    getIconName: (name: string) => `Crypto${name}`,
+    getIconName: (name: string) => `crypto${name}`,
     svg: {
       colorAttr: 'fill',
     },
@@ -138,7 +138,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/@svg-icons/simple-icons/**/*.svg',
     output: 'packages/simple-icons/src/index.ts',
-    getIconName: (name: string) => `Simple${name}`,
+    getIconName: (name: string) => `simple${name}`,
     svg: {
       colorAttr: 'fill',
     },
@@ -146,7 +146,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/@svg-icons/typicons/**/*.svg',
     output: 'packages/typicons/src/index.ts',
-    getIconName: (name: string) => `Typ${name}`,
+    getIconName: (name: string) => `typ${name}`,
     svg: {
       colorAttr: 'fill',
     },
