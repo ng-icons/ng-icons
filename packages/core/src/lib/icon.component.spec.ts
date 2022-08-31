@@ -1,8 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
-  FeatherAlertCircle,
-  FeatherAlertTriangle,
+  featherAlertCircle,
+  featherAlertTriangle,
 } from '@ng-icons/feather-icons';
 import { NgIconComponent } from './icon.component';
 import { NgIconsModule, NG_ICON_DIRECTIVES } from './icon.module';
@@ -16,7 +16,7 @@ describe('Icon', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        NgIconsModule.withIcons({ FeatherAlertCircle, FeatherAlertTriangle }),
+        NgIconsModule.withIcons({ featherAlertCircle, featherAlertTriangle }),
       ],
     }).compileComponents();
   });
@@ -47,13 +47,13 @@ describe('Icon', () => {
 class TestComponent {}
 
 @NgModule({
-  imports: [NgIconsModule.withIcons({ FeatherAlertTriangle })],
+  imports: [NgIconsModule.withIcons({ featherAlertTriangle })],
   declarations: [TestComponent],
 })
 class ChildModule {}
 
 @NgModule({
-  imports: [ChildModule, NgIconsModule.withIcons({ FeatherAlertCircle })],
+  imports: [ChildModule, NgIconsModule.withIcons({ featherAlertCircle })],
 })
 class ParentModule {}
 
@@ -84,7 +84,7 @@ describe('Icon with multiple modules', () => {
   standalone: true,
   template: '<ng-icon name="feather-alert-circle"></ng-icon>',
   imports: [NG_ICON_DIRECTIVES],
-  providers: [provideIcons({ FeatherAlertCircle })],
+  providers: [provideIcons({ featherAlertCircle })],
 })
 class StandaloneComponent {}
 

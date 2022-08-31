@@ -16,6 +16,10 @@
     "@angular/core": ">=14.0.0"
   },
   "dependencies": {
+    "@nrwl/devkit": "14.3.6",
     "tslib": "^2.2.0"
+  },
+  "nx-migrations": {
+    "migrations": "./migrations.json"
   }
 }
