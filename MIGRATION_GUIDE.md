@@ -10,11 +10,11 @@ For example, `HeroSquare2x2`, should that be `hero-square-2x2` or `hero-square-2
 
 To ease the migration we have provide automated migrations. Run the following:
 
-`ng update @ng-icons/core`
+`ng update @ng-icons/schematics`
 
 or if you are using an Nx workspace:
 
-`nx migrate @ng-icons/core`
+`nx migrate @ng-icons/schematics`
 
 This only updates your Typescript files, so your templates will still use the hyphenated names. They will continue to work as before, however as mentioned are no longer recommeded.
 

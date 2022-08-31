@@ -15,6 +15,7 @@
     "material-icons": "packages/material-icons",
     "octicons": "packages/octicons",
     "radix-icons": "packages/radix-icons",
+    "schematics": "packages/schematics",
     "simple-icons": "packages/simple-icons",
     "tabler-icons": "packages/tabler-icons",
     "typicons": "packages/typicons"

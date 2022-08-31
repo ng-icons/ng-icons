@@ -3,7 +3,5 @@
   "dest": "../../dist/packages/core",
   "lib": {
     "entryFile": "src/index.ts"
-  },
-  "allowedNonPeerDependencies": ["@nrwl/devkit"],
-  "assets": ["README.md", "migrations.json"]
+  }
 }

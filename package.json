@@ -8,7 +8,7 @@
     "test": "nx affected:test --all --parallel",
     "compile": "nx affected:build --all --parallel && nx workspace-generator update-readmes",
     "generate:iconsets": "nx workspace-generator svg-to-ts",
-    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=21.0.1",
+    "deploy": "nx run-many --all --target=deploy --parallel --packageVersion=21.0.2",
     "postinstall": "ngcc --properties es2020 browser module main"
   },
   "private": true,
@@ -27,6 +27,7 @@
     "@svg-icons/crypto": "^1.86.0",
     "@svg-icons/simple-icons": "^1.86.0",
     "@svg-icons/typicons": "^1.86.0",
+    "@swc/helpers": "~0.3.3",
     "@tabler/icons": "^1.91.0",
     "bootstrap-icons": "^1.9.1",
     "css.gg": "^2.0.0",
@@ -52,10 +53,14 @@
     "@nrwl/devkit": "14.3.6",
     "@nrwl/eslint-plugin-nx": "14.3.6",
     "@nrwl/jest": "14.3.6",
+    "@nrwl/js": "14.3.6",
     "@nrwl/linter": "14.3.6",
     "@nrwl/nx-cloud": "14.1.2",
     "@nrwl/nx-plugin": "14.3.6",
     "@nrwl/workspace": "14.3.6",
+    "@swc-node/register": "^1.4.2",
+    "@swc/cli": "~0.1.55",
+    "@swc/core": "^1.2.173",
     "@tailwindcss/typography": "0.5.2",
     "@types/fs-extra": "^9.0.13",
     "@types/glob": "^7.2.0",
@@ -85,6 +90,8 @@
     "svgo": "^2.5.0",
     "tailwindcss": "3.0.24",
     "ts-jest": "27.1.4",
+    "ts-node": "~10.8.0",
+    "tslib": "^2.0.0",
     "typescript": "4.7.4"
   }
 }
