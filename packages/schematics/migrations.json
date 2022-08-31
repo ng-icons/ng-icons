@@ -4,15 +4,7 @@
       "version": "21.0.2",
       "description": "Rename all icons to lower camel case",
       "cli": "nx",
-      "implementation": "./src/migrations/rename-icon-imports/rename-icon-imports"
-    }
-  },
-  "schematics": {
-    "rename-icon-imports": {
-      "version": "21.0.2",
-      "description": "Rename all icons to lower camel case",
-      "cli": "ng",
-      "implementation": "./src/migrations/rename-icon-imports/rename-icon-imports#schematic"
+      "factory": "src/migrations/rename-icon-imports/rename-icon-imports"
     }
   },
   "packageJsonUpdates": {

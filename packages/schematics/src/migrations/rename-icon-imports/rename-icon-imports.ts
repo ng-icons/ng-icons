@@ -1,4 +1,4 @@
-import { convertNxGenerator, Tree, visitNotIgnoredFiles } from '@nrwl/devkit';
+import { Tree, visitNotIgnoredFiles } from '@nrwl/devkit';
 import { basename } from 'path';
 import * as ts from 'typescript';
 
@@ -9,6 +9,7 @@ export default function update(tree: Tree) {
       // create a source file from the file contents
       const sourceFile = ts.createSourceFile(
         path,
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         tree.read(path)!.toString(),
         ts.ScriptTarget.Latest,
         true,
@@ -129,6 +130,3 @@ function toPropertyName(str: string): string {
     .replace(/[^a-zA-Z\d]/g, '')
     .replace(/^([A-Z])/, m => m.toLowerCase());
 }
-
-// add support for @angular/cli
-export const schematic = convertNxGenerator(update);

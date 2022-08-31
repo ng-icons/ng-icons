@@ -7,10 +7,8 @@
   "dependencies": {
     "@nrwl/devkit": "14.3.6"
   },
-  "nx-migrations": {
-    "migrations": "./migrations.json"
-  },
   "ng-update": {
+    "requirements": {},
     "migrations": "./migrations.json"
   }
 }
