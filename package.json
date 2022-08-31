@@ -53,6 +53,7 @@
     "@nrwl/eslint-plugin-nx": "14.3.6",
     "@nrwl/jest": "14.3.6",
     "@nrwl/linter": "14.3.6",
+    "@nrwl/nx-plugin": "14.3.6",
     "@nrwl/nx-cloud": "14.1.2",
     "@nrwl/workspace": "14.3.6",
     "@tailwindcss/typography": "0.5.2",

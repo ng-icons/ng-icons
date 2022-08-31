@@ -28,7 +28,6 @@ import { IconPageComponent } from './components/icon-page/icon-page.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { DashPipe } from './pipes/dash.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +36,6 @@ import { DashPipe } from './pipes/dash.pipe';
     NavigationBarComponent,
     IconCardComponent,
     IconCardListComponent,
-    DashPipe,
     DialogComponent,
     IconPageComponent,
   ],
@@ -47,7 +45,6 @@ import { DashPipe } from './pipes/dash.pipe';
     NavigationBarComponent,
     IconCardComponent,
     IconCardListComponent,
-    DashPipe,
     IconPageComponent,
   ],
   imports: [

@@ -3412,6 +3412,20 @@
     strip-json-comments "^3.1.1"
     tar "6.1.11"
 
+"@nrwl/nx-plugin@14.3.6":
+  version "14.3.6"
+  resolved "https://registry.yarnpkg.com/@nrwl/nx-plugin/-/nx-plugin-14.3.6.tgz#c164df21fc2c508cdf69e7b680174e6f0181a8ea"
+  integrity sha512-WsZwkRzw5/HBwEZS3hw+wVo00pA6/pwr0UPh+hhEZwLrFJdCDhSbfeEUiSaWBb4aGtUXxQJIPfwxkl6xT+pZOg==
+  dependencies:
+    "@nrwl/devkit" "14.3.6"
+    "@nrwl/jest" "14.3.6"
+    "@nrwl/js" "14.3.6"
+    "@nrwl/linter" "14.3.6"
+    fs-extra "^10.1.0"
+    rxjs "^6.5.4"
+    semver "7.3.4"
+    tslib "^2.3.0"
+
 "@nrwl/storybook@14.3.6":
   version "14.3.6"
   resolved "https://registry.yarnpkg.com/@nrwl/storybook/-/storybook-14.3.6.tgz#24603d92a3ea3a5dc5ca9849fde8681efc28a4fd"
