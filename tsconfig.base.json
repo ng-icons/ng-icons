@@ -24,6 +24,7 @@
       "@ng-icons/css.gg": ["packages/css-gg/src/index.ts"],
       "@ng-icons/feather-icons": ["packages/feather-icons/src/index.ts"],
       "@ng-icons/heroicons": ["packages/heroicons/src/index.ts"],
+      "@ng-icons/heroicons/mini": ["packages/heroicons/mini/src/index.ts"],
       "@ng-icons/heroicons/outline": [
         "packages/heroicons/outline/src/index.ts"
       ],

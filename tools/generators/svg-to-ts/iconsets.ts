@@ -13,6 +13,11 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `hero${name}Solid`,
   },
   {
+    glob: 'node_modules/heroicons/20/solid/**/*.svg',
+    output: 'packages/heroicons/mini/src/index.ts',
+    getIconName: (name: string) => `hero${name}Mini`,
+  },
+  {
     glob: 'node_modules/feather-icons/dist/icons/**/*.svg',
     output: 'packages/feather-icons/src/index.ts',
     getIconName: (name: string) => `feather${name}`,

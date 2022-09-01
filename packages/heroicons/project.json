@@ -37,7 +37,9 @@
           "packages/heroicons/outline/**/*.ts",
           "packages/heroicons/outline/**/*.html",
           "packages/heroicons/solid/**/*.ts",
-          "packages/heroicons/solid/**/*.html"
+          "packages/heroicons/solid/**/*.html",
+          "packages/heroicons/mini/**/*.ts",
+          "packages/heroicons/mini/**/*.html"
         ]
       },
       "outputs": ["{options.outputFile}"]

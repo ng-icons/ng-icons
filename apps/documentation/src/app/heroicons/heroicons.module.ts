@@ -2,6 +2,7 @@ import { DialogModule } from '@angular/cdk/dialog';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgIconsModule } from '@ng-icons/core';
+import * as miniHeroIcons from '@ng-icons/heroicons/mini';
 import * as outlineHeroIcons from '@ng-icons/heroicons/outline';
 import * as solidHeroIcons from '@ng-icons/heroicons/solid';
 import { SharedModule } from '../shared/shared.module';
@@ -13,7 +14,11 @@ import { HeroiconsComponent } from './heroicons.component';
   imports: [
     CommonModule,
     HeroiconsRoutingModule,
-    NgIconsModule.withIcons({ ...solidHeroIcons, ...outlineHeroIcons }),
+    NgIconsModule.withIcons({
+      ...solidHeroIcons,
+      ...outlineHeroIcons,
+      ...miniHeroIcons,
+    }),
     SharedModule,
     DialogModule,
   ],
