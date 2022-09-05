@@ -4509,6 +4509,10 @@
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
+"UXAspects@https://gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?master":
+  version "0.0.0"
+  resolved "https://gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?master#e9b5570730c550056c066005db7beda7b9722aea"
+
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
@@ -9593,10 +9597,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ng-packagr@14.0.2:
-  version "14.0.2"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-14.0.2.tgz#5c824b753a4c5e2851c0e130fd98f4df77f6c04b"
-  integrity sha512-Yoiy/cvpYvPTVdAZFPsU2Xg1YdY9w7wVTamKNtz78l1sXA6inQuTGlsvNy+yOJTH7TLZmEjU2WHkmJHgxU10Pg==
+ng-packagr@~14.0.0:
+  version "14.0.4"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-14.0.4.tgz#0dec63d7e829f0aa728d2c90829c35f881e9242c"
+  integrity sha512-GqrokUDpJTYoKKwIFJK+daiOff+G4oVlV7KVfIicpSwg2R++FCWolRCwqn571wMEHssyH8qIsDYSRocA4YLRFA==
   dependencies:
     "@rollup/plugin-json" "^4.1.0"
     "@rollup/plugin-node-resolve" "^13.1.3"

@@ -164,6 +164,14 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    glob: 'node_modules/UXAspects/**/*.svg',
+    output: 'packages/ux-aspects/src/index.ts',
+    getIconName: (name: string) => `aspects${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
 ];
 
 export interface Iconset {
