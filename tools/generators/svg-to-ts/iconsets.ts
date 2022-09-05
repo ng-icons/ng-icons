@@ -156,6 +156,14 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    glob: 'node_modules/dripicons/**/*.svg',
+    output: 'packages/dripicons/src/index.ts',
+    getIconName: (name: string) => `drip${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
 ];
 
 export interface Iconset {

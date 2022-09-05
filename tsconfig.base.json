@@ -22,6 +22,7 @@
         "packages/cryptocurrency-icons/src/index.ts"
       ],
       "@ng-icons/css.gg": ["packages/css-gg/src/index.ts"],
+      "@ng-icons/dripicons": ["packages/dripicons/src/index.ts"],
       "@ng-icons/feather-icons": ["packages/feather-icons/src/index.ts"],
       "@ng-icons/heroicons": ["packages/heroicons/src/index.ts"],
       "@ng-icons/heroicons/mini": ["packages/heroicons/mini/src/index.ts"],

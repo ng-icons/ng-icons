@@ -7,6 +7,7 @@ import { bootstrapBootstrap } from '@ng-icons/bootstrap-icons';
 import { NgIconsModule } from '@ng-icons/core';
 import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { cssShapeHexagon } from '@ng-icons/css.gg';
+import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
 import {
   heroHome,
@@ -69,6 +70,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
       cryptoBtc,
       simpleSimpleicons,
       typInfinityOutline,
+      dripFlag,
     }),
     FormsModule,
   ],

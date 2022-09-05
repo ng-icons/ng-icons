@@ -7,6 +7,7 @@
     "cryptocurrency-icons": "packages/cryptocurrency-icons",
     "css-gg": "packages/css-gg",
     "documentation": "apps/documentation",
+    "dripicons": "packages/dripicons",
     "feather-icons": "packages/feather-icons",
     "heroicons": "packages/heroicons",
     "iconoir": "packages/iconoir",
