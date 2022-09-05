@@ -7,6 +7,7 @@ import { bootstrapBootstrap } from '@ng-icons/bootstrap-icons';
 import { NgIconsModule } from '@ng-icons/core';
 import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { cssShapeHexagon } from '@ng-icons/css.gg';
+import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
 import {
   heroHome,
@@ -21,6 +22,7 @@ import { radixModulzLogo } from '@ng-icons/radix-icons';
 import { simpleSimpleicons } from '@ng-icons/simple-icons';
 import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
+import { aspectsDashboard } from '@ng-icons/ux-aspects';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { IconCardListComponent } from './components/icon-card-list/icon-card-list.component';
 import { IconCardComponent } from './components/icon-card/icon-card.component';
@@ -69,6 +71,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
       cryptoBtc,
       simpleSimpleicons,
       typInfinityOutline,
+      dripFlag,
+      aspectsDashboard,
     }),
     FormsModule,
   ],

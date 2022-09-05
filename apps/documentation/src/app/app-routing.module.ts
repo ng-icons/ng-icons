@@ -94,6 +94,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./typicons/typicons.module').then(m => m.TypiconsModule),
   },
+  {
+    path: 'dripicons',
+    loadChildren: () =>
+      import('./dripicons/dripicons.module').then(m => m.DripiconsModule),
+  },
+  {
+    path: 'ux-aspects',
+    loadChildren: () =>
+      import('./ux-aspects/ux-aspects.module').then(m => m.UxAspectsModule),
+  },
 ];
 
 @NgModule({

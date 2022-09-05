@@ -47,7 +47,7 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'svg/radix-icons/**/*.svg',
+    glob: 'node_modules/@radix-ui/react-icons/icons/**/*.svg',
     output: 'packages/radix-icons/src/index.ts',
     getIconName: (name: string) => `radix${name}`,
   },
@@ -62,7 +62,7 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `css${name}`,
   },
   {
-    glob: 'svg/akar-icons/**/*.svg',
+    glob: 'node_modules/akar-icons-app/**/*.svg',
     output: 'packages/akar-icons/src/index.ts',
     getIconName: (name: string) => `akar${name}`,
     svg: {
@@ -152,6 +152,22 @@ export const iconsets: Iconset[] = [
     glob: 'node_modules/@svg-icons/typicons/**/*.svg',
     output: 'packages/typicons/src/index.ts',
     getIconName: (name: string) => `typ${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/dripicons/**/*.svg',
+    output: 'packages/dripicons/src/index.ts',
+    getIconName: (name: string) => `drip${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/UXAspects/**/*.svg',
+    output: 'packages/ux-aspects/src/index.ts',
+    getIconName: (name: string) => `aspects${name}`,
     svg: {
       colorAttr: 'fill',
     },

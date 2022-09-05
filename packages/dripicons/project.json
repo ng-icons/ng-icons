@@ -1,0 +1,47 @@
+{
+  "projectType": "library",
+  "sourceRoot": "packages/dripicons/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/dripicons"],
+      "options": {
+        "project": "packages/dripicons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/dripicons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/dripicons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/dripicons"],
+      "options": {
+        "jestConfig": "packages/dripicons/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/dripicons/**/*.ts",
+          "packages/dripicons/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

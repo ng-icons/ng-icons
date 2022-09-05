@@ -3,7 +3,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 22,000 icons for you to use in your projects.
+Containing over 23,000 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -22,6 +22,8 @@ Currently, we support the following libraries:
 - [Cryptocurrency Icons](http://cryptoicons.co/)
 - [Simple Icons](https://simpleicons.org/)
 - [Typicons](https://www.s-ings.com/typicons/)
+- [Dripicons](https://github.com/amitjakhu/dripicons)
+- [UX Aspects](https://uxaspects.github.io/UXAspects/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -32,7 +34,7 @@ Got suggestions for additional iconsets? Create an issue and we can consider add
 | 11.x.x          | 12.x.x          |
 | 12.x.x          | 12.x.x - 13.x.x |
 | 13.x.x          | 13.x.x - 17.x.x |
-| 14.x.x          | 17.x.x - 21.x.x |
+| 14.x.x          | 17.x.x - 22.x.x |
 
 > Note: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 
@@ -74,6 +76,8 @@ The following packages are available:
 | `@ng-icons/cryptocurrency-icons` | CC0-1.0      |
 | `@ng-icons/simple-icons`         | CC0-1.0      |
 | `@ng-icons/typicons`             | CC-BY-SA-4.0 |
+| `@ng-icons/dripicons`            | CC-BY-SA-4.0 |
+| `@ng-icons/ux-aspects`           | Apache 2.0   |
 
 ## Usage
 

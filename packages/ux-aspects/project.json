@@ -1,0 +1,47 @@
+{
+  "projectType": "library",
+  "sourceRoot": "packages/ux-aspects/src",
+  "prefix": "ng",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/packages/ux-aspects"],
+      "options": {
+        "project": "packages/ux-aspects/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/ux-aspects/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/ux-aspects/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/ux-aspects"],
+      "options": {
+        "jestConfig": "packages/ux-aspects/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/ux-aspects/**/*.ts",
+          "packages/ux-aspects/**/*.html"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}

@@ -22,6 +22,7 @@
         "packages/cryptocurrency-icons/src/index.ts"
       ],
       "@ng-icons/css.gg": ["packages/css-gg/src/index.ts"],
+      "@ng-icons/dripicons": ["packages/dripicons/src/index.ts"],
       "@ng-icons/feather-icons": ["packages/feather-icons/src/index.ts"],
       "@ng-icons/heroicons": ["packages/heroicons/src/index.ts"],
       "@ng-icons/heroicons/mini": ["packages/heroicons/mini/src/index.ts"],
@@ -51,7 +52,8 @@
       "@ng-icons/schematics": ["packages/schematics/src/index.ts"],
       "@ng-icons/simple-icons": ["packages/simple-icons/src/index.ts"],
       "@ng-icons/tabler-icons": ["packages/tabler-icons/src/index.ts"],
-      "@ng-icons/typicons": ["packages/typicons/src/index.ts"]
+      "@ng-icons/typicons": ["packages/typicons/src/index.ts"],
+      "@ng-icons/ux-aspects": ["packages/ux-aspects/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
