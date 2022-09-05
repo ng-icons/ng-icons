@@ -47,7 +47,7 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'svg/radix-icons/**/*.svg',
+    glob: 'node_modules/@radix-ui/react-icons/icons/**/*.svg',
     output: 'packages/radix-icons/src/index.ts',
     getIconName: (name: string) => `radix${name}`,
   },
@@ -62,7 +62,7 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `css${name}`,
   },
   {
-    glob: 'svg/akar-icons/**/*.svg',
+    glob: 'node_modules/akar-icons-app/**/*.svg',
     output: 'packages/akar-icons/src/index.ts',
     getIconName: (name: string) => `akar${name}`,
     svg: {
