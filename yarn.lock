@@ -3705,21 +3705,6 @@
   resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.16.1.tgz#f6752026af72a10356d5b1f27e2db6b1ee0c730f"
   integrity sha512-s/UJp9qxExL3DyQPT70kiuWeb3AdjbUZM+5lEIXn30I2DLcLYPOPXfsoWJODieQywq+3vPiLZeIdkoqjf6jcSw==
 
-"@svg-icons/crypto@^1.86.0":
-  version "1.86.0"
-  resolved "https://registry.yarnpkg.com/@svg-icons/crypto/-/crypto-1.86.0.tgz#bdf70407d187a3b6984fa4853b42ebec5fcd1f00"
-  integrity sha512-Pi56ZOfs7Tarb0L5CrRWreqsV5BJ4l3gAsP6goTGg3AjVc1p87m9ulPhePpJUxZyL+/2xC6nJ2eCZOgW5S5Qag==
-
-"@svg-icons/simple-icons@^1.86.0":
-  version "1.86.0"
-  resolved "https://registry.yarnpkg.com/@svg-icons/simple-icons/-/simple-icons-1.86.0.tgz#6cce6f79a566ce0499d285d064e7c0104ac0e493"
-  integrity sha512-bfVE2K4oxcBOh6nWYixAYNgJRI+G8ziPBQWUSjOY8SUwcm7lNWA4tuxdhebYRciizqR2O8fsywePPBCQl3EY1A==
-
-"@svg-icons/typicons@^1.86.0":
-  version "1.86.0"
-  resolved "https://registry.yarnpkg.com/@svg-icons/typicons/-/typicons-1.86.0.tgz#302182673ba47b9a334ecc83c6ebab76b7a5073f"
-  integrity sha512-Mzq6ITJES1QkwoF3c+0XxrKVCnhcBgEI4tx/gjgklAXfBTxKvgXYrwtuDb+btJycQb7EM6cGzzx1xFWsZCG4pg==
-
 "@swc-node/core@^1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@swc-node/core/-/core-1.9.0.tgz#f5208d575c1aed5a2cab7e4c04e46aca34d8c240"
@@ -5823,6 +5808,11 @@ cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+cryptocurrency-icons@^0.18.1:
+  version "0.18.1"
+  resolved "https://registry.yarnpkg.com/cryptocurrency-icons/-/cryptocurrency-icons-0.18.1.tgz#b1bdbfb4b78996ec003e63dbd7ec0b830d23b89c"
+  integrity sha512-dvR5O8JOmav3559Yb0Igpkia+3vpt/aeNvMu5ZIVUG2Bzpq9wNcOJRIQas49XJrPjtZ98GAEn3aDQO+w7uhS2w==
 
 css-blank-pseudo@^3.0.3:
   version "3.0.3"
@@ -11762,6 +11752,11 @@ signal-exit@^3.0.2, signal-exit@^3.0.3:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
+simple-icons@^7.10.0:
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-7.10.0.tgz#6f96e6e61aa426151e0bddae71adf881766ef676"
+  integrity sha512-SmGiaft0olppNAdBNYqS1BvOBSiYkqtyt4dw9JIQGihrYHQsgeTDuqP4gMyrBfF3uKhVJdQ/6oeZL5yzYyfGdA==
+
 sisteransi@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
@@ -12581,6 +12576,11 @@ typescript@4.7.4:
   version "4.7.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.4.tgz#1a88596d1cf47d59507a1bcdfb5b9dfe4d488235"
   integrity sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==
+
+typicons.font@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/typicons.font/-/typicons.font-2.1.2.tgz#7f712c785b717c17e478e4874964a033ce7ed37f"
+  integrity sha512-M3HvpFFs24PuCoV16QFKCcPXOMOCiAqcEIchgLBAdewHh2C5krP4clZ0HR4d8glWLOctz8Ak7IlZotNwmYfd5g==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
