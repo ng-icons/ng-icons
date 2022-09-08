@@ -133,7 +133,7 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `iconoir${name}`,
   },
   {
-    glob: 'node_modules/@svg-icons/crypto/**/*.svg',
+    glob: 'node_modules/cryptocurrency-icons/svg/black/**/*.svg',
     output: 'packages/cryptocurrency-icons/src/index.ts',
     getIconName: (name: string) => `crypto${name}`,
     svg: {
@@ -141,7 +141,7 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/@svg-icons/simple-icons/**/*.svg',
+    glob: 'node_modules/simple-icons/icons/**/*.svg',
     output: 'packages/simple-icons/src/index.ts',
     getIconName: (name: string) => `simple${name}`,
     svg: {
@@ -149,7 +149,7 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/@svg-icons/typicons/**/*.svg',
+    glob: 'node_modules/typicons.font/src/svg**/*.svg',
     output: 'packages/typicons/src/index.ts',
     getIconName: (name: string) => `typ${name}`,
     svg: {
