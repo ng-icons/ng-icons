@@ -3601,9 +3601,9 @@
   dependencies:
     object-assign "^4.1.1"
 
-"@radix-ui/react-icons@https://gitpkg.now.sh/radix-ui/icons/packages/radix-icons?master":
+"@radix-ui/react-icons@https://gitpkg.now.sh/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50":
   version "1.1.1"
-  resolved "https://gitpkg.now.sh/radix-ui/icons/packages/radix-icons?master#41c5738374f55ec05e4f1ddaae94a8e07724e0fd"
+  resolved "https://gitpkg.now.sh/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50#41c5738374f55ec05e4f1ddaae94a8e07724e0fd"
 
 "@rollup/plugin-babel@^5.3.0":
   version "5.3.1"
@@ -4494,9 +4494,9 @@
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"UXAspects@https://gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?master":
+"UXAspects@https://gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799":
   version "0.0.0"
-  resolved "https://gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?master#e9b5570730c550056c066005db7beda7b9722aea"
+  resolved "https://gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799#6cfef3d18dd270fdca2f5dc5e833406fedb2771e"
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
@@ -4677,9 +4677,9 @@ ajv@^8.8.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-"akar-icons-app@https://gitpkg.now.sh/artcoholic/akar-icons-app/src/svg?main":
+"akar-icons-app@https://gitpkg.now.sh/artcoholic/akar-icons-app/src/svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc":
   version "0.0.0"
-  resolved "https://gitpkg.now.sh/artcoholic/akar-icons-app/src/svg?main#65296224776e790f4d2c3a9e95b156ad2c74ca39"
+  resolved "https://gitpkg.now.sh/artcoholic/akar-icons-app/src/svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc#65296224776e790f4d2c3a9e95b156ad2c74ca39"
 
 ansi-colors@4.1.1, ansi-colors@^4.1.1:
   version "4.1.1"
@@ -6265,9 +6265,9 @@ dotenv@~10.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
-"dripicons@https://gitpkg.now.sh/amitjakhu/dripicons/SVG?master":
+"dripicons@https://gitpkg.now.sh/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38":
   version "0.0.0"
-  resolved "https://gitpkg.now.sh/amitjakhu/dripicons/SVG?master#3d73205a469f8aa98611807cc3ff13ac00cf8f0a"
+  resolved "https://gitpkg.now.sh/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38#3d73205a469f8aa98611807cc3ff13ac00cf8f0a"
 
 ee-first@1.1.1:
   version "1.1.1"
