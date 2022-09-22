@@ -1,26 +1,16 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { Inject, ModuleWithProviders, NgModule } from '@angular/core';
 import { NgIconComponent } from './icon.component';
-import { IconService } from './icon.service';
-
-/**
- * A barrel export of all directives for use in standalone apps
- */
-const NgIconComponents = [NgIconComponent];
-
-// This is a temporary workaround for ng-packagr issue #2398
-@NgModule({
-  imports: [NgIconComponents],
-  exports: [NgIconComponents],
-})
-export class NG_ICON_DIRECTIVES {}
+import { NgIconsToken, provideIcons } from './icon.provider';
 
 @NgModule({
-  imports: [NgIconComponents],
-  exports: [NgIconComponents],
+  imports: [NgIconComponent],
+  exports: [NgIconComponent],
 })
 export class NgIconsModule {
-  constructor(private readonly iconService: IconService) {
-    if (Object.keys(this.iconService.icons).length === 0) {
+  constructor(
+    @Inject(NgIconsToken) private readonly icons: Record<string, string>,
+  ) {
+    if (Object.keys(icons).length === 0) {
       throw new Error(
         'No icons have been provided. Ensure to include some icons by importing them using NgIconsModule.withIcons({ ... }).',
       );
@@ -35,8 +25,9 @@ export class NgIconsModule {
   static withIcons(
     icons: Record<string, string>,
   ): ModuleWithProviders<NgIconsModule> {
-    IconService.addIcons(icons);
-
-    return { ngModule: NgIconsModule };
+    return { ngModule: NgIconsModule, providers: [provideIcons(icons)] };
   }
 }
+
+// This is a temporary workaround for ng-packagr issue #2398
+export const NG_ICON_DIRECTIVES = NgIconsModule;
