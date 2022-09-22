@@ -7,9 +7,7 @@ import { NgIconsToken, provideIcons } from './icon.provider';
   exports: [NgIconComponent],
 })
 export class NgIconsModule {
-  constructor(
-    @Inject(NgIconsToken) private readonly icons: Record<string, string>,
-  ) {
+  constructor(@Inject(NgIconsToken) icons: Record<string, string>) {
     if (Object.keys(icons).length === 0) {
       throw new Error(
         'No icons have been provided. Ensure to include some icons by importing them using NgIconsModule.withIcons({ ... }).',
@@ -25,9 +23,13 @@ export class NgIconsModule {
   static withIcons(
     icons: Record<string, string>,
   ): ModuleWithProviders<NgIconsModule> {
-    return { ngModule: NgIconsModule, providers: [provideIcons(icons)] };
+    return { ngModule: NgIconsModule, providers: provideIcons(icons) };
   }
 }
 
 // This is a temporary workaround for ng-packagr issue #2398
-export const NG_ICON_DIRECTIVES = NgIconsModule;
+@NgModule({
+  imports: [NgIconComponent],
+  exports: [NgIconComponent],
+})
+export class NG_ICON_DIRECTIVES {}

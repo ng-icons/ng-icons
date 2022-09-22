@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
-  Inject,
+  inject,
   Input,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -61,10 +61,9 @@ export class NgIconComponent {
   @Input()
   color?: string;
 
-  constructor(
-    private readonly sanitizer: DomSanitizer,
-    @Inject(NgIconsToken) private readonly icons: Record<string, string>,
-  ) {}
+  private readonly sanitizer = inject(DomSanitizer);
+
+  private readonly icons = inject(NgIconsToken);
 }
 
 function coerceCssPixelValue(value: string): string {
