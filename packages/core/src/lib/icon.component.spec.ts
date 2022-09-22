@@ -1,5 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { Router, RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import {
   featherAlertCircle,
   featherAlertTriangle,
@@ -19,12 +22,10 @@ describe('Icon', () => {
         NgIconsModule.withIcons({ featherAlertCircle, featherAlertTriangle }),
       ],
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(NgIconComponent);
     component = fixture.componentInstance;
-    component.name = 'feather-alert-circle';
+    component.name = 'featherAlertCircle';
     fixture.detectChanges();
     nativeElement = fixture.nativeElement;
   });
@@ -34,72 +35,92 @@ describe('Icon', () => {
   });
 
   it('should allow the icon to change', () => {
-    component.name = 'feather-alert-triangle';
+    component.name = 'featherAlertTriangle';
     fixture.detectChanges();
     expect(nativeElement).toMatchSnapshot();
   });
 });
 
 @Component({
-  template: ` <ng-icon name="feather-alert-circle"></ng-icon>
-    <ng-icon name="feather-alert-triangle"></ng-icon>`,
+  template: `<ng-icon name="featherAlertCircle"></ng-icon>
+    <router-outlet></router-outlet>`,
 })
-class TestComponent {}
+class RootComponent {}
+
+@Component({
+  template: `<ng-icon name="featherAlertTriangle"></ng-icon>`,
+})
+class ChildComponent {}
 
 @NgModule({
-  imports: [NgIconsModule.withIcons({ featherAlertTriangle })],
-  declarations: [TestComponent],
+  imports: [
+    RouterModule.forChild([
+      {
+        path: '',
+        component: ChildComponent,
+      },
+    ]),
+    NgIconsModule.withIcons({ featherAlertTriangle }),
+  ],
+  declarations: [ChildComponent],
 })
 class ChildModule {}
 
-@NgModule({
-  imports: [ChildModule, NgIconsModule.withIcons({ featherAlertCircle })],
-})
-class ParentModule {}
-
 describe('Icon with multiple modules', () => {
-  let fixture: ComponentFixture<TestComponent>;
-  let nativeElement: HTMLElement;
+  let fixture: ComponentFixture<RootComponent>;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ParentModule],
+      declarations: [RootComponent],
+      imports: [
+        RouterTestingModule.withRoutes([
+          {
+            path: '',
+            component: RootComponent,
+            loadChildren: () => Promise.resolve(ChildModule),
+          },
+        ]),
+        NgIconsModule.withIcons({ featherAlertCircle }),
+      ],
     }).compileComponents();
-  });
+    router = TestBed.inject(Router);
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TestComponent);
+    fixture = TestBed.createComponent(RootComponent);
+    router.initialNavigation();
     fixture.detectChanges();
-    nativeElement = fixture.nativeElement;
   });
 
   it('should display icons registered in both parent and child modules', () => {
-    const icons = nativeElement.querySelectorAll('ng-icon');
-    expect(icons.item(0).innerHTML).toMatchSnapshot();
-    expect(icons.item(1).innerHTML).toMatchSnapshot();
+    const icons = fixture.debugElement.queryAll(By.directive(NgIconComponent));
+
+    expect(
+      icons[1].componentInstance.template.changingThisBreaksApplicationSecurity,
+    ).toMatchSnapshot();
+    expect(
+      icons[2].componentInstance.template.changingThisBreaksApplicationSecurity,
+    ).toMatchSnapshot();
   });
 });
 
 @Component({
   standalone: true,
-  template: '<ng-icon name="feather-alert-circle"></ng-icon>',
+  template: '<ng-icon name="featherAlertCircle"></ng-icon>',
   imports: [NG_ICON_DIRECTIVES],
   providers: [provideIcons({ featherAlertCircle })],
 })
 class StandaloneComponent {}
 
 describe('Standalone icon component', () => {
-  let fixture: ComponentFixture<TestComponent>;
+  let fixture: ComponentFixture<StandaloneComponent>;
   let nativeElement: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [StandaloneComponent],
     }).compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TestComponent);
+    fixture = TestBed.createComponent(StandaloneComponent);
     fixture.detectChanges();
     nativeElement = fixture.nativeElement;
   });

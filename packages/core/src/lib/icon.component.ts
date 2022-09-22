@@ -2,11 +2,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
+  inject,
   Input,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { IconName } from './icon-name';
-import { IconService } from './icon.service';
+import { NgIconsToken } from './icon.provider';
 import { toPropertyName } from './utils/format';
 
 @Component({
@@ -22,7 +23,7 @@ export class NgIconComponent {
     name = toPropertyName(name);
 
     // if there is no icon with this name warn the user as they probably forgot to import it
-    if (!this.iconService.icons.hasOwnProperty(name)) {
+    if (!this.icons[name]) {
       console.warn(
         `No icon named ${name} was found. You may need to import it using the withIcons function.`,
       );
@@ -30,9 +31,7 @@ export class NgIconComponent {
     }
 
     // insert the SVG into the template
-    this.template = this.sanitizer.bypassSecurityTrustHtml(
-      this.iconService.icons[name],
-    );
+    this.template = this.sanitizer.bypassSecurityTrustHtml(this.icons[name]);
   }
 
   /** Store the formatted icon name */
@@ -62,16 +61,11 @@ export class NgIconComponent {
   @Input()
   color?: string;
 
-  constructor(
-    private readonly sanitizer: DomSanitizer,
-    private readonly iconService: IconService,
-  ) {}
+  private readonly sanitizer = inject(DomSanitizer);
+
+  private readonly icons = inject(NgIconsToken);
 }
 
 function coerceCssPixelValue(value: string): string {
-  if (value == null) {
-    return '';
-  }
-
-  return /^\d+$/.test(value) ? `${value}px` : value;
+  return value == null ? '' : /^\d+$/.test(value) ? `${value}px` : value;
 }

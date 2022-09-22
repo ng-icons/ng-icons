@@ -1,5 +1,10 @@
+import {
+  AddAttributesToSVGElementPlugin,
+  optimize,
+  OptimizedSvg,
+  Plugin,
+} from 'svgo';
 import { SvgOptions } from './iconsets';
-import { AddAttributesToSVGElementPlugin, optimize, Plugin } from 'svgo';
 
 export async function optimizeIcon(
   svg: string,
@@ -67,5 +72,10 @@ export async function optimizeIcon(
   }
 
   const result = await optimize(svg, { plugins: plugins as Plugin[] });
-  return result.data;
+
+  if (result.error) {
+    throw result.error;
+  }
+
+  return (result as OptimizedSvg).data;
 }

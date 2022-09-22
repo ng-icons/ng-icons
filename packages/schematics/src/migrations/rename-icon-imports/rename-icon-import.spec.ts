@@ -6,7 +6,7 @@ describe('Rename icon imports migration', () => {
   let tree: Tree;
 
   beforeEach(() => {
-    tree = createTreeWithEmptyWorkspace(2);
+    tree = createTreeWithEmptyWorkspace();
 
     tree.write(
       'libs/core/src/lib/index.ts',
