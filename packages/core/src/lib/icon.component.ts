@@ -22,16 +22,18 @@ export class NgIconComponent {
   @Input() set name(name: IconName | string) {
     name = toPropertyName(name);
 
-    // if there is no icon with this name warn the user as they probably forgot to import it
-    if (!this.icons[name]) {
-      console.warn(
-        `No icon named ${name} was found. You may need to import it using the withIcons function.`,
-      );
-      return;
+    for (const icons of [...this.icons].reverse()) {
+      if (icons[name]) {
+        // insert the SVG into the template
+        this.template = this.sanitizer.bypassSecurityTrustHtml(icons[name]);
+        return;
+      }
     }
 
-    // insert the SVG into the template
-    this.template = this.sanitizer.bypassSecurityTrustHtml(this.icons[name]);
+    // if there is no icon with this name warn the user as they probably forgot to import it
+    console.warn(
+      `No icon named ${name} was found. You may need to import it using the withIcons function.`,
+    );
   }
 
   /** Store the formatted icon name */
