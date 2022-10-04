@@ -163,7 +163,6 @@ export function insertClassProperty(
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isClassDeclaration(node)) {
         return ts.factory.createClassDeclaration(
-          node.decorators,
           node.modifiers,
           node.name,
           node.typeParameters,
@@ -198,7 +197,7 @@ export function removeNgOnInitImplements(
   const transformer = (context: ts.TransformationContext) => {
     const visit = (node: ts.Node): ts.Node => {
       if (ts.isClassDeclaration(node)) {
-        const ngOnInitImplements = node.heritageClauses.find(
+        const ngOnInitImplements = node.heritageClauses?.find(
           clause =>
             clause.token === ts.SyntaxKind.ImplementsKeyword &&
             clause.types.some(
@@ -209,11 +208,10 @@ export function removeNgOnInitImplements(
         );
         if (ngOnInitImplements) {
           return ts.factory.createClassDeclaration(
-            node.decorators,
             node.modifiers,
             node.name,
             node.typeParameters,
-            node.heritageClauses.filter(
+            node.heritageClauses?.filter(
               clause => clause !== ngOnInitImplements,
             ),
             node.members,
@@ -231,7 +229,7 @@ export function removeNgOnInitImplements(
 
 export function removeAllMethods(sourceFile: ts.SourceFile): ts.SourceFile {
   const transformer = (context: ts.TransformationContext) => {
-    const visit = (node: ts.Node): ts.Node => {
+    const visit = (node: ts.Node) => {
       if (ts.isConstructorDeclaration(node)) {
         return null;
       }
