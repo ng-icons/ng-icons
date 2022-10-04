@@ -1826,7 +1826,7 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@material-icons/svg@^1.0.32":
+"@material-icons/svg@^1.0.33":
   version "1.0.33"
   resolved "https://registry.yarnpkg.com/@material-icons/svg/-/svg-1.0.33.tgz#c3f4a5395c3b2267ce032081e9fe426995442ced"
   integrity sha512-sYXcybBWH3rNijK1D6Dv1Se/aZ7OAC2cCNkn4HiZOXQwkswtRVoDqHPw+GfsBoIC70UintfPXUsmiuaxMicWtw==
@@ -2192,10 +2192,10 @@
   dependencies:
     esquery "^1.0.1"
 
-"@primer/octicons@^17.5.0":
-  version "17.5.0"
-  resolved "https://registry.yarnpkg.com/@primer/octicons/-/octicons-17.5.0.tgz#a89a658c54524adb0b0eae95b0eb5a98a904097b"
-  integrity sha512-Bx/IfCMXZSq0YBPspoRoALVou5LiAdSg4yNtwEoYDZ137aq238Glnb6SBE5BtRSyzegTv7wFp/uYUPXMXT2MRg==
+"@primer/octicons@^17.6.0":
+  version "17.6.0"
+  resolved "https://registry.yarnpkg.com/@primer/octicons/-/octicons-17.6.0.tgz#aa970dad4cd9c4140a0980970b6bb3661d95b3e2"
+  integrity sha512-aLXU7zwl6Z5BBL93RiQX//D6isO9avU4SwEt6qsTm5mo6CiKUDBEwwz9tUlYJcRTWbZKsyt4Lpg/oUT+tqbxuQ==
   dependencies:
     object-assign "^4.1.1"
 
@@ -2411,10 +2411,10 @@
   resolved "https://registry.yarnpkg.com/@swc/wasm/-/wasm-1.2.130.tgz#88ac26433335d1f957162a9a92f1450b73c176a0"
   integrity sha512-rNcJsBxS70+pv8YUWwf5fRlWX6JoY/HJc25HD/F8m6Kv7XhJdqPPMhyX6TKkUBPAG7TWlZYoxa+rHAjPy4Cj3Q==
 
-"@tabler/icons@^1.91.0":
-  version "1.97.0"
-  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.97.0.tgz#e727f140c07aad3d26bba374d530f816a96bafbc"
-  integrity sha512-4g6mky2cYzL/utqe8xYOg2KLA3Xf9rQyRowhi1YiekKp9BbV25CTEkn8sFqsRHHLPnl0KuewONHwODeDp46EYw==
+"@tabler/icons@^1.101.0":
+  version "1.101.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.101.0.tgz#fc0bbcf55878a858c89a492d9900cdb0b8488a62"
+  integrity sha512-3DXsgQRpxSMQMNGQbFndYWPGNlxRKnl3I1p11i7kT6eEJTY2Noc7J37gg25MoxVIs57m+fUI6Qux1X7i9fiobw==
 
 "@tailwindcss/typography@0.5.2":
   version "0.5.2"
@@ -5674,7 +5674,7 @@ he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-heroicons@^2.0.10:
+heroicons@^2.0.11:
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/heroicons/-/heroicons-2.0.11.tgz#d733063f57c5f523d730306379859eebdf68eaee"
   integrity sha512-pjp6xFVNuc7So67RcHD0krrjkvxiUfNh1/48Pvi4SKVeT2qRlunWnKmqCpGpKGpvFl2rQSmkdHFXLVvgR145dg==
@@ -5843,10 +5843,10 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-iconoir@^5.2.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/iconoir/-/iconoir-5.3.0.tgz#176adcfa164c93ed19dfc6926e86ad98b9952c48"
-  integrity sha512-1eGwB2J4TenuEfpuHC8fpr0VKmRs8vG6T6WrQIFwCOZRJ4BHZKlXjopHlm3bPZtBX/hY7p+3lZeIFiBcPfCdcw==
+iconoir@^5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/iconoir/-/iconoir-5.3.1.tgz#fa218841308632baecedc62bd757b936b5663d85"
+  integrity sha512-G7wF7zQzruIIbx9yZdyBDprF0IW31GhjrSxphzMZGPAiHMkxeL/mEpjDoGtkozd1eySd4pE5gonG75EnQEc9Mg==
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
@@ -9271,10 +9271,10 @@ signal-exit@^3.0.2, signal-exit@^3.0.3, signal-exit@^3.0.7:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.7.tgz#a9a1767f8af84155114eaabd73f99273c8f59ad9"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
-simple-icons@^7.10.0:
-  version "7.12.0"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-7.12.0.tgz#f2801d24c079e4bd98650086ca4645696d706bc3"
-  integrity sha512-jw5zIeLPuLbuIu3iQeThI+BPaafbFR/vn9yssOsatHUuVW5/DgNa0BxNp1GQf8VxVcRKIRWS5UNbw6SrSQBbLg==
+simple-icons@^7.14.0:
+  version "7.14.0"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-7.14.0.tgz#b2bb9d5a038835c916614d1601b2e9e1a5d50239"
+  integrity sha512-peojKZtdmNlM4ofTERoJWwP5p/R3mRBtFf9ERTaEmnepXQxdealNZOyjPQie9M1gKQYuy0xD5ckwUWvNFK/fNQ==
 
 sisteransi@^1.0.5:
   version "1.0.5"

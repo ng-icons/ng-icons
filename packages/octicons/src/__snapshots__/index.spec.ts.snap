@@ -5,6 +5,7 @@ Array [
   "octAccessibility",
   "octAccessibilityInset",
   "octAlert",
+  "octAlertFill",
   "octApps",
   "octArchive",
   "octArrowBoth",
@@ -281,6 +282,7 @@ Array [
 exports[`Octicons Icons should ensure the export names have not changed unexpectedly 2`] = `
 Array [
   "octAlertLarge",
+  "octAlertFillLarge",
   "octArchiveLarge",
   "octArrowBothLarge",
   "octArrowDownLarge",
@@ -412,6 +414,7 @@ Array [
   "octListUnorderedLarge",
   "octLocationLarge",
   "octLockLarge",
+  "octLogLarge",
   "octMailLarge",
   "octMegaphoneLarge",
   "octMentionLarge",
