@@ -5,7 +5,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/ux-aspects"],
+      "outputs": ["{workspaceRoot}/dist/packages/ux-aspects"],
       "options": {
         "project": "packages/ux-aspects/ng-package.json"
       },
@@ -21,7 +21,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/ux-aspects"],
+      "outputs": ["{workspaceRoot}/coverage/packages/ux-aspects"],
       "options": {
         "jestConfig": "packages/ux-aspects/jest.config.ts",
         "passWithNoTests": true

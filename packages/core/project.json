@@ -6,7 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/core"],
+      "outputs": ["{workspaceRoot}/dist/packages/core"],
       "options": {
         "project": "packages/core/ng-package.json",
         "updateBuildableProjectDepsInPackageJson": false
@@ -23,7 +23,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/core"],
+      "outputs": ["{workspaceRoot}/coverage/packages/core"],
       "options": {
         "jestConfig": "packages/core/jest.config.ts",
         "passWithNoTests": true

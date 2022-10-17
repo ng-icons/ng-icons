@@ -6,7 +6,7 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/ionicons"],
+      "outputs": ["{workspaceRoot}/coverage/packages/ionicons"],
       "options": {
         "jestConfig": "packages/ionicons/jest.config.ts",
         "passWithNoTests": true
@@ -14,7 +14,7 @@
     },
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/ionicons"],
+      "outputs": ["{workspaceRoot}/dist/packages/ionicons"],
       "options": {
         "project": "packages/ionicons/ng-package.json"
       },

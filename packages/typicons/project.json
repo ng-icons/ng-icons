@@ -6,7 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/typicons"],
+      "outputs": ["{workspaceRoot}/dist/packages/typicons"],
       "options": {
         "project": "packages/typicons/ng-package.json"
       },
@@ -22,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/typicons"],
+      "outputs": ["{workspaceRoot}/coverage/packages/typicons"],
       "options": {
         "jestConfig": "packages/typicons/jest.config.ts",
         "passWithNoTests": true

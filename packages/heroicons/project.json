@@ -6,7 +6,7 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/heroicons"],
+      "outputs": ["{workspaceRoot}/coverage/packages/heroicons"],
       "options": {
         "jestConfig": "packages/heroicons/jest.config.ts",
         "passWithNoTests": true
@@ -14,7 +14,7 @@
     },
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/heroicons"],
+      "outputs": ["{workspaceRoot}/dist/packages/heroicons"],
       "options": {
         "project": "packages/heroicons/ng-package.json"
       },

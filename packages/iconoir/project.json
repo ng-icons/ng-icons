@@ -6,7 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/iconoir"],
+      "outputs": ["{workspaceRoot}/dist/packages/iconoir"],
       "options": {
         "project": "packages/iconoir/ng-package.json"
       },
@@ -22,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/iconoir"],
+      "outputs": ["{workspaceRoot}/coverage/packages/iconoir"],
       "options": {
         "jestConfig": "packages/iconoir/jest.config.ts",
         "passWithNoTests": true

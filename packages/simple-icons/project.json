@@ -6,7 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/simple-icons"],
+      "outputs": ["{workspaceRoot}/dist/packages/simple-icons"],
       "options": {
         "project": "packages/simple-icons/ng-package.json"
       },
@@ -22,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/simple-icons"],
+      "outputs": ["{workspaceRoot}/coverage/packages/simple-icons"],
       "options": {
         "jestConfig": "packages/simple-icons/jest.config.ts",
         "passWithNoTests": true

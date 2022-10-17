@@ -6,7 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/cryptocurrency-icons"],
+      "outputs": ["{workspaceRoot}/dist/packages/cryptocurrency-icons"],
       "options": {
         "project": "packages/cryptocurrency-icons/ng-package.json"
       },
@@ -22,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/cryptocurrency-icons"],
+      "outputs": ["{workspaceRoot}/coverage/packages/cryptocurrency-icons"],
       "options": {
         "jestConfig": "packages/cryptocurrency-icons/jest.config.ts",
         "passWithNoTests": true

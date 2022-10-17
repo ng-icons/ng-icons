@@ -6,7 +6,7 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/octicons"],
+      "outputs": ["{workspaceRoot}/coverage/packages/octicons"],
       "options": {
         "jestConfig": "packages/octicons/jest.config.ts",
         "passWithNoTests": true
@@ -14,7 +14,7 @@
     },
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/octicons"],
+      "outputs": ["{workspaceRoot}/dist/packages/octicons"],
       "options": {
         "project": "packages/octicons/ng-package.json"
       },

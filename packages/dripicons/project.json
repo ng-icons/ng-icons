@@ -5,7 +5,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/dripicons"],
+      "outputs": ["{workspaceRoot}/dist/packages/dripicons"],
       "options": {
         "project": "packages/dripicons/ng-package.json"
       },
@@ -21,7 +21,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/dripicons"],
+      "outputs": ["{workspaceRoot}/coverage/packages/dripicons"],
       "options": {
         "jestConfig": "packages/dripicons/jest.config.ts",
         "passWithNoTests": true

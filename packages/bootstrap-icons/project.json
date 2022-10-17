@@ -6,7 +6,7 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/bootsrap-icons"],
+      "outputs": ["{workspaceRoot}/coverage/packages/bootsrap-icons"],
       "options": {
         "jestConfig": "packages/bootstrap-icons/jest.config.ts",
         "passWithNoTests": true
@@ -14,7 +14,7 @@
     },
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/bootstrap-icons"],
+      "outputs": ["{workspaceRoot}/dist/packages/bootstrap-icons"],
       "options": {
         "project": "packages/bootstrap-icons/ng-package.json"
       },

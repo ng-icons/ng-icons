@@ -6,7 +6,7 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/radix-icons"],
+      "outputs": ["{workspaceRoot}/coverage/packages/radix-icons"],
       "options": {
         "jestConfig": "packages/radix-icons/jest.config.ts",
         "passWithNoTests": true
@@ -14,7 +14,7 @@
     },
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/packages/radix-icons"],
+      "outputs": ["{workspaceRoot}/dist/packages/radix-icons"],
       "options": {
         "project": "packages/radix-icons/ng-package.json"
       },
