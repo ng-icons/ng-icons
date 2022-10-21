@@ -8,7 +8,7 @@ on:
 jobs:
   main:
     name: Nx Cloud - Main Job
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.8
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.4
     with:
       main-branch-name: master
       init-commands: |
@@ -21,16 +21,15 @@ jobs:
         yarn nx affected --target=lint --parallel=3
         yarn nx affected --target=test --parallel=3 --ci --code-coverage
         yarn nx affected --target=build --parallel=3
-
   agents:
     name: Nx Cloud - Agents
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.8
+    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.4
     with:
       number-of-agents: 3
 
   deploy:
     name: Deploy
-    uses: JamesIves/github-pages-deploy-action/.github/workflows/deploy.yml
+    uses: JamesIves/github-pages-deploy-action@4.1.4
     with:
       branch: gh-pages # The branch the action should deploy to.
       folder: dist/apps/documentation # The folder the action should deploy.
