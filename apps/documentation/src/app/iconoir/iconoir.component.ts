@@ -1,5 +1,5 @@
+import { Component } from '@angular/core';
 import * as iconset from '@ng-icons/iconoir';
-import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-iconoir',
   templateUrl: './iconoir.component.html',

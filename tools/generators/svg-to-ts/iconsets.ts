@@ -172,6 +172,14 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    glob: 'node_modules/@klarr-agency/circum-icons/**/*.svg',
+    output: 'packages/circum-icons/src/index.ts',
+    getIconName: (name: string) => `circum${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
 ];
 
 export interface Iconset {

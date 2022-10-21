@@ -104,6 +104,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./ux-aspects/ux-aspects.module').then(m => m.UxAspectsModule),
   },
+  {
+    path: 'circum-icons',
+    loadChildren: () =>
+      import('./circum-icons/circum-icons.module').then(
+        m => m.CircumIconsModule,
+      ),
+  },
 ];
 
 @NgModule({

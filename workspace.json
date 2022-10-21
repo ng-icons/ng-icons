@@ -3,6 +3,7 @@
   "projects": {
     "akar-icons": "packages/akar-icons",
     "bootstrap-icons": "packages/bootstrap-icons",
+    "circum-icons": "packages/circum-icons",
     "core": "packages/core",
     "cryptocurrency-icons": "packages/cryptocurrency-icons",
     "css-gg": "packages/css-gg",

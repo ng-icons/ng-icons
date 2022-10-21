@@ -1,4 +1,5 @@
 {
+  "name": "ux-aspects",
   "projectType": "library",
   "sourceRoot": "packages/ux-aspects/src",
   "prefix": "ng",

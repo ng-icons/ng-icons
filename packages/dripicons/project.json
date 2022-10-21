@@ -1,4 +1,5 @@
 {
+  "name": "dripicons",
   "projectType": "library",
   "sourceRoot": "packages/dripicons/src",
   "prefix": "ng",

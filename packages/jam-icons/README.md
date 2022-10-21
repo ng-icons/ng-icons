@@ -78,6 +78,7 @@ The following packages are available:
 | `@ng-icons/typicons`             | CC-BY-SA-4.0 |
 | `@ng-icons/dripicons`            | CC-BY-SA-4.0 |
 | `@ng-icons/ux-aspects`           | Apache 2.0   |
+| `@ng-icons/circum-icons`         | MPL-2.0      |
 
 ## Usage
 
