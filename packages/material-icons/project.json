@@ -1,4 +1,5 @@
 {
+  "name": "material-icons",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "packages/material-icons/src",

@@ -1821,6 +1821,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@klarr-agency/circum-icons@https://gitpkg.now.sh/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c":
+  version "0.0.0"
+  resolved "https://gitpkg.now.sh/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c#31ef824e27d0c67fab29f48bc4b2ada18ea004ac"
+
 "@leichtgewicht/ip-codec@^2.0.1":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
