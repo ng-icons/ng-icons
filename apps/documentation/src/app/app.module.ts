@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
+import { NgIconsModule } from '@ng-icons/core';
+import { heroChevronRightMini } from '@ng-icons/heroicons/mini';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GettingStartedComponent } from './getting-started/getting-started.component';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, GettingStartedComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    SharedModule,
     AppRoutingModule,
+    NgIconsModule.withIcons({ heroChevronRightMini, bootstrapGithub }),
   ],
   bootstrap: [AppComponent],
 })
