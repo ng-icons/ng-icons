@@ -1,35 +1,4 @@
-<header class="navbar fixed top-0 z-10 w-full">
-  <div class="container mx-auto h-16 items-center flex justify-between px-4">
-    <img
-      class="cursor-pointer"
-      routerLink="/"
-      src="/assets/logo.svg"
-      alt="Logo"
-    />
-
-    <div class="flex">
-      <a
-        href="#"
-        class="inline-flex items-center p-2 text-sm text-center text-[#F8E8E8]/80 hover:text-[#F8E8E8] transition-colors"
-        routerLink="/getting-started"
-        >Getting Started</a
-      >
-      <a
-        href="#"
-        class="inline-flex items-center p-2 text-sm text-center text-[#F8E8E8]/80 hover:text-[#F8E8E8] transition-colors"
-        routerLink="/browse-started"
-        >Browse Icons</a
-      >
-
-      <a
-        href="#"
-        class="inline-flex items-center ml-2 p-2 text-3xl text-center text-[#F8E8E8]/80 hover:text-[#F8E8E8] transition-colors"
-      >
-        <ng-icon name="bootstrapGithub"></ng-icon>
-      </a>
-    </div>
-  </div>
-</header>
+<app-navbar></app-navbar>
 
 <div class="background-blob" [class.blue]="background === 'blue'"></div>
 

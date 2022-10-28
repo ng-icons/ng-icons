@@ -1,0 +1,46 @@
+:host {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.navbar-logo {
+  cursor: pointer;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 4rem;
+  margin: 0 auto;
+  @apply container;
+}
+
+.navbar-links {
+  display: flex;
+}
+
+.navbar-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  &:last-of-type {
+    margin-left: 0.5rem;
+    font-size: 30px;
+  }
+}

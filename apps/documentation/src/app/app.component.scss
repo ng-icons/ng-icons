@@ -1,7 +1,7 @@
 .background-blob {
-  position: absolute;
+  position: fixed;
   width: 60%;
-  height: 1070px;
+  height: 100vh;
   left: 20%;
   top: 0;
   z-index: -1;
@@ -27,7 +27,7 @@
       #64a5e1 208.13deg,
       #b9b3fe 360deg
     );
-    transform: rotate(180deg) translateY(0);
+    transform: rotate(0deg) translateY(0);
   }
 
   // apply an overlay to the background

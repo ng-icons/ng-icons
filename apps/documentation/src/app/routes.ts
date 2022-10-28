@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', component: IndexComponent },
   {
     path: 'getting-started',
@@ -19,9 +18,3 @@ const routes: Routes = [
       ),
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
