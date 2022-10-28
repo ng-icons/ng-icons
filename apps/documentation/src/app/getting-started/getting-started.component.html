@@ -23,5 +23,21 @@
     <app-segment></app-segment>
   </div>
 
-  <app-snippet appFadeIn></app-snippet>
+  <app-snippet appFadeIn>
+    <pre
+      ngNonBindable
+      style="margin: 0; line-height: 125%"
+    ><span style="color: #008800; font-weight: bold">import</span> &#123; NgIconsModule &#125; from <span style="background-color: #fff0f0">&#39;@ng-icons/core&#39;</span>;
+<span style="color: #008800; font-weight: bold">import</span> &#123; featherAirplay &#125; from <span style="background-color: #fff0f0">&#39;@ng-icons/feather-icons&#39;</span>;
+<span style="color: #008800; font-weight: bold">import</span> &#123; heroUsers &#125; from <span style="background-color: #fff0f0">&#39;@ng-icons/heroicons/outline&#39;</span>;
+
+<span style="color: #FF0000; background-color: #FFAAAA">@</span>NgModule(&#123;
+  imports<span style="color: #333333">:</span> [
+    BrowserModule,
+    NgIconsModule.withIcons(&#123; featherAirplay, heroUsers &#125;),
+  ],
+&#125;)
+<span style="color: #008800; font-weight: bold">export</span> <span style="color: #008800; font-weight: bold">class</span> AppModule &#123;&#125;
+</pre>
+  </app-snippet>
 </div>
