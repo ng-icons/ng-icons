@@ -1,22 +1,28 @@
 <div
-  class="flex flex-col items-center justify-center h-screen px-4 fade-container"
+  appFadeInContainer
+  class="flex flex-col items-center justify-center h-screen px-4"
 >
-  <img class="fade-in w-32 mb-6" src="/assets/angular.svg" alt="Angular Logo" />
+  <img
+    appFadeIn
+    class="w-32 mb-6"
+    src="/assets/angular.svg"
+    alt="Angular Logo"
+  />
 
-  <h2 class="fade-in heading mb-5 text-xl font-extrabold uppercase">
+  <h2 appFadeIn class="heading mb-5 text-xl font-extrabold uppercase">
     Angular Icons
   </h2>
 
-  <h1 class="fade-in slogan font-extrabold text-5xl text-center mb-6">
+  <h1 appFadeIn class="slogan font-extrabold text-5xl text-center mb-6">
     The all-in-one icon<br />
     library for Angular
   </h1>
 
-  <p class="fade-in text-base text-[#F5EAEA] text-center mb-16">
+  <p appFadeIn class="text-base text-[#F5EAEA] text-center mb-16">
     Providing over 23,000 icons for use in your applications
   </p>
 
-  <div class="fade-in flex gap-x-6">
+  <div appFadeIn class="flex gap-x-6">
     <button
       routerLink="/getting-started"
       class="btn btn-white h-12 px-6 flex gap-x-2 items-center font-medium text-sm transition-shadow ease-out duration-200"

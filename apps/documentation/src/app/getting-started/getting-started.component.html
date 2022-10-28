@@ -1,23 +1,27 @@
-<div class="px-4 container mt-32 mx-auto">
-  <h1 class="heading font-extrabold text-5xl text-center mb-4">
+<div appFadeInContainer class="px-4 container mt-32 mx-auto">
+  <h1 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
     Getting Started
   </h1>
 
-  <p class="text-[#E4F4FB] text-medium text-base text-center">
+  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center">
     Installing the packages
   </p>
 
-  <app-terminal></app-terminal>
+  <app-terminal appFadeIn></app-terminal>
 
-  <hr />
+  <hr appFadeIn />
 
-  <h2 class="heading font-extrabold text-5xl text-center mb-4">
+  <h2 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
     Importing Icons
   </h2>
 
-  <p class="text-[#E4F4FB] text-medium text-base text-center mb-16">
+  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center mb-16">
     Only include the icons you want to use
   </p>
 
-  <app-snippet></app-snippet>
+  <div appFadeIn class="flex justify-center">
+    <app-segment></app-segment>
+  </div>
+
+  <app-snippet appFadeIn></app-snippet>
 </div>

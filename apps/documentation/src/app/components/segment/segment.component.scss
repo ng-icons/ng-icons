@@ -1,0 +1,73 @@
+:host {
+  position: relative;
+  display: inline-flex;
+  padding: 3px;
+  gap: 1px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba(228, 244, 251, 0.2);
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    left: 1rem;
+    right: 1rem;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(228, 244, 251, 0.6) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    border-radius: 16px;
+    top: -1px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    left: 1rem;
+    right: 1rem;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(228, 244, 251, 0.6) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    border-radius: 16px;
+    bottom: -1px;
+  }
+}
+
+.segment-option {
+  width: 50%;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(228, 244, 251);
+  padding: 8px 24px;
+  cursor: pointer;
+}
+
+.segment-highlight {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  bottom: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9px;
+  padding: 8px 24px;
+  width: 50%;
+  border: 1px solid rgba(228, 244, 251, 0.2);
+  transition: all 0.2s ease-in-out;
+
+  &.segment-alternate {
+    transform: translateX(calc(100% - 6px));
+  }
+}

@@ -13,7 +13,9 @@
   &::before {
     content: '';
     position: absolute;
-    width: 100%;
+    left: 1rem;
+    right: 1rem;
+    top: -1px;
     height: 1px;
     background: linear-gradient(
       90deg,
@@ -21,7 +23,6 @@
       rgba(228, 244, 251, 60%) 50%,
       rgba(0, 0, 0, 0) 100%
     );
-    backdrop-filter: blur(50px);
     border-radius: 16px;
   }
 }

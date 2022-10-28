@@ -9,11 +9,15 @@
   backdrop-filter: blur(50px);
   border-radius: 16px;
   box-shadow: 0px 1px 40px rgba(17, 15, 15, 0.5);
+  max-width: 100%;
+  padding: 0 1rem;
 
   &::before {
     content: '';
     position: absolute;
-    width: 100%;
+    left: 1rem;
+    right: 1rem;
+    top: -1px;
     height: 1px;
     background: linear-gradient(
       90deg,
@@ -21,7 +25,6 @@
       rgba(228, 244, 251, 60%) 50%,
       rgba(0, 0, 0, 0) 100%
     );
-    backdrop-filter: blur(50px);
     border-radius: 16px;
   }
 }
