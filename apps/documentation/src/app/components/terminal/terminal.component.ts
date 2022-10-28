@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-terminal',
@@ -8,8 +8,4 @@ import { CommonModule } from '@angular/common';
   templateUrl: './terminal.component.html',
   styleUrls: ['./terminal.component.scss'],
 })
-export class TerminalComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class TerminalComponent {}
