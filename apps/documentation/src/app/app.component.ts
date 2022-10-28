@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +7,24 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  loading$ = new BehaviorSubject<boolean>(false);
+  background = 'red';
 
   constructor(private readonly router: Router) {}
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        this.loading$.next(true);
-      }
       if (event instanceof NavigationEnd) {
-        this.loading$.next(false);
+        switch (event.urlAfterRedirects) {
+          case '/':
+            this.background = 'red';
+            break;
+          case '/getting-started':
+            this.background = 'blue';
+            break;
+          case '/browse-icons':
+            this.background = 'blue';
+            break;
+        }
       }
     });
   }
