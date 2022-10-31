@@ -2201,6 +2201,11 @@
     yargs "^17.4.0"
     yargs-parser "21.0.1"
 
+"@nx-dotnet/nx-ghpages@^1.15.0":
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/@nx-dotnet/nx-ghpages/-/nx-ghpages-1.15.0.tgz#73deb680e1ac08ba9228bbee9fb09875e06c5607"
+  integrity sha512-kgiS4uthfNLcir9N6v9Dg1fr4fBfmgFXWfvukF/BWnKTTAhtybtGrOjwf8RX87Lh0qipPulYEaWyV4jANbOfuw==
+
 "@parcel/watcher@2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@parcel/watcher/-/watcher-2.0.4.tgz#f300fef4cc38008ff4b8c29d92588eced3ce014b"

@@ -79,6 +79,13 @@
         "jestConfig": "apps/documentation/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "executor": "@nx-dotnet/nx-ghpages:deploy",
+      "options": {
+        "remote": "https://github.com/ng-icons/ng-icons",
+        "directory": "dist/apps/documentation"
+      }
     }
   },
   "tags": []
