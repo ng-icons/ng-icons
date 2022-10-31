@@ -1,1 +1,83 @@
-<div class="prose" [innerHTML]="content"></div>
+<div appFadeInContainer class="px-4 container mt-32 mx-auto">
+  <h1 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
+    Getting Started
+  </h1>
+
+  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center">
+    Installing the packages
+  </p>
+
+  <app-terminal appFadeIn></app-terminal>
+
+  <hr appFadeIn />
+
+  <h2 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
+    Importing Icons
+  </h2>
+
+  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center mb-16">
+    Only include the icons you want to use
+  </p>
+
+  <div appFadeIn class="flex justify-center">
+    <app-segment
+      [options]="['Ng Modules', 'Standalone']"
+      [(selectedIndex)]="selectedIndex"
+    ></app-segment>
+  </div>
+
+  <app-snippet appFadeIn>
+    <pre
+      *ngIf="selectedIndex === 0"
+      ngNonBindable
+    ><span style="color: #E5ACAC">import</span> &#123; NgIconsModule &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/core&#39;</span>;
+<span style="color: #E5ACAC">import</span> &#123; featherAirplay &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/feather-icons&#39;</span>;
+<span style="color: #E5ACAC">import</span> &#123; heroUsers &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/heroicons/outline&#39;</span>;
+
+<span style="color: #B3D1FE">@NgModule</span>(&#123;
+  imports: [
+    BrowserModule,
+    NgIconsModule.withIcons(&#123; featherAirplay, heroUsers &#125;),
+  ],
+&#125;)
+<span style="color: #E5ACAC">export class</span> AppModule &#123;&#125;
+</pre>
+
+    <pre
+      *ngIf="selectedIndex === 1"
+      ngNonBindable
+    ><span style="color: #E5ACAC">import</span> &#123; NgIconComponent, provideIcons &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/core&#39;</span>;
+<span style="color: #E5ACAC">import</span> &#123; featherAirplay &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/feather-icons&#39;</span>;
+<span style="color: #E5ACAC">import</span> &#123; heroUsers &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/heroicons/outline&#39;</span>;
+
+<span style="color: #B3D1FE">@Component</span>(&#123;
+    selector<span style="color: #333333">:</span> <span style="color: #FEDBB3">&#39;app-root&#39;</span>,
+    templateUrl<span style="color: #333333">:</span> <span style="color: #FEDBB3">&#39;./app.component.html&#39;</span>,
+    imports<span style="color: #333333">:</span> [NgIconComponent],
+    viewProviders: [<span style="color: #B3D1FE">provideIcons</span>(&#123; featherAirplay, heroUsers &#125;)]
+&#125;)
+<span style="color: #E5ACAC">export</span> <span style="color: #E5ACAC">class</span> AppComponent &#123;&#125;
+</pre>
+  </app-snippet>
+
+  <hr appFadeIn />
+
+  <h2 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
+    Using Icons
+  </h2>
+
+  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center mb-16">
+    Use the ng-icon component to display the icon.
+  </p>
+
+  <app-snippet appFadeIn>
+    <pre><span style="color: #E5ACAC">&lt;ng-icon</span> <span style="color: #D0B3FE">name</span>=<span style="color: #FEDBB3">&quot;heroUsers&quot;</span>&gt;&lt;/<span style="color: #E5ACAC">ng-icon</span>&gt;
+</pre>
+  </app-snippet>
+
+  <hr appFadeIn />
+
+  <p appFadeIn class="text-[#E4F4FB] text-medium text-sm text-center mb-16">
+    © Copyright {{ year }} - Angular Icons
+  </p>
+</div>

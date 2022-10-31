@@ -1,3 +1,45 @@
-:host {
-  @apply relative h-screen bg-gray-50 flex overflow-hidden;
+.background-blob {
+  position: fixed;
+  width: 60%;
+  height: 100vh;
+  left: 20%;
+  top: 0;
+  z-index: -1;
+  // animate the background
+  transition: background 0.5s ease-in-out;
+
+  background: conic-gradient(
+      from 180deg at 50% 50%,
+      #7f0f37 0deg,
+      #dc2186 133.12deg,
+      #e16c64 208.13deg,
+      #fedbb3 360deg
+    )
+    no-repeat;
+  filter: blur(200px);
+  transform: rotate(180deg) translateY(40%);
+
+  &.blue {
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #0f577f 0deg,
+      #21a4dc 133.12deg,
+      #64a5e1 208.13deg,
+      #b9b3fe 360deg
+    );
+    transform: rotate(0deg) translateY(0);
+  }
+
+  // apply an overlay to the background
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgb(0 0 0 / 0%) 0%,
+      rgb(0 0 0 / 55%) 100%
+    );
+  }
 }

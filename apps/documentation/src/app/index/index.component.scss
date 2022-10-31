@@ -1,0 +1,47 @@
+.heading {
+  line-height: 25px;
+  letter-spacing: 0.08em;
+  background: linear-gradient(360deg, #ffafbd 0%, #ffc3a0 82%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.slogan {
+  line-height: 60px;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(227, 153, 153, 0.96) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.btn {
+  border-radius: 32px;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+
+  &.btn-white {
+    background: linear-gradient(90deg, #e0eafc 0%, #cfdef3 100%);
+    border-top: 1px solid #ffffff;
+    color: #1a1e2a;
+
+    &:hover {
+      box-shadow: 0px 1px 40px rgba(224, 234, 252, 0.4);
+    }
+  }
+
+  &.btn-red {
+    border-top: 1px solid rgba(238, 238, 238, 0.3);
+    background: linear-gradient(90deg, #e53935 0%, #e35d5b 100%);
+    color: #fff;
+
+    &:hover {
+      box-shadow: 0px 1px 40px rgba(216, 24, 47, 0.5);
+    }
+  }
+}

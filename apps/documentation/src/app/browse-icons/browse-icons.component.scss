@@ -1,0 +1,228 @@
+.heading {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(32, 115, 151, 0.96) 200.83%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  line-height: 60px;
+}
+
+.iconset-card {
+  position: relative;
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 16px;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(228, 244, 251, 0.2);
+  border-radius: 16px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: rgba(255, 255, 255, 0.7);
+
+  &:hover {
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  &.active {
+    color: #fff;
+    border-color: rgb(177, 217, 238);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: -1px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(228, 244, 251, 60%) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    border-radius: 16px;
+  }
+
+  &:focus {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  ng-icon {
+    font-size: 32px;
+  }
+}
+
+hr {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(228, 244, 251, 0.6) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border: none;
+  height: 1px;
+  margin-bottom: 64px;
+}
+
+.icon-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: rgba(255, 255, 255, 0.8);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: -1px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(228, 244, 251, 60%) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    border-radius: 16px;
+  }
+
+  &:hover {
+    color: #fff;
+    transform: scale(1.05);
+  }
+}
+
+.copied-toast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 1rem;
+  width: 180px;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 32px;
+  font-weight: 500;
+  font-size: 12px;
+  background: linear-gradient(90deg, #e0eafc 0%, #cfdef3 100%);
+  border-top: 1px solid #ffffff;
+  color: #1a1e2a;
+  left: calc(50% - 90px);
+  z-index: 12;
+  padding-bottom: 2px;
+  pointer-events: none;
+  opacity: 0;
+
+  &.enter {
+    animation: fadeInUp;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+
+  &.leave {
+    animation: fadeOutScaleDown;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+}
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 240px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto 64px;
+  padding: 0 16px;
+  font-size: 14px;
+  gap: 8px;
+  transition: all 0.2s ease-in-out;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: -1px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(228, 244, 251, 60%) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    border-radius: 16px;
+  }
+
+  &:focus-within {
+    border-color: rgba(228, 244, 251, 60%);
+  }
+}
+
+.search-input {
+  display: flex;
+  height: calc(100% - 2px);
+  flex: 1;
+  outline: none;
+  background-color: transparent;
+  border: none;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.search-icon {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+// fade in up
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// fade out scale down
+@keyframes fadeOutScaleDown {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}

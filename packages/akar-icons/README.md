@@ -24,6 +24,7 @@ Currently, we support the following libraries:
 - [Typicons](https://www.s-ings.com/typicons/)
 - [Dripicons](https://github.com/amitjakhu/dripicons)
 - [UX Aspects](https://uxaspects.github.io/UXAspects/)
+- [Circum Icons](https://circumicons.com/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 

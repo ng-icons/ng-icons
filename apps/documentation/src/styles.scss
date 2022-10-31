@@ -2,45 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '@angular/cdk/overlay-prebuilt.css';
-@import 'highlight.js/scss/night-owl';
-/* You can add global styles to this file, and also import other style files */
-@import url('https://rsms.me/inter/inter.css');
-
-cdk-dialog-container {
-  background: transparent !important;
-  padding: 0 !important;
+.fade-in {
+  animation: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
-.hljs-title,
-.hljs-keyword {
-  font-style: normal;
-}
-
-.hljs-title {
-  color: #d4d8db;
-}
-
-.hljs-keyword {
-  color: #fbb1cb;
-}
-
-.hljs-string {
-  color: #fedf93;
-}
-
-.hljs-meta {
-  color: #9ab6e9;
-}
-
-.hljs-attr {
-  color: #d4d8db;
-}
-
-.hljs-name {
-  color: #fbb1cb;
-}
-
-.language-html .hljs-attr {
-  color: #b992de;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

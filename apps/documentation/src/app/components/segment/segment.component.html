@@ -1,0 +1,14 @@
+<span
+  #option
+  *ngFor="let option of options; let index = index"
+  class="segment-option"
+  (click)="select(index)"
+>
+  {{ option }}
+</span>
+
+<div
+  class="segment-highlight"
+  [style.left.px]="activeOption?.nativeElement?.offsetLeft"
+  [style.width.px]="activeOption?.nativeElement?.offsetWidth"
+></div>

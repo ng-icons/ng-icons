@@ -27,9 +27,9 @@ jobs:
     with:
       number-of-agents: 3
 
-  deploy:
-    name: Deploy
-    uses: JamesIves/github-pages-deploy-action@4.1.4
-    with:
-      branch: gh-pages # The branch the action should deploy to.
-      folder: dist/apps/documentation # The folder the action should deploy.
+  # deploy:
+  #   name: Deploy
+  #   uses: JamesIves/github-pages-deploy-action@4.1.4
+  #   with:
+  #     branch: gh-pages # The branch the action should deploy to.
+  #     folder: dist/apps/documentation # The folder the action should deploy.

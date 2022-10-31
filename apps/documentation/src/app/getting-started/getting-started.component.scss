@@ -1,0 +1,24 @@
+.heading {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(32, 115, 151, 0.96) 200.83%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  line-height: 60px;
+}
+
+hr {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(228, 244, 251, 0.6) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border: none;
+  height: 1px;
+  margin-bottom: 64px;
+}

@@ -1,24 +1,27 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-} from '@angular/core';
-import md from '!!html-loader!markdown-loader!../../../../../README.md';
-import { DomSanitizer } from '@angular/platform-browser';
-import hljs from 'highlight.js';
+import { NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import { SegmentComponent } from '../components/segment/segment.component';
+import { SnippetComponent } from '../components/snippet/snippet.component';
+import { TerminalComponent } from '../components/terminal/terminal.component';
+import { FadeInContainerDirective } from '../directives/fade-in/fade-in-container.directive';
+import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
 
 @Component({
   selector: 'app-getting-started',
   templateUrl: './getting-started.component.html',
   styleUrls: ['./getting-started.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    NgIf,
+    TerminalComponent,
+    SnippetComponent,
+    FadeInContainerDirective,
+    FadeInDirective,
+    SegmentComponent,
+  ],
 })
-export class GettingStartedComponent implements AfterViewInit {
-  content = this.domSanitizer.bypassSecurityTrustHtml(md);
+export class GettingStartedComponent {
+  selectedIndex = 0;
 
-  constructor(private readonly domSanitizer: DomSanitizer) {}
-
-  ngAfterViewInit(): void {
-    hljs.highlightAll();
-  }
+  year = new Date().getFullYear();
 }

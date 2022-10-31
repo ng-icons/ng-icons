@@ -1,0 +1,44 @@
+<div
+  appFadeInContainer
+  class="flex flex-col items-center justify-center h-screen px-4"
+>
+  <img
+    appFadeIn
+    class="w-32 mb-6"
+    src="/assets/angular.svg"
+    alt="Angular Logo"
+  />
+
+  <h2 appFadeIn class="heading mb-5 text-xl font-extrabold uppercase">
+    Angular Icons
+  </h2>
+
+  <h1 appFadeIn class="slogan font-extrabold text-5xl text-center mb-6">
+    The all-in-one icon<br />
+    library for Angular
+  </h1>
+
+  <p appFadeIn class="text-base text-[#F5EAEA] text-center mb-16">
+    Providing over 23,000 icons for use in your applications
+  </p>
+
+  <div appFadeIn class="flex gap-x-6">
+    <button
+      routerLink="/getting-started"
+      class="btn btn-white h-12 px-6 flex gap-x-2 items-center font-medium text-sm transition-shadow ease-out duration-200"
+    >
+      <span class="mb-0.5">Get Started</span>
+
+      <ng-icon name="heroChevronRightMini" class="text-xl"></ng-icon>
+    </button>
+
+    <button
+      routerLink="/browse-icons"
+      class="btn btn-red h-12 px-6 flex gap-x-2 items-center font-medium text-sm transition-shadow ease-out duration-200"
+    >
+      <span class="mb-0.5">Browse Icons</span>
+
+      <ng-icon name="heroChevronRightMini" class="text-xl"></ng-icon>
+    </button>
+  </div>
+</div>
