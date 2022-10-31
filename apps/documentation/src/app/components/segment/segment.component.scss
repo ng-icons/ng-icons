@@ -41,7 +41,7 @@
 }
 
 .segment-option {
-  width: 50%;
+  flex: 1;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
@@ -53,6 +53,9 @@
   color: rgb(228, 244, 251);
   padding: 8px 24px;
   cursor: pointer;
+  min-width: 100px;
+  text-align: center;
+  justify-content: center;
 }
 
 .segment-highlight {
@@ -63,11 +66,6 @@
   background: rgba(255, 255, 255, 0.15);
   border-radius: 9px;
   padding: 8px 24px;
-  width: 50%;
   border: 1px solid rgba(228, 244, 251, 0.2);
   transition: all 0.2s ease-in-out;
-
-  &.segment-alternate {
-    transform: translateX(calc(100% - 6px));
-  }
 }

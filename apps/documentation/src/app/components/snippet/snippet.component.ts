@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-snippet',
@@ -8,8 +8,4 @@ import { CommonModule } from '@angular/common';
   templateUrl: './snippet.component.html',
   styleUrls: ['./snippet.component.scss'],
 })
-export class SnippetComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class SnippetComponent {}

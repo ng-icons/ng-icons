@@ -20,7 +20,10 @@
   </p>
 
   <div appFadeIn class="flex justify-center">
-    <app-segment [(selectedIndex)]="selectedIndex"></app-segment>
+    <app-segment
+      [options]="['Ng Modules', 'Standalone']"
+      [(selectedIndex)]="selectedIndex"
+    ></app-segment>
   </div>
 
   <app-snippet appFadeIn>

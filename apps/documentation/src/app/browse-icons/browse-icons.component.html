@@ -13,7 +13,9 @@
   >
     <div
       *ngFor="let iconset of iconsets"
-      class="iconset-card cursor-pointer hover:scale-95 transition-transform"
+      class="iconset-card"
+      [class.active]="iconset === activeIconset"
+      (click)="loadIconset(iconset)"
     >
       <ng-icon [name]="iconset.icon"></ng-icon>
       <span class="text-xs font-medium text-center">{{ iconset.name }}</span>
@@ -22,7 +24,80 @@
 
   <hr appFadeIn />
 
+  <h1 appFadeIn class="heading font-extrabold text-5xl text-center mb-8">
+    {{ activeIconset?.name }}
+  </h1>
+
+  <div
+    appFadeIn
+    class="flex justify-center gap-8 mb-12 text-sm font-medium text-[#E4F4FB]"
+  >
+    <div>
+      <span class="opacity-50 mr-2">Package:</span>
+      <span class="opacity-80">{{ activeIconset?.package }}</span>
+    </div>
+    <div>
+      <span class="opacity-50 mr-2">Website:</span>
+      <a [href]="activeIconset?.website" target="_blank" class="opacity-80">{{
+        activeIconset?.website
+      }}</a>
+    </div>
+    <div>
+      <span class="opacity-50 mr-2">License:</span>
+      <span class="opacity-80">{{ activeIconset?.license }}</span>
+    </div>
+  </div>
+
+  <div appFadeIn class="search">
+    <ng-icon class="search-icon" name="heroMagnifyingGlass"></ng-icon>
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search icons..."
+      [ngModel]="search$ | async"
+      (ngModelChange)="search$.next($event)"
+    />
+  </div>
+
+  <ng-container *ngIf="categories$ | async as categories">
+    <div
+      *ngIf="categories.length > 1"
+      appFadeIn
+      class="flex justify-center mb-16"
+    >
+      <app-segment
+        [options]="categories"
+        [selectedIndex]="(activeCategoryIndex$ | async) ?? 0"
+        (selectedIndexChange)="setCategoryIndex($event)"
+      ></app-segment>
+    </div>
+  </ng-container>
+
+  <div
+    appFadeIn
+    class="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 mb-16"
+  >
+    <div
+      *ngFor="let definition of filteredIcons$ | async | keyvalue"
+      class="icon-card"
+      (click)="copyToClipboard(definition.key)"
+    >
+      <ng-icon class="text-2xl" [name]="definition.key"></ng-icon>
+      <span class="text-xs font-medium px-2 max-w-full text-center break-all">{{
+        definition.key
+      }}</span>
+    </div>
+  </div>
+
   <p appFadeIn class="text-[#E4F4FB] text-medium text-sm text-center mb-16">
     © Copyright {{ year }} - Angular Icons
   </p>
+</div>
+
+<div
+  class="copied-toast"
+  [class.enter]="showToast === true"
+  [class.leave]="showToast === false"
+>
+  Copied to clipboard
 </div>
