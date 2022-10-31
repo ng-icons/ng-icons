@@ -115,7 +115,7 @@ export class BrowseIconsComponent implements OnInit {
       name: 'Material Icons',
       website: 'fonts.google.com/icons?selected=Material+Icons',
       icon: 'tablerBrandGoogle',
-      license: 'MIT',
+      license: 'Apache 2.0',
       package: '@ng-icons/material-icons/outline',
       icons: async () => {
         const [baseline, outline, round, sharp] = await Promise.all([
@@ -212,7 +212,7 @@ export class BrowseIconsComponent implements OnInit {
       name: 'Cryptocurrency',
       website: 'http://cryptoicons.co',
       icon: 'cryptoBtc',
-      license: 'MIT',
+      license: 'CC0-1.0',
       package: '@ng-icons/cryptocurrency-icons',
       icons: async () => {
         return { default: await import('@ng-icons/cryptocurrency-icons') };
@@ -222,7 +222,7 @@ export class BrowseIconsComponent implements OnInit {
       name: 'Simple Icons',
       website: 'simpleicons.org',
       icon: 'simpleSimpleicons',
-      license: 'MIT',
+      license: 'CC0-1.0',
       package: '@ng-icons/simple-icons',
       icons: async () => {
         return { default: await import('@ng-icons/simple-icons') };
@@ -231,7 +231,7 @@ export class BrowseIconsComponent implements OnInit {
     {
       name: 'Typicons',
       website: 'www.s-ings.com/typicons',
-      license: 'MIT',
+      license: 'CC-BY-SA-4.0',
       icon: 'typInfinityOutline',
       package: '@ng-icons/typicons',
       icons: async () => {
@@ -242,7 +242,7 @@ export class BrowseIconsComponent implements OnInit {
       name: 'Dripicons',
       website: 'github.com/amitjakhu/dripicons',
       icon: 'dripFlag',
-      license: 'MIT',
+      license: 'CC-BY-SA-4.0',
       package: '@ng-icons/dripicons',
       icons: async () => {
         return { default: await import('@ng-icons/dripicons') };
@@ -252,7 +252,7 @@ export class BrowseIconsComponent implements OnInit {
       name: 'UX Aspects',
       website: 'uxaspects.github.io/UXAspects',
       icon: 'aspectsDashboard',
-      license: 'MIT',
+      license: 'Apache 2.0',
       package: '@ng-icons/ux-aspects',
       icons: async () => {
         return { default: await import('@ng-icons/ux-aspects') };
@@ -262,7 +262,7 @@ export class BrowseIconsComponent implements OnInit {
       name: 'Circum Icons',
       website: 'circumicons.com',
       icon: 'circumIcon',
-      license: 'MIT',
+      license: 'MPL-2.0',
       package: '@ng-icons/circum-icons',
       icons: async () => {
         return { default: await import('@ng-icons/circum-icons') };
