@@ -1,9 +1,8 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin: 64px auto;
-  position: relative;
   width: 640px;
-  height: 264px;
   background: rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(228, 244, 251, 0.2);
   backdrop-filter: blur(50px);
@@ -25,6 +24,12 @@
     );
     border-radius: 16px;
   }
+}
+
+.snippet-titlebar {
+  display: flex;
+  position: relative;
+  height: 40px;
 }
 
 .traffic-lights {
@@ -69,13 +74,8 @@
 }
 
 .snippet-content {
-  position: absolute;
-  top: 40px;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
+  padding: 12px 30px;
   overflow: hidden;
-  padding: 0 12px;
   color: #fff;
   font-size: 13px;
   line-height: 28px;

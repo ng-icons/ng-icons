@@ -1,7 +1,7 @@
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { enableProdMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/routes';
 
@@ -13,7 +13,10 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes),
+    provideRouter(
+      routes,
+      withInMemoryScrolling({ scrollPositionRestoration: 'top' }),
+    ),
     { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
 }).catch(err => console.error(err));

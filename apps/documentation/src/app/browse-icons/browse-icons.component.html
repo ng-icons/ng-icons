@@ -1,1 +1,28 @@
-<p>browse-icons works!</p>
+<div appFadeInContainer class="px-4 container mt-32 mx-auto">
+  <h1 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
+    Browse Icons
+  </h1>
+
+  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center mb-16">
+    Find the perfect icons for your application
+  </p>
+
+  <div
+    appFadeIn
+    class="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 mb-16"
+  >
+    <div
+      *ngFor="let iconset of iconsets"
+      class="iconset-card cursor-pointer hover:scale-95 transition-transform"
+    >
+      <ng-icon [name]="iconset.icon"></ng-icon>
+      <span class="text-xs font-medium text-center">{{ iconset.name }}</span>
+    </div>
+  </div>
+
+  <hr appFadeIn />
+
+  <p appFadeIn class="text-[#E4F4FB] text-medium text-sm text-center mb-16">
+    © Copyright {{ year }} - Angular Icons
+  </p>
+</div>

@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { SnippetComponent } from '../components/snippet/snippet.component';
@@ -11,6 +12,7 @@ import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
   styleUrls: ['./getting-started.component.scss'],
   standalone: true,
   imports: [
+    NgIf,
     TerminalComponent,
     SnippetComponent,
     FadeInContainerDirective,
@@ -18,4 +20,8 @@ import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
     SegmentComponent,
   ],
 })
-export class GettingStartedComponent {}
+export class GettingStartedComponent {
+  selectedIndex = 0;
+
+  year = new Date().getFullYear();
+}
