@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkWithHref } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { fromEvent } from 'rxjs';
@@ -7,7 +7,7 @@ import { fromEvent } from 'rxjs';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgIconComponent, RouterLink, RouterLinkWithHref],
+  imports: [NgIconComponent, RouterLink],
   providers: [provideIcons({ bootstrapGithub })],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
