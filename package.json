@@ -25,6 +25,8 @@
     "@material-icons/svg": "^1.0.33",
     "@primer/octicons": "^17.6.0",
     "@radix-ui/react-icons": "https://gitpkg.now.sh/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50",
+    "@rx-angular/cdk": "^1.0.0-rc.2",
+    "@rx-angular/template": "^1.0.0-rc.3",
     "@swc/helpers": "~0.3.3",
     "@tabler/icons": "^1.101.0",
     "UXAspects": "https://gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799",
