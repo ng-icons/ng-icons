@@ -104,7 +104,7 @@ function getHyphenatedName(name: string): string {
 
 async function generateIconNameType(tree: Tree): Promise<void> {
   const iconNamesType = `export type IconName = ${Array.from(iconList)
-    .map(name => `'${getHyphenatedName(name)}'`)
+    .map(name => `'${name}'`)
     .join(' | ')};`;
 
   tree.write(
