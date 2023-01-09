@@ -77,7 +77,7 @@ describe('Icon with multiple modules', () => {
         RouterTestingModule.withRoutes([
           {
             path: '',
-            component: RootComponent,
+            pathMatch: 'full',
             loadChildren: () => Promise.resolve(ChildModule),
           },
         ]),
@@ -87,6 +87,7 @@ describe('Icon with multiple modules', () => {
     router = TestBed.inject(Router);
 
     fixture = TestBed.createComponent(RootComponent);
+    fixture.detectChanges();
     router.initialNavigation();
     fixture.detectChanges();
   });
@@ -95,10 +96,10 @@ describe('Icon with multiple modules', () => {
     const icons = fixture.debugElement.queryAll(By.directive(NgIconComponent));
 
     expect(
-      icons[1].componentInstance.template.changingThisBreaksApplicationSecurity,
+      icons[0].componentInstance.template.changingThisBreaksApplicationSecurity,
     ).toMatchSnapshot();
     expect(
-      icons[2].componentInstance.template.changingThisBreaksApplicationSecurity,
+      icons[1].componentInstance.template.changingThisBreaksApplicationSecurity,
     ).toMatchSnapshot();
   });
 });
