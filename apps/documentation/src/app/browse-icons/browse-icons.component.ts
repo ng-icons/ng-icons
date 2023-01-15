@@ -20,6 +20,7 @@ import { simpleSimpleicons } from '@ng-icons/simple-icons';
 import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
 import { aspectsDashboard } from '@ng-icons/ux-aspects';
+import { ForModule } from '@rx-angular/template/for';
 import { BehaviorSubject, combineLatest, map } from 'rxjs';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { FadeInContainerDirective } from '../directives/fade-in/fade-in-container.directive';
@@ -43,6 +44,7 @@ const circumIcon = `
     FormsModule,
     AsyncPipe,
     SegmentComponent,
+    ForModule,
   ],
   providers: [
     provideIcons({
@@ -325,18 +327,14 @@ export class BrowseIconsComponent implements OnInit {
   ]).pipe(
     map(([search, icons, category]) => {
       if (!search) {
-        return icons[category];
+        return Object.keys(icons[category] ?? {});
       }
 
       const query = search.toLowerCase();
 
-      return Object.keys(icons[category]).reduce<IconList>((acc, key) => {
-        if (key.toLowerCase().includes(query)) {
-          acc[key] = icons[category][key];
-        }
-
-        return acc;
-      }, {});
+      return Object.keys(icons[category]).filter(icon =>
+        icon.toLowerCase().includes(query),
+      );
     }),
   );
 
@@ -355,6 +353,10 @@ export class BrowseIconsComponent implements OnInit {
     clearTimeout(this.toastTimeout);
 
     this.toastTimeout = window.setTimeout(() => (this.showToast = false), 2000);
+  }
+
+  trackByFn(_: number, item: string): string {
+    return item;
   }
 
   async loadIconset(iconset: Iconset): Promise<void> {

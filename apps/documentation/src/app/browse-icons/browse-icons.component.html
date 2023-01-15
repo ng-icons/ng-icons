@@ -38,9 +38,12 @@
     </div>
     <div>
       <span class="opacity-50 mr-2">Website:</span>
-      <a [href]="'https://' + activeIconset?.website" target="_blank" class="opacity-80">{{
-        activeIconset?.website
-      }}</a>
+      <a
+        [href]="'https://' + activeIconset?.website"
+        target="_blank"
+        class="opacity-80"
+        >{{ activeIconset?.website }}</a
+      >
     </div>
     <div>
       <span class="opacity-50 mr-2">License:</span>
@@ -78,13 +81,13 @@
     class="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 mb-16"
   >
     <div
-      *ngFor="let definition of filteredIcons$ | async | keyvalue"
+      *rxFor="let icon of filteredIcons$; trackBy: trackByFn"
       class="icon-card"
-      (click)="copyToClipboard(definition.key)"
+      (click)="copyToClipboard(icon)"
     >
-      <ng-icon class="text-2xl" [name]="definition.key"></ng-icon>
+      <ng-icon class="text-2xl" [name]="icon"></ng-icon>
       <span class="text-xs font-medium px-2 max-w-full text-center break-all">{{
-        definition.key
+        icon
       }}</span>
     </div>
   </div>
