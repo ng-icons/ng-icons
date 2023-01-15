@@ -180,6 +180,20 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    glob: 'node_modules/material-icon-theme/icons/*.svg',
+    output: 'packages/material-file-icons/colored/src/index.ts',
+    getIconName: (name: string) => `matf${name}Colored`,
+  },
+  {
+    // folder icons looks ugly without colors
+    glob: 'node_modules/material-icon-theme/icons/!(folder)*.svg',
+    output: 'packages/material-file-icons/uncolored/src/index.ts',
+    getIconName: (name: string) => `matf${name}Uncolored`,
+    svg: {
+      removeColor: true,
+    },
+  },
 ];
 
 export interface Iconset {
@@ -194,4 +208,5 @@ export interface Iconset {
 export interface SvgOptions {
   colorAttr?: 'fill' | 'stroke';
   removeStroke?: boolean;
+  removeColor?: boolean;
 }

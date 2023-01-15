@@ -1,0 +1,54 @@
+{
+  "name": "material-file-icons",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/material-file-icons/src",
+  "prefix": "ng-icons",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/material-file-icons"],
+      "options": {
+        "jestConfig": "packages/material-file-icons/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["{workspaceRoot}/dist/packages/material-file-icons"],
+      "options": {
+        "project": "packages/material-file-icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/material-file-icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/material-file-icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/material-file-icons/src/**/*.ts",
+          "packages/material-file-icons/src/**/*.html",
+          "packages/material-file-icons/colored/src/**/*.ts",
+          "packages/material-file-icons/colored/src/**/*.html",
+          "packages/material-file-icons/uncolored/src/**/*.ts",
+          "packages/material-file-icons/uncolored/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}
