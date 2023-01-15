@@ -271,11 +271,11 @@ export class BrowseIconsComponent implements OnInit {
       },
     },
     {
-      name: "Material File Icons",
-      website: "github.com/PKief/vscode-material-icon-theme",
-      icon: "matfDocumentUncolored",
-      license: "MIT",
-      package: "@ng-icons/material-file-icons",
+      name: 'Material File Icons',
+      website: 'github.com/PKief/vscode-material-icon-theme',
+      icon: 'matfDocumentUncolored',
+      license: 'MIT',
+      package: '@ng-icons/material-file-icons',
       icons: async () => {
         const [colored, uncolored] = await Promise.all([
           import('@ng-icons/material-file-icons/colored'),
@@ -284,7 +284,7 @@ export class BrowseIconsComponent implements OnInit {
 
         return { colored, uncolored };
       },
-    }
+    },
   ];
 
   // store the current active iconset

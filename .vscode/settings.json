@@ -1,6 +1,3 @@
 {
-  "eslint.validate": [
-    "json"
-  ],
-  "typescript.format.semicolons": "ignore",
+  "eslint.validate": ["json"]
 }

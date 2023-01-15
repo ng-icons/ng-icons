@@ -192,7 +192,7 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `matf${name}Uncolored`,
     svg: {
       removeColor: true,
-    }
+    },
   },
 ];
 
