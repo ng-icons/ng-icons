@@ -2,7 +2,7 @@
 MIT
 The MIT License
 
-Copyright (c) 2022 Google LLC.
+Copyright (c) 2023 Google LLC.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -74,6 +74,9 @@ MIT
 @ng-icons/jam-icons
 MIT
 
+@ng-icons/material-file-icons
+MIT
+
 @ng-icons/material-icons
 MIT
 
@@ -94,6 +97,12 @@ CC-BY-SA-4.0
 
 @ng-icons/ux-aspects
 Apache-2.0
+
+@rx-angular/cdk
+MIT
+
+@rx-angular/template
+MIT
 
 rxjs
 Apache-2.0
