@@ -13,6 +13,7 @@ import { heroMagnifyingGlass } from '@ng-icons/heroicons/outline';
 import { iconoirIconoir } from '@ng-icons/iconoir';
 import { ionLogoIonic } from '@ng-icons/ionicons';
 import { jamGlassFilled } from '@ng-icons/jam-icons';
+import { matfDocumentUncolored } from '@ng-icons/material-file-icons/uncolored';
 import { octMarkGithub } from '@ng-icons/octicons';
 import { radixModulzLogo } from '@ng-icons/radix-icons';
 import { simpleSimpleicons } from '@ng-icons/simple-icons';
@@ -64,6 +65,7 @@ const circumIcon = `
       aspectsDashboard,
       circumIcon,
       heroMagnifyingGlass,
+      matfDocumentUncolored,
     }),
   ],
 })
@@ -268,6 +270,21 @@ export class BrowseIconsComponent implements OnInit {
         return { default: await import('@ng-icons/circum-icons') };
       },
     },
+    {
+      name: "Material File Icons",
+      website: "github.com/PKief/vscode-material-icon-theme",
+      icon: "matfDocumentUncolored",
+      license: "MIT",
+      package: "@ng-icons/material-file-icons",
+      icons: async () => {
+        const [colored, uncolored] = await Promise.all([
+          import('@ng-icons/material-file-icons/colored'),
+          import('@ng-icons/material-file-icons/uncolored'),
+        ]);
+
+        return { colored, uncolored };
+      },
+    }
   ];
 
   // store the current active iconset

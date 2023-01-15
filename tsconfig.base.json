@@ -34,6 +34,15 @@
       "@ng-icons/iconoir": ["packages/iconoir/src/index.ts"],
       "@ng-icons/ionicons": ["packages/ionicons/src/index.ts"],
       "@ng-icons/jam-icons": ["packages/jam-icons/src/index.ts"],
+      "@ng-icons/material-file-icons": [
+        "packages/material-file-icons/src/index.ts"
+      ],
+      "@ng-icons/material-file-icons/colored": [
+        "packages/material-file-icons/colored/src/index.ts"
+      ],
+      "@ng-icons/material-file-icons/uncolored": [
+        "packages/material-file-icons/uncolored/src/index.ts"
+      ],
       "@ng-icons/material-icons": ["packages/material-icons/src/index.ts"],
       "@ng-icons/material-icons/baseline": [
         "packages/material-icons/baseline/src/index.ts"

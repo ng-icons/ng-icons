@@ -42,6 +42,35 @@ export async function optimizeIcon(
                 }
               }
 
+              if (options?.removeColor) {
+                if (node.name === 'svg') {
+                  node.attributes['fill'] = 'currentColor';
+                } else if (node.attributes['fill']) {
+                  delete node.attributes['fill'];
+                }
+
+                if (node.attributes['color']) {
+                  delete node.attributes['color'];
+                }
+
+                if (node.attributes['stroke']) {
+                  node.attributes['stroke'] = 'currentColor';
+                }
+
+                if (node.attributes['style']) {
+                  const style = node.attributes['style']
+                    .replace(/fill\s*:.*?(?:;|$)/g, '')
+                    .replace(/stroke\s*:.*?(?:;|$)/g, 'stroke:currentColor;')
+                    .replace(/color\s*:.*?(?:;|$)/g, '')
+                    .trim();
+                  if (style.length === 0) {
+                    delete node.attributes['style'];
+                  } else {
+                    node.attributes['style'] = style;
+                  }
+                }
+              }
+
               if (node.attributes['stroke-width']) {
                 node.style.setProperty(
                   'stroke-width',

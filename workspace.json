@@ -14,6 +14,7 @@
     "iconoir": "packages/iconoir",
     "ionicons": "packages/ionicons",
     "jam-icons": "packages/jam-icons",
+    "material-file-icons": "packages/material-file-icons",
     "material-icons": "packages/material-icons",
     "octicons": "packages/octicons",
     "radix-icons": "packages/radix-icons",
