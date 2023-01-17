@@ -304,11 +304,7 @@ export class BrowseIconsComponent implements OnInit {
   category$ = new BehaviorSubject<string>('');
 
   /** Get the available categories */
-  categories$ = this.icons$.pipe(
-    map(icons => {
-      return Object.keys(icons);
-    }),
-  );
+  categories$ = this.icons$.pipe(map(icons => Object.keys(icons)));
 
   /** Determine the active category index */
   activeCategoryIndex$ = this.categories$.pipe(
@@ -332,6 +328,10 @@ export class BrowseIconsComponent implements OnInit {
 
       const query = search.toLowerCase();
 
+      if (!icons[category]) {
+        return [];
+      }
+
       return Object.keys(icons[category]).filter(icon =>
         icon.toLowerCase().includes(query),
       );
@@ -341,7 +341,7 @@ export class BrowseIconsComponent implements OnInit {
   private toastTimeout?: number;
 
   ngOnInit(): void {
-    setTimeout(() => this.loadIconset(this.iconsets[0]));
+    Promise.resolve().then(() => this.loadIconset(this.iconsets[0]));
   }
 
   copyToClipboard(icon: string): void {
@@ -373,7 +373,6 @@ export class BrowseIconsComponent implements OnInit {
     // update the icons to show
     this.activeIconset = iconset;
     this.category$.next(Object.keys(icons)[0]);
-    this.search$.next('');
     this.icons$.next(icons);
   }
 
