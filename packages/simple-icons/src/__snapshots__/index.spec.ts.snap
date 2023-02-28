@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SimpleIcons Icons should ensure the export names have not changed unexpectedly 1`] = `
-Array [
+[
   "simple1001tracklists",
   "simple1password",
   "simple3m",

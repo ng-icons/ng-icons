@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabler Icons should ensure the export names have not changed unexpectedly 1`] = `
-Array [
+[
   "tabler123",
   "tabler24Hours",
   "tabler2fa",

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CSS.gg Icons should ensure the export names have not changed unexpectedly 1`] = `
-Array [
+[
   "cssAbstract",
   "cssAddR",
   "cssAdd",
