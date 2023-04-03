@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Material Icons should ensure the export names have not changed unexpectedly 1`] = `
-[
+Array [
   "mat10k",
   "mat10mp",
   "mat11mp",
@@ -2197,7 +2197,7 @@ exports[`Material Icons should ensure the export names have not changed unexpect
 `;
 
 exports[`Material Icons should ensure the export names have not changed unexpectedly 2`] = `
-[
+Array [
   "mat10kOutline",
   "mat10mpOutline",
   "mat11mpOutline",
@@ -4393,7 +4393,7 @@ exports[`Material Icons should ensure the export names have not changed unexpect
 `;
 
 exports[`Material Icons should ensure the export names have not changed unexpectedly 3`] = `
-[
+Array [
   "mat10kRound",
   "mat10mpRound",
   "mat11mpRound",
@@ -6589,7 +6589,7 @@ exports[`Material Icons should ensure the export names have not changed unexpect
 `;
 
 exports[`Material Icons should ensure the export names have not changed unexpectedly 4`] = `
-[
+Array [
   "mat10kSharp",
   "mat10mpSharp",
   "mat11mpSharp",
