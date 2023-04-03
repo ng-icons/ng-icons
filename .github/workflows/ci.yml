@@ -1,23 +1,23 @@
 name: CI
 
 on:
-  pull_request:
+  push:
     branches:
       - master
+  pull_request:
 
 jobs:
   main:
     name: Nx Cloud - Main Job
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.8
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.11.3
     with:
-      main-branch-name: master
+      main-branch-name: main
       number-of-agents: 3
       init-commands: |
         yarn nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
         yarn generate:iconsets
         yarn nx workspace-generator update-readmes
       parallel-commands: |
-        yarn nx-cloud record -- yarn nx workspace-lint
         yarn nx-cloud record -- yarn nx format:check
       parallel-commands-on-agents: |
         yarn nx affected --target=lint --parallel=3
@@ -26,6 +26,6 @@ jobs:
 
   agents:
     name: Nx Cloud - Agents
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.8
+    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.11.3
     with:
       number-of-agents: 3
