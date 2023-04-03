@@ -34,6 +34,7 @@
       "@ng-icons/iconoir": ["packages/iconoir/src/index.ts"],
       "@ng-icons/ionicons": ["packages/ionicons/src/index.ts"],
       "@ng-icons/jam-icons": ["packages/jam-icons/src/index.ts"],
+      "@ng-icons/lucide": ["packages/lucide/src/index.ts"],
       "@ng-icons/material-file-icons": [
         "packages/material-file-icons/src/index.ts"
       ],

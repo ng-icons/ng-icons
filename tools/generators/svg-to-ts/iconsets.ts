@@ -194,6 +194,11 @@ export const iconsets: Iconset[] = [
       removeColor: true,
     },
   },
+  {
+    glob: 'node_modules/lucide-static/icons/*.svg',
+    output: 'packages/lucide/src/index.ts',
+    getIconName: (name: string) => `lucide${name}`,
+  },
 ];
 
 export interface Iconset {

@@ -1,6 +1,6 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { AsyncPipe, KeyValuePipe, NgFor, NgIf } from '@angular/common';
-import { Component, inject, Injector, OnInit } from '@angular/core';
+import { Component, Injector, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { akarRadish } from '@ng-icons/akar-icons';
 import { bootstrapBootstrapFill } from '@ng-icons/bootstrap-icons';
@@ -285,6 +285,16 @@ export class BrowseIconsComponent implements OnInit {
         ]);
 
         return { colored, uncolored };
+      },
+    },
+    {
+      name: 'Lucide',
+      website: 'lucide.dev',
+      icon: 'featherFeather',
+      license: 'ISC',
+      package: '@ng-icons/lucide',
+      icons: async () => {
+        return { default: await import('@ng-icons/lucide') };
       },
     },
   ];
