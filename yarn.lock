@@ -9077,6 +9077,20 @@ nwsapi@^2.2.2:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.2.tgz#e5418863e7905df67d51ec95938d67bf801f0bb0"
   integrity sha512-90yv+6538zuvUMnN+zCr8LuV6bPFdq50304114vJYJ8RDyK8D5O9Phpbd6SZWgI7PwzmmfN1upeOJlvybDSgCw==
 
+nx-cloud@^15.3.5:
+  version "15.3.5"
+  resolved "https://registry.yarnpkg.com/nx-cloud/-/nx-cloud-15.3.5.tgz#745b2f978cef175903f494e057f2e5ba8e886dfa"
+  integrity sha512-z4oW3RbPK2P3VphPOzaSIkXfuXpFkHf/M0q2/cGEB7cMQraXdlc/yw1x+xX8qAF/iI2gL27lnhIHvEozKe4A7g==
+  dependencies:
+    axios "^0.21.2"
+    chalk "4.1.0"
+    dotenv "~10.0.0"
+    fs-extra "^10.1.0"
+    node-machine-id "^1.1.12"
+    strip-json-comments "^3.1.1"
+    tar "6.1.11"
+    yargs-parser ">=21.0.1"
+
 nx@15.9.2:
   version "15.9.2"
   resolved "https://registry.yarnpkg.com/nx/-/nx-15.9.2.tgz#d7ace1e5ae64a47f1b553dc5da08dbdd858bde96"
