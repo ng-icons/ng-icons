@@ -1,5 +1,6 @@
 {
   "name": "ux-aspects",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "packages/ux-aspects/src",
   "prefix": "ng",

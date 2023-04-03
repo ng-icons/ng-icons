@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Material File Icons should ensure the export names have not changed unexpectedly 1`] = `
-[
+Array [
   "matf3dUncolored",
   "matfAbcUncolored",
   "matfActionscriptUncolored",
@@ -450,7 +450,7 @@ exports[`Material File Icons should ensure the export names have not changed une
 `;
 
 exports[`Material File Icons should ensure the export names have not changed unexpectedly 2`] = `
-[
+Array [
   "matf3dColored",
   "matfAbcColored",
   "matfActionscriptColored",

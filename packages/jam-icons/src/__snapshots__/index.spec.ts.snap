@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Jam Icons should ensure the export names have not changed unexpectedly 1`] = `
-[
+Array [
   "jam500px",
   "jamActivity",
   "jamAirbnb",

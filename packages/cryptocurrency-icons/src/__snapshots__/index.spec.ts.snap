@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CryptocurrencyIcons Icons should ensure the export names have not changed unexpectedly 1`] = `
-[
+Array [
   "cryptoPac",
   "crypto0xbtc",
   "crypto1inch",
