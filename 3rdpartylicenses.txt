@@ -74,6 +74,9 @@ MIT
 @ng-icons/jam-icons
 MIT
 
+@ng-icons/lucide
+ISC
+
 @ng-icons/material-file-icons
 MIT
 
