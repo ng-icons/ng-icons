@@ -1,5 +1,5 @@
-import { Tree } from '@nrwl/devkit';
-import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
+import { Tree } from '@nx/devkit';
+import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
 import migration from './rename-icon-imports';
 
 describe('Rename icon imports migration', () => {

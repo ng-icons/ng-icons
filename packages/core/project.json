@@ -6,7 +6,7 @@
   "prefix": "ng",
   "targets": {
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/core"],
       "options": {
         "project": "packages/core/ng-package.json",
@@ -23,7 +23,7 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/core"],
       "options": {
         "jestConfig": "packages/core/jest.config.ts",
@@ -31,7 +31,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "packages/core/src/**/*.ts",

@@ -1,4 +1,4 @@
-import { getProjects, joinPathFragments, Tree } from '@nrwl/devkit';
+import { getProjects, joinPathFragments, Tree } from '@nx/devkit';
 
 export default async function (tree: Tree) {
   // read the root readme

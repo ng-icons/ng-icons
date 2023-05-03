@@ -7,7 +7,6 @@ export function addNamespaceImport(
 ): ts.SourceFile {
   const importStatement = ts.factory.createImportDeclaration(
     undefined,
-    undefined,
     ts.factory.createImportClause(
       false,
       undefined,
@@ -40,7 +39,6 @@ export function addImport(
   symbolName: string,
 ): ts.SourceFile {
   const importStatement = ts.factory.createImportDeclaration(
-    undefined,
     undefined,
     ts.factory.createImportClause(
       false,
@@ -113,7 +111,8 @@ export function addCallToNgModuleImport(
   };
 
   // create a new source file by transforming the original source file
-  return ts.transform(sourceFile, [transformer]).transformed[0];
+  return ts.transform(sourceFile, [transformer])
+    .transformed[0] as ts.SourceFile;
 }
 
 export function addImportToNgModule(
@@ -150,7 +149,8 @@ export function addImportToNgModule(
   };
 
   // create a new source file by transforming the original source file
-  return ts.transform(sourceFile, [transformer]).transformed[0];
+  return ts.transform(sourceFile, [transformer])
+    .transformed[0] as ts.SourceFile;
 }
 
 export function insertClassProperty(
@@ -171,7 +171,6 @@ export function insertClassProperty(
             ...node.members,
             ts.factory.createPropertyDeclaration(
               undefined,
-              undefined,
               ts.factory.createIdentifier(propertyName),
               undefined,
               undefined,
@@ -186,7 +185,8 @@ export function insertClassProperty(
   };
 
   // create a new source file by transforming the original source file
-  return ts.transform(sourceFile, [transformer]).transformed[0];
+  return ts.transform(sourceFile, [transformer])
+    .transformed[0] as ts.SourceFile;
 }
 
 export function removeNgOnInitImplements(
@@ -224,7 +224,8 @@ export function removeNgOnInitImplements(
   };
 
   // create a new source file by transforming the original source file
-  return ts.transform(sourceFile, [transformer]).transformed[0];
+  return ts.transform(sourceFile, [transformer])
+    .transformed[0] as ts.SourceFile;
 }
 
 export function removeAllMethods(sourceFile: ts.SourceFile): ts.SourceFile {
@@ -244,5 +245,6 @@ export function removeAllMethods(sourceFile: ts.SourceFile): ts.SourceFile {
     return (node: ts.SourceFile) => ts.visitNode(node, visit);
   };
 
-  return ts.transform(sourceFile, [transformer]).transformed[0];
+  return ts.transform(sourceFile, [transformer])
+    .transformed[0] as ts.SourceFile;
 }

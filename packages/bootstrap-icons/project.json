@@ -6,7 +6,7 @@
   "prefix": "ng",
   "targets": {
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/bootsrap-icons"],
       "options": {
         "jestConfig": "packages/bootstrap-icons/jest.config.ts",
@@ -14,7 +14,7 @@
       }
     },
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/bootstrap-icons"],
       "options": {
         "project": "packages/bootstrap-icons/ng-package.json"
@@ -30,7 +30,7 @@
       "defaultConfiguration": "production"
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "packages/bootstrap-icons/src/**/*.ts",

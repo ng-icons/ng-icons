@@ -1,4 +1,4 @@
-import { Tree, visitNotIgnoredFiles } from '@nrwl/devkit';
+import { Tree, visitNotIgnoredFiles } from '@nx/devkit';
 import { basename } from 'path';
 import * as ts from 'typescript';
 
@@ -61,7 +61,6 @@ const importTransformer: ts.TransformerFactory<ts.SourceFile> = context => {
           );
 
           return ts.factory.createImportDeclaration(
-            node.decorators,
             node.modifiers,
             ts.factory.createImportClause(
               false,
@@ -76,7 +75,7 @@ const importTransformer: ts.TransformerFactory<ts.SourceFile> = context => {
       return ts.visitEachChild(node, visitor, context);
     };
 
-    return ts.visitNode(sourceFile, visitor);
+    return ts.visitNode(sourceFile, visitor) as ts.SourceFile;
   };
 };
 
@@ -117,7 +116,7 @@ const withIconsTransformer: ts.TransformerFactory<ts.SourceFile> = context => {
       return ts.visitEachChild(node, visitor, context);
     };
 
-    return ts.visitNode(sourceFile, visitor);
+    return ts.visitNode(sourceFile, visitor) as ts.SourceFile;
   };
 };
 

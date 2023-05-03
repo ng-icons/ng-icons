@@ -1,5 +1,5 @@
-import { libraryGenerator, UnitTestRunner } from '@nrwl/angular/generators';
-import { Tree } from '@nrwl/devkit';
+import { libraryGenerator, UnitTestRunner } from '@nx/angular/generators';
+import { Tree } from '@nx/devkit';
 import { Schema } from '../schema';
 
 export async function generateIconLibrary(tree: Tree, schema: Schema) {

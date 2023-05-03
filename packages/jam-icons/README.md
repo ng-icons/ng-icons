@@ -37,7 +37,8 @@ Got suggestions for additional iconsets? Create an issue and we can consider add
 | 12.x.x          | 12.x.x - 13.x.x |
 | 13.x.x          | 13.x.x - 17.x.x |
 | 14.x.x          | 17.x.x - 22.x.x |
-| 15.x.x          | 23.x.x          |
+| 15.x.x          | 23.x.x - 24.x.x |
+| 16.x.x          | 25.x.x          |
 
 > **Note**: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 
@@ -94,10 +95,7 @@ import { featherAirplay } from '@ng-icons/feather-icons';
 import { heroUsers } from '@ng-icons/heroicons/outline';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    NgIconsModule.withIcons({ featherAirplay, heroUsers }),
-  ],
+  imports: [BrowserModule, NgIconsModule.withIcons({ featherAirplay, heroUsers })],
 })
 export class AppModule {}
 ```

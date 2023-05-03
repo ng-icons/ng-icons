@@ -6,7 +6,7 @@
   "prefix": "ng",
   "targets": {
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/simple-icons"],
       "options": {
         "project": "packages/simple-icons/ng-package.json"
@@ -22,7 +22,7 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/simple-icons"],
       "options": {
         "jestConfig": "packages/simple-icons/jest.config.ts",
@@ -30,7 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "packages/simple-icons/src/**/*.ts",

@@ -6,7 +6,7 @@
   "prefix": "ng-icons",
   "targets": {
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/material-file-icons"],
       "options": {
         "jestConfig": "packages/material-file-icons/jest.config.ts",
@@ -14,7 +14,7 @@
       }
     },
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/material-file-icons"],
       "options": {
         "project": "packages/material-file-icons/ng-package.json"
@@ -30,7 +30,7 @@
       "defaultConfiguration": "production"
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "packages/material-file-icons/src/**/*.ts",

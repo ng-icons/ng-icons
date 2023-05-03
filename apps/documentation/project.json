@@ -63,7 +63,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "apps/documentation/src/**/*.ts",
@@ -73,7 +73,7 @@
       "outputs": ["{options.outputFile}"]
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/documentation"],
       "options": {
         "jestConfig": "apps/documentation/jest.config.ts",

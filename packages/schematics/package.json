@@ -5,7 +5,7 @@
   "generators": "./generators.json",
   "executors": "./executors.json",
   "dependencies": {
-    "@nrwl/devkit": "14.3.6"
+    "@nx/devkit": "14.3.6"
   },
   "ng-update": {
     "requirements": {},
