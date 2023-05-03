@@ -95,7 +95,10 @@ import { featherAirplay } from '@ng-icons/feather-icons';
 import { heroUsers } from '@ng-icons/heroicons/outline';
 
 @NgModule({
-  imports: [BrowserModule, NgIconsModule.withIcons({ featherAirplay, heroUsers })],
+  imports: [
+    BrowserModule,
+    NgIconsModule.withIcons({ featherAirplay, heroUsers }),
+  ],
 })
 export class AppModule {}
 ```
