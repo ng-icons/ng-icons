@@ -1,4 +1,4 @@
-import { names } from '@nrwl/devkit';
+import { names } from '@nx/devkit';
 import { dirname } from 'path';
 
 export const iconsets: Iconset[] = [

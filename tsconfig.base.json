@@ -64,7 +64,8 @@
       "@ng-icons/simple-icons": ["packages/simple-icons/src/index.ts"],
       "@ng-icons/tabler-icons": ["packages/tabler-icons/src/index.ts"],
       "@ng-icons/typicons": ["packages/typicons/src/index.ts"],
-      "@ng-icons/ux-aspects": ["packages/ux-aspects/src/index.ts"]
+      "@ng-icons/ux-aspects": ["packages/ux-aspects/src/index.ts"],
+      "@ng-icons/workspace-plugin": ["tools/workspace-plugin/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

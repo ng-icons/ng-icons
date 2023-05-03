@@ -1,4 +1,4 @@
-import { Tree, updateJson } from '@nrwl/devkit';
+import { Tree, updateJson } from '@nx/devkit';
 import { Schema } from '../schema';
 
 export function addPackageJsonFields(tree: Tree, schema: Schema) {

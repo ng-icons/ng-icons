@@ -1,4 +1,4 @@
-import { formatFiles, Tree } from '@nrwl/devkit';
+import { formatFiles, Tree } from '@nx/devkit';
 import { Schema } from './schema';
 import { addAngularTsConfigSettings } from './utils/add-angular-ts-config-settings';
 import { addDeployTarget } from './utils/add-deploy-target';

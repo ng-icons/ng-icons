@@ -2,7 +2,7 @@ import {
   readProjectConfiguration,
   Tree,
   updateProjectConfiguration,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { Schema } from '../schema';
 
 export function addDeployTarget(tree: Tree, schema: Schema) {

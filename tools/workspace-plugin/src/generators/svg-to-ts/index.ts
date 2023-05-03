@@ -1,4 +1,4 @@
-import { formatFiles, joinPathFragments, names, Tree } from '@nrwl/devkit';
+import { formatFiles, joinPathFragments, names, Tree } from '@nx/devkit';
 import { readFile } from 'fs-extra';
 import { sync } from 'glob';
 import { basename } from 'path';

@@ -1,0 +1,19 @@
+{
+  "generators": {
+    "icon-library": {
+      "implementation": "./src/generators/icon-library",
+      "schema": "./src/generators/icon-library/schema.json",
+      "description": "Generator icon-library"
+    },
+    "svg-to-ts": {
+      "implementation": "./src/generators/svg-to-ts",
+      "schema": "./src/generators/svg-to-ts/schema.json",
+      "description": "Generator svg-to-ts"
+    },
+    "update-readmes": {
+      "implementation": "./src/generators/update-readmes",
+      "schema": "./src/generators/update-readmes/schema.json",
+      "description": "Generator update-readmes"
+    }
+  }
+}
