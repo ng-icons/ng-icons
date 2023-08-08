@@ -16,6 +16,7 @@ import { jamGlassFilled } from '@ng-icons/jam-icons';
 import { matfDocumentUncolored } from '@ng-icons/material-file-icons/uncolored';
 import { octMarkGithub } from '@ng-icons/octicons';
 import { radixModulzLogo } from '@ng-icons/radix-icons';
+import { remixRemixiconLine } from '@ng-icons/remixicon';
 import { simpleSimpleicons } from '@ng-icons/simple-icons';
 import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
@@ -68,6 +69,7 @@ const circumIcon = `
       circumIcon,
       heroMagnifyingGlass,
       matfDocumentUncolored,
+      remixRemixiconLine,
     }),
   ],
 })
@@ -295,6 +297,16 @@ export class BrowseIconsComponent implements OnInit {
       package: '@ng-icons/lucide',
       icons: async () => {
         return { default: await import('@ng-icons/lucide') };
+      },
+    },
+    {
+      name: 'Remixicon',
+      website: 'remixicon.com',
+      icon: 'remixRemixiconLine',
+      license: 'Apache 2.0',
+      package: '@ng-icons/remixicon',
+      icons: async () => {
+        return { default: await import('@ng-icons/remixicon') };
       },
     },
   ];

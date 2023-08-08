@@ -60,6 +60,7 @@
       "@ng-icons/octicons": ["packages/octicons/src/index.ts"],
       "@ng-icons/octicons/large": ["packages/octicons/large/src/index.ts"],
       "@ng-icons/radix-icons": ["packages/radix-icons/src/index.ts"],
+      "@ng-icons/remixicon": ["packages/remixicon/src/index.ts"],
       "@ng-icons/schematics": ["packages/schematics/src/index.ts"],
       "@ng-icons/simple-icons": ["packages/simple-icons/src/index.ts"],
       "@ng-icons/tabler-icons": ["packages/tabler-icons/src/index.ts"],

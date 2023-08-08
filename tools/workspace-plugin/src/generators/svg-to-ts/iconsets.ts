@@ -199,6 +199,14 @@ export const iconsets: Iconset[] = [
     output: 'packages/lucide/src/index.ts',
     getIconName: (name: string) => `lucide${name}`,
   },
+  {
+    glob: 'node_modules/remixicon/icons/**/*.svg',
+    output: 'packages/remixicon/src/index.ts',
+    getIconName: (name: string) => `remix${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
 ];
 
 export interface Iconset {
