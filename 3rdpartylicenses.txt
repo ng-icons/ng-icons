@@ -89,6 +89,9 @@ MIT
 @ng-icons/radix-icons
 MIT
 
+@ng-icons/remixicon
+Apache
+
 @ng-icons/simple-icons
 CC0-1.0
 
