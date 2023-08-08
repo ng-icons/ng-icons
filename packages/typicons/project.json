@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/typicons"],
       "options": {
-        "project": "packages/typicons/ng-package.json"
+        "project": "packages/typicons/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {

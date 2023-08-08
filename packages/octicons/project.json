@@ -17,7 +17,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/octicons"],
       "options": {
-        "project": "packages/octicons/ng-package.json"
+        "project": "packages/octicons/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {

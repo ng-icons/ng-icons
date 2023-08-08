@@ -10,6 +10,10 @@ import { IconName } from './icon-name';
 import { NgIconsToken } from './icon.provider';
 import { toPropertyName } from './utils/format';
 
+// This is a typescript type to prevent inference from collapsing the union type to a string to improve type safety
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type IconType = IconName | (string & {});
+
 @Component({
   selector: 'ng-icon',
   template: '',
@@ -19,7 +23,7 @@ import { toPropertyName } from './utils/format';
 })
 export class NgIconComponent {
   /** Define the name of the icon to display */
-  @Input() set name(name: IconName | string) {
+  @Input() set name(name: IconType) {
     name = toPropertyName(name);
 
     for (const icons of [...this.icons].reverse()) {

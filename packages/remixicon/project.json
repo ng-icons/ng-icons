@@ -1,23 +1,23 @@
 {
-  "name": "circum-icons",
+  "name": "remixicon",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "projectType": "library",
-  "sourceRoot": "packages/circum-icons/src",
+  "sourceRoot": "packages/remixicon/src",
   "prefix": "ng",
+  "tags": [],
+  "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "packages/circum-icons/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "packages/remixicon/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "packages/circum-icons/tsconfig.lib.prod.json"
+          "tsConfig": "packages/remixicon/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "packages/circum-icons/tsconfig.lib.json"
+          "tsConfig": "packages/remixicon/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -26,16 +26,24 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/circum-icons/jest.config.ts",
+        "jestConfig": "packages/remixicon/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "packages/circum-icons/**/*.ts",
-          "packages/circum-icons/**/*.html"
+          "packages/remixicon/**/*.ts",
+          "packages/remixicon/**/*.html",
+          "packages/remixicon/package.json"
         ]
       }
     },
@@ -45,6 +53,5 @@
         "access": "public"
       }
     }
-  },
-  "tags": []
+  }
 }

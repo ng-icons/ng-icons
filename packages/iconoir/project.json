@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/iconoir"],
       "options": {
-        "project": "packages/iconoir/ng-package.json"
+        "project": "packages/iconoir/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {
