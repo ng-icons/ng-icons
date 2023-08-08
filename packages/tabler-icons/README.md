@@ -3,7 +3,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 28,000 icons for you to use in your projects.
+Containing over 30,800 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -26,6 +26,7 @@ Currently, we support the following libraries:
 - [Dripicons](https://github.com/amitjakhu/dripicons)
 - [UX Aspects](https://uxaspects.github.io/UXAspects/)
 - [Circum Icons](https://circumicons.com/)
+- [Remix Icon](https://remixicon.com/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -84,6 +85,7 @@ The following packages are available:
 | `@ng-icons/dripicons`            | CC-BY-SA-4.0 |
 | `@ng-icons/ux-aspects`           | Apache 2.0   |
 | `@ng-icons/circum-icons`         | MPL-2.0      |
+| `@ng-icons/remixicon`            | Apache 2.0   |
 
 ## Usage
 
