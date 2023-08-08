@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/cryptocurrency-icons"],
       "options": {
-        "project": "packages/cryptocurrency-icons/ng-package.json"
+        "project": "packages/cryptocurrency-icons/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {

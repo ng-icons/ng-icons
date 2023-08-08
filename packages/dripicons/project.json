@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/dripicons"],
       "options": {
-        "project": "packages/dripicons/ng-package.json"
+        "project": "packages/dripicons/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {

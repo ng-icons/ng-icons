@@ -17,7 +17,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/jam-icons"],
       "options": {
-        "project": "packages/jam-icons/ng-package.json"
+        "project": "packages/jam-icons/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {

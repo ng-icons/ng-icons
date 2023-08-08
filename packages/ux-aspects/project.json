@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/ux-aspects"],
       "options": {
-        "project": "packages/ux-aspects/ng-package.json"
+        "project": "packages/ux-aspects/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {

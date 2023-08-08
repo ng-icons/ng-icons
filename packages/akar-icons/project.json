@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/akar-icons"],
       "options": {
-        "project": "packages/akar-icons/ng-package.json"
+        "project": "packages/akar-icons/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {

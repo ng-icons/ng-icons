@@ -9,7 +9,8 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/simple-icons"],
       "options": {
-        "project": "packages/simple-icons/ng-package.json"
+        "project": "packages/simple-icons/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": true
       },
       "configurations": {
         "production": {
