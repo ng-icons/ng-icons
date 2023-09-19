@@ -1,4 +1,4 @@
-import { InjectionToken, inject } from '@angular/core';
+import { InjectionToken, Provider, inject } from '@angular/core';
 
 export interface NgIconConfig {
   /** Define the default size of icons */
@@ -17,10 +17,11 @@ const defaultConfig: NgIconConfig = {
  * Provide the configuration for the icons
  * @param config The configuration to use
  */
-export function provideNgIconsConfig(
-  config: Partial<NgIconConfig>,
-): NgIconConfig {
-  return { ...defaultConfig, ...config };
+export function provideNgIconsConfig(config: Partial<NgIconConfig>): Provider {
+  return {
+    provide: NgIconConfigToken,
+    useValue: { ...defaultConfig, ...config },
+  };
 }
 
 /**
