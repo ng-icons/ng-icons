@@ -12,7 +12,7 @@ jobs:
     with:
       main-branch-name: master
       init-commands: |
-        pnpx generate:iconsets
+        pnpx nx generate @ng-icons/workspace-plugin:svg-to-ts
         pnpx nx generate @ng-icons/workspace-plugin:update-readmes
       parallel-commands: |
         pnpx nx-cloud record -- pnpx nx workspace-lint
