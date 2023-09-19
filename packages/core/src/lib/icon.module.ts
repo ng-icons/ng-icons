@@ -1,10 +1,10 @@
 import { Inject, ModuleWithProviders, NgModule } from '@angular/core';
-import { NgIconComponent } from './icon.component';
-import { NgIconsToken, provideIcons } from './icon.provider';
+import { NgIcon } from './icon.component';
+import { NgIconsToken, provideIcons } from './providers/icon.provider';
 
 @NgModule({
-  imports: [NgIconComponent],
-  exports: [NgIconComponent],
+  imports: [NgIcon],
+  exports: [NgIcon],
 })
 export class NgIconsModule {
   constructor(@Inject(NgIconsToken) icons: Record<string, string>) {
@@ -27,9 +27,4 @@ export class NgIconsModule {
   }
 }
 
-// This is a temporary workaround for ng-packagr issue #2398
-@NgModule({
-  imports: [NgIconComponent],
-  exports: [NgIconComponent],
-})
-export class NG_ICON_DIRECTIVES {}
+export const NG_ICON_DIRECTIVES = [NgIcon] as const;

@@ -12,15 +12,12 @@ jobs:
     with:
       main-branch-name: master
       init-commands: |
-        yarn generate:iconsets
-        yarn nx generate @ng-icons/workspace-plugin:update-readmes
-      parallel-commands: |
-        yarn nx-cloud record -- yarn nx workspace-lint
-        yarn nx-cloud record -- yarn nx format:check
+        pnpx nx generate @ng-icons/workspace-plugin:svg-to-ts
+        pnpx nx generate @ng-icons/workspace-plugin:update-readmes
       parallel-commands-on-agents: |
-        yarn nx affected --target=lint --parallel=3
-        yarn nx affected --target=test --parallel=3 --ci --code-coverage
-        yarn nx affected --target=build --parallel=3
+        pnpx nx affected --target=lint --parallel=3
+        pnpx nx affected --target=test --parallel=3 --ci --code-coverage
+        pnpx nx affected --target=build --parallel=3
   agents:
     name: Nx Cloud - Agents
     uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.4

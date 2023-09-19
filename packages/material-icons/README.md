@@ -138,3 +138,45 @@ import { heroUsers } from '@ng-icons/heroicons/outline';
 })
 export class AppComponent {}
 ```
+
+### Global Configuration
+
+You can configure the default size of icons by providing a `NgIconsConfig` object to the `provideNgIconsConfig`:
+
+#### NgModule
+
+```ts
+import { NgIconsModule, provideNgIconsConfig } from '@ng-icons/core';
+import { featherAirplay } from '@ng-icons/feather-icons';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    NgIconsModule.withIcons({ featherAirplay, heroUsers }),
+  ],
+  providers: [
+    provideNgIconsConfig({
+      size: '1.5em',
+    }),
+  ],
+})
+export class AppModule {}
+```
+
+#### Standalone
+
+```ts
+import {
+  NgIconComponent,
+  provideIcons,
+  provideNgIconsConfig,
+} from '@ng-icons/core';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideNgIconsConfig({
+      size: '1.5em',
+    }),
+  ],
+});
+```
