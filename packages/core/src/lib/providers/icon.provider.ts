@@ -1,5 +1,15 @@
-import { InjectionToken, Optional, Provider, SkipSelf } from '@angular/core';
+import {
+  InjectionToken,
+  Optional,
+  Provider,
+  SkipSelf,
+  inject,
+} from '@angular/core';
 
+/**
+ * Define the icons to use
+ * @param icons The icons to provide
+ */
 export function provideIcons(icons: Record<string, string>): Provider[] {
   return [
     {
@@ -17,3 +27,12 @@ export function provideIcons(icons: Record<string, string>): Provider[] {
 export const NgIconsToken = new InjectionToken<Record<string, string>[]>(
   'Icons Token',
 );
+
+/**
+ * Inject the icons to use
+ * @returns The icons to use
+ * @internal
+ */
+export function injectNgIcons(): Record<string, string>[] {
+  return inject(NgIconsToken);
+}

@@ -7,13 +7,13 @@ import {
   featherAlertCircle,
   featherAlertTriangle,
 } from '@ng-icons/feather-icons';
-import { NgIconComponent } from './icon.component';
-import { NgIconsModule, NG_ICON_DIRECTIVES } from './icon.module';
-import { provideIcons } from './icon.provider';
+import { NgIcon } from './icon.component';
+import { NG_ICON_DIRECTIVES, NgIconsModule } from './icon.module';
+import { provideIcons } from './providers/icon.provider';
 
 describe('Icon', () => {
-  let component: NgIconComponent;
-  let fixture: ComponentFixture<NgIconComponent>;
+  let component: NgIcon;
+  let fixture: ComponentFixture<NgIcon>;
   let nativeElement: HTMLElement;
 
   beforeEach(async () => {
@@ -23,7 +23,7 @@ describe('Icon', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NgIconComponent);
+    fixture = TestBed.createComponent(NgIcon);
     component = fixture.componentInstance;
     component.name = 'featherAlertCircle';
     fixture.detectChanges();
@@ -93,7 +93,7 @@ describe('Icon with multiple modules', () => {
   });
 
   it('should display icons registered in both parent and child modules', () => {
-    const icons = fixture.debugElement.queryAll(By.directive(NgIconComponent));
+    const icons = fixture.debugElement.queryAll(By.directive(NgIcon));
 
     expect(
       icons[0].componentInstance.template.changingThisBreaksApplicationSecurity,

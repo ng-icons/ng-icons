@@ -6,8 +6,9 @@ import {
   Input,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { IconName } from './icon-name';
-import { NgIconsToken } from './icon.provider';
+import type { IconName } from './icon-name';
+import { injectNgIconConfig } from './providers/icon-config.provider';
+import { injectNgIcons } from './providers/icon.provider';
 import { toPropertyName } from './utils/format';
 
 // This is a typescript type to prevent inference from collapsing the union type to a string to improve type safety
@@ -21,7 +22,16 @@ export type IconType = IconName | (string & {});
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NgIconComponent {
+export class NgIcon {
+  /** Access the global icon config */
+  private readonly config = injectNgIconConfig();
+
+  /** Access the sanitizer */
+  private readonly sanitizer = inject(DomSanitizer);
+
+  /** Access the icons */
+  private readonly icons = injectNgIcons();
+
   /** Define the name of the icon to display */
   @Input() set name(name: IconType) {
     name = toPropertyName(name);
@@ -55,7 +65,7 @@ export class NgIconComponent {
     return this._size;
   }
 
-  private _size: string = '1em';
+  private _size: string = this.config.size;
 
   /** Define the stroke-width of the icon */
   @HostBinding('style.--ng-icon__stroke-width')
@@ -66,10 +76,6 @@ export class NgIconComponent {
   @HostBinding('style.color')
   @Input()
   color?: string;
-
-  private readonly sanitizer = inject(DomSanitizer);
-
-  private readonly icons = inject(NgIconsToken);
 }
 
 function coerceCssPixelValue(value: string): string {
