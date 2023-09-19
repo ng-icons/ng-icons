@@ -17,7 +17,9 @@ const defaultConfig: NgIconConfig = {
  * Provide the configuration for the icons
  * @param config The configuration to use
  */
-export function provideConfig(config: Partial<NgIconConfig>): NgIconConfig {
+export function provideNgIconsConfig(
+  config: Partial<NgIconConfig>,
+): NgIconConfig {
   return { ...defaultConfig, ...config };
 }
 

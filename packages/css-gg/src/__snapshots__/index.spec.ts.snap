@@ -685,6 +685,7 @@ Array [
   "cssUserRemove",
   "cssUser",
   "cssUserlane",
+  "cssVercel",
   "cssViewCols",
   "cssViewComfortable",
   "cssViewDay",
@@ -703,7 +704,6 @@ Array [
   "cssWorkAlt",
   "cssYinyang",
   "cssYoutube",
-  "cssZeit",
   "cssZoomIn",
   "cssZoomOut",
 ]
