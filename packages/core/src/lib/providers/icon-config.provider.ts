@@ -3,6 +3,8 @@ import { InjectionToken, Provider, inject } from '@angular/core';
 export interface NgIconConfig {
   /** Define the default size of icons */
   size: string;
+  /** Define the default color of icons */
+  color?: string;
 }
 
 export const NgIconConfigToken = new InjectionToken<NgIconConfig>(

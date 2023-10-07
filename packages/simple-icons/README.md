@@ -157,6 +157,7 @@ import { featherAirplay } from '@ng-icons/feather-icons';
   providers: [
     provideNgIconsConfig({
       size: '1.5em',
+      color: 'red'
     }),
   ],
 })

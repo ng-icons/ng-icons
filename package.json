@@ -8,7 +8,7 @@
     "test": "nx affected:test --all --parallel=8",
     "compile": "nx generate @ng-icons/workspace-plugin:svg-to-ts && nx run-many --target=build --all --parallel=8 && nx generate @ng-icons/workspace-plugin:update-readmes",
     "generate:iconsets": "nx generate @ng-icons/workspace-plugin:svg-to-ts",
-    "deploy": "nx run-many --all --target=deploy --parallel=8 --packageVersion=25.3.1"
+    "deploy": "nx run-many --all --target=deploy --parallel=8 --packageVersion=25.4.0"
   },
   "private": true,
   "dependencies": {

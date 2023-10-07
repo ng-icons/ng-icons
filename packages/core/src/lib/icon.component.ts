@@ -75,7 +75,7 @@ export class NgIcon {
   /** Define the color of the icon */
   @HostBinding('style.color')
   @Input()
-  color?: string;
+  color?: string = this.config.color;
 }
 
 function coerceCssPixelValue(value: string): string {
