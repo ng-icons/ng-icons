@@ -17,8 +17,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/radix-icons"],
       "options": {
-        "project": "packages/radix-icons/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "packages/radix-icons/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -31,7 +30,7 @@
       "defaultConfiguration": "production"
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/radix-icons/src/**/*.ts",

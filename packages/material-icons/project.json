@@ -17,8 +17,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/material-icons"],
       "options": {
-        "project": "packages/material-icons/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "packages/material-icons/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -31,7 +30,7 @@
       "defaultConfiguration": "production"
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/material-icons/src/**/*.ts",

@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/iconoir"],
       "options": {
-        "project": "packages/iconoir/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "packages/iconoir/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -31,7 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/iconoir/src/**/*.ts",

@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/cryptocurrency-icons"],
       "options": {
-        "project": "packages/cryptocurrency-icons/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "packages/cryptocurrency-icons/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -31,7 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/cryptocurrency-icons/src/**/*.ts",

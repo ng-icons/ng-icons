@@ -17,8 +17,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/jam-icons"],
       "options": {
-        "project": "packages/jam-icons/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "packages/jam-icons/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -31,7 +30,7 @@
       "defaultConfiguration": "production"
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/jam-icons/src/**/*.ts",

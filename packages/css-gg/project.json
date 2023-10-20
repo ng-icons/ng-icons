@@ -17,8 +17,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/css-gg"],
       "options": {
-        "project": "packages/css-gg/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "packages/css-gg/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -31,7 +30,7 @@
       "defaultConfiguration": "production"
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/css-gg/src/**/*.ts",

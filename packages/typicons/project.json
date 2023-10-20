@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/typicons"],
       "options": {
-        "project": "packages/typicons/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "packages/typicons/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -31,7 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/typicons/src/**/*.ts",

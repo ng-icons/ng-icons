@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/core"],
       "options": {
-        "project": "packages/core/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": false
+        "project": "packages/core/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -31,7 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/core/src/**/*.ts",

@@ -17,8 +17,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/octicons"],
       "options": {
-        "project": "packages/octicons/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "packages/octicons/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -31,7 +30,7 @@
       "defaultConfiguration": "production"
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/octicons/src/**/*.ts",

@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/dripicons"],
       "options": {
-        "project": "packages/dripicons/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "packages/dripicons/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -31,7 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "packages/dripicons/**/*.ts",
