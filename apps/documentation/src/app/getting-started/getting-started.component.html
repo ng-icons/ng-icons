@@ -1,3 +1,4 @@
+<!-- Use http://hilite.me/ for code snippets -->
 <div appFadeInContainer class="px-4 container mt-32 mx-auto">
   <h1 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
     Getting Started
@@ -73,6 +74,25 @@
   <app-snippet appFadeIn>
     <pre><span style="color: #E5ACAC">&lt;ng-icon</span> <span style="color: #D0B3FE">name</span>=<span style="color: #FEDBB3">&quot;heroUsers&quot;</span>&gt;&lt;/<span style="color: #E5ACAC">ng-icon</span>&gt;
 </pre>
+  </app-snippet>
+
+  <hr appFadeIn />
+
+  <h2 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
+    Dynamic Icons
+  </h2>
+
+  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center mb-16">
+    Icons can be loaded dynamically using the provideNgIconLoader function.<br />
+    Define a function that returns and observable or a promise that resolves to
+    the svg string.
+  </p>
+
+  <app-snippet appFadeIn>
+    <pre>provideNgIconLoader(name =&gt; &#123;
+  <span style="color: #E5ACAC">const</span> http = inject(HttpClient);
+  <span style="color: #E5ACAC">return</span> http.get(<span style="color: #FEDBB3">`/assets/icons/$&#123;name&#125;.svg`</span>);
+&#125;)</pre>
   </app-snippet>
 
   <hr appFadeIn />
