@@ -34,5 +34,5 @@ export const NgIconsToken = new InjectionToken<Record<string, string>[]>(
  * @internal
  */
 export function injectNgIcons(): Record<string, string>[] {
-  return inject(NgIconsToken);
+  return inject(NgIconsToken, { optional: true }) ?? [];
 }

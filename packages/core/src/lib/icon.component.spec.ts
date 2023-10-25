@@ -1,5 +1,12 @@
-import { Component, NgModule } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Component, NgModule, inject } from '@angular/core';
+import {
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  flushMicrotasks,
+} from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -9,6 +16,7 @@ import {
 } from '@ng-icons/feather-icons';
 import { NgIcon } from './icon.component';
 import { NG_ICON_DIRECTIVES, NgIconsModule } from './icon.module';
+import { provideNgIconLoader } from './providers/icon-loader.provider';
 import { provideIcons } from './providers/icon.provider';
 
 describe('Icon', () => {
@@ -130,4 +138,43 @@ describe('Standalone icon component', () => {
     const icon = nativeElement.querySelector<HTMLElement>('ng-icon');
     expect(icon?.innerHTML).toMatchSnapshot();
   });
+});
+
+@Component({
+  standalone: true,
+  template: '<ng-icon name="featherAlertCircle"></ng-icon>',
+  imports: [NG_ICON_DIRECTIVES, HttpClientTestingModule],
+  providers: [
+    provideNgIconLoader(() => {
+      // this is here to ensure we can access the injector
+      const http = inject(HttpClient);
+
+      if (!http) {
+        throw new Error('http is not defined');
+      }
+
+      return Promise.resolve(featherAlertCircle);
+    }),
+  ],
+})
+class LoaderComponent {}
+
+describe('Custom loader', () => {
+  let fixture: ComponentFixture<LoaderComponent>;
+  let nativeElement: HTMLElement;
+
+  it('should display the icon', fakeAsync(async () => {
+    expect(true).toBe(true);
+    await TestBed.configureTestingModule({
+      imports: [LoaderComponent],
+    }).compileComponents();
+    fixture = TestBed.createComponent(LoaderComponent);
+    fixture.detectChanges();
+    nativeElement = fixture.nativeElement;
+    flushMicrotasks();
+    const icon = fixture.debugElement.query(By.directive(NgIcon));
+    expect(
+      icon!.componentInstance.template['changingThisBreaksApplicationSecurity'],
+    ).toBe(featherAlertCircle);
+  }));
 });

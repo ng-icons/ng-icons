@@ -157,7 +157,7 @@ import { featherAirplay } from '@ng-icons/feather-icons';
   providers: [
     provideNgIconsConfig({
       size: '1.5em',
-      color: 'red'
+      color: 'red',
     }),
   ],
 })
@@ -177,6 +177,23 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideNgIconsConfig({
       size: '1.5em',
+    }),
+  ],
+});
+```
+
+### Dynamically Loading Icons
+
+The most common way to load icons is simply by registering them individually, however you may want to load icons lazily from a URL, or generate an SVG programatically on the fly. This can be achived using an icon loader. Icon loaders are a function that receives the name of the requested icon, and can return an `Observable<string>`, `Promise<string>` or a `string` containing the SVG to render. Within this function you can do whatever you need to retrieve an icon.
+
+The function is also run within the injection context, this allows you to inject dependencies as you need such as the `HttpClient`.
+
+```ts
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideNgIconLoader(name => {
+      const http = inject(HttpClient);
+      return http.get(`/assets/icons/${name}.svg`);
     }),
   ],
 });
