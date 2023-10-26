@@ -3,15 +3,18 @@ import {
   ChangeDetectorRef,
   Component,
   HostBinding,
+  inject,
   Injector,
   Input,
-  inject,
   runInInjectionContext,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import type { IconName } from './icon-name';
 import { injectNgIconConfig } from './providers/icon-config.provider';
-import { injectNgIconLoader } from './providers/icon-loader.provider';
+import {
+  injectNgIconLoader,
+  injectNgIconLoaderCache,
+} from './providers/icon-loader.provider';
 import { injectNgIcons } from './providers/icon.provider';
 import { coerceLoaderResult } from './utils/async';
 import { toPropertyName } from './utils/format';
@@ -39,6 +42,9 @@ export class NgIcon {
 
   /** Access the icon loader if defined */
   private readonly loader = injectNgIconLoader();
+
+  /** Access the icon loader cache if defined */
+  private readonly cache = injectNgIconLoaderCache();
 
   /** Access the injector */
   private readonly injector = inject(Injector);
@@ -94,12 +100,22 @@ export class NgIcon {
       }
     }
 
+    // if we have a cache check if the icon is already loaded
+    if (this.cache?.has(name)) {
+      this.template = this.sanitizer.bypassSecurityTrustHtml(
+        this.cache.get(name)!,
+      );
+      return;
+    }
+
     // if there is a loader defined, use it to load the icon
     if (this.loader) {
       const result = await this.requestIconFromLoader(name);
 
       // if the result is a string, insert the SVG into the template
       if (result !== null) {
+        // if we have a cache, store the result
+        this.cache?.set(name, result);
         this.template = this.sanitizer.bypassSecurityTrustHtml(result);
 
         // run change detection as this operation is asynchronous

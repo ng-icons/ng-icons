@@ -198,3 +198,13 @@ bootstrapApplication(AppComponent, {
   ],
 });
 ```
+
+Additionally add caching to your loader to prevent multiple requests for the same icon.
+
+```ts
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideNgIconLoader(name => {...}, withCaching()),
+  ],
+});
+```
