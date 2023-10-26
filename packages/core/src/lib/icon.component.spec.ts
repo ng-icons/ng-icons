@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Component, NgModule, inject } from '@angular/core';
+import { Component, inject, NgModule } from '@angular/core';
 import {
   ComponentFixture,
-  TestBed,
   fakeAsync,
   flushMicrotasks,
+  TestBed,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
@@ -16,7 +16,11 @@ import {
 } from '@ng-icons/feather-icons';
 import { NgIcon } from './icon.component';
 import { NG_ICON_DIRECTIVES, NgIconsModule } from './icon.module';
-import { provideNgIconLoader } from './providers/icon-loader.provider';
+import {
+  NgIconCacheToken,
+  provideNgIconLoader,
+  withCaching,
+} from './providers/icon-loader.provider';
 import { provideIcons } from './providers/icon.provider';
 
 describe('Icon', () => {
@@ -161,17 +165,55 @@ class LoaderComponent {}
 
 describe('Custom loader', () => {
   let fixture: ComponentFixture<LoaderComponent>;
-  let nativeElement: HTMLElement;
 
   it('should display the icon', fakeAsync(async () => {
-    expect(true).toBe(true);
     await TestBed.configureTestingModule({
       imports: [LoaderComponent],
     }).compileComponents();
     fixture = TestBed.createComponent(LoaderComponent);
     fixture.detectChanges();
-    nativeElement = fixture.nativeElement;
     flushMicrotasks();
+    const icon = fixture.debugElement.query(By.directive(NgIcon));
+    expect(
+      icon!.componentInstance.template['changingThisBreaksApplicationSecurity'],
+    ).toBe(featherAlertCircle);
+  }));
+});
+
+@Component({
+  standalone: true,
+  template: '<ng-icon name="featherAlertCircle"></ng-icon>',
+  imports: [NG_ICON_DIRECTIVES],
+})
+class CachedLoaderComponent {}
+
+describe('Custom loader with caching', () => {
+  let fixture: ComponentFixture<CachedLoaderComponent>;
+
+  it('should display the icon', fakeAsync(async () => {
+    await TestBed.configureTestingModule({
+      imports: [CachedLoaderComponent],
+      providers: [
+        provideNgIconLoader(
+          () => Promise.resolve(featherAlertCircle),
+          withCaching(),
+        ),
+      ],
+    }).compileComponents();
+
+    // access the cache
+    const cache = TestBed.inject(NgIconCacheToken);
+    cache.set('featherAlertCircle', featherAlertCircle);
+
+    const cacheSpy = jest
+      .spyOn(cache!, 'get')
+      .mockReturnValue(featherAlertCircle);
+
+    fixture = TestBed.createComponent(CachedLoaderComponent);
+    fixture.detectChanges();
+
+    expect(cacheSpy).toHaveBeenCalledWith('featherAlertCircle');
+
     const icon = fixture.debugElement.query(By.directive(NgIcon));
     expect(
       icon!.componentInstance.template['changingThisBreaksApplicationSecurity'],
