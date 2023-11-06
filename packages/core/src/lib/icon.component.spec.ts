@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Component, inject, NgModule } from '@angular/core';
+import { Component, NgModule, inject } from '@angular/core';
 import {
   ComponentFixture,
+  TestBed,
   fakeAsync,
   flushMicrotasks,
-  TestBed,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
@@ -107,12 +107,12 @@ describe('Icon with multiple modules', () => {
   it('should display icons registered in both parent and child modules', () => {
     const icons = fixture.debugElement.queryAll(By.directive(NgIcon));
 
-    expect(
-      icons[0].componentInstance.template.changingThisBreaksApplicationSecurity,
-    ).toMatchSnapshot();
-    expect(
-      icons[1].componentInstance.template.changingThisBreaksApplicationSecurity,
-    ).toMatchSnapshot();
+    expect(icons[0].nativeElement.innerHTML).toBe(
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle" style="width:var(--ng-icon__size, 1em);height:var(--ng-icon__size, 1em);stroke-width:var(--ng-icon__stroke-width, 2)"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
+    );
+    expect(icons[1].nativeElement.innerHTML).toBe(
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-triangle" style="width:var(--ng-icon__size, 1em);height:var(--ng-icon__size, 1em);stroke-width:var(--ng-icon__stroke-width, 2)"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+    );
   });
 });
 
@@ -174,9 +174,9 @@ describe('Custom loader', () => {
     fixture.detectChanges();
     flushMicrotasks();
     const icon = fixture.debugElement.query(By.directive(NgIcon));
-    expect(
-      icon!.componentInstance.template['changingThisBreaksApplicationSecurity'],
-    ).toBe(featherAlertCircle);
+    expect(icon.nativeElement.innerHTML).toBe(
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle" style="width:var(--ng-icon__size, 1em);height:var(--ng-icon__size, 1em);stroke-width:var(--ng-icon__stroke-width, 2)"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
+    );
   }));
 });
 
@@ -215,8 +215,8 @@ describe('Custom loader with caching', () => {
     expect(cacheSpy).toHaveBeenCalledWith('featherAlertCircle');
 
     const icon = fixture.debugElement.query(By.directive(NgIcon));
-    expect(
-      icon!.componentInstance.template['changingThisBreaksApplicationSecurity'],
-    ).toBe(featherAlertCircle);
+    expect(icon!.nativeElement.innerHTML).toBe(
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle" style="width:var(--ng-icon__size, 1em);height:var(--ng-icon__size, 1em);stroke-width:var(--ng-icon__stroke-width, 2)"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
+    );
   }));
 });
