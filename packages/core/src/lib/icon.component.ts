@@ -1,14 +1,13 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
+  ElementRef,
   HostBinding,
   inject,
   Injector,
   Input,
   runInInjectionContext,
 } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import type { IconName } from './icon-name';
 import { injectNgIconConfig } from './providers/icon-config.provider';
 import {
@@ -34,9 +33,6 @@ export class NgIcon {
   /** Access the global icon config */
   private readonly config = injectNgIconConfig();
 
-  /** Access the sanitizer */
-  private readonly sanitizer = inject(DomSanitizer);
-
   /** Access the icons */
   private readonly icons = injectNgIcons();
 
@@ -49,16 +45,13 @@ export class NgIcon {
   /** Access the injector */
   private readonly injector = inject(Injector);
 
-  /** Access the change detector */
-  private readonly changeDetector = inject(ChangeDetectorRef);
+  /** Access the element ref */
+  private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
   /** Define the name of the icon to display */
   @Input() set name(name: IconType) {
     this.setIcon(name);
   }
-
-  /** Store the formatted icon name */
-  @HostBinding('innerHTML') template?: SafeHtml;
 
   /** Define the size of the icon */
   @HostBinding('style.--ng-icon__size')
@@ -93,18 +86,14 @@ export class NgIcon {
     for (const icons of [...this.icons].reverse()) {
       if (icons[propertyName]) {
         // insert the SVG into the template
-        this.template = this.sanitizer.bypassSecurityTrustHtml(
-          icons[propertyName],
-        );
+        this.elementRef.nativeElement.innerHTML = icons[propertyName];
         return;
       }
     }
 
     // if we have a cache check if the icon is already loaded
     if (this.cache?.has(name)) {
-      this.template = this.sanitizer.bypassSecurityTrustHtml(
-        this.cache.get(name)!,
-      );
+      this.elementRef.nativeElement.innerHTML = this.cache.get(name)!;
       return;
     }
 
@@ -116,10 +105,7 @@ export class NgIcon {
       if (result !== null) {
         // if we have a cache, store the result
         this.cache?.set(name, result);
-        this.template = this.sanitizer.bypassSecurityTrustHtml(result);
-
-        // run change detection as this operation is asynchronous
-        this.changeDetector.detectChanges();
+        this.elementRef.nativeElement.innerHTML = result;
         return;
       }
     }
