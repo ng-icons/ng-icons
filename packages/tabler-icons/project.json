@@ -9,8 +9,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/tabler-icons"],
       "options": {
-        "jestConfig": "packages/tabler-icons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/tabler-icons/jest.config.ts"
       }
     },
     "build": {

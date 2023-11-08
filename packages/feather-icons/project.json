@@ -9,8 +9,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/feather-icons"],
       "options": {
-        "jestConfig": "packages/feather-icons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/feather-icons/jest.config.ts"
       }
     },
     "build": {

@@ -9,8 +9,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/material-icons"],
       "options": {
-        "jestConfig": "packages/material-icons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/material-icons/jest.config.ts"
       }
     },
     "build": {

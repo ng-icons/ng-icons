@@ -25,8 +25,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/simple-icons"],
       "options": {
-        "jestConfig": "packages/simple-icons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/simple-icons/jest.config.ts"
       }
     },
     "lint": {

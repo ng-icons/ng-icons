@@ -9,8 +9,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/heroicons"],
       "options": {
-        "jestConfig": "packages/heroicons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/heroicons/jest.config.ts"
       }
     },
     "build": {

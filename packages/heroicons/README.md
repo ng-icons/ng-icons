@@ -40,6 +40,7 @@ Got suggestions for additional iconsets? Create an issue and we can consider add
 | 14.x.x          | 17.x.x - 22.x.x |
 | 15.x.x          | 23.x.x - 24.x.x |
 | 16.x.x          | 25.x.x          |
+| 17.x.x          | 26.x.x          |
 
 > **Note**: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 

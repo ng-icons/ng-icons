@@ -93,15 +93,6 @@ async function createIconset(iconset: Iconset): Promise<string> {
   return output.join('\n');
 }
 
-function getHyphenatedName(name: string): string {
-  return name
-    .replace(/([A-Z])/g, ' $1')
-    .trim()
-    .split(' ')
-    .join('-')
-    .toLowerCase();
-}
-
 async function generateIconNameType(tree: Tree): Promise<void> {
   const iconNamesType = `export type IconName = ${Array.from(iconList)
     .map(name => `'${name}'`)

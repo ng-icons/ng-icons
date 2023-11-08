@@ -55,17 +55,8 @@ export class NgIcon {
 
   /** Define the size of the icon */
   @HostBinding('style.--ng-icon__size')
-  @Input()
-  set size(size: string) {
-    // if the size only contains numbers, assume it is in pixels
-    this._size = coerceCssPixelValue(size);
-  }
-
-  get size(): string {
-    return this._size;
-  }
-
-  private _size: string = this.config.size;
+  @Input({ transform: coerceCssPixelValue })
+  size?: string | number = this.config.size;
 
   /** Define the stroke-width of the icon */
   @HostBinding('style.--ng-icon__stroke-width')

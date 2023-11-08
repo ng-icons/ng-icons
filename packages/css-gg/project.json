@@ -9,8 +9,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/css-gg"],
       "options": {
-        "jestConfig": "packages/css-gg/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/css-gg/jest.config.ts"
       }
     },
     "build": {

@@ -9,8 +9,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/octicons"],
       "options": {
-        "jestConfig": "packages/octicons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/octicons/jest.config.ts"
       }
     },
     "build": {

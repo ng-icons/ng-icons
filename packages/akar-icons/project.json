@@ -25,8 +25,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/akar-icons"],
       "options": {
-        "jestConfig": "packages/akar-icons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/akar-icons/jest.config.ts"
       }
     },
     "lint": {

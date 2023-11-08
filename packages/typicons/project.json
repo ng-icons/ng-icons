@@ -25,8 +25,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/typicons"],
       "options": {
-        "jestConfig": "packages/typicons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/typicons/jest.config.ts"
       }
     },
     "lint": {

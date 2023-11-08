@@ -9,8 +9,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/ionicons"],
       "options": {
-        "jestConfig": "packages/ionicons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/ionicons/jest.config.ts"
       }
     },
     "build": {
