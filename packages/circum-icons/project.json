@@ -25,8 +25,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/circum-icons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/circum-icons/jest.config.ts"
       }
     },
     "lint": {

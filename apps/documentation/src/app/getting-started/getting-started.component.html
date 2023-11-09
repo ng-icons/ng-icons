@@ -31,11 +31,11 @@
     <pre
       *ngIf="selectedIndex === 0"
       ngNonBindable
-    ><span style="color: #E5ACAC">import</span> &#123; NgIconsModule &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/core&#39;</span>;
-<span style="color: #E5ACAC">import</span> &#123; featherAirplay &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/feather-icons&#39;</span>;
-<span style="color: #E5ACAC">import</span> &#123; heroUsers &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/heroicons/outline&#39;</span>;
+    ><span style="color: #E5ACAC">import</span> &#123; NgIconsModule &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/core&#39;</span>;
+<span style="color: #E5ACAC">import</span> &#123; featherAirplay &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/feather-icons&#39;</span>;
+<span style="color: #E5ACAC">import</span> &#123; heroUsers &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/heroicons/outline&#39;</span>;
 
-<span style="color: #B3D1FE">@NgModule</span>(&#123;
+<span style="color: #B3D1FE">&#64;NgModule</span>(&#123;
   imports: [
     BrowserModule,
     NgIconsModule.withIcons(&#123; featherAirplay, heroUsers &#125;),
@@ -47,11 +47,11 @@
     <pre
       *ngIf="selectedIndex === 1"
       ngNonBindable
-    ><span style="color: #E5ACAC">import</span> &#123; NgIconComponent, provideIcons &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/core&#39;</span>;
-<span style="color: #E5ACAC">import</span> &#123; featherAirplay &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/feather-icons&#39;</span>;
-<span style="color: #E5ACAC">import</span> &#123; heroUsers &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;@ng-icons/heroicons/outline&#39;</span>;
+    ><span style="color: #E5ACAC">import</span> &#123; NgIconComponent, provideIcons &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/core&#39;</span>;
+<span style="color: #E5ACAC">import</span> &#123; featherAirplay &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/feather-icons&#39;</span>;
+<span style="color: #E5ACAC">import</span> &#123; heroUsers &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/heroicons/outline&#39;</span>;
 
-<span style="color: #B3D1FE">@Component</span>(&#123;
+<span style="color: #B3D1FE">&#64;Component</span>(&#123;
     selector<span style="color: #333333">:</span> <span style="color: #FEDBB3">&#39;app-root&#39;</span>,
     templateUrl<span style="color: #333333">:</span> <span style="color: #FEDBB3">&#39;./app.component.html&#39;</span>,
     imports<span style="color: #333333">:</span> [NgIconComponent],

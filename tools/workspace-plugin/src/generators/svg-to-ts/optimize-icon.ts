@@ -16,7 +16,7 @@ export async function optimizeIcon(
       type: 'visitor',
       description: 'Insert CSS variables',
       params: {},
-      fn: function (data) {
+      fn: function () {
         return {
           element: {
             enter: node => {

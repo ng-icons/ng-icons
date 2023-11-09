@@ -25,8 +25,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/cryptocurrency-icons"],
       "options": {
-        "jestConfig": "packages/cryptocurrency-icons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/cryptocurrency-icons/jest.config.ts"
       }
     },
     "lint": {

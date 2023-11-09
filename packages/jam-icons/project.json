@@ -9,8 +9,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/packages/jam-icons"],
       "options": {
-        "jestConfig": "packages/jam-icons/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/jam-icons/jest.config.ts"
       }
     },
     "build": {

@@ -21,7 +21,6 @@ jobs:
         pnpx nx affected --target=lint --parallel=3
         pnpx nx affected --target=test --parallel=3 --ci --code-coverage
         pnpx nx affected --target=build --parallel=3
-
   agents:
     name: Nx Cloud - Agents
     uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.11.3
