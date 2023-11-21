@@ -36,7 +36,7 @@ type CachingFeature =
 
 type NgIconLoaderFeatures = CachingFeature;
 
-export type NgIconLoaderCache = Map<string, string>;
+export type NgIconLoaderCache = Map<string, string | Promise<string>>;
 
 export const NgIconCacheToken = new InjectionToken<NgIconLoaderCache>(
   'Ng Icon Cache Token',

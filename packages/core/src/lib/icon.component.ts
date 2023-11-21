@@ -39,7 +39,7 @@ export class NgIcon {
   /** Access the icon loader if defined */
   private readonly loader = injectNgIconLoader();
 
-  /** Access the icon loader cache if defined */
+  /** Access the icon cache if defined */
   private readonly cache = injectNgIconLoaderCache();
 
   /** Access the injector */
@@ -74,6 +74,7 @@ export class NgIcon {
    */
   private async setIcon(name: IconType): Promise<void> {
     const propertyName = toPropertyName(name);
+
     for (const icons of [...this.icons].reverse()) {
       if (icons[propertyName]) {
         // insert the SVG into the template
@@ -82,20 +83,12 @@ export class NgIcon {
       }
     }
 
-    // if we have a cache check if the icon is already loaded
-    if (this.cache?.has(name)) {
-      this.elementRef.nativeElement.innerHTML = this.cache.get(name)!;
-      return;
-    }
-
     // if there is a loader defined, use it to load the icon
     if (this.loader) {
       const result = await this.requestIconFromLoader(name);
 
       // if the result is a string, insert the SVG into the template
       if (result !== null) {
-        // if we have a cache, store the result
-        this.cache?.set(name, result);
         this.elementRef.nativeElement.innerHTML = result;
         return;
       }
@@ -115,7 +108,35 @@ export class NgIcon {
   private requestIconFromLoader(name: string): Promise<string> {
     return new Promise(resolve => {
       runInInjectionContext(this.injector, async () => {
-        const result = await coerceLoaderResult(this.loader!(name));
+        // if we have a cache, check if the icon is already loaded (i.e, it is a string)
+        if (this.cache) {
+          const cachedResult = this.cache.get(name);
+
+          if (typeof cachedResult === 'string') {
+            resolve(cachedResult);
+            return;
+          }
+
+          // it may be a promise, so we need to await it
+          if (cachedResult instanceof Promise) {
+            const result = await cachedResult;
+            resolve(result);
+            return;
+          }
+        }
+
+        const promise = coerceLoaderResult(this.loader!(name));
+
+        // store the promise in the cache so if we get repeated calls (e.g. in a loop) before the loader has resolved
+        // then don't call the loader function multiple times
+        this.cache?.set(name, promise);
+
+        // await the result of the promise
+        const result = await promise;
+
+        // if we have a cache, store the result
+        this.cache?.set(name, result);
+
         resolve(result);
       });
     });

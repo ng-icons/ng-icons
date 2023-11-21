@@ -17,7 +17,6 @@ import {
 import { NgIcon } from './icon.component';
 import { NG_ICON_DIRECTIVES, NgIconsModule } from './icon.module';
 import {
-  NgIconCacheToken,
   provideNgIconLoader,
   withCaching,
 } from './providers/icon-loader.provider';
@@ -187,36 +186,58 @@ describe('Custom loader', () => {
 })
 class CachedLoaderComponent {}
 
+@Component({
+  standalone: true,
+  template: `
+    @for (icon of icons; track icon) {
+      <ng-icon [name]="icon"/>
+    }
+  `,
+  imports: [NG_ICON_DIRECTIVES],
+})
+class RepeatedCachedLoaderComponent {
+  icons = ['featherAlertCircle', 'featherAlertCircle', 'featherAlertCircle'];
+}
+
 describe('Custom loader with caching', () => {
   let fixture: ComponentFixture<CachedLoaderComponent>;
 
   it('should display the icon', fakeAsync(async () => {
+    const loaderSpy = jest.fn(() => Promise.resolve(featherAlertCircle));
+
     await TestBed.configureTestingModule({
       imports: [CachedLoaderComponent],
-      providers: [
-        provideNgIconLoader(
-          () => Promise.resolve(featherAlertCircle),
-          withCaching(),
-        ),
-      ],
+      providers: [provideNgIconLoader(loaderSpy, withCaching())],
     }).compileComponents();
-
-    // access the cache
-    const cache = TestBed.inject(NgIconCacheToken);
-    cache.set('featherAlertCircle', featherAlertCircle);
-
-    const cacheSpy = jest
-      .spyOn(cache!, 'get')
-      .mockReturnValue(featherAlertCircle);
 
     fixture = TestBed.createComponent(CachedLoaderComponent);
     fixture.detectChanges();
 
-    expect(cacheSpy).toHaveBeenCalledWith('featherAlertCircle');
+    expect(loaderSpy).toHaveBeenCalledWith('featherAlertCircle');
+
+    // await the promise to resolve
+    flushMicrotasks();
 
     const icon = fixture.debugElement.query(By.directive(NgIcon));
     expect(icon!.nativeElement.innerHTML).toBe(
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle" style="width:var(--ng-icon__size, 1em);height:var(--ng-icon__size, 1em);stroke-width:var(--ng-icon__stroke-width, 2)"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
     );
+  }));
+
+  it('should only call the loader function once', fakeAsync(async () => {
+    const loaderSpy = jest.fn(() => Promise.resolve(featherAlertCircle));
+
+    await TestBed.configureTestingModule({
+      imports: [RepeatedCachedLoaderComponent],
+      providers: [provideNgIconLoader(loaderSpy, withCaching())],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(RepeatedCachedLoaderComponent);
+    fixture.detectChanges();
+
+    // await the promise to resolve
+    flushMicrotasks();
+
+    expect(loaderSpy).toHaveBeenCalledTimes(1);
   }));
 });
