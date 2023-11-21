@@ -1,4 +1,4 @@
-<img width="847" alt="logo" src="https://user-images.githubusercontent.com/20795331/142078474-da890691-b524-4144-9640-2f7f9da3a3a3.png">
+<img width="600" alt="logo" src="https://github.com/ng-icons/ng-icons/assets/20795331/8781b0a9-2c8a-4a7f-9afd-13e47d14cffe">
 
 # Ng Icons
 
