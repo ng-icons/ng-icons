@@ -1,3 +1,4 @@
+/* eslint-disable @nx/enforce-module-boundaries */
 import { Clipboard } from '@angular/cdk/clipboard';
 import { AsyncPipe, KeyValuePipe, NgFor, NgIf } from '@angular/common';
 import { Component, Injector, OnInit, inject } from '@angular/core';
@@ -9,6 +10,7 @@ import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { cssShapeHexagon } from '@ng-icons/css.gg';
 import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
+import { faFontAwesome } from '@ng-icons/font-awesome/regular';
 import { heroMagnifyingGlass } from '@ng-icons/heroicons/outline';
 import { iconoirIconoir } from '@ng-icons/iconoir';
 import { ionLogoIonic } from '@ng-icons/ionicons';
@@ -70,6 +72,7 @@ const circumIcon = `
       heroMagnifyingGlass,
       matfDocumentUncolored,
       remixRemixiconLine,
+      faFontAwesome,
     }),
   ],
 })
@@ -307,6 +310,22 @@ export class BrowseIconsComponent implements OnInit {
       package: '@ng-icons/remixicon',
       icons: async () => {
         return { default: await import('@ng-icons/remixicon') };
+      },
+    },
+    {
+      name: 'FontAwesome',
+      website: 'fontawesome.com',
+      icon: 'faFontAwesome',
+      license: 'CC BY 4.0',
+      package: '@ng-icons/font-awesome',
+      icons: async () => {
+        const [regular, solid, brands] = await Promise.all([
+          import('@ng-icons/font-awesome/regular'),
+          import('@ng-icons/font-awesome/solid'),
+          import('@ng-icons/font-awesome/brands'),
+        ]);
+
+        return { regular, solid, brands };
       },
     },
   ];

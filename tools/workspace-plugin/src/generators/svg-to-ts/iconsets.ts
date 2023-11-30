@@ -207,6 +207,30 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    glob: 'node_modules/font-awesome-solid/*.svg',
+    output: 'packages/font-awesome/solid/src/index.ts',
+    getIconName: (name: string) => `faSolid${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/font-awesome-regular/*.svg',
+    output: 'packages/font-awesome/regular/src/index.ts',
+    getIconName: (name: string) => `fa${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/font-awesome-brands/*.svg',
+    output: 'packages/font-awesome/brands/src/index.ts',
+    getIconName: (name: string) => `faBrand${name}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
 ];
 
 export interface Iconset {

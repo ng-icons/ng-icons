@@ -25,6 +25,16 @@
       "@ng-icons/css.gg": ["packages/css-gg/src/index.ts"],
       "@ng-icons/dripicons": ["packages/dripicons/src/index.ts"],
       "@ng-icons/feather-icons": ["packages/feather-icons/src/index.ts"],
+      "@ng-icons/font-awesome": ["packages/font-awesome/src/index.ts"],
+      "@ng-icons/font-awesome/brands": [
+        "packages/font-awesome/brands/src/index.ts"
+      ],
+      "@ng-icons/font-awesome/regular": [
+        "packages/font-awesome/regular/src/index.ts"
+      ],
+      "@ng-icons/font-awesome/solid": [
+        "packages/font-awesome/solid/src/index.ts"
+      ],
       "@ng-icons/heroicons": ["packages/heroicons/src/index.ts"],
       "@ng-icons/heroicons/mini": ["packages/heroicons/mini/src/index.ts"],
       "@ng-icons/heroicons/outline": [
