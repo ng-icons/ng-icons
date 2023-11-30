@@ -51,5 +51,10 @@
       }
     }
   },
-  "nxCloudAccessToken": "NTI2Y2FjYmMtNTA0Ni00NGM5LWI4NjctZjBmNTI5ZmM5ZGYyfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "NTI2Y2FjYmMtNTA0Ni00NGM5LWI4NjctZjBmNTI5ZmM5ZGYyfHJlYWQtd3JpdGU=",
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
+    }
+  }
 }

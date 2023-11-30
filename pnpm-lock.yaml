@@ -80,6 +80,15 @@ dependencies:
   feather-icons:
     specifier: 4.29.0
     version: 4.29.0
+  font-awesome-brands:
+    specifier: https://gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/brands?6.x
+    version: '@gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/brands?6.x'
+  font-awesome-regular:
+    specifier: https://gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/regular?6.x
+    version: '@gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/regular?6.x'
+  font-awesome-solid:
+    specifier: https://gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/solid?6.x
+    version: '@gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/solid?6.x'
   heroicons:
     specifier: 2.0.18
     version: 2.0.18
@@ -13913,6 +13922,24 @@ packages:
     resolution: {integrity: sha512-X4U7J1isDhoOmHmFWiLhloWc2lzMkdnumtfQ1LXzf/IOZp5NQYuMUTaviVzG/q1ugMBIXzin2AqeVJUoSEkNyQ==}
     dependencies:
       tslib: 2.6.2
+
+  '@gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/brands?6.x':
+    resolution: {tarball: https://gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/brands?6.x}
+    name: brands?6.x
+    version: 0.0.0
+    dev: false
+
+  '@gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/regular?6.x':
+    resolution: {tarball: https://gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/regular?6.x}
+    name: regular?6.x
+    version: 0.0.0
+    dev: false
+
+  '@gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/solid?6.x':
+    resolution: {tarball: https://gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/solid?6.x}
+    name: solid?6.x
+    version: 0.0.0
+    dev: false
 
   '@gitpkg.now.sh/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c':
     resolution: {registry: https://registry.npmjs.org/, tarball: https://gitpkg.now.sh/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c}

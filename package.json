@@ -8,7 +8,7 @@
     "test": "nx affected:test --all --parallel=8",
     "compile": "nx generate @ng-icons/workspace-plugin:svg-to-ts && nx run-many --target=build --all --parallel=8 && nx generate @ng-icons/workspace-plugin:update-readmes",
     "generate:iconsets": "nx generate @ng-icons/workspace-plugin:svg-to-ts",
-    "deploy": "nx run-many --all --target=deploy --parallel=8 --packageVersion=26.1.0"
+    "deploy": "nx run-many --all --target=deploy --parallel=8 --packageVersion=26.2.0"
   },
   "private": true,
   "dependencies": {
@@ -46,6 +46,9 @@
     "remixicon": "^3.5.0",
     "rxjs": "7.8.0",
     "simple-icons": "9.0.0",
+    "font-awesome-solid": "https://gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/solid?6.x",
+    "font-awesome-regular": "https://gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/regular?6.x",
+    "font-awesome-brands": "https://gitpkg.now.sh/FortAwesome/Font-Awesome/free/svgs/brands?6.x",
     "tslib": "^2.3.0",
     "typicons.font": "2.1.2",
     "zone.js": "0.14.2"
@@ -63,6 +66,7 @@
     "@nx-dotnet/nx-ghpages": "^1.15.0",
     "@nx/angular": "17.1.3",
     "@nx/devkit": "17.1.3",
+    "@nx/eslint": "17.1.3",
     "@nx/eslint-plugin": "17.1.3",
     "@nx/jest": "17.1.3",
     "@nx/js": "17.1.3",
@@ -103,7 +107,6 @@
     "tailwindcss": "3.0.24",
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
-    "typescript": "5.2.2",
-    "@nx/eslint": "17.1.3"
+    "typescript": "5.2.2"
   }
 }

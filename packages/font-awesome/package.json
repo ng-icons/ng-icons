@@ -1,0 +1,10 @@
+{
+  "name": "@ng-icons/font-awesome",
+  "version": "0.0.1",
+  "sideEffects": false,
+  "license": "CC BY 4.0",
+  "repository": {
+    "url": "https://github.com/ng-icons/ng-icons"
+  },
+  "homepage": "https://ng-icons.github.io/ng-icons/"
+}
