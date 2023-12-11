@@ -1,5 +1,5 @@
 import { Inject, ModuleWithProviders, NgModule } from '@angular/core';
-import { NgIcon } from './icon.component';
+import { NgIcon } from './components/icon/icon.component';
 import { NgIconsToken, provideIcons } from './providers/icon.provider';
 
 @NgModule({

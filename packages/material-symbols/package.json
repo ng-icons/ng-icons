@@ -1,0 +1,9 @@
+{
+  "name": "@ng-icons/material-symbols",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@ng-icons/core": "*"
+  },
+  "dependencies": {},
+  "sideEffects": false
+}

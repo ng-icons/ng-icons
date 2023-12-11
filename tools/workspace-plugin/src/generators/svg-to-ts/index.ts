@@ -99,7 +99,15 @@ async function generateIconNameType(tree: Tree): Promise<void> {
     .join(' | ')};`;
 
   tree.write(
-    joinPathFragments('packages', 'core', 'src', 'lib', 'icon-name.ts'),
+    joinPathFragments(
+      'packages',
+      'core',
+      'src',
+      'lib',
+      'components',
+      'icon',
+      'icon-name.ts',
+    ),
     iconNamesType,
   );
 }

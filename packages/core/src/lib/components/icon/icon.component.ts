@@ -8,15 +8,16 @@ import {
   Input,
   runInInjectionContext,
 } from '@angular/core';
-import type { IconName } from './icon-name';
-import { injectNgIconConfig } from './providers/icon-config.provider';
+import type { IconName } from '../../components/icon/icon-name';
+import { injectNgIconConfig } from '../../providers/icon-config.provider';
 import {
   injectNgIconLoader,
   injectNgIconLoaderCache,
-} from './providers/icon-loader.provider';
-import { injectNgIcons } from './providers/icon.provider';
-import { coerceLoaderResult } from './utils/async';
-import { toPropertyName } from './utils/format';
+} from '../../providers/icon-loader.provider';
+import { injectNgIcons } from '../../providers/icon.provider';
+import { coerceLoaderResult } from '../../utils/async';
+import { coerceCssPixelValue } from '../../utils/coercion';
+import { toPropertyName } from '../../utils/format';
 
 // This is a typescript type to prevent inference from collapsing the union type to a string to improve type safety
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -141,8 +142,4 @@ export class NgIcon {
       });
     });
   }
-}
-
-function coerceCssPixelValue(value: string): string {
-  return value == null ? '' : /^\d+$/.test(value) ? `${value}px` : value;
 }

@@ -211,3 +211,70 @@ bootstrapApplication(AppComponent, {
   ],
 });
 ```
+
+## Experimental Features
+
+### Variable Icon Fonts
+
+We have added support for variable icon fonts. This is currently only supported by the [Material Symbols](https://github.com/marella/material-symbols/tree/main/material-symbols#readme) iconset.
+
+To enable this feature you must install the icon font and load the `material-symbols` stylesheet. Unlike the static SVG icons, Ng Icons does not bundle the icon font, you must load it yourself.
+
+To use it you must register the variable fonts you want to use. The default iconset will be the first one registered.
+
+```ts
+import { provideNgGlyphs } from '@ng-icons/core';
+import {
+  withMaterialSymbolsOutlined,
+  withMaterialSymbolsRounded,
+} from '@ng-icons/material-symbols';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideNgGlyphs(
+      withMaterialSymbolsOutlined(),
+      withMaterialSymbolsRounded(),
+    ),
+  ],
+});
+```
+
+You can then use the following in your HTML:
+
+```html
+<ng-glyph name="settings" />
+```
+
+The following inputs are available on `ng-glyph`:
+
+| Name        | Type      | Description                                                                 |
+| ----------- | --------- | --------------------------------------------------------------------------- |
+| name        | `string`  | Define the name of the icon.                                                |
+| glyphset    | `string`  | Define the glyphset to use. This defaults to the first registered glyphset. |
+| size        | `number`  | Define the size of the icon. This defaults to the current text size.        |
+| opticalSize | `number`  | Define the optical size of the icon in `px`. This defaults to `20`          |
+| color       | `string`  | Define the color of the icon. This defaults to the current text color.      |
+| weight      | `number`  | Define the weight of the icon. This defaults to `400`.                      |
+| grade       | `number`  | Define the grade of the icon. This defaults to `0`.                         |
+| fill        | `boolean` | Define if the icon should be filled. This defaults to `false`.              |
+
+The default values for `size`, `weight`, `grade` and `fill` can be configured using the `provideNgGlyphsConfig` function.
+
+```ts
+import { provideNgGlyphsConfig } from '@ng-icons/core';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideNgGlyphsConfig({
+      size: 24,
+      weight: 400,
+      grade: 0,
+      fill: false,
+    }),
+  ],
+});
+```
+
+This feature is experimental and does not follow the same versioning as the rest of the library. Breaking changes may be introduced at any time.
+
+We appreciate any feedback you have on this feature.
