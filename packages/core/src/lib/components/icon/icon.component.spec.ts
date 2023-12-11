@@ -15,12 +15,12 @@ import {
   featherAlertTriangle,
 } from '@ng-icons/feather-icons';
 import { NgIcon } from './icon.component';
-import { NG_ICON_DIRECTIVES, NgIconsModule } from './icon.module';
+import { NG_ICON_DIRECTIVES, NgIconsModule } from '../../icon.module';
 import {
   provideNgIconLoader,
   withCaching,
-} from './providers/icon-loader.provider';
-import { provideIcons } from './providers/icon.provider';
+} from '../../providers/icon-loader.provider';
+import { provideIcons } from '../../providers/icon.provider';
 
 describe('Icon', () => {
   let component: NgIcon;

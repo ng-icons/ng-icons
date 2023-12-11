@@ -1,4 +1,9 @@
 {
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
+    }
+  },
   "extends": "nx/presets/npm.json",
   "affected": {
     "defaultBase": "origin/master"
@@ -51,10 +56,5 @@
       }
     }
   },
-  "nxCloudAccessToken": "NTI2Y2FjYmMtNTA0Ni00NGM5LWI4NjctZjBmNTI5ZmM5ZGYyfHJlYWQtd3JpdGU=",
-  "pluginsConfig": {
-    "@nx/js": {
-      "analyzeSourceFiles": true
-    }
-  }
+  "nxCloudAccessToken": "NTI2Y2FjYmMtNTA0Ni00NGM5LWI4NjctZjBmNTI5ZmM5ZGYyfHJlYWQtd3JpdGU="
 }
