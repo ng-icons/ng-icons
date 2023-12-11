@@ -30,12 +30,6 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "packages/feather-icons/src/**/*.ts",
-          "packages/feather-icons/src/**/*.html"
-        ]
-      },
       "outputs": ["{options.outputFile}"]
     },
     "deploy": {

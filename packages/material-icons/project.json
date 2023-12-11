@@ -29,21 +29,7 @@
       "defaultConfiguration": "production"
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "packages/material-icons/src/**/*.ts",
-          "packages/material-icons/src/**/*.html",
-          "packages/material-icons/baseline/**/*.ts",
-          "packages/material-icons/baseline/**/*.html",
-          "packages/material-icons/outline/**/*.ts",
-          "packages/material-icons/outline/**/*.html",
-          "packages/material-icons/round/**/*.ts",
-          "packages/material-icons/round/**/*.html",
-          "packages/material-icons/sharp/**/*.ts",
-          "packages/material-icons/sharp/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "deploy": {
       "executor": "ngx-deploy-npm:deploy",

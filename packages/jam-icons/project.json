@@ -30,12 +30,6 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "packages/jam-icons/src/**/*.ts",
-          "packages/jam-icons/src/**/*.html"
-        ]
-      },
       "outputs": ["{options.outputFile}"]
     },
     "deploy": {

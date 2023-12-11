@@ -30,16 +30,6 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "packages/material-file-icons/src/**/*.ts",
-          "packages/material-file-icons/src/**/*.html",
-          "packages/material-file-icons/colored/src/**/*.ts",
-          "packages/material-file-icons/colored/src/**/*.html",
-          "packages/material-file-icons/uncolored/src/**/*.ts",
-          "packages/material-file-icons/uncolored/src/**/*.html"
-        ]
-      },
       "outputs": ["{options.outputFile}"]
     },
     "deploy": {

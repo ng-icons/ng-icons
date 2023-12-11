@@ -31,14 +31,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "packages/material-symbols/**/*.ts",
-          "packages/material-symbols/**/*.html",
-          "packages/material-symbols/package.json"
-        ]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "deploy": {
       "executor": "ngx-deploy-npm:deploy",

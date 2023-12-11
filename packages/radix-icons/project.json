@@ -30,12 +30,6 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "packages/radix-icons/src/**/*.ts",
-          "packages/radix-icons/src/**/*.html"
-        ]
-      },
       "outputs": ["{options.outputFile}"]
     },
     "deploy": {

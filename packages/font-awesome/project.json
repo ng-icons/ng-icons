@@ -31,20 +31,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "packages/font-awesome/**/*.ts",
-          "packages/font-awesome/**/*.html",
-          "packages/font-awesome/package.json",
-          "packages/font-awesome/regular/**/*.ts",
-          "packages/font-awesome/regular/**/*.html",
-          "packages/font-awesome/solid/**/*.ts",
-          "packages/font-awesome/solid/**/*.html",
-          "packages/font-awesome/brands/**/*.ts",
-          "packages/font-awesome/brands/**/*.html"
-        ]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "deploy": {
       "executor": "ngx-deploy-npm:deploy",

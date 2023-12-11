@@ -30,14 +30,6 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "packages/octicons/src/**/*.ts",
-          "packages/octicons/src/**/*.html",
-          "packages/octicons/large/**/*.ts",
-          "packages/octicons/large/**/*.html"
-        ]
-      },
       "outputs": ["{options.outputFile}"]
     },
     "deploy": {

@@ -29,13 +29,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "packages/iconoir/src/**/*.ts",
-          "packages/iconoir/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "deploy": {
       "executor": "ngx-deploy-npm:deploy",

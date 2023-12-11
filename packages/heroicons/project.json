@@ -30,18 +30,6 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "packages/heroicons/src/**/*.ts",
-          "packages/heroicons/src/**/*.html",
-          "packages/heroicons/outline/**/*.ts",
-          "packages/heroicons/outline/**/*.html",
-          "packages/heroicons/solid/**/*.ts",
-          "packages/heroicons/solid/**/*.html",
-          "packages/heroicons/mini/**/*.ts",
-          "packages/heroicons/mini/**/*.html"
-        ]
-      },
       "outputs": ["{options.outputFile}"]
     },
     "deploy": {
