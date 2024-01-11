@@ -64,6 +64,7 @@
     "@angular/cli": "~17.0.0",
     "@angular/compiler-cli": "17.0.1",
     "@angular/language-service": "17.0.1",
+    "@eslint/eslintrc": "^2.1.1",
     "@nx-dotnet/nx-ghpages": "^1.15.0",
     "@nx/angular": "17.2.8",
     "@nx/devkit": "17.2.8",
