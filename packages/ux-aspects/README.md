@@ -3,7 +3,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 32,900 icons for you to use in your projects.
+Containing over 35,500 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -28,6 +28,7 @@ Currently, we support the following libraries:
 - [Circum Icons](https://circumicons.com/)
 - [Remix Icon](https://remixicon.com/)
 - [Font Awesome](https://fontawesome.com/)
+- [Iconsax](https://iconsax.io/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -65,30 +66,31 @@ yarn add @ng-icons/core @ng-icons/heroicons ...
 
 The following packages are available:
 
-| Package                          | License      |
-| -------------------------------- | ------------ |
-| `@ng-icons/core`                 | MIT          |
-| `@ng-icons/bootstrap-icons`      | MIT          |
-| `@ng-icons/heroicons`            | MIT          |
-| `@ng-icons/ionicons`             | MIT          |
-| `@ng-icons/material-icons`       | Apache 2.0   |
-| `@ng-icons/material-file-icons`  | MIT          |
-| `@ng-icons/css.gg`               | MIT          |
-| `@ng-icons/feather-icons`        | MIT          |
-| `@ng-icons/jam-icons`            | MIT          |
-| `@ng-icons/octicons`             | MIT          |
-| `@ng-icons/radix-icons`          | MIT          |
-| `@ng-icons/tabler-icons`         | MIT          |
-| `@ng-icons/akar-icons`           | MIT          |
-| `@ng-icons/iconoir`              | MIT          |
-| `@ng-icons/cryptocurrency-icons` | CC0-1.0      |
-| `@ng-icons/simple-icons`         | CC0-1.0      |
-| `@ng-icons/typicons`             | CC-BY-SA-4.0 |
-| `@ng-icons/dripicons`            | CC-BY-SA-4.0 |
-| `@ng-icons/ux-aspects`           | Apache 2.0   |
-| `@ng-icons/circum-icons`         | MPL-2.0      |
-| `@ng-icons/remixicon`            | Apache 2.0   |
-| `@ng-icons/font-awesome`         | CC BY 4.0    |
+| Package                          | License                               |
+| -------------------------------- | ------------------------------------- |
+| `@ng-icons/core`                 | MIT                                   |
+| `@ng-icons/bootstrap-icons`      | MIT                                   |
+| `@ng-icons/heroicons`            | MIT                                   |
+| `@ng-icons/ionicons`             | MIT                                   |
+| `@ng-icons/material-icons`       | Apache 2.0                            |
+| `@ng-icons/material-file-icons`  | MIT                                   |
+| `@ng-icons/css.gg`               | MIT                                   |
+| `@ng-icons/feather-icons`        | MIT                                   |
+| `@ng-icons/jam-icons`            | MIT                                   |
+| `@ng-icons/octicons`             | MIT                                   |
+| `@ng-icons/radix-icons`          | MIT                                   |
+| `@ng-icons/tabler-icons`         | MIT                                   |
+| `@ng-icons/akar-icons`           | MIT                                   |
+| `@ng-icons/iconoir`              | MIT                                   |
+| `@ng-icons/cryptocurrency-icons` | CC0-1.0                               |
+| `@ng-icons/simple-icons`         | CC0-1.0                               |
+| `@ng-icons/typicons`             | CC-BY-SA-4.0                          |
+| `@ng-icons/dripicons`            | CC-BY-SA-4.0                          |
+| `@ng-icons/ux-aspects`           | Apache 2.0                            |
+| `@ng-icons/circum-icons`         | MPL-2.0                               |
+| `@ng-icons/remixicon`            | Apache 2.0                            |
+| `@ng-icons/font-awesome`         | CC BY 4.0                             |
+| `@ng-icons/iconsax`              | [Custom](https://iconsax.io/#license) |
 
 ## Usage
 
@@ -100,10 +102,7 @@ import { featherAirplay } from '@ng-icons/feather-icons';
 import { heroUsers } from '@ng-icons/heroicons/outline';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    NgIconsModule.withIcons({ featherAirplay, heroUsers }),
-  ],
+  imports: [BrowserModule, NgIconsModule.withIcons({ featherAirplay, heroUsers })],
 })
 export class AppModule {}
 ```
@@ -153,10 +152,7 @@ import { NgIconsModule, provideNgIconsConfig } from '@ng-icons/core';
 import { featherAirplay } from '@ng-icons/feather-icons';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    NgIconsModule.withIcons({ featherAirplay, heroUsers }),
-  ],
+  imports: [BrowserModule, NgIconsModule.withIcons({ featherAirplay, heroUsers })],
   providers: [
     provideNgIconsConfig({
       size: '1.5em',
@@ -170,11 +166,7 @@ export class AppModule {}
 #### Standalone
 
 ```ts
-import {
-  NgIconComponent,
-  provideIcons,
-  provideNgIconsConfig,
-} from '@ng-icons/core';
+import { NgIconComponent, provideIcons, provideNgIconsConfig } from '@ng-icons/core';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -224,18 +216,10 @@ To use it you must register the variable fonts you want to use. The default icon
 
 ```ts
 import { provideNgGlyphs } from '@ng-icons/core';
-import {
-  withMaterialSymbolsOutlined,
-  withMaterialSymbolsRounded,
-} from '@ng-icons/material-symbols';
+import { withMaterialSymbolsOutlined, withMaterialSymbolsRounded } from '@ng-icons/material-symbols';
 
 bootstrapApplication(AppComponent, {
-  providers: [
-    provideNgGlyphs(
-      withMaterialSymbolsOutlined(),
-      withMaterialSymbolsRounded(),
-    ),
-  ],
+  providers: [provideNgGlyphs(withMaterialSymbolsOutlined(), withMaterialSymbolsRounded())],
 });
 ```
 
@@ -247,16 +231,16 @@ You can then use the following in your HTML:
 
 The following inputs are available on `ng-glyph`:
 
-| Name        | Type      | Description                                                                 |
-| ----------- | --------- | --------------------------------------------------------------------------- |
-| name        | `string`  | Define the name of the icon.                                                |
-| glyphset    | `string`  | Define the glyphset to use. This defaults to the first registered glyphset. |
-| size        | `number`  | Define the size of the icon. This defaults to the current text size.        |
-| opticalSize | `number`  | Define the optical size of the icon in `px`. This defaults to `20`          |
-| color       | `string`  | Define the color of the icon. This defaults to the current text color.      |
-| weight      | `number`  | Define the weight of the icon. This defaults to `400`.                      |
-| grade       | `number`  | Define the grade of the icon. This defaults to `0`.                         |
-| fill        | `boolean` | Define if the icon should be filled. This defaults to `false`.              |
+| Name        | Type                 | Description                                                                                             |
+| ----------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
+| name        | `string`             | Define the name of the icon.                                                                            |
+| glyphset    | `string`             | Define the glyphset to use. This defaults to the first registered glyphset.                             |
+| size        | `string` \| `number` | Define the size of the icon as a pixel value or as a CSS value. This defaults to the current text size. |
+| opticalSize | `number`             | Define the optical size of the icon in `px`. This defaults to `20`                                      |
+| color       | `string`             | Define the color of the icon. This defaults to the current text color.                                  |
+| weight      | `number`             | Define the weight of the icon. This defaults to `400`.                                                  |
+| grade       | `number`             | Define the grade of the icon. This defaults to `0`.                                                     |
+| fill        | `boolean`            | Define if the icon should be filled. This defaults to `false`.                                          |
 
 The default values for `size`, `weight`, `grade` and `fill` can be configured using the `provideNgGlyphsConfig` function.
 
