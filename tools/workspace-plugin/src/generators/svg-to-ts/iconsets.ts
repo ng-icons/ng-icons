@@ -231,6 +231,36 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    glob: 'node_modules/iconsax/bold/**/*.svg',
+    output: 'packages/iconsax/bold/src/index.ts',
+    getIconName: (name: string, path: string) => {
+      return `sax${name}Bold`;
+    },
+    svg: {
+      removeColor: true,
+    },
+  },
+  {
+    glob: 'node_modules/iconsax/bulk/**/*.svg',
+    output: 'packages/iconsax/bulk/src/index.ts',
+    getIconName: (name: string, path: string) => {
+      return `sax${name}Bulk`;
+    },
+    svg: {
+      removeColor: true,
+    },
+  },
+  {
+    glob: 'node_modules/iconsax/outline/**/*.svg',
+    output: 'packages/iconsax/outline/src/index.ts',
+    getIconName: (name: string, path: string) => {
+      return `sax${name}Outline`;
+    },
+    svg: {
+      removeColor: true,
+    },
+  },
 ];
 
 export interface Iconset {
