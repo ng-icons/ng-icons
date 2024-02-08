@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "17.1.3",
     "@angular/router": "17.1.3",
     "@klarr-agency/circum-icons": "https://gitpkg.now.sh/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c",
+    "iconsax": "https://gitpkg.now.sh/lusaxweb/iconsax/static/Iconsax/Svg/All?67c8869d0142557d4f70e0a76664d1a71c70f73a",
     "@material-icons/svg": "^1.0.33",
     "@primer/octicons": "18.3.0",
     "@radix-ui/react-icons": "https://gitpkg.now.sh/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50",
