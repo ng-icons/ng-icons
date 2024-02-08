@@ -1,0 +1,14 @@
+{
+  "name": "@ng-icons/iconsax",
+  "version": "0.0.1",
+  "peerDependencies": {},
+  "dependencies": {
+    "tslib": "^2.2.0"
+  },
+  "sideEffects": false,
+  "license": "SEE LICENSE IN https://iconsax.io/#license",
+  "repository": {
+    "url": "https://github.com/ng-icons/ng-icons"
+  },
+  "homepage": "https://ng-icons.github.io/ng-icons/"
+}

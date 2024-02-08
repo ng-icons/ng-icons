@@ -13,6 +13,7 @@ import { featherFeather, featherShield } from '@ng-icons/feather-icons';
 import { faFontAwesome } from '@ng-icons/font-awesome/regular';
 import { heroMagnifyingGlass } from '@ng-icons/heroicons/outline';
 import { iconoirIconoir } from '@ng-icons/iconoir';
+import { saxColorsSquareOutline } from '@ng-icons/iconsax/outline';
 import { ionLogoIonic } from '@ng-icons/ionicons';
 import { jamGlassFilled } from '@ng-icons/jam-icons';
 import { matfDocumentUncolored } from '@ng-icons/material-file-icons/uncolored';
@@ -73,6 +74,7 @@ const circumIcon = `
       matfDocumentUncolored,
       remixRemixiconLine,
       faFontAwesome,
+      saxColorsSquareOutline,
     }),
   ],
 })
@@ -326,6 +328,22 @@ export class BrowseIconsComponent implements OnInit {
         ]);
 
         return { regular, solid, brands };
+      },
+    },
+    {
+      name: 'Iconsax',
+      website: 'iconsax.io',
+      icon: 'saxColorsSquareOutline',
+      license: 'Custom',
+      package: '@ng-icons/iconsax/bold',
+      icons: async () => {
+        const [bold, bulk, outline] = await Promise.all([
+          import('@ng-icons/iconsax/bold'),
+          import('@ng-icons/iconsax/bulk'),
+          import('@ng-icons/iconsax/outline'),
+        ]);
+
+        return { bold, bulk, outline };
       },
     },
   ];
