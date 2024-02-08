@@ -42,6 +42,7 @@
       ],
       "@ng-icons/heroicons/solid": ["packages/heroicons/solid/src/index.ts"],
       "@ng-icons/iconoir": ["packages/iconoir/src/index.ts"],
+      "@ng-icons/iconsax": ["packages/iconsax/src/index.ts"],
       "@ng-icons/ionicons": ["packages/ionicons/src/index.ts"],
       "@ng-icons/jam-icons": ["packages/jam-icons/src/index.ts"],
       "@ng-icons/lucide": ["packages/lucide/src/index.ts"],

@@ -35,11 +35,7 @@
       "cache": true
     },
     "@nx/jest:jest": {
-      "inputs": [
-        "default",
-        "^default",
-        "{workspaceRoot}/jest.preset.js"
-      ],
+      "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"],
       "cache": true,
       "options": {
         "passWithNoTests": true
@@ -58,6 +54,11 @@
         "{workspaceRoot}/eslint.config.js"
       ],
       "cache": true
+    },
+    "@nx/angular:package": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
     }
   },
   "nxCloudAccessToken": "NTI2Y2FjYmMtNTA0Ni00NGM5LWI4NjctZjBmNTI5ZmM5ZGYyfHJlYWQtd3JpdGU="

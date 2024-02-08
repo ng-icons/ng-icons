@@ -22,7 +22,6 @@ export const NgGlyphConfigToken = new InjectionToken<Required<NgGlyphConfig>>(
 const defaultConfig: NgGlyphConfig = {
   size: '1em',
   opticalSize: 20,
-  color: 'currentColor',
   weight: 400,
   grade: 0,
   fill: false,

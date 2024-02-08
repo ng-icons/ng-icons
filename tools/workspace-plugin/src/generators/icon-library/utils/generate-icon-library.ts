@@ -13,7 +13,11 @@ export async function generateIconLibrary(tree: Tree, schema: Schema) {
     strict: true,
     unitTestRunner: UnitTestRunner.Jest,
     addModuleSpec: false,
+    projectNameAndRootFormat: 'as-provided',
+    directory: `packages/${schema.name}`,
   });
 
   tree.delete(`packages/${schema.name}/src/lib/${schema.name}.module.ts`);
+  tree.delete(`packages/${schema.name}/src/lib/${schema.name}`);
+  tree.write(`packages/${schema.name}/src/index.ts`, '');
 }
