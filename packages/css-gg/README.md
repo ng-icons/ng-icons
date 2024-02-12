@@ -141,6 +141,37 @@ import { heroUsers } from '@ng-icons/heroicons/outline';
 export class AppComponent {}
 ```
 
+#### Directly supplying an SVG
+
+Should you need to supply an SVG directly set the `svg` input to the SVG string. This avoids the need to register the icon.
+Only icons from NG Icons iconsets will support the `color`, `size` and `strokeWidth` inputs.
+
+```ts
+import { featherAirplay } from '@ng-icons/feather-icons';
+
+// parent.component.ts
+@Component({
+  standalone: true,
+  template: '<app-child [icon]="icon" />',
+})
+export class ParentComponent {
+  icon = featherAirplay;
+}
+
+// child.component.ts
+import { NgIconComponent } from '@ng-icons/core';
+
+@Component({
+  standalone: true,
+  selector: 'app-child',
+  imports: [NgIconComponent],
+  template: '<ng-icon [svg]="icon" />',
+})
+export class ChildComponent {
+  @Input({ required: true }) icon!;
+}
+```
+
 ### Global Configuration
 
 You can configure the default size of icons by providing a `NgIconsConfig` object to the `provideNgIconsConfig`:

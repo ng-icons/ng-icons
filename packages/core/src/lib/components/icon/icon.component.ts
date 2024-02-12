@@ -54,6 +54,11 @@ export class NgIcon {
     this.setIcon(name);
   }
 
+  /** Define the svg of the icon to display */
+  @Input() set svg(svg: string) {
+    this.elementRef.nativeElement.innerHTML = svg;
+  }
+
   /** Define the size of the icon */
   @HostBinding('style.--ng-icon__size')
   @Input({ transform: coerceCssPixelValue })
