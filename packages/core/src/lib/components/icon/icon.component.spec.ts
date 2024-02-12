@@ -50,18 +50,24 @@ describe('Icon', () => {
     fixture.detectChanges();
     expect(nativeElement).toMatchSnapshot();
   });
+
+  it('should allow the icon to change by passing in a svg', () => {
+    component.svg = featherAlertTriangle;
+    fixture.detectChanges();
+    expect(nativeElement).toMatchSnapshot();
+  });
 });
 
 @Component({
   template: `<ng-icon name="featherAlertCircle"></ng-icon>
     <router-outlet></router-outlet>`,
 })
-class RootComponent {}
+class RootComponent { }
 
 @Component({
   template: `<ng-icon name="featherAlertTriangle"></ng-icon>`,
 })
-class ChildComponent {}
+class ChildComponent { }
 
 @NgModule({
   imports: [
@@ -75,7 +81,7 @@ class ChildComponent {}
   ],
   declarations: [ChildComponent],
 })
-class ChildModule {}
+class ChildModule { }
 
 describe('Icon with multiple modules', () => {
   let fixture: ComponentFixture<RootComponent>;
@@ -121,7 +127,7 @@ describe('Icon with multiple modules', () => {
   imports: [NG_ICON_DIRECTIVES],
   providers: [provideIcons({ featherAlertCircle })],
 })
-class StandaloneComponent {}
+class StandaloneComponent { }
 
 describe('Standalone icon component', () => {
   let fixture: ComponentFixture<StandaloneComponent>;
@@ -160,7 +166,7 @@ describe('Standalone icon component', () => {
     }),
   ],
 })
-class LoaderComponent {}
+class LoaderComponent { }
 
 describe('Custom loader', () => {
   let fixture: ComponentFixture<LoaderComponent>;
@@ -184,7 +190,7 @@ describe('Custom loader', () => {
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
   imports: [NG_ICON_DIRECTIVES],
 })
-class CachedLoaderComponent {}
+class CachedLoaderComponent { }
 
 @Component({
   standalone: true,
