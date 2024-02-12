@@ -56,7 +56,7 @@ export class NgIcon {
 
   /** Define the svg of the icon to display */
   @Input() set svg(svg: string) {
-    this.setIconSVG(svg);
+    this.elementRef.nativeElement.innerHTML = svg;
   }
 
   /** Define the size of the icon */
@@ -104,16 +104,6 @@ export class NgIcon {
     console.warn(
       `No icon named ${name} was found. You may need to import it using the withIcons function.`,
     );
-  }
-
-  /**
-   * Insert the given SVG into the template.
-   * @param svg The SVG to display.
-   */
-  private async setIconSVG(svg: string): Promise<void> {
-    // insert the SVG into the template
-    this.elementRef.nativeElement.innerHTML = svg;
-    return;
   }
 
   /**

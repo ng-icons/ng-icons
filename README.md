@@ -141,34 +141,34 @@ import { heroUsers } from '@ng-icons/heroicons/outline';
 export class AppComponent {}
 ```
 
-#### Passing icons to standalone child components
+#### Directly supplying an SVG
 
-When using standalone components, the icons need to be provided for each component.
-But if you want to pass an icon from a parent component to a child component, you can simply import the icon in the parent component and pass its svg to the child component.
-Use the `svg` attribute to set the icon.
+Should you need to supply an SVG directly set the `svg` input to the SVG string. This avoids the need to register the icon.
+Only icons from NG Icons iconsets will support the `color`, `size` and `strokeWidth` inputs.
 
 ```ts
 import { featherAirplay } from '@ng-icons/feather-icons';
 
+// parent.component.ts
 @Component({
   standalone: true,
-  template: '<app-child [icon]="icon">'
+  template: '<app-child [icon]="icon" />',
 })
 export class ParentComponent {
   icon = featherAirplay;
 }
-```
-```ts
+
+// child.component.ts
 import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   standalone: true,
   selector: 'app-child',
   imports: [NgIconComponent],
-  template: '<ng-icon [svg]="icon">'
+  template: '<ng-icon [svg]="icon" />',
 })
 export class ChildComponent {
-  @Input() icon = '';
+  @Input({ required: true }) icon!;
 }
 ```
 
