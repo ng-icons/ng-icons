@@ -219,7 +219,7 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideNgIconLoader(name => {
       const http = inject(HttpClient);
-      return http.get(`/assets/icons/${name}.svg`);
+      return http.get(`/assets/icons/${name}.svg`, { responseType: 'text' });
     }),
   ],
 });
