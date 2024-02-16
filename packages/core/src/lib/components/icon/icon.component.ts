@@ -2,11 +2,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  HostBinding,
   inject,
   Injector,
   Input,
+  OnChanges,
+  OnInit,
   runInInjectionContext,
+  SimpleChanges,
 } from '@angular/core';
 import type { IconName } from '../../components/icon/icon-name';
 import { injectNgIconConfig } from '../../providers/icon-config.provider';
@@ -30,7 +32,7 @@ export type IconType = IconName | (string & {});
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NgIcon {
+export class NgIcon implements OnInit, OnChanges {
   /** Access the global icon config */
   private readonly config = injectNgIconConfig();
 
@@ -60,19 +62,73 @@ export class NgIcon {
   }
 
   /** Define the size of the icon */
-  @HostBinding('style.--ng-icon__size')
   @Input({ transform: coerceCssPixelValue })
   size?: string | number = this.config.size;
 
   /** Define the stroke-width of the icon */
-  @HostBinding('style.--ng-icon__stroke-width')
   @Input()
   strokeWidth?: string | number;
 
   /** Define the color of the icon */
-  @HostBinding('style.color')
   @Input()
   color?: string = this.config.color;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.size) {
+      this.setIconSize();
+    }
+    if (changes.color) {
+      this.setIconColor();
+    }
+    if (changes.strokeWidth) {
+      this.setIconStrokeWidth();
+    }
+  }
+
+  ngOnInit(): void {
+    this.setIconStyles();
+  }
+
+  private setIconColor(): void {
+    this.elementRef.nativeElement.style.removeProperty('color');
+
+    if (this.color !== undefined) {
+      this.elementRef.nativeElement.style.setProperty('color', this.color);
+    }
+  }
+
+  private setIconSize(): void {
+    this.elementRef.nativeElement.style.removeProperty('--ng-icon__size');
+
+    if (this.size !== undefined) {
+      this.elementRef.nativeElement.style.setProperty(
+        '--ng-icon__size',
+        this.size.toString(),
+      );
+    }
+  }
+
+  private setIconStrokeWidth(): void {
+    this.elementRef.nativeElement.style.removeProperty(
+      '--ng-icon__stroke-width',
+    );
+    if (this.strokeWidth !== undefined) {
+      this.elementRef.nativeElement.style.setProperty(
+        '--ng-icon__stroke-width',
+        this.strokeWidth.toString(),
+      );
+    }
+  }
+
+  /**
+   * Set the styles for the icon. We use the style property to set the styles
+   * rather than the host binding as it works with CSP.
+   */
+  private setIconStyles(): void {
+    this.setIconColor();
+    this.setIconSize();
+    this.setIconStrokeWidth();
+  }
 
   /**
    * Load the icon with the given name and insert it into the template.

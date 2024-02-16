@@ -36,11 +36,11 @@ dependencies:
     specifier: https://gitpkg.now.sh/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c
     version: '@gitpkg.now.sh/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c'
   '@material-icons/svg':
-    specifier: ^1.0.33
+    specifier: 1.0.33
     version: 1.0.33
   '@primer/octicons':
-    specifier: 18.3.0
-    version: 18.3.0
+    specifier: 19.8.0
+    version: 19.8.0
   '@radix-ui/react-icons':
     specifier: https://gitpkg.now.sh/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50
     version: '@gitpkg.now.sh/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50(react@18.2.0)'
@@ -54,8 +54,8 @@ dependencies:
     specifier: 0.5.3
     version: 0.5.3
   '@tabler/icons':
-    specifier: 2.21.0
-    version: 2.21.0
+    specifier: 2.47.0
+    version: 2.47.0
   UXAspects:
     specifier: https://gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799
     version: '@gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799'
@@ -66,20 +66,20 @@ dependencies:
     specifier: ^1.0.5
     version: 1.0.7(@angular-devkit/architect@0.1601.8)(@angular-devkit/core@17.1.3)(@angular-devkit/schematics@17.1.3)
   bootstrap-icons:
-    specifier: 1.10.5
-    version: 1.10.5
+    specifier: 1.11.3
+    version: 1.11.3
   cryptocurrency-icons:
     specifier: 0.18.1
     version: 0.18.1
   css.gg:
-    specifier: ^2.0.0
+    specifier: 2.1.1
     version: 2.1.1
   dripicons:
     specifier: https://gitpkg.now.sh/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38
     version: '@gitpkg.now.sh/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38'
   feather-icons:
-    specifier: 4.29.0
-    version: 4.29.0
+    specifier: 4.29.1
+    version: 4.29.1
   font-awesome-brands:
     specifier: https://gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/brands?6.x
     version: '@gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/brands?6.x'
@@ -90,38 +90,38 @@ dependencies:
     specifier: https://gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/solid?6.x
     version: '@gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/solid?6.x'
   heroicons:
-    specifier: 2.0.18
-    version: 2.0.18
+    specifier: 2.1.1
+    version: 2.1.1
   iconoir:
-    specifier: 6.8.0
-    version: 6.8.0
+    specifier: 7.4.0
+    version: 7.4.0
   iconsax:
     specifier: https://gitpkg.now.sh/lusaxweb/iconsax/static/Iconsax/Svg/All?67c8869d0142557d4f70e0a76664d1a71c70f73a
     version: '@gitpkg.now.sh/lusaxweb/iconsax/static/Iconsax/Svg/All?67c8869d0142557d4f70e0a76664d1a71c70f73a'
   ionicons:
-    specifier: 7.1.2
-    version: 7.1.2
+    specifier: 7.2.2
+    version: 7.2.2
   jam-icons:
     specifier: 2.0.0
     version: 2.0.0
   lucide-static:
-    specifier: ^0.233.0
-    version: 0.233.0
+    specifier: 0.331.0
+    version: 0.331.0
   material-icon-theme:
-    specifier: 4.28.0
-    version: 4.28.0
+    specifier: 4.33.0
+    version: 4.33.0
   material-symbols:
-    specifier: ^0.14.2
-    version: 0.14.2
+    specifier: 0.14.7
+    version: 0.14.7
   remixicon:
-    specifier: ^3.5.0
-    version: 3.6.0
+    specifier: 4.1.0
+    version: 4.1.0
   rxjs:
     specifier: 7.8.0
     version: 7.8.0
   simple-icons:
-    specifier: 9.0.0
-    version: 9.0.0
+    specifier: 11.4.0
+    version: 11.4.0
   tslib:
     specifier: ^2.3.0
     version: 2.6.2
@@ -4728,8 +4728,8 @@ packages:
     dev: true
     optional: true
 
-  /@primer/octicons@18.3.0:
-    resolution: {integrity: sha512-vyUej5rKjXfqHAmYSo2k3pA9IsL5KJaYOBVXvc188FwBfUweA+WVP3qwWyZTSQnp9LK6yOajGyr0SCMIa9ombw==}
+  /@primer/octicons@19.8.0:
+    resolution: {integrity: sha512-Imze/fyW41Io5fN+27T5EAeXJrgBjMbz6nzU+wYbRylXvIAjLPUvaJPVoStiFlgSU+TjTUJqg5A9rgMDzTyMCg==}
     dependencies:
       object-assign: 4.1.1
     dev: false
@@ -4987,9 +4987,9 @@ packages:
       '@sinonjs/commons': 3.0.0
     dev: true
 
-  /@stencil/core@2.22.3:
-    resolution: {integrity: sha512-kmVA0M/HojwsfkeHsifvHVIYe4l5tin7J5+DLgtl8h6WWfiMClND5K3ifCXXI2ETDNKiEk21p6jql3Fx9o2rng==}
-    engines: {node: '>=12.10.0', npm: '>=6.0.0'}
+  /@stencil/core@4.12.2:
+    resolution: {integrity: sha512-WEMpoqwMV4hY/ab2z9NxRhSeZwuKEugjyn6Vd+qA9xqZh6VNUL27QbP8vCa7IeqD4Zql4JBtKu3lVuBHutWE6w==}
+    engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
     dev: false
 
@@ -5183,8 +5183,8 @@ packages:
       defer-to-connect: 2.0.1
     dev: true
 
-  /@tabler/icons@2.21.0:
-    resolution: {integrity: sha512-XKrTEHMX6XzCOwcOU8ZNA+Xqm51sI+0abn2jk1fyQUpWeFnGsOEiC+fpQ4EISc+v+U9jqgTSbh8bZ6JBuKU5sw==}
+  /@tabler/icons@2.47.0:
+    resolution: {integrity: sha512-4w5evLh+7FUUiA1GucvGj2ReX2TvOjEr4ejXdwL/bsjoSkof6r1gQmzqI+VHrE2CpJpB3al7bCTulOkFa/RcyA==}
     dev: false
 
   /@tailwindcss/typography@0.5.2(tailwindcss@3.0.24):
@@ -6636,8 +6636,8 @@ packages:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
 
-  /bootstrap-icons@1.10.5:
-    resolution: {integrity: sha512-oSX26F37V7QV7NCE53PPEL45d7EGXmBgHG3pDpZvcRaKVzWMqIRL9wcqJUyEha1esFtM3NJzvmxFXDxjJYD0jQ==}
+  /bootstrap-icons@1.11.3:
+    resolution: {integrity: sha512-+3lpHrCw/it2/7lBL15VR0HEumaBss0+f/Lb6ZvHISn1mlK83jjFpooTLsMWbIjJMDjDjOExMsTxnXSIT4k4ww==}
     dev: false
 
   /brace-expansion@1.1.11:
@@ -8276,8 +8276,8 @@ packages:
       bser: 2.1.1
     dev: true
 
-  /feather-icons@4.29.0:
-    resolution: {integrity: sha512-Y7VqN9FYb8KdaSF0qD1081HCkm0v4Eq/fpfQYQnubpqi0hXx14k+gF9iqtRys1SIcTEi97xDi/fmsPFZ8xo0GQ==}
+  /feather-icons@4.29.1:
+    resolution: {integrity: sha512-P1we61haGTds6lKWe6CCVPsNULb8tHr1y6S9gXEpU+lNR1Ja7GdV0A1l2hTNmzXv+0Stix/3YMWMAn7n1Qtd6A==}
     dependencies:
       classnames: 2.3.2
       core-js: 3.33.3
@@ -8814,8 +8814,8 @@ packages:
     hasBin: true
     dev: true
 
-  /heroicons@2.0.18:
-    resolution: {integrity: sha512-3iaqznaz5GJ8Mox/eDfKHo7tYKuPiZV4vbg6pB6wjJhBa7ZKQlXT1KuUnsjkEiPy/ezyiqppOX6wUqYguMIq8w==}
+  /heroicons@2.1.1:
+    resolution: {integrity: sha512-54kHbrxsTyAJJU7z07XN1OrVBX8ogN/tbclP8Doxk0X4IQmR6LEhLzJBkFK9Yc814NoXG6ZJBh9Bi/qvauzjfA==}
     dev: false
 
   /highlight.js@11.9.0:
@@ -9028,8 +9028,8 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: true
 
-  /iconoir@6.8.0:
-    resolution: {integrity: sha512-7Bum/AMEIUDceRBZiJO/je3YRRXck/VeBiQb2nXsEIPdwxF3B+kMI2ToWZ2dI/UtZkHelvr75kRfpGPi7rTKbg==}
+  /iconoir@7.4.0:
+    resolution: {integrity: sha512-sUZdW6aTubqbFXY9COix8L2lF18AEPcKQfNcbj5pTgOpkfHfGKrZSm6r4ZTlDI4yEhmvdg/o1yGTEmpkzOy9Uw==}
     dev: false
 
   /iconv-lite@0.4.24:
@@ -9161,10 +9161,10 @@ packages:
       wrap-ansi: 6.2.0
     dev: true
 
-  /ionicons@7.1.2:
-    resolution: {integrity: sha512-zZ4njAqSP39H8RRvZhJvkHsv7cBjYE/VfInH218Osf2UVxJITSOutTTd25MW+tAXKN5fheYzclUXUsF55JHUDg==}
+  /ionicons@7.2.2:
+    resolution: {integrity: sha512-I3iYIfc9Q9FRifWyFSwTAvbEABWlWY32i0sAVDDPGYnaIZVugkLCZFbEcrphW6ixVPg8tt1oLwalo/JJwbEqnA==}
     dependencies:
-      '@stencil/core': 2.22.3
+      '@stencil/core': 4.12.2
     dev: false
 
   /ip@2.0.0:
@@ -10292,8 +10292,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /lucide-static@0.233.0:
-    resolution: {integrity: sha512-ilS1U9Yu7C6kJK3zJvvTKKK3IDrA2WD0F7O0a92tuurGeQd2hii7flRt2a8EslpnGeR2d4hHwu0jzyx7st1JKw==}
+  /lucide-static@0.331.0:
+    resolution: {integrity: sha512-pZs6H274XGNJpBPEW+BnqPwWFPKd2BhBQevg6r+zreOsnAwuJf2BKYeWPTti4CWZjfOupTrK7PN+fXJs945+3Q==}
     dev: false
 
   /magic-string@0.30.5:
@@ -10367,15 +10367,15 @@ packages:
     hasBin: true
     dev: true
 
-  /material-icon-theme@4.28.0:
-    resolution: {integrity: sha512-C5NdClvsa1vgANVEY9PPywNzOLpwsTxxqDanvMWvxto5OByQX0KRBn7w8ox0joNm9n9BTLwOB/jvF53TU55+hQ==}
+  /material-icon-theme@4.33.0:
+    resolution: {integrity: sha512-f0PuF5TUgd3RAz5Nr3SlGX6aBj4sXhxdGQQOiob2A6CV+scP68yO2VVZkp0+7x8rjMqbxccNvi28vh5giNzJNw==}
     engines: {vscode: ^1.51.0}
     dependencies:
       lodash.merge: 4.6.2
     dev: false
 
-  /material-symbols@0.14.2:
-    resolution: {integrity: sha512-liWnRpINHzpP/V7jgBLKXhE9lFany8Y9rzBAHr1CSA1NAjTCAct3FGG3d+GXxOfoWUzK/8qPpiQrtXhPXbzIfA==}
+  /material-symbols@0.14.7:
+    resolution: {integrity: sha512-65aJAnHtKx98tm41vz9gS6fQfUo+8pCg2sETOC/linpHKEv6gw7U+iHN5Bha6tfM8hDSGfjCwaKOWb+Rs/XyDg==}
     dev: false
 
   /mdn-data@2.0.14:
@@ -12463,8 +12463,8 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
-  /remixicon@3.6.0:
-    resolution: {integrity: sha512-+IEL/cPimpAhvg7o24Pwyd3v+R0/j0p0WK4MHJUfv/HrsHJ0LElnbMFY8l+Uu/xDBzFIvGB64towtEnAkK9obg==}
+  /remixicon@4.1.0:
+    resolution: {integrity: sha512-N5dmpN6bjB7GyHi8RqhKp8Fy1cfOch0m75KZQv4ZNFa2ffpXJY2FQ4TdgigZulTdwOoTwLKjBQ7GCC+bEw8LHg==}
     dev: false
 
   /require-directory@2.1.1:
@@ -12911,8 +12911,8 @@ packages:
       - supports-color
     dev: true
 
-  /simple-icons@9.0.0:
-    resolution: {integrity: sha512-UH/p2KveJCntShjJedJ7qXkGDxdIpSEayyCNUGJ9KUMYfFEDn3OGp12dIYLKZ3mpyeUOTn2dhWrTGxm/sDKnFw==}
+  /simple-icons@11.4.0:
+    resolution: {integrity: sha512-f6Y/+qZk8/+qn8NMdOV80MIFYoW0ulaTmtUunZZXB6Ix/01NKoB7yopMzxeZUWtygCr+l75KKSRQo24Db2h0Ug==}
     engines: {node: '>=0.12.18'}
     dev: false
 
