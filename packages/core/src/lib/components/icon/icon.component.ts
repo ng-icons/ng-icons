@@ -141,8 +141,7 @@ export class NgIcon implements OnInit, OnChanges {
   }
 
   private setSvg(svg: string): void {
-    this.preProcessor(svg);
-    this.elementRef.nativeElement.innerHTML = svg;
+    this.elementRef.nativeElement.innerHTML = this.preProcessor(svg);
     this.postProcessor(this.elementRef.nativeElement);
   }
 
