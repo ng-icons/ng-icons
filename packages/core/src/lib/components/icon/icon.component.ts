@@ -20,6 +20,10 @@ import { injectNgIcons } from '../../providers/icon.provider';
 import { coerceLoaderResult } from '../../utils/async';
 import { coerceCssPixelValue } from '../../utils/coercion';
 import { toPropertyName } from '../../utils/format';
+import {
+  injectNgIconPostProcessor,
+  injectNgIconPreProcessor,
+} from '../../providers/features/features';
 
 // This is a typescript type to prevent inference from collapsing the union type to a string to improve type safety
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -45,6 +49,12 @@ export class NgIcon implements OnInit, OnChanges {
   /** Access the icon cache if defined */
   private readonly cache = injectNgIconLoaderCache();
 
+  /** Access the pre-processor */
+  private readonly preProcessor = injectNgIconPreProcessor();
+
+  /** Access the post-processor */
+  private readonly postProcessor = injectNgIconPostProcessor();
+
   /** Access the injector */
   private readonly injector = inject(Injector);
 
@@ -58,7 +68,7 @@ export class NgIcon implements OnInit, OnChanges {
 
   /** Define the svg of the icon to display */
   @Input() set svg(svg: string) {
-    this.elementRef.nativeElement.innerHTML = svg;
+    this.setSvg(svg);
   }
 
   /** Define the size of the icon */
@@ -130,6 +140,11 @@ export class NgIcon implements OnInit, OnChanges {
     this.setIconStrokeWidth();
   }
 
+  private setSvg(svg: string): void {
+    this.elementRef.nativeElement.innerHTML = this.preProcessor(svg);
+    this.postProcessor(this.elementRef.nativeElement);
+  }
+
   /**
    * Load the icon with the given name and insert it into the template.
    * @param name The name of the icon to load.
@@ -140,7 +155,7 @@ export class NgIcon implements OnInit, OnChanges {
     for (const icons of [...this.icons].reverse()) {
       if (icons[propertyName]) {
         // insert the SVG into the template
-        this.elementRef.nativeElement.innerHTML = icons[propertyName];
+        this.setSvg(icons[propertyName]);
         return;
       }
     }
@@ -151,7 +166,7 @@ export class NgIcon implements OnInit, OnChanges {
 
       // if the result is a string, insert the SVG into the template
       if (result !== null) {
-        this.elementRef.nativeElement.innerHTML = result;
+        this.setSvg(result);
         return;
       }
     }
