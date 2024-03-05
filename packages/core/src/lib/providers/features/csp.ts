@@ -1,10 +1,28 @@
+import { InjectionToken, inject } from '@angular/core';
 import {
   ContentSecurityPolicyFeature,
   NgIconFeatureKind,
-  NgIconPostProcessorToken,
-  NgIconPreProcessorToken,
   createFeature,
 } from './features';
+
+export type NgIconPreProcessor = (icon: string) => string;
+export type NgIconPostProcessor = (element: HTMLElement) => void;
+
+export const NgIconPreProcessorToken = new InjectionToken<NgIconPreProcessor>(
+  'Ng Icon Pre Processor',
+);
+
+export const NgIconPostProcessorToken = new InjectionToken<NgIconPostProcessor>(
+  'Ng Icon Post Processor',
+);
+
+export function injectNgIconPreProcessor(): NgIconPreProcessor {
+  return inject(NgIconPreProcessorToken, { optional: true }) ?? (icon => icon);
+}
+
+export function injectNgIconPostProcessor(): NgIconPostProcessor {
+  return inject(NgIconPostProcessorToken, { optional: true }) ?? (() => {});
+}
 
 function preprocessIcon(icon: string): string {
   // rename all style attributes to data-style to avoid being blocked by the CSP
