@@ -1,5 +1,11 @@
 <img width="600" alt="logo" src="https://github.com/ng-icons/ng-icons/assets/20795331/8781b0a9-2c8a-4a7f-9afd-13e47d14cffe">
 
+<div style="margin-top: 1rem;">
+  <img alt="NPM Downloads" src="https://img.shields.io/npm/dt/%40ng-icons%2Fcore">
+  <img alt="NPM Version" src="https://img.shields.io/npm/v/%40ng-icons%2Fcore">
+  <img alt="GitHub Sponsors" src="https://img.shields.io/github/sponsors/ashley-hunter">
+</div>
+
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
@@ -31,6 +37,12 @@ Currently, we support the following libraries:
 - [Iconsax](https://iconsax.io/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
+
+## Supporting Ng Icons
+
+Ng Icons is an MIT-licensed open source project with its ongoing development made possible by contributors and sponsors.
+
+[Become a Sponsor!](https://github.com/sponsors/ashley-hunter).
 
 ## Supported Versions
 
@@ -217,6 +229,21 @@ import { NgIconComponent, provideIcons, provideNgIconsConfig, withContentSecurit
 
 bootstrapApplication(AppComponent, {
   providers: [provideNgIconsConfig({}, withContentSecurityPolicy())],
+});
+```
+
+### Logging
+
+By default Ng Icons will log warnings or errors to the console - notably if you try to use an icon that has not been registered.
+Should you want stricter checks you can enable the `ExceptionLogger` which will throw an error if you try to use an icon that has not been registered.
+
+You can enable this by providing the `withExceptionLogger` function to the `provideNgIconsConfig` function.
+
+```ts
+import { NgIconComponent, provideIcons, provideNgIconsConfig, withExceptionLogger } from '@ng-icons/core';
+
+bootstrapApplication(AppComponent, {
+  providers: [provideNgIconsConfig({}, withExceptionLogger())],
 });
 ```
 
