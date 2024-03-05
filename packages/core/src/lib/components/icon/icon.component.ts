@@ -11,6 +11,10 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import type { IconName } from '../../components/icon/icon-name';
+import {
+  injectNgIconPostProcessor,
+  injectNgIconPreProcessor,
+} from '../../providers/features/csp';
 import { injectNgIconConfig } from '../../providers/icon-config.provider';
 import {
   injectNgIconLoader,
@@ -20,10 +24,7 @@ import { injectNgIcons } from '../../providers/icon.provider';
 import { coerceLoaderResult } from '../../utils/async';
 import { coerceCssPixelValue } from '../../utils/coercion';
 import { toPropertyName } from '../../utils/format';
-import {
-  injectNgIconPostProcessor,
-  injectNgIconPreProcessor,
-} from '../../providers/features/features';
+import { injectLogger } from '../../providers/features/logger';
 
 // This is a typescript type to prevent inference from collapsing the union type to a string to improve type safety
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -60,6 +61,9 @@ export class NgIcon implements OnInit, OnChanges {
 
   /** Access the element ref */
   private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+
+  /** Access the logger */
+  private readonly logger = injectLogger();
 
   /** Define the name of the icon to display */
   @Input() set name(name: IconType) {
@@ -172,7 +176,7 @@ export class NgIcon implements OnInit, OnChanges {
     }
 
     // if there is no icon with this name warn the user as they probably forgot to import it
-    console.warn(
+    this.logger.warn(
       `No icon named ${name} was found. You may need to import it using the withIcons function.`,
     );
   }

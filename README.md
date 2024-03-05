@@ -232,6 +232,21 @@ bootstrapApplication(AppComponent, {
 });
 ```
 
+### Logging
+
+By default Ng Icons will log warnings or errors to the console - notably if you try to use an icon that has not been registered.
+Should you want stricter checks you can enable the `ExceptionLogger` which will throw an error if you try to use an icon that has not been registered.
+
+You can enable this by providing the `withExceptionLogger` function to the `provideNgIconsConfig` function.
+
+```ts
+import { NgIconComponent, provideIcons, provideNgIconsConfig, withExceptionLogger } from '@ng-icons/core';
+
+bootstrapApplication(AppComponent, {
+  providers: [provideNgIconsConfig({}, withExceptionLogger())],
+});
+```
+
 ### Dynamically Loading Icons
 
 The most common way to load icons is simply by registering them individually, however you may want to load icons lazily from a URL, or generate an SVG programatically on the fly. This can be achived using an icon loader. Icon loaders are a function that receives the name of the requested icon, and can return an `Observable<string>`, `Promise<string>` or a `string` containing the SVG to render. Within this function you can do whatever you need to retrieve an icon.
