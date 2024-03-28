@@ -1,18 +1,45 @@
-<div class="navbar-container">
-  <img class="navbar-logo" routerLink="/" src="assets/logo.svg" alt="Logo" />
+<div
+  class="fixed top-0 z-10 w-full animate-[navbar] duration-1000 transition-all before:absolute before:bottom-0 before:w-full before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:backdrop-blur-sm before:rounded-2xl"
+  [ngClass]="{
+    'backdrop-blur-sm bg-black/5': showBlurredNavbar
+  }"
+>
+  <div class="flex justify-between items-center px-4 h-16 mx-auto container">
+    <img
+      class="cursor-pointer hidden md:block"
+      routerLink="/"
+      src="assets/logo.svg"
+      alt="Logo"
+    />
 
-  <div class="navbar-links">
-    <a href="#" class="navbar-link" routerLink="/getting-started"
-      >Getting Started</a
-    >
-    <a href="#" class="navbar-link" routerLink="/browse-icons">Browse Icons</a>
+    <img
+      class="cursor-pointer md:hidden"
+      routerLink="/"
+      src="assets/logo-small.svg"
+      alt="Logo"
+    />
 
-    <a
-      href="https://github.com/ng-icons/ng-icons"
-      target="_blank"
-      class="navbar-link"
-    >
-      <ng-icon name="bootstrapGithub"></ng-icon>
-    </a>
+    <div class="flex">
+      <a
+        href="#"
+        class="inline-flex items-center p-2 text-sm text-white/80 text-center transition-colors duration-150 hover:text-white outline-none focus-visible:ring-2 rounded-md focus-visible:ring-white/50"
+        routerLink="/getting-started"
+        >Getting Started</a
+      >
+      <a
+        href="#"
+        class="inline-flex items-center p-2 text-sm text-white/80 text-center transition-colors duration-150 hover:text-white outline-none focus-visible:ring-2 rounded-md focus-visible:ring-white/50"
+        routerLink="/browse-icons"
+        >Browse Icons</a
+      >
+
+      <a
+        href="https://github.com/ng-icons/ng-icons"
+        target="_blank"
+        class="inline-flex items-center p-2 text-3xl ml-2 text-white/80 text-center transition-colors duration-150 hover:text-white outline-none focus-visible:ring-2 rounded-md focus-visible:ring-white/50"
+      >
+        <ng-icon name="bootstrapGithub"></ng-icon>
+      </a>
+    </div>
   </div>
 </div>
