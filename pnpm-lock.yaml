@@ -122,6 +122,9 @@ dependencies:
   simple-icons:
     specifier: 11.4.0
     version: 11.4.0
+  tdesign-icons-svg:
+    specifier: ^0.2.0
+    version: 0.2.0
   tslib:
     specifier: ^2.3.0
     version: 2.6.2
@@ -13387,6 +13390,10 @@ packages:
       mkdirp: 1.0.4
       yallist: 4.0.0
     dev: true
+
+  /tdesign-icons-svg@0.2.0:
+    resolution: {integrity: sha512-58Yh4LaoOFVWPuG9krsS8/q6RyN7d6jEApeJzXlpz1dtzE/P4uHGoABmCiyNbrvywyJXDkTxltWMADoX0+oQUg==}
+    dev: false
 
   /terser-webpack-plugin@5.3.9(@swc/core@1.3.93)(esbuild@0.19.11)(webpack@5.89.0):
     resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}

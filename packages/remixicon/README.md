@@ -9,7 +9,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 37,700 icons for you to use in your projects.
+Containing over 38,900 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -35,6 +35,7 @@ Currently, we support the following libraries:
 - [Remix Icon](https://remixicon.com/)
 - [Font Awesome](https://fontawesome.com/)
 - [Iconsax](https://iconsax.io/)
+- [TDesign Icons](https://github.com/Tencent/tdesign-icons)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -103,6 +104,7 @@ The following packages are available:
 | `@ng-icons/remixicon`            | Apache 2.0                            |
 | `@ng-icons/font-awesome`         | CC BY 4.0                             |
 | `@ng-icons/iconsax`              | [Custom](https://iconsax.io/#license) |
+| `@ng-icons/tdesign-icons`        | MIT                                   |
 
 ## Usage
 
