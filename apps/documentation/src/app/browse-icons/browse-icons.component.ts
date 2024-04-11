@@ -22,6 +22,7 @@ import { radixModulzLogo } from '@ng-icons/radix-icons';
 import { remixRemixiconLine } from '@ng-icons/remixicon';
 import { simpleSimpleicons } from '@ng-icons/simple-icons';
 import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
+import { tdesignCombination } from '@ng-icons/tdesign-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
 import { aspectsDashboard } from '@ng-icons/ux-aspects';
 import { ForModule } from '@rx-angular/template/for';
@@ -75,6 +76,7 @@ const circumIcon = `
       remixRemixiconLine,
       faFontAwesome,
       saxColorsSquareOutline,
+      tdesignCombination,
     }),
   ],
 })
@@ -344,6 +346,16 @@ export class BrowseIconsComponent implements OnInit {
         ]);
 
         return { bold, bulk, outline };
+      },
+    },
+    {
+      name: 'TDesign Icons',
+      website: 'tdesign.tencent.com',
+      icon: 'tdesignCombination',
+      license: 'MIT',
+      package: '@ng-icons/tdesign-icons',
+      icons: async () => {
+        return { default: await import('@ng-icons/tdesign-icons') };
       },
     },
   ];

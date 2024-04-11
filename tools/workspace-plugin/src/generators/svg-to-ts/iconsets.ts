@@ -261,6 +261,11 @@ export const iconsets: Iconset[] = [
       removeColor: true,
     },
   },
+  {
+    glob: 'node_modules/tdesign-icons-svg/src/**/*.svg',
+    output: 'packages/tdesign-icons/src/index.ts',
+    getIconName: (name: string) => `tdesign${name}`,
+  },
 ];
 
 export interface Iconset {
