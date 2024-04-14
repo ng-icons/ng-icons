@@ -80,6 +80,17 @@ export async function optimizeIcon(
 
                 delete node.attributes['stroke-width'];
               }
+
+              // remove any classes
+              if (node.attributes['class']) {
+                delete node.attributes['class'];
+              }
+
+              // tdesign icons have a view-box attribute, which should be viewBox, we should rename it
+              if (node.attributes['view-box']) {
+                node.attributes['viewBox'] = node.attributes['view-box'];
+                delete node.attributes['view-box'];
+              }
             },
           },
         };
