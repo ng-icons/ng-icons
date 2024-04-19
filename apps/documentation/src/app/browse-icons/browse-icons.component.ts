@@ -1,11 +1,18 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Clipboard } from '@angular/cdk/clipboard';
-import { AsyncPipe, KeyValuePipe, NgFor, NgIf } from '@angular/common';
-import { Component, Injector, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  Injector,
+  OnInit,
+  computed,
+  inject,
+  model,
+  signal,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { akarRadish } from '@ng-icons/akar-icons';
 import { bootstrapBootstrapFill } from '@ng-icons/bootstrap-icons';
-import { NgIconComponent, NgIconsToken, provideIcons } from '@ng-icons/core';
+import { NgIcon, NgIconsToken, provideIcons } from '@ng-icons/core';
 import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { cssShapeHexagon } from '@ng-icons/css.gg';
 import { dripFlag } from '@ng-icons/dripicons';
@@ -26,7 +33,6 @@ import { tdesignCombination } from '@ng-icons/tdesign-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
 import { aspectsDashboard } from '@ng-icons/ux-aspects';
 import { ForModule } from '@rx-angular/template/for';
-import { BehaviorSubject, combineLatest, map } from 'rxjs';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { FadeInContainerDirective } from '../directives/fade-in/fade-in-container.directive';
 import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
@@ -40,14 +46,10 @@ const circumIcon = `
   styleUrls: ['./browse-icons.component.scss'],
   standalone: true,
   imports: [
-    NgIf,
-    NgFor,
-    KeyValuePipe,
-    NgIconComponent,
+    NgIcon,
     FadeInContainerDirective,
     FadeInDirective,
     FormsModule,
-    AsyncPipe,
     SegmentComponent,
     ForModule,
   ],
@@ -81,13 +83,13 @@ const circumIcon = `
   ],
 })
 export class BrowseIconsComponent implements OnInit {
-  year = new Date().getFullYear();
-
   private readonly injector = inject(Injector);
 
   private readonly clipboard = inject(Clipboard);
 
-  iconsets: Iconset[] = [
+  readonly year = new Date().getFullYear();
+
+  readonly iconsets: Iconset[] = [
     {
       name: 'Bootstrap Icons',
       website: 'icons.getbootstrap.com',
@@ -361,53 +363,44 @@ export class BrowseIconsComponent implements OnInit {
   ];
 
   // store the current active iconset
-  activeIconset: Iconset | null = null;
+  readonly activeIconset = signal<Iconset | null>(null);
 
-  showToast?: boolean;
+  readonly showToast = signal<boolean>(false);
 
   /** Store the debounced query */
-  search$ = new BehaviorSubject<string>('');
+  readonly search = model<string>('');
 
   /** Store the icons */
-  icons$ = new BehaviorSubject<IconLists>({});
+  readonly icons = signal<IconLists>({});
 
   /** Store the active category */
-  category$ = new BehaviorSubject<string>('');
+  readonly category = signal<string>('');
 
   /** Get the available categories */
-  categories$ = this.icons$.pipe(map(icons => Object.keys(icons)));
+  readonly categories = computed(() => Object.keys(this.icons()));
 
   /** Determine the active category index */
-  activeCategoryIndex$ = this.categories$.pipe(
-    map(categories => {
-      return categories.findIndex(
-        category => category === this.category$.value,
-      );
-    }),
-  );
+  readonly activeCategoryIndex = computed(() => {
+    const index = this.categories().findIndex(
+      category => category === this.category(),
+    );
+
+    return index === -1 ? 0 : index;
+  });
 
   /** Filter the icons whenever the search query or the icons changes */
-  filteredIcons$ = combineLatest([
-    this.search$,
-    this.icons$,
-    this.category$,
-  ]).pipe(
-    map(([search, icons, category]) => {
-      if (!search) {
-        return Object.keys(icons[category] ?? {});
-      }
+  readonly filteredIcons = computed(() => {
+    const search = this.search().toLowerCase();
+    const icons = this.icons()[this.category()];
 
-      const query = search.toLowerCase();
+    if (!search) {
+      return Object.keys(icons ?? {});
+    }
 
-      if (!icons[category]) {
-        return [];
-      }
-
-      return Object.keys(icons[category]).filter(icon =>
-        icon.toLowerCase().includes(query),
-      );
-    }),
-  );
+    return Object.keys(icons ?? {}).filter(icon =>
+      icon.toLowerCase().includes(search),
+    );
+  });
 
   private toastTimeout?: number;
 
@@ -419,11 +412,14 @@ export class BrowseIconsComponent implements OnInit {
     this.clipboard.copy(icon);
 
     // show the toast
-    this.showToast = true;
+    this.showToast.set(true);
 
     clearTimeout(this.toastTimeout);
 
-    this.toastTimeout = window.setTimeout(() => (this.showToast = false), 2000);
+    this.toastTimeout = window.setTimeout(
+      () => this.showToast.set(false),
+      2000,
+    );
   }
 
   trackByFn(_: number, item: string): string {
@@ -442,14 +438,14 @@ export class BrowseIconsComponent implements OnInit {
     }
 
     // update the icons to show
-    this.activeIconset = iconset;
-    this.category$.next(Object.keys(icons)[0]);
-    this.icons$.next(icons);
+    this.activeIconset.set(iconset);
+    this.category.set(Object.keys(icons)[0]);
+    this.icons.set(icons);
   }
 
   setCategoryIndex(index: number): void {
-    const category = Object.keys(this.icons$.value)[index];
-    this.category$.next(category);
+    const category = Object.keys(this.icons())[index];
+    this.category.set(category);
   }
 }
 
