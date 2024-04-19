@@ -33,7 +33,7 @@ import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { tdesignCombination } from '@ng-icons/tdesign-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
 import { aspectsDashboard } from '@ng-icons/ux-aspects';
-import { ForModule } from '@rx-angular/template/for';
+import { RxFor } from '@rx-angular/template/for';
 import Fuse from 'fuse.js';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { FadeInContainerDirective } from '../directives/fade-in/fade-in-container.directive';
@@ -54,7 +54,7 @@ const circumIcon = `
     FadeInDirective,
     FormsModule,
     SegmentComponent,
-    ForModule,
+    RxFor,
   ],
   providers: [
     provideIcons({
