@@ -11,21 +11,22 @@
     appFadeIn
     class="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 mb-16"
   >
-    <div
-      *ngFor="let iconset of iconsets"
-      class="iconset-card"
-      [class.active]="iconset === activeIconset"
-      (click)="loadIconset(iconset)"
-    >
-      <ng-icon [name]="iconset.icon"></ng-icon>
-      <span class="text-xs font-medium text-center">{{ iconset.name }}</span>
-    </div>
+    @for (iconset of iconsets; track iconset.name) {
+      <div
+        class="iconset-card"
+        [class.active]="iconset === activeIconset()"
+        (click)="loadIconset(iconset)"
+      >
+        <ng-icon [name]="iconset.icon"></ng-icon>
+        <span class="text-xs font-medium text-center">{{ iconset.name }}</span>
+      </div>
+    }
   </div>
 
   <hr appFadeIn />
 
   <h1 appFadeIn class="heading font-extrabold text-5xl text-center mb-8">
-    {{ activeIconset?.name }}
+    {{ activeIconset()?.name }}
   </h1>
 
   <div
@@ -34,58 +35,53 @@
   >
     <div>
       <span class="opacity-50 mr-2">Package:</span>
-      <span class="opacity-80">{{ activeIconset?.package }}</span>
+      <span class="opacity-80">{{ activeIconset()?.package }}</span>
     </div>
     <div>
       <span class="opacity-50 mr-2">Website:</span>
       <a
-        [href]="'https://' + activeIconset?.website"
+        [href]="'https://' + activeIconset()?.website"
         target="_blank"
         class="opacity-80"
-        >{{ activeIconset?.website }}</a
+        >{{ activeIconset()?.website }}</a
       >
     </div>
     <div>
       <span class="opacity-50 mr-2">License:</span>
-      <span class="opacity-80">{{ activeIconset?.license }}</span>
+      <span class="opacity-80">{{ activeIconset()?.license }}</span>
     </div>
   </div>
 
   <div appFadeIn class="search">
-    <ng-icon class="search-icon" name="heroMagnifyingGlass"></ng-icon>
+    <ng-icon class="search-icon" name="heroMagnifyingGlass" />
     <input
       type="text"
       class="search-input"
       placeholder="Search icons..."
-      [ngModel]="search$ | async"
-      (ngModelChange)="search$.next($event)"
+      [(ngModel)]="search"
     />
   </div>
 
-  <ng-container *ngIf="categories$ | async as categories">
-    <div
-      *ngIf="categories.length > 1"
-      appFadeIn
-      class="flex justify-center mb-16"
-    >
+  @if (categories().length > 1) {
+    <div appFadeIn class="flex justify-center mb-16">
       <app-segment
-        [options]="categories"
-        [selectedIndex]="(activeCategoryIndex$ | async) ?? 0"
+        [options]="categories()"
+        [selectedIndex]="activeCategoryIndex()"
         (selectedIndexChange)="setCategoryIndex($event)"
-      ></app-segment>
+      />
     </div>
-  </ng-container>
+  }
 
   <div
     appFadeIn
     class="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 mb-16"
   >
     <div
-      *rxFor="let icon of filteredIcons$; trackBy: trackByFn"
+      *rxFor="let icon of filteredIcons(); trackBy: trackByFn"
       class="icon-card"
       (click)="copyToClipboard(icon)"
     >
-      <ng-icon class="text-2xl" [name]="icon"></ng-icon>
+      <ng-icon class="text-2xl" [name]="icon" />
       <span class="text-xs font-medium px-2 max-w-full text-center break-all">{{
         icon
       }}</span>
@@ -99,8 +95,8 @@
 
 <div
   class="copied-toast"
-  [class.enter]="showToast === true"
-  [class.leave]="showToast === false"
+  [class.enter]="showToast() === true"
+  [class.leave]="showToast() === false"
 >
   Copied to clipboard
 </div>

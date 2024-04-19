@@ -5,9 +5,6 @@
     }
   },
   "extends": "nx/presets/npm.json",
-  "affected": {
-    "defaultBase": "origin/master"
-  },
   "workspaceLayout": {
     "appsDir": "apps",
     "libsDir": "packages"
@@ -61,5 +58,6 @@
       "inputs": ["default", "^default"]
     }
   },
-  "nxCloudAccessToken": "NTI2Y2FjYmMtNTA0Ni00NGM5LWI4NjctZjBmNTI5ZmM5ZGYyfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "NTI2Y2FjYmMtNTA0Ni00NGM5LWI4NjctZjBmNTI5ZmM5ZGYyfHJlYWQtd3JpdGU=",
+  "defaultBase": "origin/master"
 }
