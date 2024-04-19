@@ -1,6 +1,7 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Clipboard } from '@angular/cdk/clipboard';
 import {
+  ChangeDetectionStrategy,
   Component,
   Injector,
   OnInit,
@@ -33,6 +34,7 @@ import { tdesignCombination } from '@ng-icons/tdesign-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
 import { aspectsDashboard } from '@ng-icons/ux-aspects';
 import { ForModule } from '@rx-angular/template/for';
+import Fuse from 'fuse.js';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { FadeInContainerDirective } from '../directives/fade-in/fade-in-container.directive';
 import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
@@ -45,6 +47,7 @@ const circumIcon = `
   templateUrl: './browse-icons.component.html',
   styleUrls: ['./browse-icons.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     NgIcon,
     FadeInContainerDirective,
@@ -379,6 +382,13 @@ export class BrowseIconsComponent implements OnInit {
   /** Get the available categories */
   readonly categories = computed(() => Object.keys(this.icons()));
 
+  /** Handle fuzzy search */
+  readonly fuze = computed(() => {
+    const icons = Object.keys(this.icons()[this.category()] ?? {});
+
+    return new Fuse(icons, { isCaseSensitive: false });
+  });
+
   /** Determine the active category index */
   readonly activeCategoryIndex = computed(() => {
     const index = this.categories().findIndex(
@@ -390,16 +400,13 @@ export class BrowseIconsComponent implements OnInit {
 
   /** Filter the icons whenever the search query or the icons changes */
   readonly filteredIcons = computed(() => {
-    const search = this.search().toLowerCase();
-    const icons = this.icons()[this.category()];
-
-    if (!search) {
-      return Object.keys(icons ?? {});
+    if (!this.search()) {
+      return Object.keys(this.icons()[this.category()] ?? {});
     }
 
-    return Object.keys(icons ?? {}).filter(icon =>
-      icon.toLowerCase().includes(search),
-    );
+    return this.fuze()
+      .search(this.search())
+      .map(result => result.item);
   });
 
   private toastTimeout?: number;
