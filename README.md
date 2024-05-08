@@ -36,6 +36,7 @@ Currently, we support the following libraries:
 - [Font Awesome](https://fontawesome.com/)
 - [Iconsax](https://iconsax.io/)
 - [TDesign Icons](https://github.com/Tencent/tdesign-icons)
+- [Phosphor Icons](https://phosphoricons.com/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
