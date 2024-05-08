@@ -29,10 +29,6 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
 
-      # Connect your workspace on nx.app and uncomment this to enable task distribution.
-      # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "build" targets have been requested
-      - run: pnpm exec nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="build"
-
       - uses: nrwl/nx-set-shas@v4
 
       - run: pnpm exec nx generate @ng-icons/workspace-plugin:svg-to-ts
