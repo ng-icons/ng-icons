@@ -8,21 +8,29 @@ on:
 
 jobs:
   main:
-    name: Nx Cloud - Main Job
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.11.3
-    with:
-      main-branch-name: main
-      number-of-agents: 3
-      init-commands: |
-        pnpx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
-        pnpx nx generate @ng-icons/workspace-plugin:svg-to-ts
-        pnpx nx generate @ng-icons/workspace-plugin:update-readmes
-      parallel-commands-on-agents: |
-        pnpx nx affected --target=lint --parallel=3
-        pnpx nx affected --target=test --parallel=3 --ci --code-coverage
-        pnpx nx affected --target=build --parallel=3
-  agents:
-    name: Nx Cloud - Agents
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.11.3
-    with:
-      number-of-agents: 3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Connect your workspace on nx.app and uncomment this to enable task distribution.
+      # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "build" targets have been requested
+      # - run: pnpm exec nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="build"
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      # Cache node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+
+      - uses: nrwl/nx-set-shas@v4
+
+      - run: pnpm exec nx generate @ng-icons/workspace-plugin:svg-to-ts
+      - run: pnpm exec nx-cloud record -- nx format:check
+      - run: pnpm exec nx affected -t lint test build

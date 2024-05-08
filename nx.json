@@ -58,6 +58,6 @@
       "inputs": ["default", "^default"]
     }
   },
-  "nxCloudAccessToken": "NTI2Y2FjYmMtNTA0Ni00NGM5LWI4NjctZjBmNTI5ZmM5ZGYyfHJlYWQtd3JpdGU=",
+  "nxCloudAccessToken": "MjNhM2Y1ZGYtYWQ5OC00MDc3LWFhN2MtNDMyOThjODdhY2E5fHJlYWQtd3JpdGU=",
   "defaultBase": "origin/main"
 }
