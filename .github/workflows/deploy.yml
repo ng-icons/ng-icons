@@ -5,28 +5,40 @@ on:
     branches:
       - master
 
+permissions:
+  actions: read
+  contents: write
+
 jobs:
   main:
-    name: Nx Cloud - Main Job
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.4
-    with:
-      main-branch-name: master
-      init-commands: |
-        pnpx nx generate @ng-icons/workspace-plugin:svg-to-ts
-        pnpx nx generate @ng-icons/workspace-plugin:update-readmes
-      parallel-commands-on-agents: |
-        pnpx nx affected --target=lint --parallel=3
-        pnpx nx affected --target=test --parallel=3 --ci --code-coverage
-        pnpx nx affected --target=build --parallel=3
-  agents:
-    name: Nx Cloud - Agents
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.4
-    with:
-      number-of-agents: 3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-  # deploy:
-  #   name: Deploy
-  #   uses: JamesIves/github-pages-deploy-action@4.1.4
-  #   with:
-  #     branch: gh-pages # The branch the action should deploy to.
-  #     folder: dist/apps/documentation # The folder the action should deploy.
+      # Connect your workspace on nx.app and uncomment this to enable task distribution.
+      # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "build" targets have been requested
+      # - run: pnpm exec nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="build"
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      # Cache node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - uses: nrwl/nx-set-shas@v4
+
+      - run: pnpm exec nx generate @ng-icons/workspace-plugin:svg-to-ts
+      - run: pnpx nx generate @ng-icons/workspace-plugin:update-readmes
+      - run: pnpm exec nx-cloud record -- nx format:check
+      - run: pnpm exec nx affected -t lint test build
+      - run: pnpm exec nx build examples
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/apps/documentation/browser # The folder the action should deploy.

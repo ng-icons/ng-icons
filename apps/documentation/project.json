@@ -4,15 +4,17 @@
   "projectType": "application",
   "sourceRoot": "apps/documentation/src",
   "prefix": "app",
+  "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser-esbuild",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath.base}"],
       "options": {
-        "outputPath": "dist/apps/documentation",
+        "outputPath": {
+          "base": "dist/apps/documentation"
+        },
         "index": "apps/documentation/src/index.html",
-        "main": "apps/documentation/src/main.ts",
-        "polyfills": "apps/documentation/src/polyfills.ts",
+        "polyfills": ["apps/documentation/src/polyfills.ts"],
         "tsConfig": "apps/documentation/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -20,7 +22,8 @@
           "apps/documentation/src/assets"
         ],
         "styles": ["apps/documentation/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "browser": "apps/documentation/src/main.ts"
       },
       "configurations": {
         "production": {
@@ -34,7 +37,6 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
           "extractLicenses": false,
           "sourceMap": true,
@@ -71,14 +73,6 @@
       "options": {
         "jestConfig": "apps/documentation/jest.config.ts"
       }
-    },
-    "deploy": {
-      "executor": "angular-cli-ghpages:deploy",
-      "options": {
-        "baseHref": "./",
-        "cname": ""
-      }
     }
-  },
-  "tags": []
+  }
 }

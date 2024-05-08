@@ -26,6 +26,7 @@ import { ionLogoIonic } from '@ng-icons/ionicons';
 import { jamGlassFilled } from '@ng-icons/jam-icons';
 import { matfDocumentUncolored } from '@ng-icons/material-file-icons/uncolored';
 import { octMarkGithub } from '@ng-icons/octicons';
+import { phosphorPhosphorLogo } from '@ng-icons/phosphor-icons/regular';
 import { radixModulzLogo } from '@ng-icons/radix-icons';
 import { remixRemixiconLine } from '@ng-icons/remixicon';
 import { simpleSimpleicons } from '@ng-icons/simple-icons';
@@ -82,6 +83,7 @@ const circumIcon = `
       faFontAwesome,
       saxColorsSquareOutline,
       tdesignCombination,
+      phosphorPhosphorLogo,
     }),
   ],
 })
@@ -361,6 +363,25 @@ export class BrowseIconsComponent implements OnInit {
       package: '@ng-icons/tdesign-icons',
       icons: async () => {
         return { default: await import('@ng-icons/tdesign-icons') };
+      },
+    },
+    {
+      name: 'Phosphor Icons',
+      website: 'phosphoricons.com/',
+      icon: 'phosphorPhosphorLogo',
+      license: 'MIT',
+      package: '@ng-icons/phosphor-icons/regular',
+      icons: async () => {
+        const [regular, bold, duotone, fill, light, thin] = await Promise.all([
+          import('@ng-icons/phosphor-icons/regular'),
+          import('@ng-icons/phosphor-icons/bold'),
+          import('@ng-icons/phosphor-icons/duotone'),
+          import('@ng-icons/phosphor-icons/fill'),
+          import('@ng-icons/phosphor-icons/light'),
+          import('@ng-icons/phosphor-icons/thin'),
+        ]);
+
+        return { regular, bold, duotone, fill, light, thin };
       },
     },
   ];

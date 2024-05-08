@@ -266,6 +266,36 @@ export const iconsets: Iconset[] = [
     output: 'packages/tdesign-icons/src/index.ts',
     getIconName: (name: string) => `tdesign${name}`,
   },
+  {
+    glob: 'node_modules/@phosphor-icons/core/assets/bold/*-bold.svg',
+    output: 'packages/phosphor-icons/bold/src/index.ts',
+    getIconName: (name: string) => `phosphor${names(name).className}`,
+  },
+  {
+    glob: 'node_modules/@phosphor-icons/core/assets/duotone/*-duotone.svg',
+    output: 'packages/phosphor-icons/duotone/src/index.ts',
+    getIconName: (name: string) => `phosphor${names(name).className}`,
+  },
+  {
+    glob: 'node_modules/@phosphor-icons/core/assets/fill/*-fill.svg',
+    output: 'packages/phosphor-icons/fill/src/index.ts',
+    getIconName: (name: string) => `phosphor${names(name).className}`,
+  },
+  {
+    glob: 'node_modules/@phosphor-icons/core/assets/light/*-light.svg',
+    output: 'packages/phosphor-icons/light/src/index.ts',
+    getIconName: (name: string) => `phosphor${names(name).className}`,
+  },
+  {
+    glob: 'node_modules/@phosphor-icons/core/assets/regular/*.svg',
+    output: 'packages/phosphor-icons/regular/src/index.ts',
+    getIconName: (name: string) => `phosphor${names(name).className}`,
+  },
+  {
+    glob: 'node_modules/@phosphor-icons/core/assets/thin/*-thin.svg',
+    output: 'packages/phosphor-icons/thin/src/index.ts',
+    getIconName: (name: string) => `phosphor${names(name).className}`,
+  },
 ];
 
 export interface Iconset {
