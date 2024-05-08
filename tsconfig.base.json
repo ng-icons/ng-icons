@@ -74,6 +74,25 @@
       "@ng-icons/material-symbols": ["packages/material-symbols/src/index.ts"],
       "@ng-icons/octicons": ["packages/octicons/src/index.ts"],
       "@ng-icons/octicons/large": ["packages/octicons/large/src/index.ts"],
+      "@ng-icons/phosphor-icons": ["packages/phosphor-icons/src/index.ts"],
+      "@ng-icons/phosphor-icons/bold": [
+        "packages/phosphor-icons/bold/src/index.ts"
+      ],
+      "@ng-icons/phosphor-icons/duotone": [
+        "packages/phosphor-icons/duotone/src/index.ts"
+      ],
+      "@ng-icons/phosphor-icons/fill": [
+        "packages/phosphor-icons/fill/src/index.ts"
+      ],
+      "@ng-icons/phosphor-icons/light": [
+        "packages/phosphor-icons/light/src/index.ts"
+      ],
+      "@ng-icons/phosphor-icons/regular": [
+        "packages/phosphor-icons/regular/src/index.ts"
+      ],
+      "@ng-icons/phosphor-icons/thin": [
+        "packages/phosphor-icons/thin/src/index.ts"
+      ],
       "@ng-icons/radix-icons": ["packages/radix-icons/src/index.ts"],
       "@ng-icons/remixicon": ["packages/remixicon/src/index.ts"],
       "@ng-icons/schematics": ["packages/schematics/src/index.ts"],
