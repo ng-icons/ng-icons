@@ -36,7 +36,7 @@ jobs:
       - run: pnpx nx generate @ng-icons/workspace-plugin:update-readmes
       - run: pnpm exec nx-cloud record -- nx format:check
       - run: pnpm exec nx affected -t lint test build
-      - run: pnpm exec nx build examples
+      - run: pnpm exec nx build documentation
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
