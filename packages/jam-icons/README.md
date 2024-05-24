@@ -36,6 +36,7 @@ Currently, we support the following libraries:
 - [Font Awesome](https://fontawesome.com/)
 - [Iconsax](https://iconsax.io/)
 - [TDesign Icons](https://github.com/Tencent/tdesign-icons)
+- [Phosphor Icons](https://phosphoricons.com/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -56,6 +57,7 @@ Ng Icons is an MIT-licensed open source project with its ongoing development mad
 | 15.x.x          | 23.x.x - 24.x.x |
 | 16.x.x          | 25.x.x          |
 | 17.x.x          | 26.x.x - 27.x.x |
+| 18.x.x          | 28.x.x          |
 
 > **Note**: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 
