@@ -326,6 +326,12 @@ export const iconsets: Iconset[] = [
     output: 'packages/lets-icons/regular/src/index.ts',
     getIconName: (name: string) => `lets${names(name).className}`,
   },
+  {
+    glob: 'iconsets/huge-icons/**/*.svg',
+    output: 'packages/huge-icons/src/index.ts',
+    getIconName: (name: string) =>
+      `huge${names(name).className.replace('StrokeRounded', '')}`,
+  },
 ];
 
 export interface Iconset {
