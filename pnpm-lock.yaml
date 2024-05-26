@@ -38,6 +38,9 @@ dependencies:
   '@material-icons/svg':
     specifier: 1.0.33
     version: 1.0.33
+  '@ng-icons/svgs':
+    specifier: git://github.com/ng-icons/svgs
+    version: github.com/ng-icons/svgs/aafbe5e46f13cf29855c04413ca78c0d7611da3f
   '@phosphor-icons/core':
     specifier: ^2.1.1
     version: 2.1.1
@@ -14916,4 +14919,10 @@ packages:
       react: ^16.x || ^17.x || ^18.x
     dependencies:
       react: 18.3.1
+    dev: false
+
+  github.com/ng-icons/svgs/aafbe5e46f13cf29855c04413ca78c0d7611da3f:
+    resolution: {tarball: https://codeload.github.com/ng-icons/svgs/tar.gz/aafbe5e46f13cf29855c04413ca78c0d7611da3f}
+    name: svgs
+    version: 0.0.0
     dev: false

@@ -327,10 +327,14 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `lets${names(name).className}`,
   },
   {
-    glob: 'iconsets/huge-icons/**/*.svg',
+    glob: 'node_modules/@ng-icons/svgs/huge-icons/*.svg',
     output: 'packages/huge-icons/src/index.ts',
     getIconName: (name: string) =>
       `huge${names(name).className.replace('StrokeRounded', '')}`,
+    svg: {
+      colorAttr: 'stroke',
+      removeStroke: true,
+    },
   },
 ];
 

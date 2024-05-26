@@ -20,6 +20,7 @@ import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
 import { faFontAwesome } from '@ng-icons/font-awesome/regular';
 import { heroMagnifyingGlass } from '@ng-icons/heroicons/outline';
+import { hugeShoppingBasket01 } from '@ng-icons/huge-icons';
 import { iconoirIconoir } from '@ng-icons/iconoir';
 import { saxColorsSquareOutline } from '@ng-icons/iconsax/outline';
 import { ionLogoIonic } from '@ng-icons/ionicons';
@@ -86,6 +87,7 @@ const circumIcon = `
       tdesignCombination,
       phosphorPhosphorLogo,
       letsDimondAltLight,
+      hugeShoppingBasket01,
     }),
   ],
 })
@@ -403,6 +405,16 @@ export class BrowseIconsComponent implements OnInit {
         ]);
 
         return { regular, fill, light, duotone, duotoneLine };
+      },
+    },
+    {
+      name: 'Huge Icons',
+      website: 'hugeicons.com',
+      icon: 'hugeShoppingBasket01',
+      license: 'CC0-1.0',
+      package: '@ng-icons/huge-icons',
+      icons: async () => {
+        return { default: await import('@ng-icons/huge-icons') };
       },
     },
   ];

@@ -37,6 +37,7 @@ Currently, we support the following libraries:
 - [Iconsax](https://iconsax.io/)
 - [TDesign Icons](https://github.com/Tencent/tdesign-icons)
 - [Lets Icons](https://www.figma.com/community/file/886554014393250663/free-icon-pack-1800-icons)
+- [Huge Icons](https://hugeicons.com/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -108,6 +109,7 @@ The following packages are available:
 | `@ng-icons/tdesign-icons`        | MIT                                   |
 | `@ng-icons/phosphor-icons`       | MIT                                   |
 | `@ng-icons/lets-icons`           | CC-BY-4.0                             |
+| `@ng-icons/huge-icons`           | CC0-1.0                               |
 
 ## Usage
 
