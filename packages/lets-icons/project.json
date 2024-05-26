@@ -1,0 +1,44 @@
+{
+  "name": "lets-icons",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/lets-icons/src",
+  "prefix": "ng-icons",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/lets-icons"],
+      "options": {
+        "jestConfig": "packages/lets-icons/jest.config.ts"
+      }
+    },
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/packages/lets-icons"],
+      "options": {
+        "project": "packages/lets-icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/lets-icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/lets-icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public",
+        "distFolderPath": "dist/packages/lets-icons"
+      }
+    }
+  },
+  "tags": []
+}

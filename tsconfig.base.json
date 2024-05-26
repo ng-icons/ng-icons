@@ -93,6 +93,7 @@
       "@ng-icons/phosphor-icons/thin": [
         "packages/phosphor-icons/thin/src/index.ts"
       ],
+      "@ng-icons/lets-icons": ["packages/lets-icons/src/index.ts"],
       "@ng-icons/radix-icons": ["packages/radix-icons/src/index.ts"],
       "@ng-icons/remixicon": ["packages/remixicon/src/index.ts"],
       "@ng-icons/schematics": ["packages/schematics/src/index.ts"],

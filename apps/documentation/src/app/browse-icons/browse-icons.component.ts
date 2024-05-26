@@ -33,6 +33,7 @@ import { simpleSimpleicons } from '@ng-icons/simple-icons';
 import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { tdesignCombination } from '@ng-icons/tdesign-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
+import { letsDimondAltLight } from '@ng-icons/lets-icons';
 import { aspectsDashboard } from '@ng-icons/ux-aspects';
 import { RxFor } from '@rx-angular/template/for';
 import Fuse from 'fuse.js';
@@ -84,6 +85,7 @@ const circumIcon = `
       saxColorsSquareOutline,
       tdesignCombination,
       phosphorPhosphorLogo,
+      letsDimondAltLight,
     }),
   ],
 })
@@ -382,6 +384,17 @@ export class BrowseIconsComponent implements OnInit {
         ]);
 
         return { regular, bold, duotone, fill, light, thin };
+      },
+    },
+    {
+      name: 'Lets Icons',
+      website: 'figma.com/community/file/886554014393250663/free-icon-pack-1800-icons',
+      icon: 'letsDimondAltLight',
+      license: 'CC BY 4.0',
+      package: '@ng-icons/lets-icons',
+      icons: async () => {
+        const icons = await import('@ng-icons/lets-icons');
+        return { default: icons };
       },
     },
   ];

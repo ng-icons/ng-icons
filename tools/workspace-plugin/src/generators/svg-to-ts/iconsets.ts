@@ -296,6 +296,11 @@ export const iconsets: Iconset[] = [
     output: 'packages/phosphor-icons/thin/src/index.ts',
     getIconName: (name: string) => `phosphor${names(name).className}`,
   },
+  {
+    glob: 'node_modules/lets-icons/icons/*.svg',
+    output: 'packages/lets-icons/src/index.ts',
+    getIconName: (name: string) => `lets${names(name).className}`,
+  },
 ];
 
 export interface Iconset {
