@@ -48,6 +48,18 @@
       "@ng-icons/iconsax/outline": ["packages/iconsax/outline/src/index.ts"],
       "@ng-icons/ionicons": ["packages/ionicons/src/index.ts"],
       "@ng-icons/jam-icons": ["packages/jam-icons/src/index.ts"],
+      "@ng-icons/lets-icons": ["packages/lets-icons/src/index.ts"],
+      "@ng-icons/lets-icons/duotone": [
+        "packages/lets-icons/duotone/src/index.ts"
+      ],
+      "@ng-icons/lets-icons/duotone-line": [
+        "packages/lets-icons/duotone-line/src/index.ts"
+      ],
+      "@ng-icons/lets-icons/fill": ["packages/lets-icons/fill/src/index.ts"],
+      "@ng-icons/lets-icons/light": ["packages/lets-icons/light/src/index.ts"],
+      "@ng-icons/lets-icons/regular": [
+        "packages/lets-icons/regular/src/index.ts"
+      ],
       "@ng-icons/lucide": ["packages/lucide/src/index.ts"],
       "@ng-icons/material-file-icons": [
         "packages/material-file-icons/src/index.ts"

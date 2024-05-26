@@ -296,10 +296,41 @@ export const iconsets: Iconset[] = [
     output: 'packages/phosphor-icons/thin/src/index.ts',
     getIconName: (name: string) => `phosphor${names(name).className}`,
   },
+  {
+    glob: 'node_modules/lets-icons/icons/*-light.svg',
+    output: 'packages/lets-icons/light/src/index.ts',
+    getIconName: (name: string) => `lets${names(name).className}`,
+  },
+  {
+    glob: 'node_modules/lets-icons/icons/*-fill.svg',
+    output: 'packages/lets-icons/fill/src/index.ts',
+    getIconName: (name: string) => `lets${names(name).className}`,
+  },
+  {
+    glob: 'node_modules/lets-icons/icons/*-duotone.svg',
+    output: 'packages/lets-icons/duotone/src/index.ts',
+    getIconName: (name: string) => `lets${names(name).className}`,
+  },
+  {
+    glob: 'node_modules/lets-icons/icons/*-duotone-line.svg',
+    output: 'packages/lets-icons/duotone-line/src/index.ts',
+    getIconName: (name: string) => `lets${names(name).className}`,
+  },
+  {
+    glob: 'node_modules/lets-icons/icons/*.svg',
+    filter: name =>
+      !name.endsWith('-fill.svg') &&
+      !name.endsWith('-light.svg') &&
+      !name.endsWith('-duotone.svg') &&
+      !name.endsWith('-duotone-line.svg'),
+    output: 'packages/lets-icons/regular/src/index.ts',
+    getIconName: (name: string) => `lets${names(name).className}`,
+  },
 ];
 
 export interface Iconset {
   glob: string;
+  filter?: (name: string) => boolean;
   getIconName: (name: string, path: string) => string;
   output: string;
   svg?: SvgOptions;
