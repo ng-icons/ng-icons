@@ -24,6 +24,7 @@ import { iconoirIconoir } from '@ng-icons/iconoir';
 import { saxColorsSquareOutline } from '@ng-icons/iconsax/outline';
 import { ionLogoIonic } from '@ng-icons/ionicons';
 import { jamGlassFilled } from '@ng-icons/jam-icons';
+import { letsDimondAltLight } from '@ng-icons/lets-icons/light';
 import { matfDocumentUncolored } from '@ng-icons/material-file-icons/uncolored';
 import { octMarkGithub } from '@ng-icons/octicons';
 import { phosphorPhosphorLogo } from '@ng-icons/phosphor-icons/regular';
@@ -33,7 +34,6 @@ import { simpleSimpleicons } from '@ng-icons/simple-icons';
 import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { tdesignCombination } from '@ng-icons/tdesign-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
-import { letsDimondAltLight } from '@ng-icons/lets-icons';
 import { aspectsDashboard } from '@ng-icons/ux-aspects';
 import { RxFor } from '@rx-angular/template/for';
 import Fuse from 'fuse.js';
@@ -388,13 +388,21 @@ export class BrowseIconsComponent implements OnInit {
     },
     {
       name: 'Lets Icons',
-      website: 'figma.com/community/file/886554014393250663/free-icon-pack-1800-icons',
+      website:
+        'figma.com/community/file/886554014393250663/free-icon-pack-1800-icons',
       icon: 'letsDimondAltLight',
       license: 'CC BY 4.0',
       package: '@ng-icons/lets-icons',
       icons: async () => {
-        const icons = await import('@ng-icons/lets-icons');
-        return { default: icons };
+        const [regular, fill, light, duotone, duotoneLine] = await Promise.all([
+          import('@ng-icons/lets-icons/regular'),
+          import('@ng-icons/lets-icons/fill'),
+          import('@ng-icons/lets-icons/light'),
+          import('@ng-icons/lets-icons/duotone'),
+          import('@ng-icons/lets-icons/duotone-line'),
+        ]);
+
+        return { regular, fill, light, duotone, duotoneLine };
       },
     },
   ];
@@ -465,6 +473,14 @@ export class BrowseIconsComponent implements OnInit {
 
   trackByFn(_: number, item: string): string {
     return item;
+  }
+
+  shortUrl(url?: string): string {
+    if (!url) {
+      return '';
+    }
+    // only take the url up until the first slash
+    return url.split('/')[0];
   }
 
   async loadIconset(iconset: Iconset): Promise<void> {
