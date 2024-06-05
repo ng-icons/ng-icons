@@ -33,8 +33,8 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
 
       - run: pnpm exec nx generate @ng-icons/workspace-plugin:svg-to-ts
-      - run: pnpx nx generate @ng-icons/workspace-plugin:update-readmes
-      - run: pnpm exec nx-cloud record -- nx format:check
+      - run: pnpm exec nx generate @ng-icons/workspace-plugin:update-readmes
+      - run: pnpm exec nx format:check
       - run: pnpm exec nx affected -t lint test build
       - run: pnpm exec nx build documentation
 
