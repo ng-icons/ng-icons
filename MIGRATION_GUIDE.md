@@ -8,7 +8,7 @@ We now also recommend using the same casing in your templates, so instead of `fe
 This allows us to align the names with the import as it was not immediately obvious what name should be used in the template in certain cases.
 For example, `HeroSquare2x2`, should that be `hero-square-2x2` or `hero-square-2-x-2` or `hero-square2x2` etc...
 
-To ease the migration we have provide automated migrations. Run the following:
+To ease the migration we have provided automated migrations. Run the following:
 
 `ng update @ng-icons/schematics`
 

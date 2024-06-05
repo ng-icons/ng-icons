@@ -20,10 +20,12 @@ import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
 import { faFontAwesome } from '@ng-icons/font-awesome/regular';
 import { heroMagnifyingGlass } from '@ng-icons/heroicons/outline';
+import { hugeShoppingBasket01 } from '@ng-icons/huge-icons';
 import { iconoirIconoir } from '@ng-icons/iconoir';
 import { saxColorsSquareOutline } from '@ng-icons/iconsax/outline';
 import { ionLogoIonic } from '@ng-icons/ionicons';
 import { jamGlassFilled } from '@ng-icons/jam-icons';
+import { letsDimondAltLight } from '@ng-icons/lets-icons/light';
 import { matfDocumentUncolored } from '@ng-icons/material-file-icons/uncolored';
 import { octMarkGithub } from '@ng-icons/octicons';
 import { phosphorPhosphorLogo } from '@ng-icons/phosphor-icons/regular';
@@ -84,6 +86,8 @@ const circumIcon = `
       saxColorsSquareOutline,
       tdesignCombination,
       phosphorPhosphorLogo,
+      letsDimondAltLight,
+      hugeShoppingBasket01,
     }),
   ],
 })
@@ -384,6 +388,35 @@ export class BrowseIconsComponent implements OnInit {
         return { regular, bold, duotone, fill, light, thin };
       },
     },
+    {
+      name: 'Lets Icons',
+      website:
+        'figma.com/community/file/886554014393250663/free-icon-pack-1800-icons',
+      icon: 'letsDimondAltLight',
+      license: 'CC BY 4.0',
+      package: '@ng-icons/lets-icons',
+      icons: async () => {
+        const [regular, fill, light, duotone, duotoneLine] = await Promise.all([
+          import('@ng-icons/lets-icons/regular'),
+          import('@ng-icons/lets-icons/fill'),
+          import('@ng-icons/lets-icons/light'),
+          import('@ng-icons/lets-icons/duotone'),
+          import('@ng-icons/lets-icons/duotone-line'),
+        ]);
+
+        return { regular, fill, light, duotone, duotoneLine };
+      },
+    },
+    {
+      name: 'Huge Icons',
+      website: 'hugeicons.com',
+      icon: 'hugeShoppingBasket01',
+      license: 'CC0-1.0',
+      package: '@ng-icons/huge-icons',
+      icons: async () => {
+        return { default: await import('@ng-icons/huge-icons') };
+      },
+    },
   ];
 
   // store the current active iconset
@@ -452,6 +485,14 @@ export class BrowseIconsComponent implements OnInit {
 
   trackByFn(_: number, item: string): string {
     return item;
+  }
+
+  shortUrl(url?: string): string {
+    if (!url) {
+      return '';
+    }
+    // only take the url up until the first slash
+    return url.split('/')[0];
   }
 
   async loadIconset(iconset: Iconset): Promise<void> {

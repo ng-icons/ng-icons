@@ -12,7 +12,12 @@ const iconList = new Set<string>();
 
 async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   // load all the svg iconDetails within the path
-  const iconPaths = sync(iconset.glob);
+  let iconPaths = sync(iconset.glob);
+
+  // if there is a filter, apply it
+  if (iconset.filter) {
+    iconPaths = iconPaths.filter(iconset.filter);
+  }
 
   if (iconPaths.length === 0) {
     throw new Error('No icons found for iconset: ' + iconset.glob);
