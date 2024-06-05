@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Component, NgModule, inject } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import {
   ComponentFixture,
   TestBed,
@@ -152,16 +150,9 @@ describe('Standalone icon component', () => {
 @Component({
   standalone: true,
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
-  imports: [NG_ICON_DIRECTIVES, HttpClientTestingModule],
+  imports: [NG_ICON_DIRECTIVES],
   providers: [
     provideNgIconLoader(() => {
-      // this is here to ensure we can access the injector
-      const http = inject(HttpClient);
-
-      if (!http) {
-        throw new Error('http is not defined');
-      }
-
       return Promise.resolve(featherAlertCircle);
     }),
   ],
