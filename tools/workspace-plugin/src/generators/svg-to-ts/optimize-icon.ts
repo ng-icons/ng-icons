@@ -11,6 +11,7 @@ export async function optimizeIcon(
   options?: SvgOptions,
 ): Promise<string> {
   const plugins = [
+    { name: 'removeComments' },
     {
       name: 'insertCssVariables',
       type: 'visitor',
@@ -23,18 +24,6 @@ export async function optimizeIcon(
               if (node.name === 'svg') {
                 delete node.attributes['width'];
                 delete node.attributes['height'];
-
-                node.style.setProperty(
-                  'width',
-                  'var(--ng-icon__size, 1em)',
-                  '',
-                );
-
-                node.style.setProperty(
-                  'height',
-                  'var(--ng-icon__size, 1em)',
-                  '',
-                );
               } else {
                 // if this is not the svg element remove the stroke property
                 if (options?.removeStroke && node.attributes['stroke-width']) {

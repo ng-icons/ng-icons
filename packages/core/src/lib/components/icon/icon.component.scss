@@ -1,6 +1,14 @@
 :host {
   display: inline-block;
-  width: var(--ng-icon__size);
-  height: var(--ng-icon__size);
+  width: var(--ng-icon__size, 1em);
+  height: var(--ng-icon__size, 1em);
+  line-height: initial;
+  vertical-align: initial;
   overflow: hidden;
+}
+
+:host ::ng-deep svg {
+  width: inherit;
+  height: inherit;
+  vertical-align: inherit;
 }
