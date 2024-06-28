@@ -10,7 +10,7 @@ exports[`Icon should allow the icon to change 1`] = `
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
-    style="width:var(--ng-icon__size, 1em);height:var(--ng-icon__size, 1em);stroke-width:var(--ng-icon__stroke-width, 2)"
+    style="stroke-width:var(--ng-icon__stroke-width, 2)"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -43,7 +43,7 @@ exports[`Icon should allow the icon to change by passing in a svg 1`] = `
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
-    style="width:var(--ng-icon__size, 1em);height:var(--ng-icon__size, 1em);stroke-width:var(--ng-icon__stroke-width, 2)"
+    style="stroke-width:var(--ng-icon__stroke-width, 2)"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -76,7 +76,7 @@ exports[`Icon should insert the expected template 1`] = `
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
-    style="width:var(--ng-icon__size, 1em);height:var(--ng-icon__size, 1em);stroke-width:var(--ng-icon__stroke-width, 2)"
+    style="stroke-width:var(--ng-icon__stroke-width, 2)"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -101,4 +101,4 @@ exports[`Icon should insert the expected template 1`] = `
 </div>
 `;
 
-exports[`Standalone icon component should display the icon 1`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" stroke=\\"currentColor\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\" style=\\"width:var(--ng-icon__size, 1em);height:var(--ng-icon__size, 1em);stroke-width:var(--ng-icon__stroke-width, 2)\\"><circle cx=\\"12\\" cy=\\"12\\" r=\\"10\\"></circle><line x1=\\"12\\" y1=\\"8\\" x2=\\"12\\" y2=\\"12\\"></line><line x1=\\"12\\" y1=\\"16\\" x2=\\"12.01\\" y2=\\"16\\"></line></svg>"`;
+exports[`Standalone icon component should display the icon 1`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" stroke=\\"currentColor\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\" style=\\"stroke-width:var(--ng-icon__stroke-width, 2)\\"><circle cx=\\"12\\" cy=\\"12\\" r=\\"10\\"></circle><line x1=\\"12\\" y1=\\"8\\" x2=\\"12\\" y2=\\"12\\"></line><line x1=\\"12\\" y1=\\"16\\" x2=\\"12.01\\" y2=\\"16\\"></line></svg>"`;
