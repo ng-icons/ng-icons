@@ -1,8 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  HostBinding,
-  Input,
+  computed,
+  input,
   booleanAttribute,
   numberAttribute,
 } from '@angular/core';
@@ -16,6 +16,13 @@ import { coerceCssPixelValue } from '../../utils/coercion';
   template: ``,
   styleUrl: './glyph.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[class]': 'glyphsetClass()',
+    '[textContent]': 'name()',
+    '[style.--ng-glyph__size]': 'size()',
+    '[style.color]': 'color()',
+    '[style.font-variation-settings]': 'fontVariationSettings()'
+  }
 })
 export class NgGlyph {
   /**
@@ -31,76 +38,66 @@ export class NgGlyph {
   /**
    * Define the name of the glyph to display
    */
-  @HostBinding('textContent')
-  @Input({ required: true })
-  name!: string;
+  readonly name = input.required<string>();
 
   /**
    * Define the glyphset to use
    */
-  @Input()
-  glyphset: string = this.glyphsets.defaultGlyphset;
+  readonly glyphset = input(this.glyphsets.defaultGlyphset);
 
   /**
    * Define the optical size of the glyph
    */
-  @Input({ transform: numberAttribute }) opticalSize: number =
-    this.config.opticalSize;
+  readonly opticalSize = input(this.config.opticalSize, { transform: numberAttribute });
 
   /**
    * Define the weight of the glyph
    */
-  @Input({ transform: numberAttribute }) weight: number = this.config.weight;
+  readonly weight = input(this.config.weight, { transform: numberAttribute });
 
   /**
    * Define the grade of the glyph
    */
-  @Input({ transform: numberAttribute }) grade: number = this.config.grade;
+  readonly grade = input(this.config.grade, { transform: numberAttribute });
 
   /**
    * Define the fill of the glyph
    */
-  @Input({ transform: booleanAttribute }) fill: boolean = this.config.fill;
+  readonly fill = input(this.config.fill, { transform: booleanAttribute });
 
   /**
    * Define the size of the glyph
    */
-  @HostBinding('style.--ng-glyph__size')
-  @Input({ transform: coerceCssPixelValue })
-  size?: string | number = this.config.size;
+  readonly size = input(this.config.size, { transform: coerceCssPixelValue });
 
   /**
    * Define the color of the glyph
    */
-  @HostBinding('style.color')
-  @Input()
-  color?: string = this.config.color;
+  readonly color = input(this.config.color);
 
   /**
    * Derive the glyphset class from the glyphset name
    */
-  @HostBinding('class')
-  get glyphsetClass(): string {
+  readonly glyphsetClass = computed(() => {
     const glyphset = this.glyphsets.glyphsets.find(
-      glyphset => glyphset.name === this.glyphset,
+      glyphset => glyphset.name === this.glyphset(),
     );
 
     if (!glyphset) {
       throw new Error(
-        `The glyphset "${this.glyphset}" does not exist. Please provide a valid glyphset.`,
+        `The glyphset "${this.glyphset()}" does not exist. Please provide a valid glyphset.`,
       );
     }
 
     return glyphset.baseClass;
-  }
+  });
 
   /**
    * Define the font variation settings of the glyph
    */
-  @HostBinding('style.font-variation-settings')
-  get fontVariationSettings(): string {
-    return `'FILL' ${this.fill ? 1 : 0}, 'wght' ${this.weight}, 'GRAD' ${
-      this.grade
-    }, 'opsz' ${this.opticalSize}`;
-  }
+  readonly fontVariationSettings = computed(() => {
+    return `'FILL' ${this.fill() ? 1 : 0}, 'wght' ${this.weight()}, 'GRAD' ${
+      this.grade()
+    }, 'opsz' ${this.opticalSize()}`;
+  });
 }

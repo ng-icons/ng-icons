@@ -27,63 +27,64 @@ describe('Glyph', () => {
 
     fixture = TestBed.createComponent(NgGlyph);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('name', 'test');
     fixture.detectChanges();
     nativeElement = fixture.nativeElement;
   });
 
   it('should allow the optical size to be changed', () => {
-    component.opticalSize = 24;
+    fixture.componentRef.setInput('opticalSize', 24);
     fixture.detectChanges();
     expect(nativeElement.style.fontVariationSettings).toContain("'opsz' 24");
   });
 
   it('should allow the weight to be changed', () => {
-    component.weight = 500;
+    fixture.componentRef.setInput('weight', 500);
     fixture.detectChanges();
     expect(nativeElement.style.fontVariationSettings).toContain("'wght' 500");
   });
 
   it('should allow the grade to be changed', () => {
-    component.grade = 1;
+    fixture.componentRef.setInput('grade', 1);
     fixture.detectChanges();
     expect(nativeElement.style.fontVariationSettings).toContain("'GRAD' 1");
   });
 
   it('should allow the fill to be changed', () => {
-    component.fill = true;
+    fixture.componentRef.setInput('fill', true);
     fixture.detectChanges();
     expect(nativeElement.style.fontVariationSettings).toContain("'FILL' 1");
   });
 
   it('should allow the color to be changed', () => {
-    component.color = 'red';
+    fixture.componentRef.setInput('color', 'red');
     fixture.detectChanges();
     expect(nativeElement.style.color).toBe('red');
   });
 
   it('should insert the name as text content', () => {
-    component.name = 'test';
+    fixture.componentRef.setInput('name', 'test');
     fixture.detectChanges();
     expect(nativeElement.textContent).toBe('test');
   });
 
   it('should use the default glyphset by default', () => {
-    component.name = 'test';
+    fixture.componentRef.setInput('name', 'test');
     fixture.detectChanges();
     expect(nativeElement.classList).toContain('material-icons-outlined');
   });
 
   it('should allow the glyphset to be changed', () => {
-    component.name = 'test';
-    component.glyphset = 'material-symbols-rounded';
+    fixture.componentRef.setInput('name', 'test');
+    fixture.componentRef.setInput('glyphset', 'material-symbols-rounded');
     fixture.detectChanges();
     expect(nativeElement.classList).toContain('material-icons-rounded');
   });
 
   it('should allow the user to define a custom class', () => {
     nativeElement.classList.add('custom-class');
-    component.name = 'test';
-    component.glyphset = 'material-symbols-rounded';
+    fixture.componentRef.setInput('name', 'test');
+    fixture.componentRef.setInput('glyphset', 'material-symbols-rounded');
     fixture.detectChanges();
     expect(nativeElement.classList).toContain('material-icons-rounded');
     expect(nativeElement.classList).toContain('custom-class');

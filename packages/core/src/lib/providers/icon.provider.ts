@@ -1,8 +1,6 @@
 import {
   InjectionToken,
-  Optional,
   Provider,
-  SkipSelf,
   inject,
 } from '@angular/core';
 
@@ -14,11 +12,10 @@ export function provideIcons(icons: Record<string, string>): Provider[] {
   return [
     {
       provide: NgIconsToken,
-      useFactory: (parentIcons?: Record<string, string>[]) => ({
+      useFactory: (parentIcons = inject<Record<string, string>[]>(NgIconsToken, { optional: true, skipSelf: true})) => ({
         ...parentIcons?.reduce((acc, icons) => ({ ...acc, ...icons }), {}),
         ...icons,
       }),
-      deps: [[NgIconsToken, new Optional(), new SkipSelf()]],
       multi: true,
     },
   ];
