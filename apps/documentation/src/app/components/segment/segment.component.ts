@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import {
+  afterNextRender,
+  ChangeDetectorRef,
   Component,
+  computed,
   ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-  QueryList,
-  ViewChildren,
+  inject,
+  input,
+  model,
+  viewChildren,
 } from '@angular/core';
 
 @Component({
@@ -17,21 +19,25 @@ import {
   styleUrls: ['./segment.component.scss'],
 })
 export class SegmentComponent {
-  @Input() selectedIndex = 0;
+  private readonly changeDetector = inject(ChangeDetectorRef);
 
-  @Input() options: string[] = [];
+  readonly selectedIndex = model(0);
 
-  @Output() readonly selectedIndexChange = new EventEmitter<number>();
+  readonly options = input<string[]>([]);
 
   /** Access the options */
-  @ViewChildren('option') optionsElements?: QueryList<ElementRef<HTMLElement>>;
+  readonly optionElements = viewChildren<ElementRef<HTMLElement>>('option');
 
-  get activeOption(): ElementRef<HTMLElement> | undefined {
-    return this.optionsElements?.toArray()[this.selectedIndex];
+  readonly activeOption = computed(
+    () => this.optionElements()[this.selectedIndex()],
+  );
+
+  constructor() {
+    // this is required to ensure the width is correctly calculated after rendering
+    afterNextRender(() => this.changeDetector.detectChanges());
   }
 
   select(index: number): void {
-    this.selectedIndex = index;
-    this.selectedIndexChange.emit(index);
+    this.selectedIndex.set(index);
   }
 }

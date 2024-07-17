@@ -55,6 +55,28 @@ describe('Icon', () => {
     fixture.detectChanges();
     expect(nativeElement).toMatchSnapshot();
   });
+
+  it('should allow the size to change', () => {
+    fixture.componentRef.setInput('size', 32);
+    fixture.detectChanges();
+    expect(nativeElement.style.getPropertyValue('--ng-icon__size')).toBe(
+      '32px',
+    );
+  });
+
+  it('should allow the color to change', () => {
+    fixture.componentRef.setInput('color', 'red');
+    fixture.detectChanges();
+    expect(nativeElement.style.getPropertyValue('color')).toBe('red');
+  });
+
+  it('should allow the stroke width to change', () => {
+    fixture.componentRef.setInput('strokeWidth', 4);
+    fixture.detectChanges();
+    expect(
+      nativeElement.style.getPropertyValue('--ng-icon__stroke-width'),
+    ).toBe('4');
+  });
 });
 
 @Component({

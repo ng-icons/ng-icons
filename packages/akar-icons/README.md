@@ -9,7 +9,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 53,600 icons for you to use in your projects.
+Containing over 54,600 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -58,7 +58,7 @@ Ng Icons is an MIT-licensed open source project with its ongoing development mad
 | 15.x.x          | 23.x.x - 24.x.x |
 | 16.x.x          | 25.x.x          |
 | 17.x.x          | 26.x.x - 27.x.x |
-| 18.x.x          | 28.x.x          |
+| 18.x.x          | 28.x.x - 29.x.x |
 
 > **Note**: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 

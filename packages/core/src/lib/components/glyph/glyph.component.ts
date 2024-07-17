@@ -1,9 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  booleanAttribute,
   computed,
   input,
-  booleanAttribute,
   numberAttribute,
 } from '@angular/core';
 import { injectNgGlyphsConfig } from '../../providers/glyph-config.provider';
@@ -21,8 +21,8 @@ import { coerceCssPixelValue } from '../../utils/coercion';
     '[textContent]': 'name()',
     '[style.--ng-glyph__size]': 'size()',
     '[style.color]': 'color()',
-    '[style.font-variation-settings]': 'fontVariationSettings()'
-  }
+    '[style.font-variation-settings]': 'fontVariationSettings()',
+  },
 })
 export class NgGlyph {
   /**
@@ -48,7 +48,9 @@ export class NgGlyph {
   /**
    * Define the optical size of the glyph
    */
-  readonly opticalSize = input(this.config.opticalSize, { transform: numberAttribute });
+  readonly opticalSize = input(this.config.opticalSize, {
+    transform: numberAttribute,
+  });
 
   /**
    * Define the weight of the glyph
@@ -78,7 +80,7 @@ export class NgGlyph {
   /**
    * Derive the glyphset class from the glyphset name
    */
-  readonly glyphsetClass = computed(() => {
+  protected readonly glyphsetClass = computed(() => {
     const glyphset = this.glyphsets.glyphsets.find(
       glyphset => glyphset.name === this.glyphset(),
     );
@@ -95,9 +97,9 @@ export class NgGlyph {
   /**
    * Define the font variation settings of the glyph
    */
-  readonly fontVariationSettings = computed(() => {
-    return `'FILL' ${this.fill() ? 1 : 0}, 'wght' ${this.weight()}, 'GRAD' ${
-      this.grade()
-    }, 'opsz' ${this.opticalSize()}`;
+  protected readonly fontVariationSettings = computed(() => {
+    return `'FILL' ${
+      this.fill() ? 1 : 0
+    }, 'wght' ${this.weight()}, 'GRAD' ${this.grade()}, 'opsz' ${this.opticalSize()}`;
   });
 }

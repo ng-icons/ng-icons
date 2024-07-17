@@ -13,6 +13,7 @@ import {
   injectNgIconPostProcessor,
   injectNgIconPreProcessor,
 } from '../../providers/features/csp';
+import { injectLogger } from '../../providers/features/logger';
 import { injectNgIconConfig } from '../../providers/icon-config.provider';
 import {
   injectNgIconLoader,
@@ -22,7 +23,6 @@ import { injectNgIcons } from '../../providers/icon.provider';
 import { coerceLoaderResult } from '../../utils/async';
 import { coerceCssPixelValue } from '../../utils/coercion';
 import { toPropertyName } from '../../utils/format';
-import { injectLogger } from '../../providers/features/logger';
 
 // This is a typescript type to prevent inference from collapsing the union type to a string to improve type safety
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -34,6 +34,11 @@ export type IconType = IconName | (string & {});
   standalone: true,
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[style.--ng-icon__stroke-width]': 'strokeWidth()',
+    '[style.--ng-icon__size]': 'size()',
+    '[style.color]': 'color()',
+  },
 })
 export class NgIcon {
   /** Access the global icon config */
@@ -64,77 +69,39 @@ export class NgIcon {
   private readonly logger = injectLogger();
 
   /** Define the name of the icon to display */
-  name = input<IconType>();
+  readonly name = input<IconType>();
 
   /** Define the svg of the icon to display */
-  svg = input<string>();
+  readonly svg = input<string>();
 
   /** Define the size of the icon */
-  size = input(this.config.size, { transform: coerceCssPixelValue });
+  readonly size = input(this.config.size, { transform: coerceCssPixelValue });
 
   /** Define the stroke-width of the icon */
-  strokeWidth = input<string | number>();
+  readonly strokeWidth = input<string | number>();
 
   /** Define the color of the icon */
-  color = input(this.config.color);
+  readonly color = input(this.config.color);
 
   constructor() {
-    effect(() => {
-      if (this.name() !== undefined) {
-        this.setIcon(this.name()!);
-      }
-    });
-    effect(() => {
-      if (this.svg() !== undefined) {
-        this.setSvg(this.svg()!);
-      }
-    });
-    effect(() => this.setIconSize(this.size()));
-    effect(() => this.setIconColor(this.color()));
-    effect(() => this.setIconStrokeWidth(this.strokeWidth()));
+    // update the icon anytime the name or svg changes
+    effect(() => this.updateIcon());
   }
 
-  private setIconColor(color?: string): void {
-    this.elementRef.nativeElement.style.removeProperty('color');
+  private async updateIcon(): Promise<void> {
+    const name = this.name();
+    const svg = this.svg();
 
-    if (color !== undefined) {
-      this.elementRef.nativeElement.style.setProperty('color', color);
+    // if the svg is defined, insert it into the template
+    if (svg !== undefined) {
+      this.setSvg(svg);
+      return;
     }
-  }
 
-  private setIconSize(size?: string): void {
-    this.elementRef.nativeElement.style.removeProperty('--ng-icon__size');
-
-    if (size !== undefined) {
-      this.elementRef.nativeElement.style.setProperty(
-        '--ng-icon__size',
-        size.toString(),
-      );
+    if (name === undefined) {
+      return;
     }
-  }
 
-  private setIconStrokeWidth(strokeWidth?: string | number): void {
-    this.elementRef.nativeElement.style.removeProperty(
-      '--ng-icon__stroke-width',
-    );
-    if (strokeWidth !== undefined) {
-      this.elementRef.nativeElement.style.setProperty(
-        '--ng-icon__stroke-width',
-        strokeWidth.toString(),
-      );
-    }
-  }
-
-  private setSvg(svg: string): void {
-    this.elementRef.nativeElement.innerHTML = this.preProcessor(svg);
-    this.postProcessor(this.elementRef.nativeElement);
-  }
-
-  /**
-   * Load the icon with the given name and insert it into the template.
-   * @param name The name of the icon to load.
-   */
-  private async setIcon(name: IconType): Promise<void> {
     const propertyName = toPropertyName(name);
 
     for (const icons of [...this.icons].reverse()) {
@@ -160,6 +127,11 @@ export class NgIcon {
     this.logger.warn(
       `No icon named ${name} was found. You may need to import it using the withIcons function.`,
     );
+  }
+
+  private setSvg(svg: string): void {
+    this.elementRef.nativeElement.innerHTML = this.preProcessor(svg);
+    this.postProcessor(this.elementRef.nativeElement);
   }
 
   /**
