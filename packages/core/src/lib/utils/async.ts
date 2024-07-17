@@ -14,7 +14,7 @@ export function coerceLoaderResult(
   if (isObservable(result)) {
     // toPromise is deprecated, but we can't use lastValueFrom because it's not available in RxJS 6
     // so for now we'll just use toPromise
-    return result.toPromise();
+    return result.toPromise() as Promise<string>;
   }
 
   return result;
