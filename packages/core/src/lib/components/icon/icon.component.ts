@@ -1,20 +1,19 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  effect,
   ElementRef,
   inject,
   Injector,
-  Input,
-  OnChanges,
-  OnInit,
+  input,
   runInInjectionContext,
-  SimpleChanges,
 } from '@angular/core';
 import type { IconName } from '../../components/icon/icon-name';
 import {
   injectNgIconPostProcessor,
   injectNgIconPreProcessor,
 } from '../../providers/features/csp';
+import { injectLogger } from '../../providers/features/logger';
 import { injectNgIconConfig } from '../../providers/icon-config.provider';
 import {
   injectNgIconLoader,
@@ -24,7 +23,6 @@ import { injectNgIcons } from '../../providers/icon.provider';
 import { coerceLoaderResult } from '../../utils/async';
 import { coerceCssPixelValue } from '../../utils/coercion';
 import { toPropertyName } from '../../utils/format';
-import { injectLogger } from '../../providers/features/logger';
 
 // This is a typescript type to prevent inference from collapsing the union type to a string to improve type safety
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -36,8 +34,13 @@ export type IconType = IconName | (string & {});
   standalone: true,
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[style.--ng-icon__stroke-width]': 'strokeWidth()',
+    '[style.--ng-icon__size]': 'size()',
+    '[style.color]': 'color()',
+  },
 })
-export class NgIcon implements OnInit, OnChanges {
+export class NgIcon {
   /** Access the global icon config */
   private readonly config = injectNgIconConfig();
 
@@ -66,94 +69,39 @@ export class NgIcon implements OnInit, OnChanges {
   private readonly logger = injectLogger();
 
   /** Define the name of the icon to display */
-  @Input() set name(name: IconType) {
-    this.setIcon(name);
-  }
+  readonly name = input<IconType>();
 
   /** Define the svg of the icon to display */
-  @Input() set svg(svg: string) {
-    this.setSvg(svg);
-  }
+  readonly svg = input<string>();
 
   /** Define the size of the icon */
-  @Input({ transform: coerceCssPixelValue })
-  size?: string | number = this.config.size;
+  readonly size = input(this.config.size, { transform: coerceCssPixelValue });
 
   /** Define the stroke-width of the icon */
-  @Input()
-  strokeWidth?: string | number;
+  readonly strokeWidth = input<string | number>();
 
   /** Define the color of the icon */
-  @Input()
-  color?: string = this.config.color;
+  readonly color = input(this.config.color);
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.size) {
-      this.setIconSize();
+  constructor() {
+    // update the icon anytime the name or svg changes
+    effect(() => this.updateIcon());
+  }
+
+  private async updateIcon(): Promise<void> {
+    const name = this.name();
+    const svg = this.svg();
+
+    // if the svg is defined, insert it into the template
+    if (svg !== undefined) {
+      this.setSvg(svg);
+      return;
     }
-    if (changes.color) {
-      this.setIconColor();
+
+    if (name === undefined) {
+      return;
     }
-    if (changes.strokeWidth) {
-      this.setIconStrokeWidth();
-    }
-  }
 
-  ngOnInit(): void {
-    this.setIconStyles();
-  }
-
-  private setIconColor(): void {
-    this.elementRef.nativeElement.style.removeProperty('color');
-
-    if (this.color !== undefined) {
-      this.elementRef.nativeElement.style.setProperty('color', this.color);
-    }
-  }
-
-  private setIconSize(): void {
-    this.elementRef.nativeElement.style.removeProperty('--ng-icon__size');
-
-    if (this.size !== undefined) {
-      this.elementRef.nativeElement.style.setProperty(
-        '--ng-icon__size',
-        this.size.toString(),
-      );
-    }
-  }
-
-  private setIconStrokeWidth(): void {
-    this.elementRef.nativeElement.style.removeProperty(
-      '--ng-icon__stroke-width',
-    );
-    if (this.strokeWidth !== undefined) {
-      this.elementRef.nativeElement.style.setProperty(
-        '--ng-icon__stroke-width',
-        this.strokeWidth.toString(),
-      );
-    }
-  }
-
-  /**
-   * Set the styles for the icon. We use the style property to set the styles
-   * rather than the host binding as it works with CSP.
-   */
-  private setIconStyles(): void {
-    this.setIconColor();
-    this.setIconSize();
-    this.setIconStrokeWidth();
-  }
-
-  private setSvg(svg: string): void {
-    this.elementRef.nativeElement.innerHTML = this.preProcessor(svg);
-    this.postProcessor(this.elementRef.nativeElement);
-  }
-
-  /**
-   * Load the icon with the given name and insert it into the template.
-   * @param name The name of the icon to load.
-   */
-  private async setIcon(name: IconType): Promise<void> {
     const propertyName = toPropertyName(name);
 
     for (const icons of [...this.icons].reverse()) {
@@ -179,6 +127,11 @@ export class NgIcon implements OnInit, OnChanges {
     this.logger.warn(
       `No icon named ${name} was found. You may need to import it using the withIcons function.`,
     );
+  }
+
+  private setSvg(svg: string): void {
+    this.elementRef.nativeElement.innerHTML = this.preProcessor(svg);
+    this.postProcessor(this.elementRef.nativeElement);
   }
 
   /**

@@ -17,7 +17,7 @@
         [class.active]="iconset === activeIconset()"
         (click)="loadIconset(iconset)"
       >
-        <ng-icon [name]="iconset.icon"></ng-icon>
+        <ng-icon [name]="iconset.icon" />
         <span class="text-xs font-medium text-center">{{ iconset.name }}</span>
       </div>
     }

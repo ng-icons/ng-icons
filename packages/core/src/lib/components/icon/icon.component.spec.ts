@@ -4,6 +4,7 @@ import {
   TestBed,
   fakeAsync,
   flushMicrotasks,
+  tick,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
@@ -34,7 +35,7 @@ describe('Icon', () => {
 
     fixture = TestBed.createComponent(NgIcon);
     component = fixture.componentInstance;
-    component.name = 'featherAlertCircle';
+    fixture.componentRef.setInput('name', 'featherAlertCircle');
     fixture.detectChanges();
     nativeElement = fixture.nativeElement;
   });
@@ -44,15 +45,37 @@ describe('Icon', () => {
   });
 
   it('should allow the icon to change', () => {
-    component.name = 'featherAlertTriangle';
+    fixture.componentRef.setInput('name', 'featherAlertTriangle');
     fixture.detectChanges();
     expect(nativeElement).toMatchSnapshot();
   });
 
   it('should allow the icon to change by passing in a svg', () => {
-    component.svg = featherAlertTriangle;
+    fixture.componentRef.setInput('svg', featherAlertTriangle);
     fixture.detectChanges();
     expect(nativeElement).toMatchSnapshot();
+  });
+
+  it('should allow the size to change', () => {
+    fixture.componentRef.setInput('size', 32);
+    fixture.detectChanges();
+    expect(nativeElement.style.getPropertyValue('--ng-icon__size')).toBe(
+      '32px',
+    );
+  });
+
+  it('should allow the color to change', () => {
+    fixture.componentRef.setInput('color', 'red');
+    fixture.detectChanges();
+    expect(nativeElement.style.getPropertyValue('color')).toBe('red');
+  });
+
+  it('should allow the stroke width to change', () => {
+    fixture.componentRef.setInput('strokeWidth', 4);
+    fixture.detectChanges();
+    expect(
+      nativeElement.style.getPropertyValue('--ng-icon__stroke-width'),
+    ).toBe('4');
   });
 });
 
@@ -102,12 +125,12 @@ describe('Icon with multiple modules', () => {
     router = TestBed.inject(Router);
 
     fixture = TestBed.createComponent(RootComponent);
-    fixture.detectChanges();
     router.initialNavigation();
-    fixture.detectChanges();
   });
 
-  it('should display icons registered in both parent and child modules', () => {
+  it('should display icons registered in both parent and child modules', fakeAsync(() => {
+    tick();
+    fixture.detectChanges();
     const icons = fixture.debugElement.queryAll(By.directive(NgIcon));
 
     expect(icons[0].nativeElement.innerHTML).toBe(
@@ -116,7 +139,7 @@ describe('Icon with multiple modules', () => {
     expect(icons[1].nativeElement.innerHTML).toBe(
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--ng-icon__stroke-width, 2)"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
     );
-  });
+  }));
 });
 
 @Component({
