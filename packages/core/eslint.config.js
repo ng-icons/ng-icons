@@ -63,6 +63,8 @@ module.exports = [
             '@eslint/js',
             '@ng-icons/feather-icons',
             'jest-preset-angular',
+            '@angular/platform-browser',
+            '@angular/router',
           ],
         },
       ],
