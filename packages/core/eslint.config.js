@@ -50,4 +50,24 @@ module.exports = [
       files: ['**/*.html'],
       rules: {},
     })),
+  ...compat.config({ parser: 'jsonc-eslint-parser' }).map(config => ({
+    ...config,
+    files: ['**/*.json'],
+    rules: {
+      '@nx/dependency-checks': [
+        'error',
+        {
+          ignoredDependencies: [
+            'tslib',
+            '@eslint/eslintrc',
+            '@eslint/js',
+            '@ng-icons/feather-icons',
+            'jest-preset-angular',
+            '@angular/platform-browser',
+            '@angular/router',
+          ],
+        },
+      ],
+    },
+  })),
 ];

@@ -104,7 +104,7 @@
     "jsonc-eslint-parser": "^2.1.0",
     "markdown-loader": "^6.0.0",
     "ng-packagr": "18.1.0",
-    "ngx-deploy-npm": "8.0.1",
+    "ngx-deploy-npm": "8.2.0",
     "nx": "19.5.0",
     "postcss": "^8.4.5",
     "postcss-import": "~14.1.0",

@@ -280,8 +280,8 @@ importers:
         specifier: 18.1.0
         version: 18.1.0(@angular/compiler-cli@18.1.0(@angular/compiler@18.1.0(@angular/core@18.1.0(rxjs@7.8.0)(zone.js@0.14.3)))(typescript@5.5.3))(tailwindcss@3.0.24(postcss@8.4.38)(ts-node@10.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@18.19.33)(typescript@5.5.3)))(tslib@2.6.2)(typescript@5.5.3)
       ngx-deploy-npm:
-        specifier: 8.0.1
-        version: 8.0.1(@nx/devkit@19.5.0(nx@19.5.0(@swc-node/register@1.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(typescript@5.5.3))(@swc/core@1.5.7(@swc/helpers@0.5.11))))(tslib@2.6.2)
+        specifier: 8.2.0
+        version: 8.2.0(@nx/devkit@19.5.0(nx@19.5.0(@swc-node/register@1.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(typescript@5.5.3))(@swc/core@1.5.7(@swc/helpers@0.5.11))))(tslib@2.6.2)
       nx:
         specifier: 19.5.0
         version: 19.5.0(@swc-node/register@1.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(typescript@5.5.3))(@swc/core@1.5.7(@swc/helpers@0.5.11))
@@ -6085,11 +6085,11 @@ packages:
       tailwindcss:
         optional: true
 
-  ngx-deploy-npm@8.0.1:
-    resolution: {integrity: sha512-JVgC7OYaa7oqvuVFkm7W+LJ+8+ihmr09NdmIVBcuUAKMzG2rvsnFGc7ymHQJ4RBK2iRVV4oOHtsaruqCBIHprA==}
+  ngx-deploy-npm@8.2.0:
+    resolution: {integrity: sha512-/gN22Q7hI8EediUZLu4DkEaJACw8SRyfNwAvr1eOGx/jlUjAu/nHTGdfRj2GJq7iCOO+yTUPHgCfLneOV2C4tQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      '@nx/devkit': "^16.0.0 ||\_^17.0.0 ||\_^18.0.0"
+      '@nx/devkit': "^16.0.0 ||\_^17.0.0 ||\_^18.0.0 ||\_^19.0.0 ||\_^20.0.0"
       tslib: ^2.3.0
 
   nice-napi@1.0.2:
@@ -10165,15 +10165,15 @@ snapshots:
   '@emnapi/core@1.2.0':
     dependencies:
       '@emnapi/wasi-threads': 1.0.1
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@emnapi/runtime@1.2.0':
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@emnapi/wasi-threads@1.0.1':
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@esbuild/aix-ppc64@0.19.12':
     optional: true
@@ -11003,7 +11003,7 @@ snapshots:
   '@nrwl/angular@19.5.0(gkn5w4xg77c4o4mfwritvuif7a)':
     dependencies:
       '@nx/angular': 19.5.0(gkn5w4xg77c4o4mfwritvuif7a)
-      tslib: 2.6.2
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@angular-devkit/build-angular'
       - '@angular-devkit/core'
@@ -11136,7 +11136,7 @@ snapshots:
   '@nrwl/tao@19.5.0(@swc-node/register@1.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(typescript@5.5.3))(@swc/core@1.5.7(@swc/helpers@0.5.11))':
     dependencies:
       nx: 19.5.0(@swc-node/register@1.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(typescript@5.5.3))(@swc/core@1.5.7(@swc/helpers@0.5.11))
-      tslib: 2.6.2
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -11514,7 +11514,7 @@ snapshots:
       chalk: 4.1.2
       detect-port: 1.6.1
       http-server: 14.1.1
-      tslib: 2.6.2
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -11553,7 +11553,7 @@ snapshots:
       postcss: 8.4.38
       postcss-import: 14.1.0(postcss@8.4.38)
       postcss-loader: 6.2.1(postcss@8.4.38)(webpack@5.91.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
-      rxjs: 7.8.0
+      rxjs: 7.8.1
       sass: 1.77.2
       sass-loader: 12.6.0(sass@1.77.2)(webpack@5.91.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
       source-map-loader: 5.0.0(webpack@5.91.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
@@ -11563,7 +11563,7 @@ snapshots:
       terser-webpack-plugin: 5.3.10(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)(webpack@5.91.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
       ts-loader: 9.5.1(typescript@5.5.3)(webpack@5.91.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
       tsconfig-paths-webpack-plugin: 4.0.0
-      tslib: 2.6.2
+      tslib: 2.6.3
       webpack: 5.91.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)
       webpack-dev-server: 4.15.2(webpack@5.91.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
       webpack-node-externals: 3.0.0
@@ -11806,7 +11806,7 @@ snapshots:
   '@swc-node/sourcemap-support@0.5.0':
     dependencies:
       source-map-support: 0.5.21
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@swc/cli@0.3.12(@swc/core@1.5.7(@swc/helpers@0.5.11))(chokidar@3.6.0)':
     dependencies:
@@ -11923,7 +11923,7 @@ snapshots:
 
   '@tybys/wasm-util@0.9.0':
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@types/babel__core@7.20.5':
     dependencies:
@@ -12294,7 +12294,7 @@ snapshots:
   '@yarnpkg/parsers@3.0.0-rc.46':
     dependencies:
       js-yaml: 3.14.1
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@zkochan/js-yaml@0.0.7':
     dependencies:
@@ -12805,7 +12805,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   camelcase-css@2.0.1: {}
 
@@ -13417,7 +13417,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   dotenv-expand@11.0.6:
     dependencies:
@@ -14391,7 +14391,7 @@ snapshots:
 
   injection-js@2.4.0:
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   ionicons@7.4.0:
     dependencies:
@@ -15089,7 +15089,7 @@ snapshots:
     dependencies:
       copy-anything: 2.0.6
       parse-node-version: 1.0.1
-      tslib: 2.6.2
+      tslib: 2.6.3
     optionalDependencies:
       errno: 0.1.8
       graceful-fs: 4.2.11
@@ -15241,7 +15241,7 @@ snapshots:
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   lowercase-keys@2.0.0: {}
 
@@ -15541,7 +15541,7 @@ snapshots:
       rollup: 4.18.0
       tailwindcss: 3.0.24(postcss@8.4.38)(ts-node@10.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@18.19.33)(typescript@5.5.3))
 
-  ngx-deploy-npm@8.0.1(@nx/devkit@19.5.0(nx@19.5.0(@swc-node/register@1.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(typescript@5.5.3))(@swc/core@1.5.7(@swc/helpers@0.5.11))))(tslib@2.6.2):
+  ngx-deploy-npm@8.2.0(@nx/devkit@19.5.0(nx@19.5.0(@swc-node/register@1.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(typescript@5.5.3))(@swc/core@1.5.7(@swc/helpers@0.5.11))))(tslib@2.6.2):
     dependencies:
       '@nx/devkit': 19.5.0(nx@19.5.0(@swc-node/register@1.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/types@0.1.7)(typescript@5.5.3))(@swc/core@1.5.7(@swc/helpers@0.5.11)))
       tslib: 2.6.2
@@ -15555,7 +15555,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   node-abort-controller@3.1.1: {}
 
@@ -15895,7 +15895,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   parent-module@1.0.1:
     dependencies:
@@ -15935,7 +15935,7 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   path-browserify@1.0.1: {}
 
@@ -16668,7 +16668,7 @@ snapshots:
 
   rxjs@7.8.0:
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   rxjs@7.8.1:
     dependencies:
