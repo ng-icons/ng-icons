@@ -1,5 +1,22 @@
-<app-navbar></app-navbar>
+@if (!dismissed()) {
+<a
+  href="https://angularprimitives.com"
+  target="_blank"
+  class="px-12 py-4 flex items-center fixed bottom-4 rounded-xl z-10 inset-x-4 shadow-promo bg-red-50 text-sm"
+>
+  <span class="text-red-800 flex-1 text-center">
+    🎉 &nbsp;&nbsp; Introducing <b>Angular Primitives</b>, a Headless UI library for Angular!
+    <span class="text-red-800 underline">Learn more!</span>
+  </span>
+
+  <button (click)="dismiss(); $event.preventDefault(); $event.stopPropagation()" class="absolute right-4 size-6 rounded bg-red-100 text-lg text-red-900/50 inline-flex items-center justify-center">
+    <ng-icon name="heroXMarkMini" />
+  </button>
+</a>
+}
+
+<app-navbar />
 
 <div class="background-blob" [class.blue]="background === 'blue'"></div>
 
-<router-outlet></router-outlet>
+<router-outlet />
