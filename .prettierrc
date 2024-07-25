@@ -2,5 +2,6 @@
   "singleQuote": true,
   "arrowParens": "avoid",
   "trailingComma": "all",
-  "semi": true
+  "semi": true,
+  "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"]
 }

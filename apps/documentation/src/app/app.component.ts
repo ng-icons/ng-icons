@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { NgIcon, provideIcons } from '@ng-icons/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { heroXMarkMini } from '@ng-icons/heroicons/mini';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [NavbarComponent, RouterOutlet],
+  imports: [NavbarComponent, RouterOutlet, NgIcon],
+  viewProviders: [provideIcons({ heroXMarkMini })],
 })
 export class AppComponent implements OnInit {
   background = 'red';
+
+  readonly dismissed = signal(localStorage.getItem('dismissed') === 'true');
 
   constructor(private readonly router: Router) {}
 
@@ -30,5 +36,10 @@ export class AppComponent implements OnInit {
         }
       }
     });
+  }
+
+  dismiss(): void {
+    this.dismissed.set(true);
+    localStorage.setItem('dismissed', 'true');
   }
 }
