@@ -440,7 +440,11 @@ export class BrowseIconsComponent implements OnInit {
   readonly fuze = computed(() => {
     const icons = Object.keys(this.icons()[this.category()] ?? {});
 
-    return new Fuse(icons, { isCaseSensitive: false });
+    return new Fuse(icons, {
+      isCaseSensitive: false,
+      shouldSort: true,
+      threshold: 0.3,
+    });
   });
 
   /** Determine the active category index */
