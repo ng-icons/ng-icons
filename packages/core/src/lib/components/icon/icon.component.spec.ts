@@ -50,6 +50,19 @@ describe('Icon', () => {
     expect(nativeElement).toMatchSnapshot();
   });
 
+  // regression test for https://github.com/ng-icons/ng-icons/issues/127
+  it('should not remove additional child elements', () => {
+    const badge = document.createElement('span');
+    badge.textContent = '1';
+
+    fixture.nativeElement.appendChild(badge);
+
+    fixture.componentRef.setInput('name', 'featherAlertTriangle');
+    fixture.detectChanges();
+
+    expect(nativeElement.outerHTML).toMatchSnapshot();
+  });
+
   it('should allow the icon to change by passing in a svg', () => {
     fixture.componentRef.setInput('svg', featherAlertTriangle);
     fixture.detectChanges();

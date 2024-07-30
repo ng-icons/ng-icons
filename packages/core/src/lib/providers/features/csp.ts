@@ -6,7 +6,7 @@ import {
 } from './features';
 
 export type NgIconPreProcessor = (icon: string) => string;
-export type NgIconPostProcessor = (element: HTMLElement) => void;
+export type NgIconPostProcessor = (element: HTMLElement | SVGElement) => void;
 
 export const NgIconPreProcessorToken = new InjectionToken<NgIconPreProcessor>(
   'Ng Icon Pre Processor',
@@ -29,10 +29,12 @@ function preprocessIcon(icon: string): string {
   return icon.replace(/style\s*=/g, 'data-style=');
 }
 
-function postprocessIcon(element: HTMLElement): void {
+function postprocessIcon(element: HTMLElement | SVGElement): void {
   // find all elements with a data-style attribute and get the styles from it
   // and apply them to the element using the style property and remove the data-style attribute
-  const elements = element.querySelectorAll<HTMLElement>('[data-style]');
+  const elements = element.querySelectorAll<HTMLElement | SVGElement>(
+    '[data-style]',
+  );
 
   for (const element of Array.from(elements)) {
     const styles = element.getAttribute('data-style');

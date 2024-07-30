@@ -83,6 +83,9 @@ export class NgIcon {
   /** Define the color of the icon */
   readonly color = input(this.config.color);
 
+  /** Store the inserted SVG */
+  private svgElement?: SVGElement;
+
   constructor() {
     // update the icon anytime the name or svg changes
     effect(() => this.updateIcon());
@@ -130,8 +133,23 @@ export class NgIcon {
   }
 
   private setSvg(svg: string): void {
-    this.elementRef.nativeElement.innerHTML = this.preProcessor(svg);
-    this.postProcessor(this.elementRef.nativeElement);
+    // remove the old element
+    if (this.svgElement) {
+      this.elementRef.nativeElement.removeChild(this.svgElement);
+    }
+
+    // if the svg is empty, don't insert anything
+    if (svg === '') {
+      return;
+    }
+
+    const template = document.createElement('template');
+    template.innerHTML = this.preProcessor(svg);
+    this.svgElement = template.content.firstElementChild as SVGElement;
+    this.postProcessor(this.svgElement);
+
+    // insert the element into the dom
+    this.elementRef.nativeElement.appendChild(this.svgElement);
   }
 
   /**
