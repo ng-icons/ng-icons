@@ -6,6 +6,7 @@ import {
   inject,
   Injector,
   input,
+  OnDestroy,
   runInInjectionContext,
 } from '@angular/core';
 import type { IconName } from '../../components/icon/icon-name';
@@ -40,7 +41,7 @@ export type IconType = IconName | (string & {});
     '[style.color]': 'color()',
   },
 })
-export class NgIcon {
+export class NgIcon implements OnDestroy {
   /** Access the global icon config */
   private readonly config = injectNgIconConfig();
 
@@ -83,9 +84,16 @@ export class NgIcon {
   /** Define the color of the icon */
   readonly color = input(this.config.color);
 
+  /** Store the inserted SVG */
+  private svgElement?: SVGElement;
+
   constructor() {
     // update the icon anytime the name or svg changes
     effect(() => this.updateIcon());
+  }
+
+  ngOnDestroy(): void {
+    this.svgElement = undefined;
   }
 
   private async updateIcon(): Promise<void> {
@@ -130,8 +138,23 @@ export class NgIcon {
   }
 
   private setSvg(svg: string): void {
-    this.elementRef.nativeElement.innerHTML = this.preProcessor(svg);
-    this.postProcessor(this.elementRef.nativeElement);
+    // remove the old element
+    if (this.svgElement) {
+      this.elementRef.nativeElement.removeChild(this.svgElement);
+    }
+
+    // if the svg is empty, don't insert anything
+    if (svg === '') {
+      return;
+    }
+
+    const template = document.createElement('template');
+    template.innerHTML = this.preProcessor(svg);
+    this.svgElement = template.content.firstElementChild as SVGElement;
+    this.postProcessor(this.svgElement);
+
+    // insert the element into the dom
+    this.elementRef.nativeElement.appendChild(this.svgElement);
   }
 
   /**
