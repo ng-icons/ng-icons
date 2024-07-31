@@ -209,7 +209,12 @@ export class BrowseIconsComponent implements OnInit {
       license: 'MIT',
       package: '@ng-icons/tabler-icons',
       icons: async () => {
-        return { default: await import('@ng-icons/tabler-icons') };
+        const [outline, fill] = await Promise.all([
+          await import('@ng-icons/tabler-icons'),
+          await import('@ng-icons/tabler-icons/fill'),
+        ]);
+
+        return { outline, fill };
       },
     },
     {

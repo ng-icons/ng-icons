@@ -52,9 +52,14 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `radix${name}`,
   },
   {
-    glob: 'node_modules/@tabler/icons/icons/**/*.svg',
+    glob: 'node_modules/@tabler/icons/icons/outline/**/*.svg',
     output: 'packages/tabler-icons/src/index.ts',
     getIconName: (name: string) => `tabler${name}`,
+  },
+  {
+    glob: 'node_modules/@tabler/icons/icons/filled/**/*.svg',
+    output: 'packages/tabler-icons/fill/src/index.ts',
+    getIconName: (name: string) => `tabler${name}Fill`,
   },
   {
     glob: 'node_modules/css.gg/icons/svg/**/*.svg',
