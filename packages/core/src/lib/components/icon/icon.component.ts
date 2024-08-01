@@ -1,3 +1,4 @@
+import { isPlatformServer } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -7,6 +8,8 @@ import {
   Injector,
   input,
   OnDestroy,
+  PLATFORM_ID,
+  Renderer2,
   runInInjectionContext,
 } from '@angular/core';
 import type { IconName } from '../../components/icon/icon-name';
@@ -62,6 +65,12 @@ export class NgIcon implements OnDestroy {
 
   /** Access the injector */
   private readonly injector = inject(Injector);
+
+  /** Access the renderer */
+  private readonly renderer = inject(Renderer2);
+
+  /** Determine the platform we are rendering on */
+  private readonly platform = inject(PLATFORM_ID);
 
   /** Access the element ref */
   private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
@@ -138,9 +147,17 @@ export class NgIcon implements OnDestroy {
   }
 
   private setSvg(svg: string): void {
+    // if we are on the server, simply innerHTML the svg as we don't have the
+    // level of control over the DOM that we do on the client, in otherwords
+    // the approach we take to insert the svg on the client will not work on the server
+    if (isPlatformServer(this.platform)) {
+      this.elementRef.nativeElement.innerHTML = svg;
+      return;
+    }
+
     // remove the old element
     if (this.svgElement) {
-      this.elementRef.nativeElement.removeChild(this.svgElement);
+      this.renderer.removeChild(this.elementRef.nativeElement, this.svgElement);
     }
 
     // if the svg is empty, don't insert anything
@@ -148,13 +165,15 @@ export class NgIcon implements OnDestroy {
       return;
     }
 
-    const template = document.createElement('template');
-    template.innerHTML = this.preProcessor(svg);
+    const template: HTMLTemplateElement =
+      this.renderer.createElement('template');
+    this.renderer.setProperty(template, 'innerHTML', this.preProcessor(svg));
+
     this.svgElement = template.content.firstElementChild as SVGElement;
     this.postProcessor(this.svgElement);
 
     // insert the element into the dom
-    this.elementRef.nativeElement.appendChild(this.svgElement);
+    this.renderer.appendChild(this.elementRef.nativeElement, this.svgElement);
   }
 
   /**
