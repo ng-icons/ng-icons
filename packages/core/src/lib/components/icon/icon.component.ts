@@ -152,7 +152,25 @@ export class NgIcon implements OnDestroy {
     // the approach we take to insert the svg on the client will not work on the server
     if (isPlatformServer(this.platform)) {
       this.elementRef.nativeElement.innerHTML = svg;
+      // mark this component as server side rendered
+      this.elementRef.nativeElement.setAttribute('data-ng-icon-ssr', '');
       return;
+    }
+
+    // if this was previously server side rendered, we should check if the svg is the same
+    // if it is, we don't need to do anything
+    if (this.elementRef.nativeElement.hasAttribute('data-ng-icon-ssr')) {
+      // if it is different, we need to remove the server side rendered flag
+      this.elementRef.nativeElement.removeAttribute('data-ng-icon-ssr');
+
+      if (this.elementRef.nativeElement.innerHTML === svg) {
+        return;
+      }
+
+      // retrieve the svg element
+      this.svgElement =
+        this.elementRef.nativeElement.querySelector<SVGElement>('svg') ??
+        undefined;
     }
 
     // remove the old element

@@ -100,7 +100,13 @@ export async function optimizeIcon(
     } as AddAttributesToSVGElementPlugin);
   }
 
-  const result = await optimize(svg, { plugins: plugins as Plugin[] });
+  const result = await optimize(svg, {
+    plugins: plugins as Plugin[],
+    // we don't use self closing tags because in the browser they are rendered with closing tags
+    // and we perform an optimization where we check if the svg content matched the dom in ssr
+    // and if we don't have a match we can't optimize
+    js2svg: { useShortTags: false },
+  });
 
   if (result.error) {
     throw result.error;
