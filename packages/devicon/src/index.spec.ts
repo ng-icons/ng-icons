@@ -1,6 +1,6 @@
 import * as lineIcons from '../line/src/index';
-import * as plainIcons from '../plain/src/index';
 import * as originalIcons from '../original/src/index';
+import * as plainIcons from '../plain/src/index';
 
 describe('Devicon Icons', () => {
   it('should ensure the export names have not changed unexpectedly', () => {
