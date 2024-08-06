@@ -23,6 +23,10 @@
         "packages/cryptocurrency-icons/src/index.ts"
       ],
       "@ng-icons/css.gg": ["packages/css-gg/src/index.ts"],
+      "@ng-icons/devicon": ["packages/devicon/src/index.ts"],
+      "@ng-icons/devicon/line": ["packages/devicon/line/src/index.ts"],
+      "@ng-icons/devicon/original": ["packages/devicon/original/src/index.ts"],
+      "@ng-icons/devicon/plain": ["packages/devicon/plain/src/index.ts"],
       "@ng-icons/dripicons": ["packages/dripicons/src/index.ts"],
       "@ng-icons/feather-icons": ["packages/feather-icons/src/index.ts"],
       "@ng-icons/font-awesome": ["packages/font-awesome/src/index.ts"],

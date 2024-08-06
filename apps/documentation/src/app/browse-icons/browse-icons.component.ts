@@ -41,6 +41,7 @@ import Fuse from 'fuse.js';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { FadeInContainerDirective } from '../directives/fade-in/fade-in-container.directive';
 import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
+import { diDeviconPlain } from '@ng-icons/devicon/plain';
 
 const circumIcon = `
 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.47 35.47"><path d="M17.74,0A17.74,17.74,0,1,0,35.47,17.74,17.72,17.72,0,0,0,17.74,0ZM21.5,28A10.27,10.27,0,1,1,31.77,17.74,10.26,10.26,0,0,1,21.5,28Z"></path></svg>`;
@@ -88,6 +89,7 @@ const circumIcon = `
       phosphorPhosphorLogo,
       letsDimondAltLight,
       hugeShoppingBasket01,
+      diDeviconPlain
     }),
   ],
 })
@@ -420,6 +422,22 @@ export class BrowseIconsComponent implements OnInit {
       package: '@ng-icons/huge-icons',
       icons: async () => {
         return { default: await import('@ng-icons/huge-icons') };
+      },
+    },
+    {
+      name: 'Devicon',
+      website: 'github.com/devicons/devicon',
+      icon: 'diDeviconPlain',
+      license: 'MIT',
+      package: '@ng-icons/devicon',
+      icons: async () => {
+        const [line, original, plain] = await Promise.all([
+          import('@ng-icons/devicon/line'),
+          import('@ng-icons/devicon/original'),
+          import('@ng-icons/devicon/plain'),
+        ]);
+
+        return { line, original, plain };
       },
     },
   ];

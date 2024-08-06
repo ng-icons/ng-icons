@@ -38,6 +38,7 @@ Currently, we support the following libraries:
 - [TDesign Icons](https://github.com/Tencent/tdesign-icons)
 - [Lets Icons](https://www.figma.com/community/file/886554014393250663/free-icon-pack-1800-icons)
 - [Huge Icons](https://hugeicons.com/)
+- [Devicon](https://github.com/devicons/devicon/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -83,7 +84,7 @@ yarn add @ng-icons/core @ng-icons/heroicons ...
 The following packages are available:
 
 | Package                          | License                               |
-| -------------------------------- | ------------------------------------- |
+|----------------------------------|---------------------------------------|
 | `@ng-icons/core`                 | MIT                                   |
 | `@ng-icons/bootstrap-icons`      | MIT                                   |
 | `@ng-icons/heroicons`            | MIT                                   |
@@ -111,6 +112,7 @@ The following packages are available:
 | `@ng-icons/phosphor-icons`       | MIT                                   |
 | `@ng-icons/lets-icons`           | CC-BY-4.0                             |
 | `@ng-icons/huge-icons`           | CC0-1.0                               |
+| `@ng-icons/devicon`              | MIT                                   |
 
 ## Usage
 
