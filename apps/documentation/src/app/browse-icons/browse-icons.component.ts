@@ -16,6 +16,7 @@ import { bootstrapBootstrapFill } from '@ng-icons/bootstrap-icons';
 import { NgIcon, NgIconsToken, provideIcons } from '@ng-icons/core';
 import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { cssShapeHexagon } from '@ng-icons/css.gg';
+import { diDeviconPlain } from '@ng-icons/devicon/plain';
 import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
 import { faFontAwesome } from '@ng-icons/font-awesome/regular';
@@ -88,6 +89,7 @@ const circumIcon = `
       phosphorPhosphorLogo,
       letsDimondAltLight,
       hugeShoppingBasket01,
+      diDeviconPlain,
     }),
   ],
 })
@@ -420,6 +422,22 @@ export class BrowseIconsComponent implements OnInit {
       package: '@ng-icons/huge-icons',
       icons: async () => {
         return { default: await import('@ng-icons/huge-icons') };
+      },
+    },
+    {
+      name: 'Devicon',
+      website: 'github.com/devicons/devicon',
+      icon: 'diDeviconPlain',
+      license: 'MIT',
+      package: '@ng-icons/devicon',
+      icons: async () => {
+        const [line, original, plain] = await Promise.all([
+          import('@ng-icons/devicon/line'),
+          import('@ng-icons/devicon/original'),
+          import('@ng-icons/devicon/plain'),
+        ]);
+
+        return { line, original, plain };
       },
     },
   ];

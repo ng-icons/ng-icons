@@ -8,7 +8,7 @@
     "test": "nx run-many --target=test --all --parallel=8 --runInBand",
     "compile": "nx generate @ng-icons/workspace-plugin:svg-to-ts && nx run-many --target=build --all --parallel=8 && nx generate @ng-icons/workspace-plugin:update-readmes",
     "generate:iconsets": "nx generate @ng-icons/workspace-plugin:svg-to-ts",
-    "deploy": "nx run-many --all --target=deploy --parallel=8 --packageVersion=29.2.1"
+    "deploy": "nx run-many --all --target=deploy --parallel=8 --packageVersion=29.3.0"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +37,7 @@
     "cryptocurrency-icons": "0.18.1",
     "css.gg": "2.1.1",
     "dripicons": "https://gitpkg.now.sh/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38",
+    "devicon": "https://github.com/devicons/devicon.git",
     "feather-icons": "4.29.2",
     "font-awesome-brands": "https://gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/brands?6.x",
     "font-awesome-regular": "https://gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/regular?6.x",
