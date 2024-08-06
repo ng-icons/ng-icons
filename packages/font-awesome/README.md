@@ -84,7 +84,7 @@ yarn add @ng-icons/core @ng-icons/heroicons ...
 The following packages are available:
 
 | Package                          | License                               |
-|----------------------------------|---------------------------------------|
+| -------------------------------- | ------------------------------------- |
 | `@ng-icons/core`                 | MIT                                   |
 | `@ng-icons/bootstrap-icons`      | MIT                                   |
 | `@ng-icons/heroicons`            | MIT                                   |

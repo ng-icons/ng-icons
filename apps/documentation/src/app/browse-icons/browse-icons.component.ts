@@ -16,6 +16,7 @@ import { bootstrapBootstrapFill } from '@ng-icons/bootstrap-icons';
 import { NgIcon, NgIconsToken, provideIcons } from '@ng-icons/core';
 import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { cssShapeHexagon } from '@ng-icons/css.gg';
+import { diDeviconPlain } from '@ng-icons/devicon/plain';
 import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
 import { faFontAwesome } from '@ng-icons/font-awesome/regular';
@@ -36,7 +37,6 @@ import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { tdesignCombination } from '@ng-icons/tdesign-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
 import { aspectsDashboard } from '@ng-icons/ux-aspects';
-import { diDeviconPlain } from '@ng-icons/devicon/plain';
 import { RxFor } from '@rx-angular/template/for';
 import Fuse from 'fuse.js';
 import { SegmentComponent } from '../components/segment/segment.component';
@@ -89,7 +89,7 @@ const circumIcon = `
       phosphorPhosphorLogo,
       letsDimondAltLight,
       hugeShoppingBasket01,
-      diDeviconPlain
+      diDeviconPlain,
     }),
   ],
 })

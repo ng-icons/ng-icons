@@ -82,19 +82,21 @@ export const iconsets: Iconset[] = [
   },
   {
     glob: 'node_modules/devicon/icons/**/*.svg',
-    filter: name => name.endsWith('plain.svg') || name.endsWith('plain-wordmark.svg'),
+    filter: name =>
+      name.endsWith('plain.svg') || name.endsWith('plain-wordmark.svg'),
     output: 'packages/devicon/plain/src/index.ts',
     getIconName: (name: string) => {
       return `di${name}`;
     },
     svg: {
-      removeColor: true
-    }
+      removeColor: true,
+    },
   },
 
   {
     glob: 'node_modules/devicon/icons/**/*.svg',
-    filter: name => name.endsWith('original.svg') || name.endsWith('original-wordmark.svg'),
+    filter: name =>
+      name.endsWith('original.svg') || name.endsWith('original-wordmark.svg'),
     output: 'packages/devicon/original/src/index.ts',
     getIconName: (name: string) => {
       return `di${name}`;
@@ -102,15 +104,16 @@ export const iconsets: Iconset[] = [
   },
   {
     glob: 'node_modules/devicon/icons/**/*.svg',
-    filter: name => name.endsWith('line.svg') || name.endsWith('line-wordmark.svg'),
+    filter: name =>
+      name.endsWith('line.svg') || name.endsWith('line-wordmark.svg'),
     output: 'packages/devicon/line/src/index.ts',
     getIconName: (name: string) => {
       return `di${name}`;
     },
     svg: {
-      colorAttr: "stroke",
-      removeColor: true
-    }
+      colorAttr: 'stroke',
+      removeColor: true,
+    },
   },
   {
     glob: 'node_modules/ionicons/dist/svg/**/*.svg',
