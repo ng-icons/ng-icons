@@ -8,8 +8,8 @@
 
 # Ng Icons
 
-The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 54,600 icons for you to use in your projects.
+The all-in-one icon library for Angular. This alolws you to use icons from multiple icon sets with a single icon component.
+Containing over 56,000 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
