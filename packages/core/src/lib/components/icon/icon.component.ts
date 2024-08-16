@@ -88,7 +88,9 @@ export class NgIcon implements OnDestroy {
   readonly size = input(this.config.size, { transform: coerceCssPixelValue });
 
   /** Define the stroke-width of the icon */
-  readonly strokeWidth = input<string | number>();
+  readonly strokeWidth = input<string | number | undefined>(
+    this.config.strokeWidth,
+  );
 
   /** Define the color of the icon */
   readonly color = input(this.config.color);
