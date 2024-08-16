@@ -6,6 +6,8 @@ export interface NgIconConfig {
   size: string;
   /** Define the default color of icons */
   color?: string;
+  /** Define the default stroke width of icons */
+  strokeWidth?: string | number;
 }
 
 export const NgIconConfigToken = new InjectionToken<NgIconConfig>(
