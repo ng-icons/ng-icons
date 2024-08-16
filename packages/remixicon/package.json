@@ -1,6 +1,6 @@
 {
   "name": "@ng-icons/remixicon",
-  "version": "0.0.1",
+  "version": "29.3.0",
   "dependencies": {
     "tslib": "^2.2.0"
   },

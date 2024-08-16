@@ -1,5 +1,6 @@
 import { libraryGenerator, UnitTestRunner } from '@nx/angular/generators';
-import { Tree, updateJson } from '@nx/devkit';
+import { readJson, Tree, updateJson } from '@nx/devkit';
+import { PackageJson } from 'nx/src/utils/package-json';
 import { Schema } from '../schema';
 
 export async function generateIconLibrary(tree: Tree, schema: Schema) {
@@ -21,9 +22,12 @@ export async function generateIconLibrary(tree: Tree, schema: Schema) {
   tree.delete(`packages/${schema.name}/src/lib/${schema.name}`);
   tree.write(`packages/${schema.name}/src/index.ts`, '');
 
+  const { version } = readJson<PackageJson>(tree, `packages/core/package.json`);
+
   // update the package.json file to remove peerDependencies
   updateJson(tree, `packages/${schema.name}/package.json`, json => {
     delete json.peerDependencies;
+    json.version = version;
     return json;
   });
 }

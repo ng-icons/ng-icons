@@ -52,11 +52,10 @@
         "jestConfig": "packages/schematics/jest.config.ts"
       }
     },
-    "deploy": {
-      "executor": "ngx-deploy-npm:deploy",
+    "nx-release-publish": {
+      "dependsOn": ["build"],
       "options": {
-        "access": "public",
-        "distFolderPath": "dist/packages/schematics"
+        "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
   },

@@ -32,11 +32,10 @@
     "lint": {
       "executor": "@nx/eslint:lint"
     },
-    "deploy": {
-      "executor": "ngx-deploy-npm:deploy",
+    "nx-release-publish": {
+      "dependsOn": ["build"],
       "options": {
-        "access": "public",
-        "distFolderPath": "dist/packages/tdesign-icons"
+        "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
   }

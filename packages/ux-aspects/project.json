@@ -31,11 +31,10 @@
     "lint": {
       "executor": "@nx/eslint:lint"
     },
-    "deploy": {
-      "executor": "ngx-deploy-npm:deploy",
+    "nx-release-publish": {
+      "dependsOn": ["build"],
       "options": {
-        "access": "public",
-        "distFolderPath": "dist/packages/ux-aspects"
+        "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
   },

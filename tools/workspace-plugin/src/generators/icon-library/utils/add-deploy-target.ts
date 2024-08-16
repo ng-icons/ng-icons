@@ -8,10 +8,10 @@ import { Schema } from '../schema';
 export function addDeployTarget(tree: Tree, schema: Schema) {
   const configuration = readProjectConfiguration(tree, schema.name);
 
-  configuration.targets!.deploy = {
-    executor: 'ngx-deploy-npm:deploy',
+  configuration.targets!['nx-release-publish'] = {
+    dependsOn: ['build'],
     options: {
-      access: 'public',
+      packageRoot: '{workspaceRoot}/dist/{projectRoot}',
     },
   };
 

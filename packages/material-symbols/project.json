@@ -33,11 +33,10 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
     },
-    "deploy": {
-      "executor": "ngx-deploy-npm:deploy",
+    "nx-release-publish": {
+      "dependsOn": ["build"],
       "options": {
-        "access": "public",
-        "distFolderPath": "dist/packages/material-symbols"
+        "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
   }
