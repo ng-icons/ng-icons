@@ -64,14 +64,13 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
                 factory.createVariableDeclaration(
                   factory.createArrayBindingPattern(
                     entrypoints.map(entrypoint =>
-                      factory.createBindingElement(
-                        undefined,
-                        undefined,
-                        factory.createIdentifier(entrypoint),
-                        undefined,
-                      ),
+                    factory.createBindingElement(
+                      undefined,
+                      undefined,
+                      factory.createIdentifier(entrypoint),
+                      undefined,
                     ),
-                  ),
+                  )),
                   undefined,
                   undefined,
                   factory.createAwaitExpression(
@@ -83,8 +82,8 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
                       undefined,
                       [
                         factory.createArrayLiteralExpression(
-                          entrypoints.map(entrypoint =>
-                            factory.createAwaitExpression(
+                          entrypoints.map(
+                            entrypoint =>
                               factory.createCallExpression(
                                 factory.createToken(
                                   ts.SyntaxKind.ImportKeyword,
@@ -96,9 +95,8 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
                                   ),
                                 ],
                               ),
-                            ),
+                            true,
                           ),
-                          true,
                         ),
                       ],
                     ),
@@ -120,7 +118,6 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
                   factory.createIdentifier(entrypoint),
                   undefined,
                 ),
-              ),
               false,
             ),
           ),
