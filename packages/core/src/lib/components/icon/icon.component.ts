@@ -165,14 +165,14 @@ export class NgIcon implements OnDestroy {
       // if it is different, we need to remove the server side rendered flag
       this.elementRef.nativeElement.removeAttribute('data-ng-icon-ssr');
 
-      if (this.elementRef.nativeElement.innerHTML === svg) {
-        return;
-      }
-
       // retrieve the svg element
       this.svgElement =
         this.elementRef.nativeElement.querySelector<SVGElement>('svg') ??
         undefined;
+
+      if (this.elementRef.nativeElement.innerHTML === svg) {
+        return;
+      }
     }
 
     // remove the old element
