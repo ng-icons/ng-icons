@@ -1,5 +1,5 @@
 import { logger, names, Tree } from '@nx/devkit';
-import { ast, print, replace } from '@phenomnomnominal/tsquery';
+import { ast, print, query, replace } from '@phenomnomnominal/tsquery';
 import * as ts from 'typescript';
 import { Schema } from '../schema';
 
@@ -13,12 +13,13 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
   const entrypoints =
     schema.entrypoints
       ?.split(',')
-      .map(entrypoint => names(entrypoint.trim()).fileName) ?? [];
+      .map(entrypoint => names(entrypoint.trim()).fileName)
+      .filter(Boolean) ?? [];
 
   let iconsetAst: ts.ObjectLiteralExpression;
 
   if (entrypoints.length === 0) {
-    iconsetAst = ast(`{
+    const defintion = ast(`const iconset = {
       name: '${schema.name}',
       website: '${schema.website}',
       icon: 'TODO',
@@ -27,9 +28,14 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
       icons: async () => {
         return { default: await import('@ng-icons/${schema.name}') };
       },
-    }`).statements[0] as unknown as ts.ObjectLiteralExpression;
+    }`);
+
+    iconsetAst = query<ts.ObjectLiteralExpression>(
+      defintion,
+      'VariableDeclaration:has(Identifier[name="iconset"]) > ObjectLiteralExpression',
+    )[0];
   } else {
-    iconsetAst = ast(`{
+    const definition = ast(`const iconset = {
       name: '${schema.name}',
       website: '${schema.website}',
       icon: 'TODO',
@@ -41,7 +47,12 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
         ]);
         return { ${entrypoints.join(', ')} };
       },
-    }`).statements[0] as unknown as ts.ObjectLiteralExpression;
+    }`);
+
+    iconsetAst = query<ts.ObjectLiteralExpression>(
+      definition,
+      'ObjectLiteralExpression',
+    )[0];
   }
 
   const iconsets = replace(

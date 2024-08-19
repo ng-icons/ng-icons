@@ -10,7 +10,11 @@ export function addIconset(tree: Tree, schema: Schema): void {
     'utf-8',
   );
 
-  const entrypoints = schema.entrypoints?.split(',').map(e => e.trim()) ?? [];
+  const entrypoints =
+    schema.entrypoints
+      ?.split(',')
+      .map(e => e.trim())
+      .filter(Boolean) ?? [];
 
   const updatedIconsets = replace(
     iconsets,

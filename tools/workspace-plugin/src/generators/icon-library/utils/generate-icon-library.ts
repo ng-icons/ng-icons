@@ -37,7 +37,11 @@ export async function generateIconLibrary(tree: Tree, schema: Schema) {
   });
 
   // if there are multiple entrypoints, we need to generate them
-  const entrypoints = schema.entrypoints?.split(',').map(e => e.trim()) ?? [];
+  const entrypoints =
+    schema.entrypoints
+      ?.split(',')
+      .map(e => e.trim())
+      .filter(Boolean) ?? [];
 
   for (const entrypoint of entrypoints) {
     await librarySecondaryEntryPointGenerator(tree, {
