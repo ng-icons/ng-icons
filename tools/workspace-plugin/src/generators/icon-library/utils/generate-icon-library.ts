@@ -1,7 +1,12 @@
-import { libraryGenerator, UnitTestRunner } from '@nx/angular/generators';
-import { readJson, Tree, updateJson } from '@nx/devkit';
+import {
+  libraryGenerator,
+  librarySecondaryEntryPointGenerator,
+  UnitTestRunner,
+} from '@nx/angular/generators';
+import { names, readJson, Tree, updateJson } from '@nx/devkit';
 import { PackageJson } from 'nx/src/utils/package-json';
 import { Schema } from '../schema';
+import { addIconset } from './add-iconset';
 
 export async function generateIconLibrary(tree: Tree, schema: Schema) {
   await libraryGenerator(tree, {
@@ -30,4 +35,30 @@ export async function generateIconLibrary(tree: Tree, schema: Schema) {
     json.version = version;
     return json;
   });
+
+  // if there are multiple entrypoints, we need to generate them
+  const entrypoints =
+    schema.entrypoints
+      ?.split(',')
+      .map(e => e.trim())
+      .filter(Boolean) ?? [];
+
+  for (const entrypoint of entrypoints) {
+    await librarySecondaryEntryPointGenerator(tree, {
+      name: names(entrypoint).fileName,
+      library: schema.name,
+      skipFormat: true,
+      skipModule: true,
+    });
+  }
+
+  // if there are entrypoints defined, null out the default index.ts file
+  if (entrypoints.length) {
+    tree.write(
+      `packages/${schema.name}/src/index.ts`,
+      '// this file is needed for the build to work\nexport default null;',
+    );
+  }
+
+  addIconset(tree, schema);
 }
