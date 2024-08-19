@@ -62,26 +62,16 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
             factory.createVariableDeclarationList(
               [
                 factory.createVariableDeclaration(
-                  factory.createArrayBindingPattern([
-                    factory.createBindingElement(
-                      undefined,
-                      undefined,
-                      factory.createIdentifier('line'),
-                      undefined,
+                  factory.createArrayBindingPattern(
+                    entrypoints.map(entrypoint =>
+                      factory.createBindingElement(
+                        undefined,
+                        undefined,
+                        factory.createIdentifier(entrypoint),
+                        undefined,
+                      ),
                     ),
-                    factory.createBindingElement(
-                      undefined,
-                      undefined,
-                      factory.createIdentifier('original'),
-                      undefined,
-                    ),
-                    factory.createBindingElement(
-                      undefined,
-                      undefined,
-                      factory.createIdentifier('plain'),
-                      undefined,
-                    ),
-                  ]),
+                  ),
                   undefined,
                   undefined,
                   factory.createAwaitExpression(
