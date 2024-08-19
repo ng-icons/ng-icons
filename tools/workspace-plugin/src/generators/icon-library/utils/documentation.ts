@@ -154,14 +154,7 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
       ),
       factory.createPropertyAssignment(
         factory.createIdentifier('icons'),
-        factory.createArrowFunction(
-          [factory.createToken(ts.SyntaxKind.AsyncKeyword)],
-          undefined,
-          [],
-          undefined,
-          factory.createToken(ts.SyntaxKind.EqualsGreaterThanToken),
-          loader,
-        ),
+        loader,
       ),
     ],
     true,
