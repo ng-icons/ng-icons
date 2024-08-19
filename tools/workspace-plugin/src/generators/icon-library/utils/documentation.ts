@@ -1,7 +1,6 @@
 import { logger, names, Tree } from '@nx/devkit';
-import { print, replace } from '@phenomnomnominal/tsquery';
+import { ast, print, replace } from '@phenomnomnominal/tsquery';
 import * as ts from 'typescript';
-import { factory } from 'typescript';
 import { Schema } from '../schema';
 
 export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
@@ -16,148 +15,34 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
       ?.split(',')
       .map(entrypoint => names(entrypoint.trim()).fileName) ?? [];
 
-  let loader: ts.ArrowFunction;
+  let iconsetAst: ts.ObjectLiteralExpression;
 
   if (entrypoints.length === 0) {
-    loader = factory.createArrowFunction(
-      [factory.createToken(ts.SyntaxKind.AsyncKeyword)],
-      undefined,
-      [],
-      undefined,
-      factory.createToken(ts.SyntaxKind.EqualsGreaterThanToken),
-      factory.createBlock(
-        [
-          factory.createReturnStatement(
-            factory.createObjectLiteralExpression(
-              [
-                factory.createPropertyAssignment(
-                  factory.createIdentifier('default'),
-                  factory.createAwaitExpression(
-                    factory.createCallExpression(
-                      factory.createToken(ts.SyntaxKind.ImportKeyword) as any,
-                      undefined,
-                      [factory.createStringLiteral(`@ng-icons/${schema.name}`)],
-                    ),
-                  ),
-                ),
-              ],
-              false,
-            ),
-          ),
-        ],
-        true,
-      ),
-    );
+    iconsetAst = ast(`{
+      name: '${schema.name}',
+      website: '${schema.website}',
+      icon: 'TODO',
+      license: '${schema.license}',
+      package: '@ng-icons/${schema.name}',
+      icons: async () => {
+        return { default: await import('@ng-icons/${schema.name}') };
+      },
+    }`).statements[0] as unknown as ts.ObjectLiteralExpression;
   } else {
-    loader = factory.createArrowFunction(
-      [factory.createToken(ts.SyntaxKind.AsyncKeyword)],
-      undefined,
-      [],
-      undefined,
-      factory.createToken(ts.SyntaxKind.EqualsGreaterThanToken),
-      factory.createBlock(
-        [
-          factory.createVariableStatement(
-            undefined,
-            factory.createVariableDeclarationList(
-              [
-                factory.createVariableDeclaration(
-                  factory.createArrayBindingPattern(
-                    entrypoints.map(entrypoint =>
-                      factory.createBindingElement(
-                        undefined,
-                        undefined,
-                        factory.createIdentifier(entrypoint),
-                        undefined,
-                      ),
-                    ),
-                  ),
-                  undefined,
-                  undefined,
-                  factory.createAwaitExpression(
-                    factory.createCallExpression(
-                      factory.createPropertyAccessExpression(
-                        factory.createIdentifier('Promise'),
-                        factory.createIdentifier('all'),
-                      ),
-                      undefined,
-                      [
-                        factory.createArrayLiteralExpression(
-                          entrypoints.map(
-                            entrypoint =>
-                              factory.createCallExpression(
-                                factory.createToken(
-                                  ts.SyntaxKind.ImportKeyword,
-                                ) as any,
-                                undefined,
-                                [
-                                  factory.createStringLiteral(
-                                    `@ng-icons/${schema.name}/${entrypoint}`,
-                                  ),
-                                ],
-                              ),
-                            true,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-              ts.NodeFlags.Const |
-                ts.NodeFlags.Constant |
-                ts.NodeFlags.AwaitContext |
-                ts.NodeFlags.Constant |
-                ts.NodeFlags.ContextFlags |
-                ts.NodeFlags.TypeExcludesFlags,
-            ),
-          ),
-          factory.createReturnStatement(
-            factory.createObjectLiteralExpression(
-              entrypoints.map(entrypoint =>
-                factory.createShorthandPropertyAssignment(
-                  factory.createIdentifier(entrypoint),
-                  undefined,
-                ),
-              ),
-              false,
-            ),
-          ),
-        ],
-        true,
-      ),
-    );
+    iconsetAst = ast(`{
+      name: '${schema.name}',
+      website: '${schema.website}',
+      icon: 'TODO',
+      license: '${schema.license}',
+      package: '@ng-icons/${schema.name}',
+      icons: async () => {
+        const [${entrypoints.join(', ')}] = await Promise.all([
+          ${entrypoints.map(entrypoint => `import('@ng-icons/${schema.name}/${entrypoint}')`).join(',\n')}
+        ]);
+        return { ${entrypoints.join(', ')} };
+      },
+    }`).statements[0] as unknown as ts.ObjectLiteralExpression;
   }
-
-  const iconsetAst = factory.createObjectLiteralExpression(
-    [
-      factory.createPropertyAssignment(
-        factory.createIdentifier('name'),
-        factory.createStringLiteral(schema.name),
-      ),
-      factory.createPropertyAssignment(
-        factory.createIdentifier('website'),
-        factory.createStringLiteral(schema.website),
-      ),
-      factory.createPropertyAssignment(
-        factory.createIdentifier('icon'),
-        factory.createStringLiteral('TODO'),
-      ),
-      factory.createPropertyAssignment(
-        factory.createIdentifier('license'),
-        factory.createStringLiteral(schema.license),
-      ),
-      factory.createPropertyAssignment(
-        factory.createIdentifier('package'),
-        factory.createStringLiteral(`@ng-icons/${schema.name}`),
-      ),
-      factory.createPropertyAssignment(
-        factory.createIdentifier('icons'),
-        loader,
-      ),
-    ],
-    true,
-  );
 
   const iconsets = replace(
     browseIcons,
