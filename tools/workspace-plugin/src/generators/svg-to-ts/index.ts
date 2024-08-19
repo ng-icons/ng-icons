@@ -5,6 +5,7 @@ import { basename } from 'path';
 import * as ts from 'typescript';
 import { Iconset, iconsets } from './iconsets';
 import { optimizeIcon } from './optimize-icon';
+import { updateIconCounts } from './update-counts';
 
 let iconCount = 0;
 
@@ -123,6 +124,7 @@ export async function iconGenerator(tree: Tree): Promise<void> {
   }
 
   await generateIconNameType(tree);
+  updateIconCounts(tree, iconCount);
 
   console.log(`✅ Generated ${iconCount} icons.`);
 

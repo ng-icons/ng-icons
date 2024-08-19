@@ -6,8 +6,8 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "Library name",
-      "x-prompt": "What should the library be called?",
+      "description": "The name of the iconset.",
+      "x-prompt": "The name of the iconset.",
       "$default": {
         "$source": "argv",
         "index": 0
@@ -15,9 +15,24 @@
     },
     "license": {
       "type": "string",
-      "description": "The iconset license",
-      "x-prompt": "The iconset license"
+      "description": "The iconset license. This must be a license that permits redistribution.",
+      "x-prompt": "The iconset license. This must be a license that permits redistribution."
+    },
+    "website": {
+      "type": "string",
+      "description": "The website where the iconset can be found.",
+      "x-prompt": "The website where the iconset can be found."
+    },
+    "prefix": {
+      "type": "string",
+      "description": "The prefix to use for the iconset.",
+      "x-prompt": "The prefix to use for the iconset."
+    },
+    "entrypoints": {
+      "type": "string",
+      "description": "If the iconset has multiple variants, for example, solid, outline etc.. these should be separate entrypoints. List them as comma separated options, otherwise skip this.",
+      "x-prompt": "If the iconset has multiple variants, for example, solid, outline etc.. these should be separate entrypoints. List them as comma separated options, otherwise skip this."
     }
   },
-  "required": ["name", "license"]
+  "required": ["name", "license", "website", "prefix"]
 }
