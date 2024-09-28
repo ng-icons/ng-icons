@@ -1,6 +1,6 @@
 {
   "name": "@ng-icons/bootstrap-icons",
-  "version": "29.5.0",
+  "version": "29.5.1",
   "dependencies": {
     "tslib": "^2.2.0"
   },

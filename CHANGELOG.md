@@ -1,3 +1,14 @@
+## 29.5.1 (2024-09-28)
+
+
+### 🚀 Features
+
+- updating iconsets ([#143](https://github.com/ng-icons/ng-icons/pull/143))
+
+### ❤️  Thank You
+
+- Ashley Hunter
+
 ## 29.5.0 (2024-08-20)
 
 
