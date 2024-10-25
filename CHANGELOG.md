@@ -1,3 +1,13 @@
+## 29.5.2 (2024-10-25)
+
+### 🩹 Fixes
+
+- **core:** allow sizing variable inheritance ([#144](https://github.com/ng-icons/ng-icons/pull/144))
+
+### ❤️  Thank You
+
+- Ashley Hunter
+
 ## 29.5.1 (2024-09-28)
 
 
