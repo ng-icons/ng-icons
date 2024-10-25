@@ -3,7 +3,7 @@ import { NgIconFeatures } from './features/features';
 
 export interface NgIconConfig {
   /** Define the default size of icons */
-  size: string;
+  size?: string;
   /** Define the default color of icons */
   color?: string;
   /** Define the default stroke width of icons */
@@ -13,10 +13,6 @@ export interface NgIconConfig {
 export const NgIconConfigToken = new InjectionToken<NgIconConfig>(
   'Ng Icon Config',
 );
-
-const defaultConfig: NgIconConfig = {
-  size: '1em',
-};
 
 /**
  * Provide the configuration for the icons
@@ -29,7 +25,7 @@ export function provideNgIconsConfig(
   return [
     {
       provide: NgIconConfigToken,
-      useValue: { ...defaultConfig, ...config },
+      useValue: config,
     },
     features.map(feature => feature.ɵproviders),
   ];
@@ -41,5 +37,5 @@ export function provideNgIconsConfig(
  * @internal
  */
 export function injectNgIconConfig(): NgIconConfig {
-  return inject(NgIconConfigToken, { optional: true }) ?? defaultConfig;
+  return inject(NgIconConfigToken, { optional: true }) ?? {};
 }
