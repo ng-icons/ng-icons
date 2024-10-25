@@ -22,7 +22,6 @@ import { provideIcons } from '../../providers/icon.provider';
 import { NgIcon } from './icon.component';
 
 describe('Icon', () => {
-  let component: NgIcon;
   let fixture: ComponentFixture<NgIcon>;
   let nativeElement: HTMLElement;
 
@@ -34,7 +33,6 @@ describe('Icon', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(NgIcon);
-    component = fixture.componentInstance;
     fixture.componentRef.setInput('name', 'featherAlertCircle');
     fixture.detectChanges();
     nativeElement = fixture.nativeElement;
@@ -84,6 +82,32 @@ describe('Icon', () => {
   });
 
   it('should allow the stroke width to change', () => {
+    fixture.componentRef.setInput('strokeWidth', 4);
+    fixture.detectChanges();
+    expect(
+      nativeElement.style.getPropertyValue('--ng-icon__stroke-width'),
+    ).toBe('4');
+  });
+
+  it('should not define a value for --ng-icon__size if the size is not set', () => {
+    expect(nativeElement.style.getPropertyValue('--ng-icon__size')).toBe('');
+  });
+
+  it('should not define a value for --ng-icon__stroke-width if the stroke width is not set', () => {
+    expect(
+      nativeElement.style.getPropertyValue('--ng-icon__stroke-width'),
+    ).toBe('');
+  });
+
+  it('should define a value for --ng-icon__size if the size is set', () => {
+    fixture.componentRef.setInput('size', 32);
+    fixture.detectChanges();
+    expect(nativeElement.style.getPropertyValue('--ng-icon__size')).toBe(
+      '32px',
+    );
+  });
+
+  it('should define a value for --ng-icon__stroke-width if the stroke width is set', () => {
     fixture.componentRef.setInput('strokeWidth', 4);
     fixture.detectChanges();
     expect(
