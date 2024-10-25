@@ -55,7 +55,7 @@
     "@nx/angular:package": {
       "cache": true,
       "dependsOn": ["^build"],
-      "inputs": ["default", "^default"]
+      "inputs": ["default", "^default", "{projectRoot}/package.json"]
     }
   },
   "nxCloudAccessToken": "ZTU5Nzk3NjQtZjUzMC00YzA1LWE3MGItMjRiNmFiOWFhYTllfHJlYWQ=",
