@@ -19,7 +19,6 @@ export async function generateIconLibrary(tree: Tree, schema: Schema) {
     strict: true,
     unitTestRunner: UnitTestRunner.Jest,
     addModuleSpec: false,
-    projectNameAndRootFormat: 'as-provided',
     directory: `packages/${schema.name}`,
   });
 
