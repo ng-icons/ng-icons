@@ -1,3 +1,13 @@
+## 29.6.0 (2024-10-31)
+
+### 🚀 Features
+
+- icon color variable ([#145](https://github.com/ng-icons/ng-icons/pull/145))
+
+### ❤️  Thank You
+
+- Ashley Hunter
+
 ## 29.5.2 (2024-10-25)
 
 ### 🩹 Fixes

@@ -1,6 +1,6 @@
 {
   "name": "@ng-icons/material-symbols",
-  "version": "29.5.2",
+  "version": "29.6.0",
   "peerDependencies": {
     "@ng-icons/core": "*"
   },
