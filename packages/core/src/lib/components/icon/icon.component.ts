@@ -41,7 +41,7 @@ export type IconType = IconName | (string & {});
   host: {
     '[style.--ng-icon__stroke-width]': 'strokeWidth()',
     '[style.--ng-icon__size]': 'size()',
-    '[style.color]': 'color()',
+    '[style.--ng-icon__color]': 'color()',
   },
 })
 export class NgIcon implements OnDestroy {
