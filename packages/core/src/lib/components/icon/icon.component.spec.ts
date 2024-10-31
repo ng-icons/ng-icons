@@ -78,7 +78,9 @@ describe('Icon', () => {
   it('should allow the color to change', () => {
     fixture.componentRef.setInput('color', 'red');
     fixture.detectChanges();
-    expect(nativeElement.style.getPropertyValue('color')).toBe('red');
+    expect(nativeElement.style.getPropertyValue('--ng-icon__color')).toBe(
+      'red',
+    );
   });
 
   it('should allow the stroke width to change', () => {

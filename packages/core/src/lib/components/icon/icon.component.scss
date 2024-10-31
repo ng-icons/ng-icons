@@ -2,6 +2,7 @@
   display: inline-block;
   width: var(--ng-icon__size, 1em);
   height: var(--ng-icon__size, 1em);
+  color: var(--ng-icon__color, currentColor);
   line-height: initial;
   vertical-align: initial;
   overflow: hidden;
