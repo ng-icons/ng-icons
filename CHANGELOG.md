@@ -1,3 +1,13 @@
+## 29.6.1 (2024-11-01)
+
+### 🩹 Fixes
+
+- **core:** icon color should allow override in global styles ([#147](https://github.com/ng-icons/ng-icons/pull/147))
+
+### ❤️  Thank You
+
+- Ashley Hunter
+
 ## 29.6.0 (2024-10-31)
 
 ### 🚀 Features
