@@ -2,7 +2,6 @@
   display: inline-block;
   width: var(--ng-icon__size, 1em);
   height: var(--ng-icon__size, 1em);
-  color: var(--ng-icon__color, currentColor);
   line-height: initial;
   vertical-align: initial;
   overflow: hidden;
@@ -12,4 +11,12 @@
   width: inherit;
   height: inherit;
   vertical-align: inherit;
+}
+
+// We have to have this in a separate layer to be able to override it
+// in global styles: https://github.com/ng-icons/ng-icons/issues/146
+@layer ng-icon {
+  :host {
+    color: var(--ng-icon__color, currentColor);
+  }
 }

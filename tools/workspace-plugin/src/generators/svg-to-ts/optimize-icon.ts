@@ -1,17 +1,17 @@
-import {
-  AddAttributesToSVGElementPlugin,
-  optimize,
-  OptimizedSvg,
-  Plugin,
-} from 'svgo';
+import { CustomPlugin, optimize, PluginConfig } from 'svgo';
 import { SvgOptions } from './iconsets';
 
 export async function optimizeIcon(
   svg: string,
   options?: SvgOptions,
 ): Promise<string> {
-  const plugins = [
-    { name: 'removeComments' },
+  const plugins: PluginConfig[] = [
+    {
+      name: 'removeComments',
+      params: {
+        preservePatterns: false,
+      },
+    },
     {
       name: 'insertCssVariables',
       type: 'visitor',
@@ -61,11 +61,15 @@ export async function optimizeIcon(
               }
 
               if (node.attributes['stroke-width']) {
-                node.style.setProperty(
-                  'stroke-width',
-                  `var(--ng-icon__stroke-width, ${node.attributes['stroke-width']})`,
-                  '',
+                const styles = node.attributes['style']
+                  ? [node.attributes['style']]
+                  : [];
+
+                styles.push(
+                  `stroke-width:var(--ng-icon__stroke-width, ${node.attributes['stroke-width']})`,
                 );
+
+                node.attributes['style'] = styles.join(';');
 
                 delete node.attributes['stroke-width'];
               }
@@ -84,7 +88,7 @@ export async function optimizeIcon(
           },
         };
       },
-    } as Plugin,
+    } as CustomPlugin,
   ];
 
   if (options?.colorAttr) {
@@ -97,20 +101,16 @@ export async function optimizeIcon(
           },
         ],
       },
-    } as AddAttributesToSVGElementPlugin);
+    });
   }
 
   const result = await optimize(svg, {
-    plugins: plugins as Plugin[],
+    plugins,
     // we don't use self closing tags because in the browser they are rendered with closing tags
     // and we perform an optimization where we check if the svg content matched the dom in ssr
     // and if we don't have a match we can't optimize
     js2svg: { useShortTags: false },
   });
 
-  if (result.error) {
-    throw result.error;
-  }
-
-  return (result as OptimizedSvg).data;
+  return result.data;
 }
