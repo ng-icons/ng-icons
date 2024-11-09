@@ -1,6 +1,6 @@
 {
   "name": "@ng-icons/phosphor-icons",
-  "version": "29.6.1",
+  "version": "29.7.0",
   "dependencies": {
     "tslib": "^2.2.0"
   },

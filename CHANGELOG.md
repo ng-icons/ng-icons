@@ -1,3 +1,13 @@
+## 29.7.0 (2024-11-09)
+
+### 🚀 Features
+
+- **core:** icon stack ([#150](https://github.com/ng-icons/ng-icons/pull/150))
+
+### ❤️  Thank You
+
+- Ashley Hunter
+
 ## 29.6.1 (2024-11-01)
 
 ### 🩹 Fixes
