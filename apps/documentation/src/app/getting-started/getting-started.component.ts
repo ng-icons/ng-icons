@@ -1,13 +1,10 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { NgIcon, NgIconStack, provideIcons } from '@ng-icons/core';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { SnippetComponent } from '../components/snippet/snippet.component';
 import { TerminalComponent } from '../components/terminal/terminal.component';
 import { FadeInContainerDirective } from '../directives/fade-in/fade-in-container.directive';
 import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import { faCircle, faFlag } from '@ng-icons/font-awesome/regular';
 
 @Component({
   selector: 'app-getting-started',
@@ -21,10 +18,7 @@ import { faCircle, faFlag } from '@ng-icons/font-awesome/regular';
     FadeInContainerDirective,
     FadeInDirective,
     SegmentComponent,
-    NgIcon,
-    NgIconStack,
   ],
-  viewProviders: [provideIcons({ faCircle, faFlag })],
 })
 export class GettingStartedComponent {
   selectedIndex = 0;

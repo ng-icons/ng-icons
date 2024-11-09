@@ -1,8 +1,10 @@
 :host {
   display: inline-flex;
-  position: relative;
   justify-content: center;
   align-items: center;
+  position: relative;
+  width: var(--ng-icon__size);
+  height: var(--ng-icon__size);
 }
 
 :host ::ng-deep ng-icon {

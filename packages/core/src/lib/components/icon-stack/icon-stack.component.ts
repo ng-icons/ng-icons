@@ -12,5 +12,5 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class NgIconStack {
   /** The size of the child icons */
-  readonly size = input<string>();
+  readonly size = input.required<string>();
 }
