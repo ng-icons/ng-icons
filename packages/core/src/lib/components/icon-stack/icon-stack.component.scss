@@ -1,0 +1,10 @@
+:host {
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+:host ::ng-deep ng-icon {
+  position: absolute;
+}

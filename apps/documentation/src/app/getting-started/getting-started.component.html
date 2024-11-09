@@ -1,10 +1,10 @@
 <!-- Use http://hilite.me/ for code snippets -->
-<div appFadeInContainer class="px-4 container mt-32 mx-auto">
-  <h1 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
+<div appFadeInContainer class="container mx-auto mt-32 px-4">
+  <h1 appFadeIn class="heading mb-4 text-center text-5xl font-extrabold">
     Getting Started
   </h1>
 
-  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center">
+  <p appFadeIn class="text-medium text-center text-base text-[#E4F4FB]">
     Installing the packages
   </p>
 
@@ -12,11 +12,11 @@
 
   <hr appFadeIn />
 
-  <h2 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
+  <h2 appFadeIn class="heading mb-4 text-center text-5xl font-extrabold">
     Importing Icons
   </h2>
 
-  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center mb-16">
+  <p appFadeIn class="text-medium mb-16 text-center text-base text-[#E4F4FB]">
     Only include the icons you want to use
   </p>
 
@@ -63,11 +63,11 @@
 
   <hr appFadeIn />
 
-  <h2 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
+  <h2 appFadeIn class="heading mb-4 text-center text-5xl font-extrabold">
     Using Icons
   </h2>
 
-  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center mb-16">
+  <p appFadeIn class="text-medium mb-16 text-center text-base text-[#E4F4FB]">
     Use the ng-icon component to display the icon.
   </p>
 
@@ -78,11 +78,11 @@
 
   <hr appFadeIn />
 
-  <h2 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
+  <h2 appFadeIn class="heading mb-4 text-center text-5xl font-extrabold">
     Dynamic Icons
   </h2>
 
-  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center mb-16">
+  <p appFadeIn class="text-medium mb-16 text-center text-base text-[#E4F4FB]">
     Icons can be loaded dynamically using the provideNgIconLoader function.<br />
     Define a function that returns and observable or a promise that resolves to
     the svg string.
@@ -97,7 +97,23 @@
 
   <hr appFadeIn />
 
-  <p appFadeIn class="text-[#E4F4FB] text-medium text-sm text-center mb-16">
+  <h2 appFadeIn class="heading mb-4 text-center text-5xl font-extrabold">
+    Icon Stack
+  </h2>
+
+  <p appFadeIn class="text-medium mb-16 text-center text-base text-[#E4F4FB]">
+    Icons can be overlayed on top of each other using the ng-icon-stack to
+    combine multiple icons.
+  </p>
+
+  <ng-icon-stack appFadeIn>
+    <ng-icon name="faCircle" size="32px" />
+    <ng-icon name="faFlag" size="16px" />
+  </ng-icon-stack>
+
+  <hr appFadeIn />
+
+  <p appFadeIn class="text-medium mb-16 text-center text-sm text-[#E4F4FB]">
     © Copyright {{ year }} - Angular Icons
   </p>
 </div>
