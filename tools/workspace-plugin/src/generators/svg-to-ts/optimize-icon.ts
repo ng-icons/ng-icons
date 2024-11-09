@@ -13,6 +13,26 @@ export async function optimizeIcon(
       },
     },
     {
+      name: 'removeFaultyMaterialPaths',
+      type: 'visitor',
+      description: 'Remove faulty material paths',
+      params: {},
+      fn: function () {
+        return {
+          element: {
+            enter: (node, parentNode) => {
+              if (
+                node.name === 'path' &&
+                node.attributes.d === 'M0 0h24v24H0V0z'
+              ) {
+                detachNodeFromParent(node, parentNode);
+              }
+            },
+          },
+        };
+      },
+    } as CustomPlugin,
+    {
       name: 'insertCssVariables',
       type: 'visitor',
       description: 'Insert CSS variables',
@@ -114,3 +134,8 @@ export async function optimizeIcon(
 
   return result.data;
 }
+
+const detachNodeFromParent = (node, parentNode) => {
+  // avoid splice to not break for loops
+  parentNode.children = parentNode.children.filter(child => child !== node);
+};
