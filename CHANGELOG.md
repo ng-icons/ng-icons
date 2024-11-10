@@ -1,3 +1,13 @@
+## 29.8.0 (2024-11-10)
+
+### 🚀 Features
+
+- crypto colored icons ([#152](https://github.com/ng-icons/ng-icons/pull/152))
+
+### ❤️  Thank You
+
+- Ashley Hunter
+
 ## 29.7.0 (2024-11-09)
 
 ### 🚀 Features

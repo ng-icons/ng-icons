@@ -1,6 +1,6 @@
 {
   "name": "@ng-icons/tdesign-icons",
-  "version": "29.7.0",
+  "version": "29.8.0",
   "dependencies": {
     "tslib": "^2.2.0"
   },
