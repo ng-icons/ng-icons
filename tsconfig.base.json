@@ -22,6 +22,9 @@
       "@ng-icons/cryptocurrency-icons": [
         "packages/cryptocurrency-icons/src/index.ts"
       ],
+      "@ng-icons/cryptocurrency-icons/colored": [
+        "packages/cryptocurrency-icons/colored/src/index.ts"
+      ],
       "@ng-icons/css.gg": ["packages/css-gg/src/index.ts"],
       "@ng-icons/devicon": ["packages/devicon/src/index.ts"],
       "@ng-icons/devicon/line": ["packages/devicon/line/src/index.ts"],

@@ -181,6 +181,14 @@ export const iconsets: Iconset[] = [
     },
   },
   {
+    glob: 'node_modules/cryptocurrency-icons/svg/color/**/*.svg',
+    output: 'packages/cryptocurrency-icons/colored/src/index.ts',
+    getIconName: (name: string) => `crypto${name}Colored`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
     glob: 'node_modules/simple-icons/icons/**/*.svg',
     output: 'packages/simple-icons/src/index.ts',
     getIconName: (name: string) => `simple${name}`,
