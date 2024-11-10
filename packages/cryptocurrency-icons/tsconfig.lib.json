@@ -10,7 +10,7 @@
     "useDefineForClassFields": false
   },
   "exclude": [
-    "src/test-setup.ts",
+    "test-setup.ts",
     "**/*.spec.ts",
     "**/*.test.ts",
     "jest.config.ts"

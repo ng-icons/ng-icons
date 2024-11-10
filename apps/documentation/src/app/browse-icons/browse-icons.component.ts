@@ -246,7 +246,10 @@ export class BrowseIconsComponent implements OnInit {
       license: 'CC0-1.0',
       package: '@ng-icons/cryptocurrency-icons',
       icons: async () => {
-        return { default: await import('@ng-icons/cryptocurrency-icons') };
+        return {
+          default: await import('@ng-icons/cryptocurrency-icons'),
+          colored: await import('@ng-icons/cryptocurrency-icons/colored'),
+        };
       },
     },
     {
