@@ -286,6 +286,19 @@ bootstrapApplication(AppComponent, {
 
 ## Experimental Features
 
+### Icon Stack
+
+Ng Icons now supports icon stacking. This allows you to layer multiple icons on top of each other. This is useful for creating complex icons from multiple simpler icons.
+
+```html
+<ng-icon-stack size="32px">
+  <ng-icon name="faCircle" />
+  <ng-icon name="faFlag" size="16px" />
+</ng-icon-stack>
+```
+
+The `size` must be defined on the `ng-icon-stack` component. Any icons within the stack will inherit this size unless it is overridden.
+
 ### Variable Icon Fonts
 
 We have added support for variable icon fonts. This is currently only supported by the [Material Symbols](https://github.com/marella/material-symbols/tree/main/material-symbols#readme) iconset.
