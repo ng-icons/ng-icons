@@ -1,0 +1,11 @@
+{
+  "name": "@ng-icons/game-icons",
+  "version": "29.8.0",
+  "sideEffects": false,
+  "license": "CC-BY-3.0",
+  "repository": {
+    "url": "https://github.com/ng-icons/ng-icons"
+  },
+  "homepage": "https://ng-icons.github.io/ng-icons/",
+  "dependencies": {}
+}

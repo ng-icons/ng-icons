@@ -5,7 +5,9 @@
   "generators": "./generators.json",
   "executors": "./executors.json",
   "dependencies": {
-    "@nx/devkit": "14.3.6"
+    "@nx/devkit": "20.0.12",
+    "typescript": "5.5.3",
+    "tslib": "^2.3.0"
   },
   "ng-update": {
     "requirements": {},

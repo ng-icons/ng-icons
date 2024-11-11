@@ -1,9 +1,7 @@
 {
   "name": "@ng-icons/lucide",
   "version": "29.8.0",
-  "dependencies": {
-    "tslib": "^2.2.0"
-  },
+  "dependencies": {},
   "sideEffects": false,
   "license": "ISC",
   "repository": {

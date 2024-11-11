@@ -1,44 +1,46 @@
-<div appFadeInContainer class="px-4 container mt-32 mx-auto">
-  <h1 appFadeIn class="heading font-extrabold text-5xl text-center mb-4">
+<div appFadeInContainer class="container mx-auto mt-32 px-4">
+  <h1 appFadeIn class="heading mb-4 text-center text-5xl font-extrabold">
     Browse Icons
   </h1>
 
-  <p appFadeIn class="text-[#E4F4FB] text-medium text-base text-center mb-16">
+  <p appFadeIn class="text-medium mb-16 text-center text-base text-[#E4F4FB]">
     Find the perfect icons for your application
   </p>
 
   <div
     appFadeIn
-    class="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 mb-16"
+    class="mb-16 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
   >
     @for (iconset of iconsets; track iconset.name) {
       <div
         class="iconset-card"
         [class.active]="iconset === activeIconset()"
         (click)="loadIconset(iconset)"
+        (keydown.enter)="loadIconset(iconset)"
+        tabindex="0"
       >
         <ng-icon [name]="iconset.icon" />
-        <span class="text-xs font-medium text-center">{{ iconset.name }}</span>
+        <span class="text-center text-xs font-medium">{{ iconset.name }}</span>
       </div>
     }
   </div>
 
   <hr appFadeIn />
 
-  <h1 appFadeIn class="heading font-extrabold text-5xl text-center mb-8">
+  <h1 appFadeIn class="heading mb-8 text-center text-5xl font-extrabold">
     {{ activeIconset()?.name }}
   </h1>
 
   <div
     appFadeIn
-    class="flex justify-center gap-8 mb-12 text-sm font-medium text-[#E4F4FB]"
+    class="mb-12 flex justify-center gap-8 text-sm font-medium text-[#E4F4FB]"
   >
     <div>
-      <span class="opacity-50 mr-2">Package:</span>
+      <span class="mr-2 opacity-50">Package:</span>
       <span class="opacity-80">{{ activeIconset()?.package }}</span>
     </div>
     <div>
-      <span class="opacity-50 mr-2">Website:</span>
+      <span class="mr-2 opacity-50">Website:</span>
       <a
         [href]="'https://' + activeIconset()?.website"
         target="_blank"
@@ -47,7 +49,7 @@
       >
     </div>
     <div>
-      <span class="opacity-50 mr-2">License:</span>
+      <span class="mr-2 opacity-50">License:</span>
       <span class="opacity-80">{{ activeIconset()?.license }}</span>
     </div>
   </div>
@@ -63,7 +65,7 @@
   </div>
 
   @if (categories().length > 1) {
-    <div appFadeIn class="flex justify-center mb-16">
+    <div appFadeIn class="mb-16 flex justify-center">
       <app-segment
         [options]="categories()"
         [selectedIndex]="activeCategoryIndex()"
@@ -74,21 +76,23 @@
 
   <div
     appFadeIn
-    class="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 mb-16"
+    class="mb-16 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
   >
     <div
       *rxFor="let icon of filteredIcons(); trackBy: trackByFn"
       class="icon-card"
       (click)="copyToClipboard(icon)"
+      (keydown.enter)="copyToClipboard(icon)"
+      tabindex="0"
     >
       <ng-icon class="text-2xl" [name]="icon" />
-      <span class="text-xs font-medium px-2 max-w-full text-center break-all">{{
+      <span class="max-w-full break-all px-2 text-center text-xs font-medium">{{
         icon
       }}</span>
     </div>
   </div>
 
-  <p appFadeIn class="text-[#E4F4FB] text-medium text-sm text-center mb-16">
+  <p appFadeIn class="text-medium mb-16 text-center text-sm text-[#E4F4FB]">
     © Copyright {{ year }} - Angular Icons
   </p>
 </div>

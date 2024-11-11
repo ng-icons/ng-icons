@@ -13,26 +13,6 @@ export async function optimizeIcon(
       },
     },
     {
-      name: 'removeFaultyMaterialPaths',
-      type: 'visitor',
-      description: 'Remove faulty material paths',
-      params: {},
-      fn: function () {
-        return {
-          element: {
-            enter: (node, parentNode) => {
-              if (
-                node.name === 'path' &&
-                node.attributes.d === 'M0 0h24v24H0V0z'
-              ) {
-                detachNodeFromParent(node, parentNode);
-              }
-            },
-          },
-        };
-      },
-    } as CustomPlugin,
-    {
       name: 'insertCssVariables',
       type: 'visitor',
       description: 'Insert CSS variables',
@@ -122,6 +102,30 @@ export async function optimizeIcon(
         ],
       },
     });
+  }
+
+  if (options?.removeBackground) {
+    plugins.push({
+      name: 'removeBackground',
+      type: 'visitor',
+      description: 'Remove faulty material paths',
+      params: {},
+      fn: function () {
+        return {
+          element: {
+            enter: (node, parentNode) => {
+              if (
+                (node.name === 'path' &&
+                  node.attributes.d === 'M0 0h24v24H0V0z') ||
+                node.attributes.d === 'M0 0h512v512H0z'
+              ) {
+                detachNodeFromParent(node, parentNode);
+              }
+            },
+          },
+        };
+      },
+    } as CustomPlugin);
   }
 
   const result = await optimize(svg, {

@@ -1,6 +1,5 @@
 import { names } from '@nx/devkit';
 import { dirname } from 'path';
-
 export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/heroicons/24/outline/**/*.svg',
@@ -92,7 +91,6 @@ export const iconsets: Iconset[] = [
       removeColor: true,
     },
   },
-
   {
     glob: 'node_modules/devicon/icons/**/*.svg',
     filter: name =>
@@ -234,12 +232,12 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `matf${name}Colored`,
   },
   {
-    // folder icons looks ugly without colors
     glob: 'node_modules/material-icon-theme/icons/!(folder)*.svg',
     output: 'packages/material-file-icons/uncolored/src/index.ts',
     getIconName: (name: string) => `matf${name}Uncolored`,
     svg: {
       removeColor: true,
+      removeBackground: true,
     },
   },
   {
@@ -384,8 +382,16 @@ export const iconsets: Iconset[] = [
       removeStroke: true,
     },
   },
+  {
+    glob: 'node_modules/game-icons/**/*.svg',
+    output: 'packages/game-icons/src/index.ts',
+    getIconName: (name: string) => `game${name}`,
+    svg: {
+      removeColor: true,
+      removeBackground: true,
+    },
+  },
 ];
-
 export interface Iconset {
   glob: string;
   filter?: (name: string) => boolean;
@@ -395,9 +401,9 @@ export interface Iconset {
   deprecated?: boolean;
   deprecatedMessage?: string;
 }
-
 export interface SvgOptions {
   colorAttr?: 'fill' | 'stroke';
   removeStroke?: boolean;
   removeColor?: boolean;
+  removeBackground?: boolean;
 }
