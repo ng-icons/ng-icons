@@ -1,9 +1,6 @@
 {
   "name": "@ng-icons/css.gg",
   "version": "29.8.0",
-  "dependencies": {
-    "tslib": "^2.2.0"
-  },
   "license": "MIT",
   "repository": {
     "url": "https://github.com/ng-icons/ng-icons"

@@ -9,11 +9,7 @@ module.exports = [
       '@nx/dependency-checks': [
         'error',
         {
-          ignoredFiles: [
-            '{projectRoot}/eslint.config.{js,cjs,mjs}',
-            '{projectRoot}/jest.config.{js,cjs,mjs}',
-            '{projectRoot}/**/*.spec.{js,cjs,mjs}',
-          ],
+          ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'],
           ignoredDependencies: ['jest-preset-angular'],
         },
       ],
