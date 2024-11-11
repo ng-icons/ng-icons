@@ -20,6 +20,7 @@ import { diDeviconPlain } from '@ng-icons/devicon/plain';
 import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
 import { faFontAwesome } from '@ng-icons/font-awesome/regular';
+import { gameAncientSword } from '@ng-icons/game-icons';
 import { heroMagnifyingGlass } from '@ng-icons/heroicons/outline';
 import { hugeShoppingBasket01 } from '@ng-icons/huge-icons';
 import { iconoirIconoir } from '@ng-icons/iconoir';
@@ -42,10 +43,8 @@ import Fuse from 'fuse.js';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { FadeInContainerDirective } from '../directives/fade-in/fade-in-container.directive';
 import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
-
 const circumIcon = `
 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.47 35.47"><path d="M17.74,0A17.74,17.74,0,1,0,35.47,17.74,17.72,17.72,0,0,0,17.74,0ZM21.5,28A10.27,10.27,0,1,1,31.77,17.74,10.26,10.26,0,0,1,21.5,28Z"></path></svg>`;
-
 @Component({
   selector: 'app-browse-icons',
   templateUrl: './browse-icons.component.html',
@@ -90,16 +89,14 @@ const circumIcon = `
       letsDimondAltLight,
       hugeShoppingBasket01,
       diDeviconPlain,
+      gameAncientSword,
     }),
   ],
 })
 export class BrowseIconsComponent implements OnInit {
   private readonly injector = inject(Injector);
-
   private readonly clipboard = inject(Clipboard);
-
   readonly year = new Date().getFullYear();
-
   readonly iconsets: Iconset[] = [
     {
       name: 'Bootstrap Icons',
@@ -123,7 +120,6 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/heroicons/solid'),
           import('@ng-icons/heroicons/mini'),
         ]);
-
         return { outline, solid, mini };
       },
     },
@@ -150,7 +146,6 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/material-icons/round'),
           import('@ng-icons/material-icons/sharp'),
         ]);
-
         return { baseline, outline, round, sharp };
       },
     },
@@ -215,7 +210,6 @@ export class BrowseIconsComponent implements OnInit {
           await import('@ng-icons/tabler-icons'),
           await import('@ng-icons/tabler-icons/fill'),
         ]);
-
         return { outline, fill };
       },
     },
@@ -313,7 +307,6 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/material-file-icons/colored'),
           import('@ng-icons/material-file-icons/uncolored'),
         ]);
-
         return { colored, uncolored };
       },
     },
@@ -349,7 +342,6 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/font-awesome/solid'),
           import('@ng-icons/font-awesome/brands'),
         ]);
-
         return { regular, solid, brands };
       },
     },
@@ -365,7 +357,6 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/iconsax/bulk'),
           import('@ng-icons/iconsax/outline'),
         ]);
-
         return { bold, bulk, outline };
       },
     },
@@ -394,7 +385,6 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/phosphor-icons/light'),
           import('@ng-icons/phosphor-icons/thin'),
         ]);
-
         return { regular, bold, duotone, fill, light, thin };
       },
     },
@@ -413,7 +403,6 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/lets-icons/duotone'),
           import('@ng-icons/lets-icons/duotone-line'),
         ]);
-
         return { regular, fill, light, duotone, duotoneLine };
       },
     },
@@ -439,84 +428,73 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/devicon/original'),
           import('@ng-icons/devicon/plain'),
         ]);
-
         return { line, original, plain };
       },
     },
+    {
+      name: 'Game Icons',
+      website: 'game-icons.net',
+      icon: 'gameAncientSword',
+      license: 'CC-BY-3.0',
+      package: '@ng-icons/game-icons',
+      icons: async () => {
+        return { default: await import('@ng-icons/game-icons') };
+      },
+    },
   ];
-
   // store the current active iconset
   readonly activeIconset = signal<Iconset | null>(null);
-
   readonly showToast = signal<boolean>(false);
-
   /** Store the debounced query */
   readonly search = model<string>('');
-
   /** Store the icons */
   readonly icons = signal<IconLists>({});
-
   /** Store the active category */
   readonly category = signal<string>('');
-
   /** Get the available categories */
   readonly categories = computed(() => Object.keys(this.icons()));
-
   /** Handle fuzzy search */
   readonly fuze = computed(() => {
     const icons = Object.keys(this.icons()[this.category()] ?? {});
-
     return new Fuse(icons, {
       isCaseSensitive: false,
       shouldSort: true,
       threshold: 0.3,
     });
   });
-
   /** Determine the active category index */
   readonly activeCategoryIndex = computed(() => {
     const index = this.categories().findIndex(
       category => category === this.category(),
     );
-
     return index === -1 ? 0 : index;
   });
-
   /** Filter the icons whenever the search query or the icons changes */
   readonly filteredIcons = computed(() => {
     if (!this.search()) {
       return Object.keys(this.icons()[this.category()] ?? {});
     }
-
     return this.fuze()
       .search(this.search())
       .map(result => result.item);
   });
-
   private toastTimeout?: number;
-
   ngOnInit(): void {
     Promise.resolve().then(() => this.loadIconset(this.iconsets[0]));
   }
-
   copyToClipboard(icon: string): void {
     this.clipboard.copy(icon);
-
     // show the toast
     this.showToast.set(true);
-
     clearTimeout(this.toastTimeout);
-
     this.toastTimeout = window.setTimeout(
       () => this.showToast.set(false),
       2000,
     );
   }
-
   trackByFn(_: number, item: string): string {
     return item;
   }
-
   shortUrl(url?: string): string {
     if (!url) {
       return '';
@@ -524,30 +502,25 @@ export class BrowseIconsComponent implements OnInit {
     // only take the url up until the first slash
     return url.split('/')[0];
   }
-
   async loadIconset(iconset: Iconset): Promise<void> {
     const icons = await iconset.icons();
     const token = this.injector.get(NgIconsToken);
-
     // augment the tokens with the new icons without changing the instance
     for (const category of Object.keys(icons)) {
       for (const icon in icons[category]) {
         token[0][icon] = icons[category][icon];
       }
     }
-
     // update the icons to show
     this.activeIconset.set(iconset);
     this.category.set(Object.keys(icons)[0]);
     this.icons.set(icons);
   }
-
   setCategoryIndex(index: number): void {
     const category = Object.keys(this.icons())[index];
     this.category.set(category);
   }
 }
-
 export interface Iconset {
   name: string;
   website: string;
@@ -556,6 +529,5 @@ export interface Iconset {
   package?: string;
   icons: () => Promise<IconLists>;
 }
-
 type IconLists = Record<string, IconList>;
 type IconList = Record<string, string>;
