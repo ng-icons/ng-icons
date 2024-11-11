@@ -39,6 +39,7 @@ Currently, we support the following libraries:
 - [Lets Icons](https://www.figma.com/community/file/886554014393250663/free-icon-pack-1800-icons)
 - [Huge Icons](https://hugeicons.com/)
 - [Devicon](https://github.com/devicons/devicon/)
+- [Game Icons](https://game-icons.net/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -113,6 +114,7 @@ The following packages are available:
 | `@ng-icons/lets-icons`           | CC-BY-4.0                             |
 | `@ng-icons/huge-icons`           | CC0-1.0                               |
 | `@ng-icons/devicon`              | MIT                                   |
+| `@ng-icons/game-icons`           | CC BY 3.0                             |
 
 ## Usage
 
