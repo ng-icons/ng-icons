@@ -1,3 +1,14 @@
+## 29.9.0 (2024-11-11)
+
+### 🚀 Features
+
+- crypto colored icons ([#152](https://github.com/ng-icons/ng-icons/pull/152))
+- adding game icons ([#154](https://github.com/ng-icons/ng-icons/pull/154))
+
+### ❤️  Thank You
+
+- Ashley Hunter
+
 ## 29.8.0 (2024-11-10)
 
 ### 🚀 Features
