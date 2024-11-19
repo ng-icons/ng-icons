@@ -1,5 +1,6 @@
 import { names } from '@nx/devkit';
 import { dirname } from 'path';
+import type { CustomPlugin } from 'svgo';
 export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/heroicons/24/outline/**/*.svg',
@@ -391,7 +392,18 @@ export const iconsets: Iconset[] = [
       removeBackground: true,
     },
   },
+  {
+    glob: 'node_modules/flag-icons/flags/4x3/**/*.svg',
+    output: 'packages/flag-icons/src/index.ts',
+    getIconName: (name: string) => `flag${name}`,
+  },
+  {
+    glob: 'node_modules/flag-icons/flags/1x1/**/*.svg',
+    output: 'packages/flag-icons/square/src/index.ts',
+    getIconName: (name: string) => `flag${name}Square`,
+  },
 ];
+
 export interface Iconset {
   glob: string;
   filter?: (name: string) => boolean;
@@ -400,6 +412,7 @@ export interface Iconset {
   svg?: SvgOptions;
   deprecated?: boolean;
   deprecatedMessage?: string;
+  plugins?: CustomPlugin[];
 }
 export interface SvgOptions {
   colorAttr?: 'fill' | 'stroke';

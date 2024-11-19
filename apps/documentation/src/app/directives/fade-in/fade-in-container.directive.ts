@@ -16,7 +16,7 @@ export class FadeInContainerDirective implements AfterContentInit {
 
   ngAfterContentInit(): void {
     this.fadeInDirectives?.forEach((directive, index) => {
-      directive.delay = (index + 1) * 250;
+      directive.delay = (index + 1) * 50;
     });
   }
 }

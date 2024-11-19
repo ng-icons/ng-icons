@@ -1,9 +1,11 @@
 import { CustomPlugin, optimize, PluginConfig } from 'svgo';
+import { XastElement, XastParent } from 'svgo/lib/types';
 import { SvgOptions } from './iconsets';
 
 export async function optimizeIcon(
   svg: string,
-  options?: SvgOptions,
+  options: SvgOptions = {},
+  customPlugins: CustomPlugin[] = [],
 ): Promise<string> {
   const plugins: PluginConfig[] = [
     {
@@ -128,8 +130,8 @@ export async function optimizeIcon(
     } as CustomPlugin);
   }
 
-  const result = await optimize(svg, {
-    plugins,
+  const result = optimize(svg, {
+    plugins: [...plugins, ...customPlugins],
     // we don't use self closing tags because in the browser they are rendered with closing tags
     // and we perform an optimization where we check if the svg content matched the dom in ssr
     // and if we don't have a match we can't optimize
@@ -139,7 +141,10 @@ export async function optimizeIcon(
   return result.data;
 }
 
-const detachNodeFromParent = (node, parentNode) => {
+export const detachNodeFromParent = (
+  node: XastElement,
+  parentNode: XastParent,
+) => {
   // avoid splice to not break for loops
   parentNode.children = parentNode.children.filter(child => child !== node);
 };

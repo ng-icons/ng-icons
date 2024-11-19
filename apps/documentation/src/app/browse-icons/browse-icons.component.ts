@@ -19,7 +19,7 @@ import { cssShapeHexagon } from '@ng-icons/css.gg';
 import { diDeviconPlain } from '@ng-icons/devicon/plain';
 import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
-import { faFontAwesome } from '@ng-icons/font-awesome/regular';
+import { faFlag, faFontAwesome } from '@ng-icons/font-awesome/regular';
 import { gameAncientSword } from '@ng-icons/game-icons';
 import { heroMagnifyingGlass } from '@ng-icons/heroicons/outline';
 import { hugeShoppingBasket01 } from '@ng-icons/huge-icons';
@@ -90,6 +90,7 @@ const circumIcon = `
       hugeShoppingBasket01,
       diDeviconPlain,
       gameAncientSword,
+      faFlag,
     }),
   ],
 })
@@ -439,6 +440,20 @@ export class BrowseIconsComponent implements OnInit {
       package: '@ng-icons/game-icons',
       icons: async () => {
         return { default: await import('@ng-icons/game-icons') };
+      },
+    },
+    {
+      name: 'Flag Icons',
+      website: 'flagicons.lipis.dev',
+      icon: 'faFlag',
+      license: 'MIT',
+      package: '@ng-icons/flag-icons',
+      icons: async () => {
+        const [standard, square] = await Promise.all([
+          import('@ng-icons/flag-icons'),
+          import('@ng-icons/flag-icons/square'),
+        ]);
+        return { default: standard, square };
       },
     },
   ];
