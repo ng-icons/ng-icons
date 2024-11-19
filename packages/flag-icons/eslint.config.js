@@ -8,7 +8,10 @@ module.exports = [
     rules: {
       '@nx/dependency-checks': [
         'error',
-        { ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'] },
+        {
+          ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'],
+          ignoredDependencies: ['jest-preset-angular'],
+        },
       ],
     },
     languageOptions: { parser: require('jsonc-eslint-parser') },
