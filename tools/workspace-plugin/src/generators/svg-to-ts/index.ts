@@ -35,7 +35,7 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
       iconPath,
     );
     let svg = await readFile(iconPath, 'utf8');
-    svg = await optimizeIcon(svg, iconset.svg);
+    svg = await optimizeIcon(svg, iconset.svg, iconset.plugins);
     output[iconName] = svg;
 
     iconList.add(iconName);

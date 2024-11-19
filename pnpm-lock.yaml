@@ -89,6 +89,9 @@ importers:
       feather-icons:
         specifier: 4.29.2
         version: 4.29.2
+      flag-icons:
+        specifier: ^7.2.3
+        version: 7.2.3
       font-awesome-brands:
         specifier: https://gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/brands?6.x
         version: brands?6.x@https://gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/brands?6.x
@@ -248,7 +251,7 @@ importers:
         version: 8.7.0(eslint@8.57.0)(typescript@5.5.3)
       angular-eslint:
         specifier: ^18.3.0
-        version: 18.4.0(@angular-devkit/core@18.2.0(chokidar@3.6.0))(@angular-devkit/schematics@18.2.0(chokidar@3.6.0))(@typescript-eslint/types@8.7.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript-eslint@8.13.0(eslint@8.57.0)(typescript@5.5.3))(typescript@5.5.3)
+        version: 18.4.0(@angular-devkit/core@18.2.0(chokidar@3.6.0))(@angular-devkit/schematics@18.2.0(chokidar@3.6.0))(@typescript-eslint/types@8.13.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript-eslint@8.13.0(eslint@8.57.0)(typescript@5.5.3))(typescript@5.5.3)
       autoprefixer:
         specifier: ^10.4.0
         version: 10.4.20(postcss@8.4.40)
@@ -4360,6 +4363,9 @@ packages:
     resolution: {integrity: sha512-+iwzCJ7C5v5KgcBuueqVoNiHVoQpwiUK5XFLjf0affFTep+Wcw93tPvmb8tqujDNmzhBDPddnWV/qgWSXgq+Hg==}
     engines: {node: '>=12'}
 
+  flag-icons@7.2.3:
+    resolution: {integrity: sha512-X2gUdteNuqdNqob2KKTJTS+ZCvyWeLCtDz9Ty8uJP17Y4o82Y+U/Vd4JNrdwTAjagYsRznOn9DZ+E/Q52qbmqg==}
+
   flat-cache@3.2.0:
     resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -8060,11 +8066,11 @@ snapshots:
       eslint: 8.57.0
       typescript: 5.5.3
 
-  '@angular-eslint/eslint-plugin-template@18.4.0(@typescript-eslint/types@8.7.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)':
+  '@angular-eslint/eslint-plugin-template@18.4.0(@typescript-eslint/types@8.13.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)':
     dependencies:
       '@angular-eslint/bundled-angular-compiler': 18.4.0
       '@angular-eslint/utils': 18.4.0(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
-      '@typescript-eslint/types': 8.7.0
+      '@typescript-eslint/types': 8.13.0
       '@typescript-eslint/utils': 8.7.0(eslint@8.57.0)(typescript@5.5.3)
       aria-query: 5.3.2
       axobject-query: 4.1.0
@@ -8087,12 +8093,12 @@ snapshots:
       eslint: 8.57.0
       typescript: 5.5.3
 
-  '@angular-eslint/schematics@18.4.0(@angular-devkit/core@18.2.0(chokidar@3.6.0))(@angular-devkit/schematics@18.2.0(chokidar@3.6.0))(@typescript-eslint/types@8.7.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)':
+  '@angular-eslint/schematics@18.4.0(@angular-devkit/core@18.2.0(chokidar@3.6.0))(@angular-devkit/schematics@18.2.0(chokidar@3.6.0))(@typescript-eslint/types@8.13.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)':
     dependencies:
       '@angular-devkit/core': 18.2.0(chokidar@3.6.0)
       '@angular-devkit/schematics': 18.2.0(chokidar@3.6.0)
       '@angular-eslint/eslint-plugin': 18.4.0(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
-      '@angular-eslint/eslint-plugin-template': 18.4.0(@typescript-eslint/types@8.7.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
+      '@angular-eslint/eslint-plugin-template': 18.4.0(@typescript-eslint/types@8.13.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
       ignore: 5.3.2
       semver: 7.6.3
       strip-json-comments: 3.1.1
@@ -10964,7 +10970,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.13.0
       eslint: 8.57.0
       graphemer: 1.4.0
-      ignore: 5.3.1
+      ignore: 5.3.2
       natural-compare: 1.4.0
       ts-api-utils: 1.3.0(typescript@5.5.3)
     optionalDependencies:
@@ -11334,12 +11340,12 @@ snapshots:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
-  angular-eslint@18.4.0(@angular-devkit/core@18.2.0(chokidar@3.6.0))(@angular-devkit/schematics@18.2.0(chokidar@3.6.0))(@typescript-eslint/types@8.7.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript-eslint@8.13.0(eslint@8.57.0)(typescript@5.5.3))(typescript@5.5.3):
+  angular-eslint@18.4.0(@angular-devkit/core@18.2.0(chokidar@3.6.0))(@angular-devkit/schematics@18.2.0(chokidar@3.6.0))(@typescript-eslint/types@8.13.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript-eslint@8.13.0(eslint@8.57.0)(typescript@5.5.3))(typescript@5.5.3):
     dependencies:
       '@angular-eslint/builder': 18.4.0(eslint@8.57.0)(typescript@5.5.3)
       '@angular-eslint/eslint-plugin': 18.4.0(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
-      '@angular-eslint/eslint-plugin-template': 18.4.0(@typescript-eslint/types@8.7.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
-      '@angular-eslint/schematics': 18.4.0(@angular-devkit/core@18.2.0(chokidar@3.6.0))(@angular-devkit/schematics@18.2.0(chokidar@3.6.0))(@typescript-eslint/types@8.7.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
+      '@angular-eslint/eslint-plugin-template': 18.4.0(@typescript-eslint/types@8.13.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
+      '@angular-eslint/schematics': 18.4.0(@angular-devkit/core@18.2.0(chokidar@3.6.0))(@angular-devkit/schematics@18.2.0(chokidar@3.6.0))(@typescript-eslint/types@8.13.0)(@typescript-eslint/utils@8.7.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
       '@angular-eslint/template-parser': 18.4.0(eslint@8.57.0)(typescript@5.5.3)
       eslint: 8.57.0
       typescript: 5.5.3
@@ -12777,6 +12783,8 @@ snapshots:
   find-versions@5.1.0:
     dependencies:
       semver-regex: 4.0.5
+
+  flag-icons@7.2.3: {}
 
   flat-cache@3.2.0:
     dependencies:

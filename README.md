@@ -40,6 +40,7 @@ Currently, we support the following libraries:
 - [Huge Icons](https://hugeicons.com/)
 - [Devicon](https://github.com/devicons/devicon/)
 - [Game Icons](https://game-icons.net/)
+- [Flag Icons](https://flagicons.lipis.dev/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 

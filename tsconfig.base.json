@@ -32,6 +32,10 @@
       "@ng-icons/devicon/plain": ["packages/devicon/plain/src/index.ts"],
       "@ng-icons/dripicons": ["packages/dripicons/src/index.ts"],
       "@ng-icons/feather-icons": ["packages/feather-icons/src/index.ts"],
+      "@ng-icons/flag-icons": ["packages/flag-icons/src/index.ts"],
+      "@ng-icons/flag-icons/square": [
+        "packages/flag-icons/square/src/index.ts"
+      ],
       "@ng-icons/font-awesome": ["packages/font-awesome/src/index.ts"],
       "@ng-icons/font-awesome/brands": [
         "packages/font-awesome/brands/src/index.ts"
