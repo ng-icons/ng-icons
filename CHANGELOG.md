@@ -1,3 +1,13 @@
+## 29.10.0 (2024-11-19)
+
+### 🚀 Features
+
+- flag icons ([#157](https://github.com/ng-icons/ng-icons/pull/157))
+
+### ❤️  Thank You
+
+- Ashley Hunter
+
 ## 29.9.0 (2024-11-11)
 
 ### 🚀 Features
