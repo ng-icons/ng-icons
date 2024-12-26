@@ -121,11 +121,13 @@ describe('Icon', () => {
 @Component({
   template: `<ng-icon name="featherAlertCircle"></ng-icon>
     <router-outlet></router-outlet>`,
+  standalone: false,
 })
 class RootComponent {}
 
 @Component({
   template: `<ng-icon name="featherAlertTriangle"></ng-icon>`,
+  standalone: false,
 })
 class ChildComponent {}
 
@@ -182,7 +184,6 @@ describe('Icon with multiple modules', () => {
 });
 
 @Component({
-  standalone: true,
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
   imports: [NG_ICON_DIRECTIVES],
   providers: [provideIcons({ featherAlertCircle })],
@@ -210,7 +211,6 @@ describe('Standalone icon component', () => {
 });
 
 @Component({
-  standalone: true,
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
   imports: [NG_ICON_DIRECTIVES],
   providers: [
@@ -239,14 +239,12 @@ describe('Custom loader', () => {
 });
 
 @Component({
-  standalone: true,
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
   imports: [NG_ICON_DIRECTIVES],
 })
 class CachedLoaderComponent {}
 
 @Component({
-  standalone: true,
   template: `
     @for (icon of icons; track $index) {
       <ng-icon [name]="icon" />

@@ -1,12 +1,12 @@
 <div
-  class="fixed top-0 z-10 w-full animate-[navbar] duration-1000 transition-all before:absolute before:bottom-0 before:w-full before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:backdrop-blur-sm before:rounded-2xl"
+  class="fixed top-0 z-10 w-full animate-[navbar] transition-all duration-1000 before:absolute before:bottom-0 before:h-px before:w-full before:rounded-2xl before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:backdrop-blur-sm"
   [ngClass]="{
-    'backdrop-blur-sm bg-black/5': showBlurredNavbar
+    'bg-black/5 backdrop-blur-sm': showBlurredNavbar,
   }"
 >
-  <div class="flex justify-between items-center px-4 h-16 mx-auto container">
+  <div class="container mx-auto flex h-16 items-center justify-between px-4">
     <img
-      class="cursor-pointer hidden md:block"
+      class="hidden cursor-pointer md:block"
       routerLink="/"
       src="assets/logo.svg"
       alt="Logo"
@@ -22,13 +22,13 @@
     <div class="flex">
       <a
         href="#"
-        class="inline-flex items-center p-2 text-sm text-white/80 text-center transition-colors duration-150 hover:text-white outline-none focus-visible:ring-2 rounded-md focus-visible:ring-white/50"
+        class="inline-flex items-center rounded-md p-2 text-center text-sm text-white/80 outline-none transition-colors duration-150 hover:text-white focus-visible:ring-2 focus-visible:ring-white/50"
         routerLink="/getting-started"
         >Getting Started</a
       >
       <a
         href="#"
-        class="inline-flex items-center p-2 text-sm text-white/80 text-center transition-colors duration-150 hover:text-white outline-none focus-visible:ring-2 rounded-md focus-visible:ring-white/50"
+        class="inline-flex items-center rounded-md p-2 text-center text-sm text-white/80 outline-none transition-colors duration-150 hover:text-white focus-visible:ring-2 focus-visible:ring-white/50"
         routerLink="/browse-icons"
         >Browse Icons</a
       >
@@ -36,7 +36,7 @@
       <a
         href="https://github.com/ng-icons/ng-icons"
         target="_blank"
-        class="inline-flex items-center p-2 text-3xl ml-2 text-white/80 text-center transition-colors duration-150 hover:text-white outline-none focus-visible:ring-2 rounded-md focus-visible:ring-white/50"
+        class="ml-2 inline-flex items-center rounded-md p-2 text-center text-3xl text-white/80 outline-none transition-colors duration-150 hover:text-white focus-visible:ring-2 focus-visible:ring-white/50"
       >
         <ng-icon name="bootstrapGithub"></ng-icon>
       </a>

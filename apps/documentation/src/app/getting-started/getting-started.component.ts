@@ -10,7 +10,6 @@ import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
   selector: 'app-getting-started',
   templateUrl: './getting-started.component.html',
   styleUrls: ['./getting-started.component.scss'],
-  standalone: true,
   imports: [
     NgIf,
     TerminalComponent,

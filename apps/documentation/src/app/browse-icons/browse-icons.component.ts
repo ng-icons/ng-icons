@@ -49,7 +49,6 @@ const circumIcon = `
   selector: 'app-browse-icons',
   templateUrl: './browse-icons.component.html',
   styleUrls: ['./browse-icons.component.scss'],
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     NgIcon,

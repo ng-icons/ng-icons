@@ -9,7 +9,6 @@ import { heroXMarkMini } from '@ng-icons/heroicons/mini';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: true,
   imports: [NavbarComponent, RouterOutlet, NgIcon],
   viewProviders: [provideIcons({ heroXMarkMini })],
 })
