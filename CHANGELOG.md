@@ -1,3 +1,13 @@
+# 30.0.0 (2024-12-28)
+
+### 🚀 Features
+
+- add angular v19 support ([#158](https://github.com/ng-icons/ng-icons/pull/158))
+
+### ❤️ Thank You
+
+- Enea Jahollari @eneajaho
+
 ## 29.10.0 (2024-11-19)
 
 ### 🚀 Features
