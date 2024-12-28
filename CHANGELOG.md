@@ -1,3 +1,13 @@
+## 30.1.0 (2024-12-28)
+
+### 🚀 Features
+
+- solar icons ([#160](https://github.com/ng-icons/ng-icons/pull/160))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 # 30.0.0 (2024-12-28)
 
 ### 🚀 Features
