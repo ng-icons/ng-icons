@@ -53,7 +53,7 @@ Ng Icons is an MIT-licensed open source project with its ongoing development mad
 ## Supported Versions
 
 | Angular Version | Ng Icon Version |
-|-----------------|-----------------|
+| --------------- | --------------- |
 | 11.x.x          | 12.x.x          |
 | 12.x.x          | 12.x.x - 13.x.x |
 | 13.x.x          | 13.x.x - 17.x.x |
