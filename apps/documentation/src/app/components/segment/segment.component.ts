@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   afterNextRender,
   ChangeDetectorRef,
@@ -8,6 +8,8 @@ import {
   inject,
   input,
   model,
+  OnDestroy,
+  PLATFORM_ID,
   viewChildren,
 } from '@angular/core';
 
@@ -17,8 +19,10 @@ import {
   templateUrl: './segment.component.html',
   styleUrls: ['./segment.component.scss'],
 })
-export class SegmentComponent {
+export class SegmentComponent implements OnDestroy {
+  private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly changeDetector = inject(ChangeDetectorRef);
+  private readonly platformId = inject(PLATFORM_ID);
 
   readonly selectedIndex = model(0);
 
@@ -31,9 +35,23 @@ export class SegmentComponent {
     () => this.optionElements()[this.selectedIndex()],
   );
 
+  private readonly resizeObserver?: ResizeObserver;
+
   constructor() {
     // this is required to ensure the width is correctly calculated after rendering
     afterNextRender(() => this.changeDetector.detectChanges());
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.resizeObserver = new ResizeObserver(() =>
+        this.changeDetector.detectChanges(),
+      );
+
+      this.resizeObserver.observe(this.elementRef.nativeElement);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.resizeObserver?.disconnect();
   }
 
   select(index: number): void {

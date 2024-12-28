@@ -402,8 +402,39 @@ export const iconsets: Iconset[] = [
     output: 'packages/flag-icons/square/src/index.ts',
     getIconName: (name: string) => `flag${name}Square`,
   },
+  {
+    glob: 'node_modules/solar-icons/icons/SVG/Bold/**/*.svg',
+    output: 'packages/solar-icons/bold/src/index.ts',
+    getIconName: (name: string) => `solar${name}Bold`,
+    svg: {
+      removeColor: true,
+    },
+  },
+  {
+    glob: 'node_modules/solar-icons/icons/SVG/Line Duotone/**/*.svg',
+    output: 'packages/solar-icons/duotone/src/index.ts',
+    getIconName: (name: string) => `solar${name}Duotone`,
+    svg: {
+      removeColor: true,
+    },
+  },
+  {
+    glob: 'node_modules/solar-icons/icons/SVG/Outline/**/*.svg',
+    output: 'packages/solar-icons/outline/src/index.ts',
+    getIconName: (name: string) => `solar${name}`,
+    svg: {
+      removeColor: true,
+    },
+  },
+  {
+    glob: 'node_modules/solar-icons/icons/SVG/Bold Duotone/**/*.svg',
+    output: 'packages/solar-icons/bold-duotone/src/index.ts',
+    getIconName: (name: string) => `solar${name}BoldDuotone`,
+    svg: {
+      removeColor: true,
+    },
+  },
 ];
-
 export interface Iconset {
   glob: string;
   filter?: (name: string) => boolean;

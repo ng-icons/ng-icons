@@ -122,6 +122,17 @@
       "@ng-icons/remixicon": ["packages/remixicon/src/index.ts"],
       "@ng-icons/schematics": ["packages/schematics/src/index.ts"],
       "@ng-icons/simple-icons": ["packages/simple-icons/src/index.ts"],
+      "@ng-icons/solar-icons": ["packages/solar-icons/src/index.ts"],
+      "@ng-icons/solar-icons/bold": ["packages/solar-icons/bold/src/index.ts"],
+      "@ng-icons/solar-icons/bold-duotone": [
+        "packages/solar-icons/bold-duotone/src/index.ts"
+      ],
+      "@ng-icons/solar-icons/duotone": [
+        "packages/solar-icons/duotone/src/index.ts"
+      ],
+      "@ng-icons/solar-icons/outline": [
+        "packages/solar-icons/outline/src/index.ts"
+      ],
       "@ng-icons/tabler-icons": ["packages/tabler-icons/src/index.ts"],
       "@ng-icons/tabler-icons/fill": [
         "packages/tabler-icons/fill/src/index.ts"

@@ -34,6 +34,7 @@ import { phosphorPhosphorLogo } from '@ng-icons/phosphor-icons/regular';
 import { radixModulzLogo } from '@ng-icons/radix-icons';
 import { remixRemixiconLine } from '@ng-icons/remixicon';
 import { simpleSimpleicons } from '@ng-icons/simple-icons';
+import { solarSun } from '@ng-icons/solar-icons/outline';
 import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { tdesignCombination } from '@ng-icons/tdesign-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
@@ -45,6 +46,7 @@ import { FadeInContainerDirective } from '../directives/fade-in/fade-in-containe
 import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
 const circumIcon = `
 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.47 35.47"><path d="M17.74,0A17.74,17.74,0,1,0,35.47,17.74,17.72,17.72,0,0,0,17.74,0ZM21.5,28A10.27,10.27,0,1,1,31.77,17.74,10.26,10.26,0,0,1,21.5,28Z"></path></svg>`;
+
 @Component({
   selector: 'app-browse-icons',
   templateUrl: './browse-icons.component.html',
@@ -90,6 +92,7 @@ const circumIcon = `
       diDeviconPlain,
       gameAncientSword,
       faFlag,
+      solarSun,
     }),
   ],
 })
@@ -453,6 +456,22 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/flag-icons/square'),
         ]);
         return { default: standard, square };
+      },
+    },
+    {
+      name: 'Solar Icons',
+      website: 'github.com/480-Design/Solar-Icon-Set',
+      icon: 'solarSun',
+      license: 'CC-BY-4.0',
+      package: '@ng-icons/solar-icons',
+      icons: async () => {
+        const [bold, duotone, outline, boldDuotone] = await Promise.all([
+          import('@ng-icons/solar-icons/bold'),
+          import('@ng-icons/solar-icons/duotone'),
+          import('@ng-icons/solar-icons/outline'),
+          import('@ng-icons/solar-icons/bold-duotone'),
+        ]);
+        return { bold, duotone, outline, boldDuotone };
       },
     },
   ];

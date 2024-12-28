@@ -42,7 +42,7 @@ export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
       license: '${schema.license}',
       package: '@ng-icons/${schema.name}',
       icons: async () => {
-        const [${entrypoints.join(', ')}] = await Promise.all([
+        const [${entrypoints.map(e => names(e).propertyName).join(', ')}] = await Promise.all([
           ${entrypoints.map(entrypoint => `import('@ng-icons/${schema.name}/${entrypoint}')`).join(',\n')}
         ]);
         return { ${entrypoints.join(', ')} };
