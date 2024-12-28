@@ -1,4 +1,4 @@
-import { getProjects, joinPathFragments, Tree } from '@nx/devkit';
+import { formatFiles, getProjects, joinPathFragments, Tree } from '@nx/devkit';
 
 export default async function (tree: Tree) {
   // read the root readme
@@ -10,4 +10,6 @@ export default async function (tree: Tree) {
       tree.write(path, readme);
     }
   }
+
+  await formatFiles(tree);
 }
