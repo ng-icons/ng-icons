@@ -195,8 +195,7 @@ describe('Standalone icon component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NgIcon],
-      declarations: [StandaloneComponent],
+      imports: [StandaloneComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(StandaloneComponent);
@@ -226,8 +225,7 @@ describe('Custom loader', () => {
 
   it('should display the icon', fakeAsync(async () => {
     await TestBed.configureTestingModule({
-      imports: [NgIcon],
-      declarations: [LoaderComponent],
+      imports: [LoaderComponent],
     }).compileComponents();
     fixture = TestBed.createComponent(LoaderComponent);
     fixture.detectChanges();
@@ -264,8 +262,7 @@ describe('Custom loader with caching', () => {
     const loaderSpy = jest.fn(() => Promise.resolve(featherAlertCircle));
 
     await TestBed.configureTestingModule({
-      declarations: [CachedLoaderComponent],
-      imports: [NgIcon],
+      imports: [CachedLoaderComponent],
       providers: [provideNgIconLoader(loaderSpy, withCaching())],
     }).compileComponents();
 
@@ -287,8 +284,7 @@ describe('Custom loader with caching', () => {
     const loaderSpy = jest.fn(() => Promise.resolve(featherAlertCircle));
 
     await TestBed.configureTestingModule({
-      declarations: [RepeatedCachedLoaderComponent],
-      imports: [NgIcon],
+      imports: [RepeatedCachedLoaderComponent],
       providers: [provideNgIconLoader(loaderSpy, withCaching())],
     }).compileComponents();
 
