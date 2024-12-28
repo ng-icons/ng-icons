@@ -13,7 +13,7 @@ import {
   featherAlertCircle,
   featherAlertTriangle,
 } from '@ng-icons/feather-icons';
-import { NG_ICON_DIRECTIVES, NgIconsModule } from '../../icon.module';
+import { NgIconsModule } from '../../icon.module';
 import {
   provideNgIconLoader,
   withCaching,
@@ -27,9 +27,8 @@ describe('Icon', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        NgIconsModule.withIcons({ featherAlertCircle, featherAlertTriangle }),
-      ],
+      imports: [NgIcon],
+      providers: [provideIcons({ featherAlertCircle, featherAlertTriangle })],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NgIcon);
@@ -185,7 +184,7 @@ describe('Icon with multiple modules', () => {
 
 @Component({
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
-  imports: [NG_ICON_DIRECTIVES],
+  imports: [NgIcon],
   providers: [provideIcons({ featherAlertCircle })],
 })
 class StandaloneComponent {}
@@ -196,7 +195,8 @@ describe('Standalone icon component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StandaloneComponent],
+      imports: [NgIcon],
+      declarations: [StandaloneComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(StandaloneComponent);
@@ -211,8 +211,8 @@ describe('Standalone icon component', () => {
 });
 
 @Component({
-  template: '<ng-icon name="featherAlertCircle"></ng-icon>',
-  imports: [NG_ICON_DIRECTIVES],
+  template: '<ng-icon name="featherAlertCircle" />',
+  imports: [NgIcon],
   providers: [
     provideNgIconLoader(() => {
       return Promise.resolve(featherAlertCircle);
@@ -226,7 +226,8 @@ describe('Custom loader', () => {
 
   it('should display the icon', fakeAsync(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoaderComponent],
+      imports: [NgIcon],
+      declarations: [LoaderComponent],
     }).compileComponents();
     fixture = TestBed.createComponent(LoaderComponent);
     fixture.detectChanges();
@@ -240,7 +241,7 @@ describe('Custom loader', () => {
 
 @Component({
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
-  imports: [NG_ICON_DIRECTIVES],
+  imports: [NgIcon],
 })
 class CachedLoaderComponent {}
 
@@ -250,7 +251,7 @@ class CachedLoaderComponent {}
       <ng-icon [name]="icon" />
     }
   `,
-  imports: [NG_ICON_DIRECTIVES],
+  imports: [NgIcon],
 })
 class RepeatedCachedLoaderComponent {
   icons = ['featherAlertCircle', 'featherAlertCircle', 'featherAlertCircle'];
@@ -263,7 +264,8 @@ describe('Custom loader with caching', () => {
     const loaderSpy = jest.fn(() => Promise.resolve(featherAlertCircle));
 
     await TestBed.configureTestingModule({
-      imports: [CachedLoaderComponent],
+      declarations: [CachedLoaderComponent],
+      imports: [NgIcon],
       providers: [provideNgIconLoader(loaderSpy, withCaching())],
     }).compileComponents();
 
@@ -285,7 +287,8 @@ describe('Custom loader with caching', () => {
     const loaderSpy = jest.fn(() => Promise.resolve(featherAlertCircle));
 
     await TestBed.configureTestingModule({
-      imports: [RepeatedCachedLoaderComponent],
+      declarations: [RepeatedCachedLoaderComponent],
+      imports: [NgIcon],
       providers: [provideNgIconLoader(loaderSpy, withCaching())],
     }).compileComponents();
 
