@@ -128,7 +128,10 @@ import { featherAirplay } from '@ng-icons/feather-icons';
 import { heroUsers } from '@ng-icons/heroicons/outline';
 
 @NgModule({
-  imports: [BrowserModule, NgIconsModule.withIcons({ featherAirplay, heroUsers })],
+  imports: [
+    BrowserModule,
+    NgIconsModule.withIcons({ featherAirplay, heroUsers }),
+  ],
 })
 export class AppModule {}
 ```
@@ -152,16 +155,16 @@ You can then use the icon in your templates:
 As of version 18.0.0 Ng Icons nows supports standalone components. You can import icons using the `provideIcons` function which can be placed anywhere you can register providers. The optimal location
 would be in the `@Component` providers array.
 
-You can also import the component directly by importing `NgIconComponent` or the `NG_ICON_DIRECTIVES` constant.
+You can also import the component directly by importing `NgIcon` or the `NG_ICON_DIRECTIVES` constant.
 
 ```ts
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
 import { featherAirplay } from '@ng-icons/feather-icons';
 import { heroUsers } from '@ng-icons/heroicons/outline';
 
 @Component({
   standalone: true,
-  imports: [NgIconComponent],
+  imports: [NgIcon],
   providers: [provideIcons({ featherAirplay, heroUsers })],
 })
 export class AppComponent {}
@@ -185,12 +188,12 @@ export class ParentComponent {
 }
 
 // child.component.ts
-import { NgIconComponent } from '@ng-icons/core';
+import { NgIcon } from '@ng-icons/core';
 
 @Component({
   standalone: true,
   selector: 'app-child',
-  imports: [NgIconComponent],
+  imports: [NgIcon],
   template: '<ng-icon [svg]="icon" />',
 })
 export class ChildComponent {
@@ -209,7 +212,10 @@ import { NgIconsModule, provideNgIconsConfig } from '@ng-icons/core';
 import { featherAirplay } from '@ng-icons/feather-icons';
 
 @NgModule({
-  imports: [BrowserModule, NgIconsModule.withIcons({ featherAirplay, heroUsers })],
+  imports: [
+    BrowserModule,
+    NgIconsModule.withIcons({ featherAirplay, heroUsers }),
+  ],
   providers: [
     provideNgIconsConfig({
       size: '1.5em',
@@ -223,7 +229,7 @@ export class AppModule {}
 #### Standalone
 
 ```ts
-import { NgIconComponent, provideIcons, provideNgIconsConfig } from '@ng-icons/core';
+import { NgIcon, provideIcons, provideNgIconsConfig } from '@ng-icons/core';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -239,7 +245,12 @@ bootstrapApplication(AppComponent, {
 If your application has a strict Content Security Policy (CSP) you may need to add the following to your global configuration to ensure you do not get any errors.
 
 ```ts
-import { NgIconComponent, provideIcons, provideNgIconsConfig, withContentSecurityPolicy } from '@ng-icons/core';
+import {
+  NgIcon,
+  provideIcons,
+  provideNgIconsConfig,
+  withContentSecurityPolicy,
+} from '@ng-icons/core';
 
 bootstrapApplication(AppComponent, {
   providers: [provideNgIconsConfig({}, withContentSecurityPolicy())],
@@ -254,7 +265,12 @@ Should you want stricter checks you can enable the `ExceptionLogger` which will 
 You can enable this by providing the `withExceptionLogger` function to the `provideNgIconsConfig` function.
 
 ```ts
-import { NgIconComponent, provideIcons, provideNgIconsConfig, withExceptionLogger } from '@ng-icons/core';
+import {
+  NgIcon,
+  provideIcons,
+  provideNgIconsConfig,
+  withExceptionLogger,
+} from '@ng-icons/core';
 
 bootstrapApplication(AppComponent, {
   providers: [provideNgIconsConfig({}, withExceptionLogger())],
@@ -313,10 +329,18 @@ To use it you must register the variable fonts you want to use. The default icon
 
 ```ts
 import { provideNgGlyphs } from '@ng-icons/core';
-import { withMaterialSymbolsOutlined, withMaterialSymbolsRounded } from '@ng-icons/material-symbols';
+import {
+  withMaterialSymbolsOutlined,
+  withMaterialSymbolsRounded,
+} from '@ng-icons/material-symbols';
 
 bootstrapApplication(AppComponent, {
-  providers: [provideNgGlyphs(withMaterialSymbolsOutlined(), withMaterialSymbolsRounded())],
+  providers: [
+    provideNgGlyphs(
+      withMaterialSymbolsOutlined(),
+      withMaterialSymbolsRounded(),
+    ),
+  ],
 });
 ```
 
