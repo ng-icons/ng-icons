@@ -1,5 +1,5 @@
-import * as ts from 'typescript';
 import { Tree } from '@nx/devkit';
+import * as ts from 'typescript';
 
 export function getSourceFile(tree: Tree, path: string): ts.SourceFile {
   const sourceFile = tree.read(path).toString();

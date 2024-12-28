@@ -13,7 +13,7 @@ import {
   featherAlertCircle,
   featherAlertTriangle,
 } from '@ng-icons/feather-icons';
-import { NG_ICON_DIRECTIVES, NgIconsModule } from '../../icon.module';
+import { NgIconsModule } from '../../icon.module';
 import {
   provideNgIconLoader,
   withCaching,
@@ -27,9 +27,8 @@ describe('Icon', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        NgIconsModule.withIcons({ featherAlertCircle, featherAlertTriangle }),
-      ],
+      imports: [NgIcon],
+      providers: [provideIcons({ featherAlertCircle, featherAlertTriangle })],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NgIcon);
@@ -121,11 +120,13 @@ describe('Icon', () => {
 @Component({
   template: `<ng-icon name="featherAlertCircle"></ng-icon>
     <router-outlet></router-outlet>`,
+  standalone: false,
 })
 class RootComponent {}
 
 @Component({
   template: `<ng-icon name="featherAlertTriangle"></ng-icon>`,
+  standalone: false,
 })
 class ChildComponent {}
 
@@ -182,9 +183,8 @@ describe('Icon with multiple modules', () => {
 });
 
 @Component({
-  standalone: true,
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
-  imports: [NG_ICON_DIRECTIVES],
+  imports: [NgIcon],
   providers: [provideIcons({ featherAlertCircle })],
 })
 class StandaloneComponent {}
@@ -210,9 +210,8 @@ describe('Standalone icon component', () => {
 });
 
 @Component({
-  standalone: true,
-  template: '<ng-icon name="featherAlertCircle"></ng-icon>',
-  imports: [NG_ICON_DIRECTIVES],
+  template: '<ng-icon name="featherAlertCircle" />',
+  imports: [NgIcon],
   providers: [
     provideNgIconLoader(() => {
       return Promise.resolve(featherAlertCircle);
@@ -239,20 +238,18 @@ describe('Custom loader', () => {
 });
 
 @Component({
-  standalone: true,
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
-  imports: [NG_ICON_DIRECTIVES],
+  imports: [NgIcon],
 })
 class CachedLoaderComponent {}
 
 @Component({
-  standalone: true,
   template: `
     @for (icon of icons; track $index) {
       <ng-icon [name]="icon" />
     }
   `,
-  imports: [NG_ICON_DIRECTIVES],
+  imports: [NgIcon],
 })
 class RepeatedCachedLoaderComponent {
   icons = ['featherAlertCircle', 'featherAlertCircle', 'featherAlertCircle'];

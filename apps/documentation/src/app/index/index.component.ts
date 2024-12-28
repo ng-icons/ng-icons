@@ -10,7 +10,6 @@ import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
-  standalone: true,
   imports: [
     NgIconComponent,
     RouterLink,

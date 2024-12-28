@@ -13,7 +13,6 @@ import {
 
 @Component({
   selector: 'app-segment',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './segment.component.html',
   styleUrls: ['./segment.component.scss'],

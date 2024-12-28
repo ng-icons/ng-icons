@@ -40,6 +40,7 @@ Currently, we support the following libraries:
 - [Huge Icons](https://hugeicons.com/)
 - [Devicon](https://github.com/devicons/devicon/)
 - [Game Icons](https://game-icons.net/)
+- [Flag Icons](https://flagicons.lipis.dev/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -61,6 +62,7 @@ Ng Icons is an MIT-licensed open source project with its ongoing development mad
 | 16.x.x          | 25.x.x          |
 | 17.x.x          | 26.x.x - 27.x.x |
 | 18.x.x          | 28.x.x - 29.x.x |
+| 19.x.x          | 30.x.x          |
 
 > **Note**: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 

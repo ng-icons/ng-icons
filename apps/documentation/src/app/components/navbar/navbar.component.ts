@@ -7,7 +7,6 @@ import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
   imports: [NgIconComponent, RouterLink, RouterLink, NgClass],
   providers: [provideIcons({ bootstrapGithub })],
   templateUrl: './navbar.component.html',

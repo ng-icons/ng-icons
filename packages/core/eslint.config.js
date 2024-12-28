@@ -29,7 +29,6 @@ module.exports = [
   {
     files: ['**/*.ts'],
     rules: {
-      '@angular-eslint/no-host-metadata-property': 'off',
       '@typescript-eslint/no-inferrable-types': 'off',
       'no-prototype-builtins': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
@@ -56,5 +55,11 @@ module.exports = [
     files: ['**/*.html'],
     // Override or add rules here
     rules: {},
+  },
+  {
+    files: ['**/*.ts'],
+    rules: {
+      '@angular-eslint/prefer-standalone': 'off',
+    },
   },
 ];
