@@ -143,6 +143,9 @@ importers:
       simple-icons:
         specifier: 13.11.0
         version: 13.11.0
+      solar-icons:
+        specifier: github:480-Design/Solar-Icon-Set#main
+        version: Solar-Icon-Set#main@https://codeload.github.com/480-Design/Solar-Icon-Set/tar.gz/7cf38d60efda2c76f4666e37c3ac20e9309fe9d0
       tdesign-icons-svg:
         specifier: ^0.2.2
         version: 0.2.2
@@ -272,7 +275,7 @@ importers:
         version: 11.10.0
       html-loader:
         specifier: ^3.0.1
-        version: 3.1.2(webpack@5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
+        version: 3.1.2(webpack@5.88.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -3963,6 +3966,10 @@ packages:
 
   SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38@https://gitpkg.now.sh/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38:
     resolution: {tarball: https://gitpkg.now.sh/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38}
+    version: 0.0.0
+
+  Solar-Icon-Set#main@https://codeload.github.com/480-Design/Solar-Icon-Set/tar.gz/7cf38d60efda2c76f4666e37c3ac20e9309fe9d0:
+    resolution: {tarball: https://codeload.github.com/480-Design/Solar-Icon-Set/tar.gz/7cf38d60efda2c76f4666e37c3ac20e9309fe9d0}
     version: 0.0.0
 
   abab@2.0.6:
@@ -9152,7 +9159,7 @@ snapshots:
       typescript: 5.6.3
       webpack: 5.96.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.24.0)
       webpack-dev-middleware: 7.4.2(webpack@5.96.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.24.0))
-      webpack-dev-server: 5.1.0(webpack@5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
+      webpack-dev-server: 5.1.0(webpack@5.88.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
       webpack-merge: 6.0.1
       webpack-subresource-integrity: 5.1.0(webpack@5.96.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.24.0))
     optionalDependencies:
@@ -9186,7 +9193,7 @@ snapshots:
       '@angular-devkit/architect': 0.1900.6
       rxjs: 7.8.1
       webpack: 5.96.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.24.0)
-      webpack-dev-server: 5.1.0(webpack@5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
+      webpack-dev-server: 5.1.0(webpack@5.88.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
     transitivePeerDependencies:
       - chokidar
 
@@ -13351,6 +13358,8 @@ snapshots:
 
   SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38@https://gitpkg.now.sh/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38: {}
 
+  Solar-Icon-Set#main@https://codeload.github.com/480-Design/Solar-Icon-Set/tar.gz/7cf38d60efda2c76f4666e37c3ac20e9309fe9d0: {}
+
   abab@2.0.6: {}
 
   abbrev@2.0.0: {}
@@ -15239,11 +15248,11 @@ snapshots:
 
   html-escaper@2.0.2: {}
 
-  html-loader@3.1.2(webpack@5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)):
+  html-loader@3.1.2(webpack@5.88.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)):
     dependencies:
       html-minifier-terser: 6.1.0
       parse5: 6.0.1
-      webpack: 5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)
+      webpack: 5.88.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)
 
   html-minifier-terser@6.1.0:
     dependencies:
@@ -18785,7 +18794,7 @@ snapshots:
     optionalDependencies:
       webpack: 5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)
 
-  webpack-dev-middleware@7.4.2(webpack@5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)):
+  webpack-dev-middleware@7.4.2(webpack@5.88.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)):
     dependencies:
       colorette: 2.0.20
       memfs: 4.11.1
@@ -18794,7 +18803,7 @@ snapshots:
       range-parser: 1.2.1
       schema-utils: 4.2.0
     optionalDependencies:
-      webpack: 5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)
+      webpack: 5.88.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)
 
   webpack-dev-middleware@7.4.2(webpack@5.96.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.24.0)):
     dependencies:
@@ -18847,7 +18856,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  webpack-dev-server@5.1.0(webpack@5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)):
+  webpack-dev-server@5.1.0(webpack@5.88.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)):
     dependencies:
       '@types/bonjour': 3.5.13
       '@types/connect-history-api-fallback': 1.5.4
@@ -18875,10 +18884,10 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack-dev-middleware: 7.4.2(webpack@5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
+      webpack-dev-middleware: 7.4.2(webpack@5.88.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12))
       ws: 8.18.0
     optionalDependencies:
-      webpack: 5.93.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)
+      webpack: 5.88.0(@swc/core@1.5.7(@swc/helpers@0.5.11))(esbuild@0.19.12)
     transitivePeerDependencies:
       - bufferutil
       - debug
