@@ -41,6 +41,7 @@ Currently, we support the following libraries:
 - [Devicon](https://github.com/devicons/devicon/)
 - [Game Icons](https://game-icons.net/)
 - [Flag Icons](https://flagicons.lipis.dev/)
+- [Solar Icons](https://github.com/480-Design/Solar-Icon-Set)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -117,6 +118,7 @@ The following packages are available:
 | `@ng-icons/huge-icons`           | CC0-1.0                               |
 | `@ng-icons/devicon`              | MIT                                   |
 | `@ng-icons/game-icons`           | CC BY 3.0                             |
+| `@ng-icons/solar-icons`          | CC BY 4.0                             |
 
 ## Usage
 
