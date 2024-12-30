@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { names } from '@nx/devkit';
 import { dirname } from 'path';
 import type { CustomPlugin } from 'svgo';
@@ -281,7 +282,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/iconsax/bold/**/*.svg',
     output: 'packages/iconsax/bold/src/index.ts',
-    getIconName: (name: string, path: string) => {
+    getIconName: (name: string) => {
       return `sax${name}Bold`;
     },
     svg: {
@@ -291,7 +292,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/iconsax/bulk/**/*.svg',
     output: 'packages/iconsax/bulk/src/index.ts',
-    getIconName: (name: string, path: string) => {
+    getIconName: (name: string) => {
       return `sax${name}Bulk`;
     },
     svg: {
@@ -301,7 +302,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/iconsax/outline/**/*.svg',
     output: 'packages/iconsax/outline/src/index.ts',
-    getIconName: (name: string, path: string) => {
+    getIconName: (name: string) => {
       return `sax${name}Outline`;
     },
     svg: {
@@ -433,6 +434,11 @@ export const iconsets: Iconset[] = [
     svg: {
       removeColor: true,
     },
+  },
+  {
+    glob: 'node_modules/@pheralb/svgl/static/library/**/*.svg',
+    output: 'packages/svgl/src/index.ts',
+    getIconName: (name: string) => `svgl${name}`,
   },
 ];
 export interface Iconset {

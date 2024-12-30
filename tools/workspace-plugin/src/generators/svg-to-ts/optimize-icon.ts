@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { CustomPlugin, optimize, PluginConfig } from 'svgo';
 import { XastElement, XastParent } from 'svgo/lib/types';
 import { SvgOptions } from './iconsets';
@@ -14,6 +15,83 @@ export async function optimizeIcon(
         preservePatterns: false,
       },
     },
+    {
+      name: 'inlineStyles',
+      params: {
+        onlyMatchedOnce: false,
+      },
+    },
+    {
+      name: 'idPlaceholder',
+      type: 'visitor',
+      description: 'Replace id with placeholder',
+      params: {},
+      fn: function () {
+        const idMap = new Map<string, string>();
+
+        return {
+          element: {
+            enter: node => {
+              if (node.name !== 'svg') {
+                return;
+              }
+
+              function replaceIds(node: XastElement) {
+                // if there is an id attribute replace it with a placeholder
+                if (node.attributes.id) {
+                  const id = node.attributes.id;
+                  const placeholder = `ID_PLACEHOLDER_${idMap.size}`;
+                  idMap.set(id, placeholder);
+                  node.attributes.id = placeholder;
+                }
+
+                // if there are any children visit them
+                if (node.children) {
+                  node.children.forEach(child => {
+                    if (child.type === 'element') {
+                      replaceIds(child);
+                    }
+                  });
+                }
+              }
+
+              replaceIds(node);
+
+              // if there are no ids return
+              if (idMap.size === 0) {
+                return;
+              }
+
+              function replaceUsages(node: XastElement) {
+                // if there is any attribute that references an id replace it with the placeholder
+                Object.keys(node.attributes).forEach(attr => {
+                  const value = node.attributes[attr];
+
+                  // if this is a url reference replace the id with the placeholder
+                  if (value.includes('url(#')) {
+                    const id = value.replace('url(#', '').replace(')', '');
+                    if (idMap.has(id)) {
+                      node.attributes[attr] = value.replace(id, idMap.get(id)!);
+                    }
+                  }
+                });
+
+                // if there are any children visit them
+                if (node.children) {
+                  node.children.forEach(child => {
+                    if (child.type === 'element') {
+                      replaceUsages(child);
+                    }
+                  });
+                }
+              }
+
+              replaceUsages(node);
+            },
+          },
+        };
+      },
+    } as CustomPlugin,
     {
       name: 'insertCssVariables',
       type: 'visitor',

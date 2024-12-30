@@ -133,6 +133,7 @@
       "@ng-icons/solar-icons/outline": [
         "packages/solar-icons/outline/src/index.ts"
       ],
+      "@ng-icons/svgl": ["packages/svgl/src/index.ts"],
       "@ng-icons/tabler-icons": ["packages/tabler-icons/src/index.ts"],
       "@ng-icons/tabler-icons/fill": [
         "packages/tabler-icons/fill/src/index.ts"

@@ -21,6 +21,7 @@ export function injectNgIconPreProcessor(): NgIconPreProcessor {
 }
 
 export function injectNgIconPostProcessor(): NgIconPostProcessor {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   return inject(NgIconPostProcessorToken, { optional: true }) ?? (() => {});
 }
 
@@ -41,6 +42,7 @@ function postprocessIcon(element: HTMLElement | SVGElement): void {
 
     styles?.split(';').forEach(style => {
       const [property, value] = style.split(':');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       element.style[property.trim() as any] = value.trim();
     });
 

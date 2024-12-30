@@ -9,7 +9,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 66,000 icons for you to use in your projects.
+Containing over 67,000 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -42,6 +42,7 @@ Currently, we support the following libraries:
 - [Game Icons](https://game-icons.net/)
 - [Flag Icons](https://flagicons.lipis.dev/)
 - [Solar Icons](https://github.com/480-Design/Solar-Icon-Set)
+- [SVGL](https://svgl.app)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -119,6 +120,7 @@ The following packages are available:
 | `@ng-icons/devicon`              | MIT                                   |
 | `@ng-icons/game-icons`           | CC BY 3.0                             |
 | `@ng-icons/solar-icons`          | CC BY 4.0                             |
+| `@ng-icons/svgl`                 | MIT                                   |
 
 ## Usage
 

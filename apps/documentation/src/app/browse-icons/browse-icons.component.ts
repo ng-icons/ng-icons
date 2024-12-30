@@ -11,7 +11,7 @@ import {
   signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { akarRadish } from '@ng-icons/akar-icons';
+import { akarPaper, akarRadish } from '@ng-icons/akar-icons';
 import { bootstrapBootstrapFill } from '@ng-icons/bootstrap-icons';
 import { NgIcon, NgIconsToken, provideIcons } from '@ng-icons/core';
 import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
@@ -46,7 +46,6 @@ import { FadeInContainerDirective } from '../directives/fade-in/fade-in-containe
 import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
 const circumIcon = `
 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.47 35.47"><path d="M17.74,0A17.74,17.74,0,1,0,35.47,17.74,17.72,17.72,0,0,0,17.74,0ZM21.5,28A10.27,10.27,0,1,1,31.77,17.74,10.26,10.26,0,0,1,21.5,28Z"></path></svg>`;
-
 @Component({
   selector: 'app-browse-icons',
   templateUrl: './browse-icons.component.html',
@@ -93,6 +92,7 @@ const circumIcon = `
       gameAncientSword,
       faFlag,
       solarSun,
+      akarPaper,
     }),
   ],
 })
@@ -472,6 +472,16 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/solar-icons/bold-duotone'),
         ]);
         return { bold, duotone, outline, boldDuotone };
+      },
+    },
+    {
+      name: 'SVGL',
+      website: 'svgl.app',
+      icon: 'akarPaper',
+      license: 'MIT',
+      package: '@ng-icons/svgl',
+      icons: async () => {
+        return { default: await import('@ng-icons/svgl') };
       },
     },
   ];
