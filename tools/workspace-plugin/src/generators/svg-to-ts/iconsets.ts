@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { names } from '@nx/devkit';
 import { dirname } from 'path';
 import type { CustomPlugin } from 'svgo';
@@ -281,7 +282,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/iconsax/bold/**/*.svg',
     output: 'packages/iconsax/bold/src/index.ts',
-    getIconName: (name: string, path: string) => {
+    getIconName: (name: string) => {
       return `sax${name}Bold`;
     },
     svg: {
@@ -291,7 +292,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/iconsax/bulk/**/*.svg',
     output: 'packages/iconsax/bulk/src/index.ts',
-    getIconName: (name: string, path: string) => {
+    getIconName: (name: string) => {
       return `sax${name}Bulk`;
     },
     svg: {
@@ -301,7 +302,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/iconsax/outline/**/*.svg',
     output: 'packages/iconsax/outline/src/index.ts',
-    getIconName: (name: string, path: string) => {
+    getIconName: (name: string) => {
       return `sax${name}Outline`;
     },
     svg: {
@@ -415,7 +416,7 @@ export const iconsets: Iconset[] = [
     output: 'packages/solar-icons/duotone/src/index.ts',
     getIconName: (name: string) => `solar${name}Duotone`,
     svg: {
-      removeColor: true,
+      strokeCurrentColor: true,
     },
   },
   {
@@ -434,6 +435,29 @@ export const iconsets: Iconset[] = [
       removeColor: true,
     },
   },
+  {
+    glob: 'node_modules/solar-icons/icons/SVG/Broken/**/*.svg',
+    output: 'packages/solar-icons/broken/src/index.ts',
+    getIconName: (name: string) => `solar${name}Broken`,
+    svg: {
+      strokeCurrentColor: true,
+      fillCurrentColor: true,
+    },
+  },
+  {
+    glob: 'node_modules/solar-icons/icons/SVG/Linear/**/*.svg',
+    output: 'packages/solar-icons/linear/src/index.ts',
+    getIconName: (name: string) => `solar${name}Linear`,
+    svg: {
+      strokeCurrentColor: true,
+      fillCurrentColor: true,
+    },
+  },
+  {
+    glob: 'node_modules/@pheralb/svgl/static/library/**/*.svg',
+    output: 'packages/svgl/src/index.ts',
+    getIconName: (name: string) => `svgl${name}`,
+  },
 ];
 export interface Iconset {
   glob: string;
@@ -450,4 +474,6 @@ export interface SvgOptions {
   removeStroke?: boolean;
   removeColor?: boolean;
   removeBackground?: boolean;
+  strokeCurrentColor?: boolean;
+  fillCurrentColor?: boolean;
 }

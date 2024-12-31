@@ -15,7 +15,6 @@ const glyphsets: NgGlyphset[] = [
 ];
 
 describe('Glyph', () => {
-  let component: NgGlyph;
   let fixture: ComponentFixture<NgGlyph>;
   let nativeElement: HTMLElement;
 
@@ -26,7 +25,6 @@ describe('Glyph', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(NgGlyph);
-    component = fixture.componentInstance;
     fixture.componentRef.setInput('name', 'test');
     fixture.detectChanges();
     nativeElement = fixture.nativeElement;

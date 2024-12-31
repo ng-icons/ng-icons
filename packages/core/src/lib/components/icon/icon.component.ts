@@ -29,8 +29,9 @@ import { coerceCssPixelValue } from '../../utils/coercion';
 import { toPropertyName } from '../../utils/format';
 
 // This is a typescript type to prevent inference from collapsing the union type to a string to improve type safety
-// eslint-disable-next-line @typescript-eslint/ban-types
 export type IconType = IconName | (string & {});
+
+let uniqueId = 0;
 
 @Component({
   selector: 'ng-icon',
@@ -74,6 +75,9 @@ export class NgIcon implements OnDestroy {
 
   /** Access the element ref */
   private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+
+  /** A unique id for this instance */
+  private readonly uniqueId = uniqueId++;
 
   /** Access the logger */
   private readonly logger = injectLogger();
@@ -187,6 +191,9 @@ export class NgIcon implements OnDestroy {
 
     const template: HTMLTemplateElement =
       this.renderer.createElement('template');
+
+    svg = this.replaceIds(svg);
+
     this.renderer.setProperty(template, 'innerHTML', this.preProcessor(svg));
 
     this.svgElement = template.content.firstElementChild as SVGElement;
@@ -194,6 +201,38 @@ export class NgIcon implements OnDestroy {
 
     // insert the element into the dom
     this.renderer.appendChild(this.elementRef.nativeElement, this.svgElement);
+  }
+
+  private replaceIds(svg: string): string {
+    // ids are defined like ID_PLACEHOLDER_0, ID_PLACEHOLDER_1, etc.
+    // we need to replace these with the actual ids e.g. ng-icon-0-0, ng-icon-0-1, etc.
+    // if there are no ids, we don't need to do anything
+    if (!svg.includes('ID_PLACEHOLDER_')) {
+      return svg;
+    }
+
+    // we can just retain the trailing number as the prefix is always the same
+    const regex = /ID_PLACEHOLDER_(\d+)/g;
+
+    // we need to keep track of the ids we have replaced
+    const idMap = new Map<string, string>();
+
+    // find all the matches
+    const matches = new Set(svg.match(regex));
+
+    if (matches === null) {
+      return svg;
+    }
+
+    // replace the ids
+    for (const match of matches) {
+      const id = match.replace('ID_PLACEHOLDER_', '');
+      const placeholder = `ng-icon-${this.uniqueId}-${idMap.size}`;
+      idMap.set(id, placeholder);
+      svg = svg.replace(new RegExp(match, 'g'), placeholder);
+    }
+
+    return svg;
   }
 
   /**

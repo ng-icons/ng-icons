@@ -1,67 +1,9 @@
-const { FlatCompat } = require('@eslint/eslintrc');
-const nxEslintPlugin = require('@nx/eslint-plugin');
-const js = require('@eslint/js');
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-});
+const nx = require('@nx/eslint-plugin');
 
 module.exports = [
-  { plugins: { '@nx': nxEslintPlugin } },
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
-    rules: {
-      '@nx/enforce-module-boundaries': [
-        'error',
-        {
-          enforceBuildableLibDependency: true,
-          allow: [],
-          depConstraints: [
-            {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
-            },
-          ],
-        },
-      ],
-    },
-  },
-  ...compat.config({ extends: ['plugin:@nx/typescript'] }).map(config => ({
-    ...config,
-    files: ['**/*.ts', '**/*.tsx', '**/*.cts', '**/*.mts'],
-    rules: {},
-  })),
-  ...compat.config({ extends: ['plugin:@nx/javascript'] }).map(config => ({
-    ...config,
-    files: ['**/*.js', '**/*.jsx', '**/*.cjs', '**/*.mjs'],
-    rules: {},
-  })),
-  ...compat.config({ parser: 'jsonc-eslint-parser' }).map(config => ({
-    ...config,
-    files: ['**/*.json'],
-    rules: {},
-  })),
-  {
-    files: ['**/*.json'],
-    rules: {
-      '@nx/dependency-checks': [
-        'error',
-        { ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'] },
-      ],
-    },
-    languageOptions: { parser: require('jsonc-eslint-parser') },
-  },
-  {
-    files: ['**/*.json'],
-    rules: {
-      '@nx/dependency-checks': [
-        'error',
-        { ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'] },
-      ],
-    },
-    languageOptions: { parser: require('jsonc-eslint-parser') },
-  },
+  ...nx.configs['flat/base'],
+  ...nx.configs['flat/typescript'],
+  ...nx.configs['flat/javascript'],
   {
     files: ['**/*.json'],
     rules: {
@@ -75,5 +17,13 @@ module.exports = [
     languageOptions: {
       parser: require('jsonc-eslint-parser'),
     },
+  },
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    rules: {},
+  },
+  {
+    files: ['**/*.js', '**/*.jsx'],
+    rules: {},
   },
 ];
