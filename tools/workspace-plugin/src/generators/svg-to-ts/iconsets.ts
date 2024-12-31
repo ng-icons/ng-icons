@@ -416,7 +416,7 @@ export const iconsets: Iconset[] = [
     output: 'packages/solar-icons/duotone/src/index.ts',
     getIconName: (name: string) => `solar${name}Duotone`,
     svg: {
-      removeColor: true,
+      strokeCurrentColor: true,
     },
   },
   {
@@ -433,6 +433,24 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `solar${name}BoldDuotone`,
     svg: {
       removeColor: true,
+    },
+  },
+  {
+    glob: 'node_modules/solar-icons/icons/SVG/Broken/**/*.svg',
+    output: 'packages/solar-icons/broken/src/index.ts',
+    getIconName: (name: string) => `solar${name}Broken`,
+    svg: {
+      strokeCurrentColor: true,
+      fillCurrentColor: true,
+    },
+  },
+  {
+    glob: 'node_modules/solar-icons/icons/SVG/Linear/**/*.svg',
+    output: 'packages/solar-icons/linear/src/index.ts',
+    getIconName: (name: string) => `solar${name}Linear`,
+    svg: {
+      strokeCurrentColor: true,
+      fillCurrentColor: true,
     },
   },
   {
@@ -456,4 +474,6 @@ export interface SvgOptions {
   removeStroke?: boolean;
   removeColor?: boolean;
   removeBackground?: boolean;
+  strokeCurrentColor?: boolean;
+  fillCurrentColor?: boolean;
 }

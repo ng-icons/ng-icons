@@ -127,8 +127,14 @@
       "@ng-icons/solar-icons/bold-duotone": [
         "packages/solar-icons/bold-duotone/src/index.ts"
       ],
+      "@ng-icons/solar-icons/broken": [
+        "packages/solar-icons/broken/src/index.ts"
+      ],
       "@ng-icons/solar-icons/duotone": [
         "packages/solar-icons/duotone/src/index.ts"
+      ],
+      "@ng-icons/solar-icons/linear": [
+        "packages/solar-icons/linear/src/index.ts"
       ],
       "@ng-icons/solar-icons/outline": [
         "packages/solar-icons/outline/src/index.ts"

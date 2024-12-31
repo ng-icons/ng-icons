@@ -465,13 +465,16 @@ export class BrowseIconsComponent implements OnInit {
       license: 'CC-BY-4.0',
       package: '@ng-icons/solar-icons',
       icons: async () => {
-        const [bold, duotone, outline, boldDuotone] = await Promise.all([
-          import('@ng-icons/solar-icons/bold'),
-          import('@ng-icons/solar-icons/duotone'),
-          import('@ng-icons/solar-icons/outline'),
-          import('@ng-icons/solar-icons/bold-duotone'),
-        ]);
-        return { bold, duotone, outline, boldDuotone };
+        const [bold, duotone, outline, boldDuotone, broken, linear] =
+          await Promise.all([
+            import('@ng-icons/solar-icons/bold'),
+            import('@ng-icons/solar-icons/duotone'),
+            import('@ng-icons/solar-icons/outline'),
+            import('@ng-icons/solar-icons/bold-duotone'),
+            import('@ng-icons/solar-icons/broken'),
+            import('@ng-icons/solar-icons/linear'),
+          ]);
+        return { bold, duotone, outline, boldDuotone, broken, linear };
       },
     },
     {

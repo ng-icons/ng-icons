@@ -111,6 +111,23 @@ export async function optimizeIcon(
                 }
               }
 
+              if (options?.strokeCurrentColor) {
+                if (node.attributes['stroke']) {
+                  node.attributes['stroke'] = 'currentColor';
+                }
+              }
+
+              if (options?.fillCurrentColor) {
+                // if the node is an svg element or has a fill attribute set it to none, skip
+                if (node.name === 'svg' || node.attributes['fill'] === 'none') {
+                  return;
+                }
+
+                if (node.attributes['fill']) {
+                  node.attributes['fill'] = 'currentColor';
+                }
+              }
+
               if (options?.removeColor) {
                 if (node.name === 'svg') {
                   node.attributes['fill'] = 'currentColor';

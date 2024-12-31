@@ -1,6 +1,8 @@
 import * as boldDuotoneIcons from '../bold-duotone/src/index';
 import * as boldIcons from '../bold/src/index';
+import * as brokenIcons from '../broken/src/index';
 import * as duotoneIcons from '../duotone/src/index';
+import * as linearIcons from '../linear/src/index';
 import * as outlineIcons from '../outline/src/index';
 
 describe('SolarIcons Icons', () => {
@@ -9,5 +11,7 @@ describe('SolarIcons Icons', () => {
     expect(Object.keys(boldDuotoneIcons)).toMatchSnapshot();
     expect(Object.keys(duotoneIcons)).toMatchSnapshot();
     expect(Object.keys(outlineIcons)).toMatchSnapshot();
+    expect(Object.keys(linearIcons)).toMatchSnapshot();
+    expect(Object.keys(brokenIcons)).toMatchSnapshot();
   });
 });
