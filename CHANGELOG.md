@@ -1,3 +1,13 @@
+## 30.2.0 (2024-12-31)
+
+### 🚀 Features
+
+- svgl icons ([#161](https://github.com/ng-icons/ng-icons/pull/161))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 30.1.0 (2024-12-28)
 
 ### 🚀 Features
