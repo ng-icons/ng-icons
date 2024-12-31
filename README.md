@@ -132,10 +132,7 @@ import { featherAirplay } from '@ng-icons/feather-icons';
 import { heroUsers } from '@ng-icons/heroicons/outline';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    NgIconsModule.withIcons({ featherAirplay, heroUsers }),
-  ],
+  imports: [BrowserModule, NgIconsModule.withIcons({ featherAirplay, heroUsers })],
 })
 export class AppModule {}
 ```
@@ -216,10 +213,7 @@ import { NgIconsModule, provideNgIconsConfig } from '@ng-icons/core';
 import { featherAirplay } from '@ng-icons/feather-icons';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    NgIconsModule.withIcons({ featherAirplay, heroUsers }),
-  ],
+  imports: [BrowserModule, NgIconsModule.withIcons({ featherAirplay, heroUsers })],
   providers: [
     provideNgIconsConfig({
       size: '1.5em',
@@ -249,12 +243,7 @@ bootstrapApplication(AppComponent, {
 If your application has a strict Content Security Policy (CSP) you may need to add the following to your global configuration to ensure you do not get any errors.
 
 ```ts
-import {
-  NgIcon,
-  provideIcons,
-  provideNgIconsConfig,
-  withContentSecurityPolicy,
-} from '@ng-icons/core';
+import { NgIcon, provideIcons, provideNgIconsConfig, withContentSecurityPolicy } from '@ng-icons/core';
 
 bootstrapApplication(AppComponent, {
   providers: [provideNgIconsConfig({}, withContentSecurityPolicy())],
@@ -269,12 +258,7 @@ Should you want stricter checks you can enable the `ExceptionLogger` which will 
 You can enable this by providing the `withExceptionLogger` function to the `provideNgIconsConfig` function.
 
 ```ts
-import {
-  NgIcon,
-  provideIcons,
-  provideNgIconsConfig,
-  withExceptionLogger,
-} from '@ng-icons/core';
+import { NgIcon, provideIcons, provideNgIconsConfig, withExceptionLogger } from '@ng-icons/core';
 
 bootstrapApplication(AppComponent, {
   providers: [provideNgIconsConfig({}, withExceptionLogger())],
@@ -333,18 +317,10 @@ To use it you must register the variable fonts you want to use. The default icon
 
 ```ts
 import { provideNgGlyphs } from '@ng-icons/core';
-import {
-  withMaterialSymbolsOutlined,
-  withMaterialSymbolsRounded,
-} from '@ng-icons/material-symbols';
+import { withMaterialSymbolsOutlined, withMaterialSymbolsRounded } from '@ng-icons/material-symbols';
 
 bootstrapApplication(AppComponent, {
-  providers: [
-    provideNgGlyphs(
-      withMaterialSymbolsOutlined(),
-      withMaterialSymbolsRounded(),
-    ),
-  ],
+  providers: [provideNgGlyphs(withMaterialSymbolsOutlined(), withMaterialSymbolsRounded())],
 });
 ```
 
