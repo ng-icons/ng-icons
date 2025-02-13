@@ -1,15 +1,8 @@
-import {
-  EnvironmentProviders,
-  InjectionToken,
-  inject,
-  makeEnvironmentProviders,
-} from '@angular/core';
+import { InjectionToken, ValueProvider, inject } from '@angular/core';
 
 export const NgGlyphsToken = new InjectionToken<NgGlyphs>('NgGlyphsToken');
 
-export function provideNgGlyphs(
-  ...glyphsets: NgGlyphset[]
-): EnvironmentProviders {
+export function provideNgGlyphs(...glyphsets: NgGlyphset[]): ValueProvider[] {
   // if there are no glyphsets, throw an error
   if (!glyphsets.length) {
     throw new Error('Please provide at least one glyphset.');
@@ -18,9 +11,7 @@ export function provideNgGlyphs(
   // the default glyphset is the first one
   const defaultGlyphset = glyphsets[0].name;
 
-  return makeEnvironmentProviders([
-    { provide: NgGlyphsToken, useValue: { defaultGlyphset, glyphsets } },
-  ]);
+  return [{ provide: NgGlyphsToken, useValue: { defaultGlyphset, glyphsets } }];
 }
 
 export function injectNgGlyphs(): NgGlyphs {
