@@ -1,3 +1,13 @@
+## 30.3.0 (2025-02-13)
+
+### 🚀 Features
+
+- **glyph:** support ng module ([#167](https://github.com/ng-icons/ng-icons/pull/167))
+
+### ❤️  Thank You
+
+- Ashley Hunter
+
 ## 30.2.0 (2024-12-31)
 
 ### 🚀 Features
