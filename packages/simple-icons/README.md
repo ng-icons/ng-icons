@@ -43,6 +43,7 @@ Currently, we support the following libraries:
 - [Flag Icons](https://flagicons.lipis.dev/)
 - [Solar Icons](https://github.com/480-Design/Solar-Icon-Set)
 - [SVGL](https://svgl.app)
+- [Material Symbols](https://fonts.google.com/icons?icon.set=Material+Symbols)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -121,6 +122,7 @@ The following packages are available:
 | `@ng-icons/game-icons`           | CC BY 3.0                             |
 | `@ng-icons/solar-icons`          | CC BY 4.0                             |
 | `@ng-icons/svgl`                 | MIT                                   |
+| `@ng-icons/material-symbols`     | Apache 2.0                            |
 
 ## Usage
 
