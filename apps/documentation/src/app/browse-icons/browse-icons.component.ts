@@ -39,6 +39,7 @@ import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { tdesignCombination } from '@ng-icons/tdesign-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
 import { aspectsDashboard } from '@ng-icons/ux-aspects';
+import { mynaMyna } from '@ng-icons/mynaui/outline';
 import { RxFor } from '@rx-angular/template/for';
 import Fuse from 'fuse.js';
 import { SegmentComponent } from '../components/segment/segment.component';
@@ -93,6 +94,7 @@ const circumIcon = `
       faFlag,
       solarSun,
       akarPaper,
+      mynaMyna
     }),
   ],
 })
