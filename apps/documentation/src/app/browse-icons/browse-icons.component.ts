@@ -29,6 +29,7 @@ import { ionLogoIonic } from '@ng-icons/ionicons';
 import { jamGlassFilled } from '@ng-icons/jam-icons';
 import { letsDimondAltLight } from '@ng-icons/lets-icons/light';
 import { matfDocumentUncolored } from '@ng-icons/material-file-icons/uncolored';
+import { mynaMyna } from '@ng-icons/mynaui/outline';
 import { octMarkGithub } from '@ng-icons/octicons';
 import { phosphorPhosphorLogo } from '@ng-icons/phosphor-icons/regular';
 import { radixModulzLogo } from '@ng-icons/radix-icons';
@@ -39,7 +40,6 @@ import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { tdesignCombination } from '@ng-icons/tdesign-icons';
 import { typInfinityOutline } from '@ng-icons/typicons';
 import { aspectsDashboard } from '@ng-icons/ux-aspects';
-import { mynaMyna } from '@ng-icons/mynaui/outline';
 import { RxFor } from '@rx-angular/template/for';
 import Fuse from 'fuse.js';
 import { SegmentComponent } from '../components/segment/segment.component';
@@ -94,7 +94,7 @@ const circumIcon = `
       faFlag,
       solarSun,
       akarPaper,
-      mynaMyna
+      mynaMyna,
     }),
   ],
 })
