@@ -41,6 +41,9 @@ importers:
       '@material-icons/svg':
         specifier: 1.0.33
         version: 1.0.33
+      '@mynaui/icons':
+        specifier: ^0.3.3
+        version: 0.3.3
       '@ng-icons/svgs':
         specifier: git://github.com/ng-icons/svgs
         version: svgs@https://codeload.github.com/ng-icons/svgs/tar.gz/aafbe5e46f13cf29855c04413ca78c0d7611da3f
@@ -2074,6 +2077,9 @@ packages:
     resolution: {integrity: sha512-x0fWaQtYp4E6sktbsdAqnehxDgEc/VwM7uLsRCYWaiGu0ykYdZPiS8zCWdnjHwyiumousxfBm4SO31eXqwEZhQ==}
     cpu: [x64]
     os: [win32]
+
+  '@mynaui/icons@0.3.3':
+    resolution: {integrity: sha512-l2w3sm1GIXFc/S9IMm8wcYTGLq1rerzXk0ocz/gG6P+GvwJN7tH2+Pg9lushNfsuKGBI16xHFz/Opj6jVXL9OA==}
 
   '@napi-rs/nice-android-arm-eabi@1.0.1':
     resolution: {integrity: sha512-5qpvOu5IGwDo7MEKVqqyAxF90I6aLj4n07OzpARdgDRfz8UbBztTByBp0RC59r3J1Ij8uzYi6jI7r5Lws7nn6w==}
@@ -11097,6 +11103,8 @@ snapshots:
 
   '@msgpackr-extract/msgpackr-extract-win32-x64@3.0.3':
     optional: true
+
+  '@mynaui/icons@0.3.3': {}
 
   '@napi-rs/nice-android-arm-eabi@1.0.1':
     optional: true

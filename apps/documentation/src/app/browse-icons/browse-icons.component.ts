@@ -487,6 +487,20 @@ export class BrowseIconsComponent implements OnInit {
         return { default: await import('@ng-icons/svgl') };
       },
     },
+    {
+      name: 'MynaUI',
+      website: 'mynaui.com',
+      icon: 'mynaMyna',
+      license: 'MIT',
+      package: '@ng-icons/mynaui',
+      icons: async () => {
+        const [outline, solid] = await Promise.all([
+          import('@ng-icons/mynaui/outline'),
+          import('@ng-icons/mynaui/solid'),
+        ]);
+        return { outline, solid };
+      },
+    },
   ];
   // store the current active iconset
   readonly activeIconset = signal<Iconset | null>(null);

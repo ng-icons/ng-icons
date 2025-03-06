@@ -9,7 +9,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 69,000 icons for you to use in your projects.
+Containing over 72,000 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -44,6 +44,7 @@ Currently, we support the following libraries:
 - [Solar Icons](https://github.com/480-Design/Solar-Icon-Set)
 - [SVGL](https://svgl.app)
 - [Material Symbols](https://fonts.google.com/icons?icon.set=Material+Symbols)
+- [MynaUI](https://mynaui.com/icons)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -123,6 +124,7 @@ The following packages are available:
 | `@ng-icons/solar-icons`          | CC BY 4.0                             |
 | `@ng-icons/svgl`                 | MIT                                   |
 | `@ng-icons/material-symbols`     | Apache 2.0                            |
+| `@ng-icons/mynaui`               | MIT                                   |
 
 ## Usage
 

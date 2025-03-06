@@ -97,6 +97,9 @@
         "packages/material-icons/sharp/src/index.ts"
       ],
       "@ng-icons/material-symbols": ["packages/material-symbols/src/index.ts"],
+      "@ng-icons/mynaui": ["packages/mynaui/src/index.ts"],
+      "@ng-icons/mynaui/outline": ["packages/mynaui/outline/src/index.ts"],
+      "@ng-icons/mynaui/solid": ["packages/mynaui/solid/src/index.ts"],
       "@ng-icons/octicons": ["packages/octicons/src/index.ts"],
       "@ng-icons/octicons/large": ["packages/octicons/large/src/index.ts"],
       "@ng-icons/phosphor-icons": ["packages/phosphor-icons/src/index.ts"],

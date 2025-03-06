@@ -458,6 +458,16 @@ export const iconsets: Iconset[] = [
     output: 'packages/svgl/src/index.ts',
     getIconName: (name: string) => `svgl${name}`,
   },
+  {
+    glob: 'node_modules/@mynaui/icons/icons/**/*.svg',
+    output: 'packages/mynaui/outline/src/index.ts',
+    getIconName: (name: string) => `myna${name}`,
+  },
+  {
+    glob: 'node_modules/@mynaui/icons/icons-solid/**/*.svg',
+    output: 'packages/mynaui/solid/src/index.ts',
+    getIconName: (name: string) => `myna${name}Solid`,
+  },
 ];
 export interface Iconset {
   glob: string;
