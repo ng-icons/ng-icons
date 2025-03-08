@@ -115,6 +115,14 @@ describe('Icon', () => {
       nativeElement.style.getPropertyValue('--ng-icon__stroke-width'),
     ).toBe('4');
   });
+
+  it("should have role='img'", () => {
+    expect(nativeElement.getAttribute('role')).toBe('img');
+  });
+
+  it("should have aria-hidden='true' by default", () => {
+    expect(nativeElement.getAttribute('aria-hidden')).toBe('true');
+  });
 });
 
 @Component({
