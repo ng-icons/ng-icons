@@ -1,3 +1,19 @@
+# 31.0.0 (2025-03-08)
+
+### 🚀 Features
+
+- mynaui ([#170](https://github.com/ng-icons/ng-icons/pull/170))
+- ⚠️  add role='img' and aria-hidden='true' to icon by default ([#173](https://github.com/ng-icons/ng-icons/pull/173))
+
+### ⚠️  Breaking Changes
+
+- aria-hidden changed from undefined to true by default  Closes #172"
+
+### ❤️ Thank You
+
+- Ashley Hunter
+- lukonik @lukonik
+
 ## 30.3.0 (2025-02-13)
 
 ### 🚀 Features
