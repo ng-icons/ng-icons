@@ -4,6 +4,7 @@ import {
   Component,
   effect,
   ElementRef,
+  HostAttributeToken,
   inject,
   Injector,
   input,
@@ -40,6 +41,7 @@ let uniqueId = 0;
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
+    role: 'img',
     '[style.--ng-icon__stroke-width]': 'strokeWidth()',
     '[style.--ng-icon__size]': 'size()',
     '[style.--ng-icon__color]': 'color()',
@@ -105,6 +107,15 @@ export class NgIcon implements OnDestroy {
   constructor() {
     // update the icon anytime the name or svg changes
     effect(() => this.updateIcon());
+
+    const ariaHidden = inject(new HostAttributeToken('aria-hidden'), {
+      optional: true,
+    });
+    // If the user has not explicitly set aria-hidden, mark the icon as hidden, as this is
+    // the right thing to do for the majority of icon use-cases.
+    if (!ariaHidden) {
+      this.elementRef.nativeElement.setAttribute('aria-hidden', 'true');
+    }
   }
 
   ngOnDestroy(): void {
