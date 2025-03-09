@@ -1,5 +1,9 @@
 # Migration Guide
 
+## Version 30 to 31
+
+This release now defaults all icons to use aria-hidden. As a precaution we have made this change a major release as the default accessibility behaviour has now slightly changed. In the vast majority of cases this new behaviour is desired, however if an icon has an aria-label (or similar) applied you should also set aria-hidden to false.
+
 ## Version 20 to 21
 
 All icon imports have been renamed to lowerCamelCase. For example: `FeatherAirplay` now becomes `featherAirplay`.
