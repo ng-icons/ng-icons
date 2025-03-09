@@ -213,8 +213,8 @@ export async function optimizeIcon(
             enter: (node, parentNode) => {
               if (
                 (node.name === 'path' &&
-                  node.attributes.d === 'M0 0h24v24H0V0z') ||
-                node.attributes.d === 'M0 0h512v512H0z'
+                  node.attributes.d === 'M0 0h24v24H0z') ||
+                node.attributes.d === 'M0 0h24v24H0z'
               ) {
                 detachNodeFromParent(node, parentNode);
               }
