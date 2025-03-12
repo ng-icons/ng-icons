@@ -1,3 +1,18 @@
+## 31.1.0 (2025-03-12)
+
+### 🚀 Features
+
+- material symbols ([#178](https://github.com/ng-icons/ng-icons/pull/178))
+
+### 🩹 Fixes
+
+- material icon background ([c7a9096](https://github.com/ng-icons/ng-icons/commit/c7a9096))
+- game icon background ([e4514ab](https://github.com/ng-icons/ng-icons/commit/e4514ab))
+
+### ❤️ Thank You
+
+- Ashley Hunter @ashley-hunter
+
 # 31.0.0 (2025-03-08)
 
 ### 🚀 Features
