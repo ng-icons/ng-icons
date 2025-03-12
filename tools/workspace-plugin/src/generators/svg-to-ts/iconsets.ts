@@ -468,6 +468,39 @@ export const iconsets: Iconset[] = [
     output: 'packages/mynaui/solid/src/index.ts',
     getIconName: (name: string) => `myna${name}Solid`,
   },
+  {
+    glob: 'node_modules/@material-symbols/svg-400/outlined/**/*.svg',
+    output: 'packages/material-symbols/outline/src/index.ts',
+    getIconName: (name: string, path: string) => {
+      const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
+      return `mat${iconName}Outline`;
+    },
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/@material-symbols/svg-400/rounded/**/*.svg',
+    output: 'packages/material-symbols/round/src/index.ts',
+    getIconName: (name: string, path: string) => {
+      const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
+      return `mat${iconName}Round`;
+    },
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/@material-symbols/svg-400/sharp/**/*.svg',
+    output: 'packages/material-symbols/sharp/src/index.ts',
+    getIconName: (name: string, path: string) => {
+      const iconName = names(dirname(path).split(/[\\/]/).pop()!).className;
+      return `mat${iconName}Sharp`;
+    },
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
 ];
 export interface Iconset {
   glob: string;
