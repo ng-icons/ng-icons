@@ -41,6 +41,9 @@ importers:
       '@material-icons/svg':
         specifier: 1.0.33
         version: 1.0.33
+      '@material-symbols/svg-400':
+        specifier: ^0.29.0
+        version: 0.29.0
       '@mynaui/icons':
         specifier: ^0.3.3
         version: 0.3.3
@@ -2057,6 +2060,9 @@ packages:
 
   '@material-icons/svg@1.0.33':
     resolution: {integrity: sha512-sYXcybBWH3rNijK1D6Dv1Se/aZ7OAC2cCNkn4HiZOXQwkswtRVoDqHPw+GfsBoIC70UintfPXUsmiuaxMicWtw==}
+
+  '@material-symbols/svg-400@0.29.0':
+    resolution: {integrity: sha512-mAd2lAQnWEd8QuLGZVWz0vm/kdfkDyYOVC5iIYEljoN1WnOr3rokzkmgivhMvwtvsl66Hm0uEeIx2P75H2cCBg==}
 
   '@module-federation/bridge-react-webpack-plugin@0.10.0':
     resolution: {integrity: sha512-wvqsjqqVXNI36Q98zFFK4saBFH3M+kJC9c/UZfGIWC86kBVRgWDOKphP4nF+cpjJsFEexoGCNefUswqsx14Y1Q==}
@@ -11795,6 +11801,8 @@ snapshots:
     optional: true
 
   '@material-icons/svg@1.0.33': {}
+
+  '@material-symbols/svg-400@0.29.0': {}
 
   '@module-federation/bridge-react-webpack-plugin@0.10.0':
     dependencies:

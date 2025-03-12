@@ -25,6 +25,7 @@
     "@angular/router": "19.2.1",
     "@klarr-agency/circum-icons": "https://gitpkg.now.sh/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c",
     "@material-icons/svg": "1.0.33",
+    "@material-symbols/svg-400": "^0.29.0",
     "@mynaui/icons": "^0.3.3",
     "@ng-icons/svgs": "git://github.com/ng-icons/svgs",
     "@pheralb/svgl": "github:pheralb/svgl#268c2720acf9ec7038d6e21cbc4a878327f57973",

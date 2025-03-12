@@ -503,6 +503,21 @@ export class BrowseIconsComponent implements OnInit {
         return { outline, solid };
       },
     },
+    {
+      name: 'Material Symbols',
+      website: 'marella.github.io/material-symbols',
+      icon: 'tablerBrandGoogle',
+      license: 'Apache 2.0',
+      package: '@ng-icons/material-symbols',
+      icons: async () => {
+        const [outline, round, sharp] = await Promise.all([
+          import('@ng-icons/material-icons/outline'),
+          import('@ng-icons/material-icons/round'),
+          import('@ng-icons/material-icons/sharp'),
+        ]);
+        return { outline, round, sharp };
+      },
+    },
   ];
   // store the current active iconset
   readonly activeIconset = signal<Iconset | null>(null);
