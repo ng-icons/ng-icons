@@ -1,3 +1,13 @@
+## 31.2.0 (2025-03-13)
+
+### 🚀 Features
+
+- adding boxicons iconset ([#180](https://github.com/ng-icons/ng-icons/pull/180))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 31.1.0 (2025-03-12)
 
 ### 🚀 Features
