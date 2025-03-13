@@ -13,6 +13,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { akarPaper, akarRadish } from '@ng-icons/akar-icons';
 import { bootstrapBootstrapFill } from '@ng-icons/bootstrap-icons';
+import { boxBox } from '@ng-icons/boxicons/regular';
 import { NgIcon, NgIconsToken, provideIcons } from '@ng-icons/core';
 import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { cssShapeHexagon } from '@ng-icons/css.gg';
@@ -95,6 +96,7 @@ const circumIcon = `
       solarSun,
       akarPaper,
       mynaMyna,
+      boxBox,
     }),
   ],
 })
@@ -516,6 +518,21 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/material-icons/sharp'),
         ]);
         return { outline, round, sharp };
+      },
+    },
+    {
+      name: 'Boxicons',
+      website: 'boxicons.com',
+      icon: 'boxBox',
+      license: 'MIT',
+      package: '@ng-icons/boxicons',
+      icons: async () => {
+        const [regular, solid, logos] = await Promise.all([
+          import('@ng-icons/boxicons/regular'),
+          import('@ng-icons/boxicons/solid'),
+          import('@ng-icons/boxicons/logos'),
+        ]);
+        return { regular, solid, logos };
       },
     },
   ];

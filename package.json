@@ -39,6 +39,7 @@
     "UXAspects": "https://gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799",
     "akar-icons-app": "https://gitpkg.now.sh/artcoholic/akar-icons-app/src/svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc",
     "bootstrap-icons": "1.11.3",
+    "boxicons": "^2.1.4",
     "cryptocurrency-icons": "0.18.1",
     "css.gg": "2.1.4",
     "devicon": "https://github.com/devicons/devicon.git",
@@ -127,6 +128,11 @@
     "tailwindcss": "3.4.7",
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
-    "typescript": "5.7.3"
-  }
+    "typescript": "5.7.3",
+    "verdaccio": "^6.0.5"
+  },
+  "nx": {
+    "includedScripts": []
+  },
+  "packageManager": "pnpm@9.15.5"
 }
