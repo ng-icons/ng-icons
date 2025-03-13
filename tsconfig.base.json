@@ -17,6 +17,10 @@
     "paths": {
       "@ng-icons/akar-icons": ["packages/akar-icons/src/index.ts"],
       "@ng-icons/bootstrap-icons": ["packages/bootstrap-icons/src/index.ts"],
+      "@ng-icons/boxicons": ["packages/boxicons/src/index.ts"],
+      "@ng-icons/boxicons/logos": ["packages/boxicons/logos/src/index.ts"],
+      "@ng-icons/boxicons/regular": ["packages/boxicons/regular/src/index.ts"],
+      "@ng-icons/boxicons/solid": ["packages/boxicons/solid/src/index.ts"],
       "@ng-icons/circum-icons": ["packages/circum-icons/src/index.ts"],
       "@ng-icons/core": ["packages/core/src/index.ts"],
       "@ng-icons/cryptocurrency-icons": [

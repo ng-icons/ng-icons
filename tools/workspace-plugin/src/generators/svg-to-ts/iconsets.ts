@@ -501,6 +501,30 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    glob: 'node_modules/boxicons/svg/regular/**/*.svg',
+    output: 'packages/boxicons/regular/src/index.ts',
+    getIconName: (name: string) => `box${name.substring(2)}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/boxicons/svg/solid/**/*.svg',
+    output: 'packages/boxicons/solid/src/index.ts',
+    getIconName: (name: string) => `box${name.substring(3)}Solid`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/boxicons/svg/logos/**/*.svg',
+    output: 'packages/boxicons/logos/src/index.ts',
+    getIconName: (name: string) => `box${name.substring(3)}Logo`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
 ];
 export interface Iconset {
   glob: string;

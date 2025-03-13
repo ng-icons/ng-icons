@@ -9,7 +9,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 95,000 icons for you to use in your projects.
+Containing over 96,000 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -36,6 +36,7 @@ Currently, we support the following libraries:
 - [Font Awesome](https://fontawesome.com/)
 - [Iconsax](https://iconsax.io/)
 - [TDesign Icons](https://github.com/Tencent/tdesign-icons)
+- [Phosphor Icons](https://phosphoricons.com/)
 - [Lets Icons](https://www.figma.com/community/file/886554014393250663/free-icon-pack-1800-icons)
 - [Huge Icons](https://hugeicons.com/)
 - [Devicon](https://github.com/devicons/devicon/)
@@ -45,6 +46,7 @@ Currently, we support the following libraries:
 - [SVGL](https://svgl.app)
 - [Material Symbols](https://fonts.google.com/icons?icon.set=Material+Symbols)
 - [MynaUI](https://mynaui.com/icons)
+- [Boxicons](https://boxicons.com/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -125,6 +127,7 @@ The following packages are available:
 | `@ng-icons/svgl`                 | MIT                                   |
 | `@ng-icons/material-symbols`     | Apache 2.0                            |
 | `@ng-icons/mynaui`               | MIT                                   |
+| `@ng-icons/boxicons`             | MIT                                   |
 
 ## Usage
 
