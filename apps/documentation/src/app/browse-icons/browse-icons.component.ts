@@ -535,6 +535,16 @@ export class BrowseIconsComponent implements OnInit {
         return { regular, solid, logos };
       },
     },
+    {
+      name: 'Mono Icons',
+      website: 'https://icons.mono.company/',
+      icon: 'monoArrowRightDown',
+      license: 'MIT',
+      package: '@ng-icons/mono-icons',
+      icons: async () => {
+        return { default: await import('@ng-icons/mono-icons') };
+      },
+    },
   ];
   // store the current active iconset
   readonly activeIconset = signal<Iconset | null>(null);

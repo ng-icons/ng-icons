@@ -110,6 +110,7 @@
       "@ng-icons/material-symbols/sharp": [
         "packages/material-symbols/sharp/src/index.ts"
       ],
+      "@ng-icons/mono-icons": ["packages/mono-icons/src/index.ts"],
       "@ng-icons/mynaui": ["packages/mynaui/src/index.ts"],
       "@ng-icons/mynaui/outline": ["packages/mynaui/outline/src/index.ts"],
       "@ng-icons/mynaui/solid": ["packages/mynaui/solid/src/index.ts"],

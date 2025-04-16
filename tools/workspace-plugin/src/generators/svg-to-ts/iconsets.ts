@@ -525,6 +525,15 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    glob: 'node_modules/mono-icons/svg/**/*.svg',
+    output: 'packages/mono-icons/src/index.ts',
+    getIconName: (name: string) => `mono${name}`,
+    svg: {
+      strokeCurrentColor: true,
+      fillCurrentColor: true,
+    },
+  },
 ];
 export interface Iconset {
   glob: string;
