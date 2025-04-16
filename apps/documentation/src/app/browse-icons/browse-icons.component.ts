@@ -30,6 +30,7 @@ import { ionLogoIonic } from '@ng-icons/ionicons';
 import { jamGlassFilled } from '@ng-icons/jam-icons';
 import { letsDimondAltLight } from '@ng-icons/lets-icons/light';
 import { matfDocumentUncolored } from '@ng-icons/material-file-icons/uncolored';
+import { monoArrowRightDown } from '@ng-icons/mono-icons';
 import { mynaMyna } from '@ng-icons/mynaui/outline';
 import { octMarkGithub } from '@ng-icons/octicons';
 import { phosphorPhosphorLogo } from '@ng-icons/phosphor-icons/regular';
@@ -90,6 +91,7 @@ const circumIcon = `
       phosphorPhosphorLogo,
       letsDimondAltLight,
       hugeShoppingBasket01,
+      monoArrowRightDown,
       diDeviconPlain,
       gameAncientSword,
       faFlag,
@@ -533,6 +535,16 @@ export class BrowseIconsComponent implements OnInit {
           import('@ng-icons/boxicons/logos'),
         ]);
         return { regular, solid, logos };
+      },
+    },
+    {
+      name: 'Mono Icons',
+      website: 'icons.mono.company',
+      icon: 'monoArrowRightDown',
+      license: 'MIT',
+      package: '@ng-icons/mono-icons',
+      icons: async () => {
+        return { default: await import('@ng-icons/mono-icons') };
       },
     },
   ];

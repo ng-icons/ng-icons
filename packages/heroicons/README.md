@@ -47,6 +47,7 @@ Currently, we support the following libraries:
 - [Material Symbols](https://fonts.google.com/icons?icon.set=Material+Symbols)
 - [MynaUI](https://mynaui.com/icons)
 - [Boxicons](https://boxicons.com/)
+- [Mono Icons](https://icons.mono.company/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -128,6 +129,7 @@ The following packages are available:
 | `@ng-icons/material-symbols`     | Apache 2.0                            |
 | `@ng-icons/mynaui`               | MIT                                   |
 | `@ng-icons/boxicons`             | MIT                                   |
+| `@ng-icons/mono-icons`           | MIT                                   |
 
 ## Usage
 
