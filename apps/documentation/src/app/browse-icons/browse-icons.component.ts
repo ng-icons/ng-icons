@@ -539,7 +539,7 @@ export class BrowseIconsComponent implements OnInit {
     },
     {
       name: 'Mono Icons',
-      website: 'https://icons.mono.company/',
+      website: 'icons.mono.company',
       icon: 'monoArrowRightDown',
       license: 'MIT',
       package: '@ng-icons/mono-icons',
