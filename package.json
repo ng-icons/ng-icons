@@ -135,5 +135,5 @@
   "nx": {
     "includedScripts": []
   },
-  "packageManager": "pnpm@9.15.5"
+  "packageManager": "pnpm@10.10.0"
 }
