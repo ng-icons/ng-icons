@@ -57,6 +57,7 @@
         "packages/heroicons/outline/src/index.ts"
       ],
       "@ng-icons/heroicons/solid": ["packages/heroicons/solid/src/index.ts"],
+      "@ng-icons/heroicons/micro": ["packages/heroicons/micro/src/index.ts"],
       "@ng-icons/huge-icons": ["packages/huge-icons/src/index.ts"],
       "@ng-icons/iconoir": ["packages/iconoir/src/index.ts"],
       "@ng-icons/iconsax": ["packages/iconsax/src/index.ts"],

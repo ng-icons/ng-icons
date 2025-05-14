@@ -45,3 +45,6 @@ Thumbs.db
 .nx/cache
 .nx/workspace-data
 .gitpod.yml
+
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md

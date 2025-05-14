@@ -124,12 +124,13 @@ export class BrowseIconsComponent implements OnInit {
       license: 'MIT',
       package: '@ng-icons/heroicons/outline',
       icons: async () => {
-        const [outline, solid, mini] = await Promise.all([
+        const [outline, solid, mini, micro] = await Promise.all([
           import('@ng-icons/heroicons/outline'),
           import('@ng-icons/heroicons/solid'),
           import('@ng-icons/heroicons/mini'),
+          import('@ng-icons/heroicons/micro'),
         ]);
-        return { outline, solid, mini };
+        return { outline, solid, mini, micro };
       },
     },
     {
