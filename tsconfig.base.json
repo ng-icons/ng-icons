@@ -52,12 +52,12 @@
       ],
       "@ng-icons/game-icons": ["packages/game-icons/src/index.ts"],
       "@ng-icons/heroicons": ["packages/heroicons/src/index.ts"],
+      "@ng-icons/heroicons/micro": ["packages/heroicons/micro/src/index.ts"],
       "@ng-icons/heroicons/mini": ["packages/heroicons/mini/src/index.ts"],
       "@ng-icons/heroicons/outline": [
         "packages/heroicons/outline/src/index.ts"
       ],
       "@ng-icons/heroicons/solid": ["packages/heroicons/solid/src/index.ts"],
-      "@ng-icons/heroicons/micro": ["packages/heroicons/micro/src/index.ts"],
       "@ng-icons/huge-icons": ["packages/huge-icons/src/index.ts"],
       "@ng-icons/iconoir": ["packages/iconoir/src/index.ts"],
       "@ng-icons/iconsax": ["packages/iconsax/src/index.ts"],
