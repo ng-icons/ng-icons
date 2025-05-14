@@ -1,3 +1,13 @@
+## 31.4.0 (2025-05-14)
+
+### 🚀 Features
+
+- heroicons micro ([#184](https://github.com/ng-icons/ng-icons/pull/184))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 31.3.0 (2025-04-16)
 
 This was a version bump only, there were no code changes.
