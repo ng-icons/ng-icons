@@ -1,6 +1,6 @@
 {
   "name": "@ng-icons/schematics",
-  "version": "31.3.0",
+  "version": "31.4.0",
   "main": "src/index.js",
   "generators": "./generators.json",
   "executors": "./executors.json",
