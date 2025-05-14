@@ -15,7 +15,6 @@ export async function generateIconLibrary(tree: Tree, schema: Schema) {
     commonModule: false,
     importPath: `@ng-icons/${schema.name}`,
     prefix: 'ng',
-    standaloneConfig: true,
     strict: true,
     unitTestRunner: UnitTestRunner.Jest,
     addModuleSpec: false,
