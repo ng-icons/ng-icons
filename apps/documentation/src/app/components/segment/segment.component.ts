@@ -1,4 +1,4 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import {
   afterNextRender,
   ChangeDetectorRef,
@@ -15,7 +15,7 @@ import {
 
 @Component({
   selector: 'app-segment',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './segment.component.html',
   styleUrls: ['./segment.component.scss'],
 })
