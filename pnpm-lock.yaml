@@ -12,8 +12,8 @@ importers:
         specifier: 20.0.0
         version: 20.0.0(@angular/common@20.0.0(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))
       '@angular/cdk':
-        specifier: 19.2.2
-        version: 19.2.2(@angular/common@20.0.0(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)
+        specifier: 20.0.2
+        version: 20.0.2(@angular/common@20.0.0(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)
       '@angular/common':
         specifier: 20.0.0
         version: 20.0.0(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)
@@ -566,11 +566,11 @@ packages:
       vitest:
         optional: true
 
-  '@angular/cdk@19.2.2':
-    resolution: {integrity: sha512-YLiydMiTSf7s/LKaLgNeWawspulqdo/47zcjs1sEkHOcmyN1yR2Q0zQdgSbtsvuNikaR4NMNgTybNTDnULl64A==}
+  '@angular/cdk@20.0.2':
+    resolution: {integrity: sha512-gRQcpTNhnwBxXSmpnrljODUHQmB2Hnxc6L2Ad6mSMV+c3opd9KIFxL5eG2WOOPHGAaPrV4gNFw+t1i01U4grTg==}
     peerDependencies:
-      '@angular/common': ^19.0.0 || ^20.0.0
-      '@angular/core': ^19.0.0 || ^20.0.0
+      '@angular/common': ^20.0.0 || ^21.0.0
+      '@angular/core': ^20.0.0 || ^21.0.0
       rxjs: ^6.5.3 || ^7.4.0
 
   '@angular/cli@20.0.0':
@@ -7897,6 +7897,9 @@ packages:
   parse5@7.1.2:
     resolution: {integrity: sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw==}
 
+  parse5@7.3.0:
+    resolution: {integrity: sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw==}
+
   parseurl@1.3.3:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
     engines: {node: '>= 0.8'}
@@ -10697,14 +10700,13 @@ snapshots:
       - tsx
       - yaml
 
-  '@angular/cdk@19.2.2(@angular/common@20.0.0(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)':
+  '@angular/cdk@20.0.2(@angular/common@20.0.0(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)':
     dependencies:
       '@angular/common': 20.0.0(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)
       '@angular/core': 20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0)
+      parse5: 7.3.0
       rxjs: 7.8.0
-      tslib: 2.8.1
-    optionalDependencies:
-      parse5: 7.1.2
+      tslib: 2.6.3
 
   '@angular/cli@20.0.0(@types/node@18.19.43)(chokidar@4.0.3)':
     dependencies:
@@ -12694,15 +12696,15 @@ snapshots:
   '@emnapi/core@1.2.0':
     dependencies:
       '@emnapi/wasi-threads': 1.0.1
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   '@emnapi/runtime@1.2.0':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   '@emnapi/wasi-threads@1.0.1':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   '@esbuild/aix-ppc64@0.19.12':
     optional: true
@@ -13231,21 +13233,21 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@jsonjoy.com/base64@1.1.2(tslib@2.8.1)':
+  '@jsonjoy.com/base64@1.1.2(tslib@2.6.3)':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
-  '@jsonjoy.com/json-pack@1.0.4(tslib@2.8.1)':
+  '@jsonjoy.com/json-pack@1.0.4(tslib@2.6.3)':
     dependencies:
-      '@jsonjoy.com/base64': 1.1.2(tslib@2.8.1)
-      '@jsonjoy.com/util': 1.3.0(tslib@2.8.1)
+      '@jsonjoy.com/base64': 1.1.2(tslib@2.6.3)
+      '@jsonjoy.com/util': 1.3.0(tslib@2.6.3)
       hyperdyperid: 1.2.0
-      thingies: 1.21.0(tslib@2.8.1)
-      tslib: 2.8.1
+      thingies: 1.21.0(tslib@2.6.3)
+      tslib: 2.6.3
 
-  '@jsonjoy.com/util@1.3.0(tslib@2.8.1)':
+  '@jsonjoy.com/util@1.3.0(tslib@2.6.3)':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 
@@ -14825,7 +14827,7 @@ snapshots:
 
   '@tybys/wasm-util@0.9.0':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   '@types/babel__core@7.20.5':
     dependencies:
@@ -16223,7 +16225,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   camelcase-css@2.0.1: {}
 
@@ -16879,7 +16881,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   dotenv-expand@11.0.6:
     dependencies:
@@ -17644,7 +17646,7 @@ snapshots:
       '@types/hast': 3.0.4
       devlop: 1.1.0
       hast-util-from-parse5: 8.0.2
-      parse5: 7.1.2
+      parse5: 7.3.0
       vfile: 6.0.3
       vfile-message: 4.0.2
 
@@ -18772,7 +18774,7 @@ snapshots:
     dependencies:
       copy-anything: 2.0.6
       parse-node-version: 1.0.1
-      tslib: 2.8.1
+      tslib: 2.6.3
     optionalDependencies:
       errno: 0.1.8
       graceful-fs: 4.2.11
@@ -18963,7 +18965,7 @@ snapshots:
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   lowercase-keys@3.0.0: {}
 
@@ -19167,10 +19169,10 @@ snapshots:
 
   memfs@4.17.1:
     dependencies:
-      '@jsonjoy.com/json-pack': 1.0.4(tslib@2.8.1)
-      '@jsonjoy.com/util': 1.3.0(tslib@2.8.1)
-      tree-dump: 1.0.2(tslib@2.8.1)
-      tslib: 2.8.1
+      '@jsonjoy.com/json-pack': 1.0.4(tslib@2.6.3)
+      '@jsonjoy.com/util': 1.3.0(tslib@2.6.3)
+      tree-dump: 1.0.2(tslib@2.6.3)
+      tslib: 2.6.3
 
   merge-descriptors@1.0.3: {}
 
@@ -19615,7 +19617,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   node-abort-controller@3.1.1: {}
 
@@ -19973,7 +19975,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   parent-module@1.0.1:
     dependencies:
@@ -19995,12 +19997,12 @@ snapshots:
   parse5-html-rewriting-stream@7.1.0:
     dependencies:
       entities: 6.0.0
-      parse5: 7.1.2
+      parse5: 7.3.0
       parse5-sax-parser: 7.0.0
 
   parse5-sax-parser@7.0.0:
     dependencies:
-      parse5: 7.1.2
+      parse5: 7.3.0
 
   parse5@4.0.0: {}
 
@@ -20010,12 +20012,16 @@ snapshots:
     dependencies:
       entities: 4.5.0
 
+  parse5@7.3.0:
+    dependencies:
+      entities: 6.0.0
+
   parseurl@1.3.3: {}
 
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   path-browserify@1.0.1: {}
 
@@ -21031,7 +21037,7 @@ snapshots:
 
   rxjs@7.8.1:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   rxjs@7.8.2:
     dependencies:
@@ -21366,7 +21372,7 @@ snapshots:
   snake-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   sockjs@0.3.24:
     dependencies:
@@ -21834,9 +21840,9 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-  thingies@1.21.0(tslib@2.8.1):
+  thingies@1.21.0(tslib@2.6.3):
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   thread-stream@3.1.0:
     dependencies:
@@ -21904,9 +21910,9 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  tree-dump@1.0.2(tslib@2.8.1):
+  tree-dump@1.0.2(tslib@2.6.3):
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   tree-kill@1.2.2: {}
 
