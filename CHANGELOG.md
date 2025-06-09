@@ -2,11 +2,13 @@
 
 ### 🚀 Features
 
+- add angular v20 support ([#186](https://github.com/ng-icons/ng-icons/pull/186))
 - icon updates ([#187](https://github.com/ng-icons/ng-icons/pull/187))
 
 ### ❤️ Thank You
 
 - Ashley Hunter
+- Jeevan Mahesha
 
 ## 31.4.0 (2025-05-14)
 
