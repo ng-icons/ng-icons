@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { SnippetComponent } from '../components/snippet/snippet.component';
@@ -11,7 +10,6 @@ import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
   templateUrl: './getting-started.component.html',
   styleUrls: ['./getting-started.component.scss'],
   imports: [
-    NgIf,
     TerminalComponent,
     SnippetComponent,
     FadeInContainerDirective,
