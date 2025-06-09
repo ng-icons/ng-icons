@@ -1,3 +1,13 @@
+# 32.0.0 (2025-06-09)
+
+### 🚀 Features
+
+- icon updates ([#187](https://github.com/ng-icons/ng-icons/pull/187))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 31.4.0 (2025-05-14)
 
 ### 🚀 Features
