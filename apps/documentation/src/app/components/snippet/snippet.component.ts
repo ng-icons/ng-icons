@@ -1,9 +1,8 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-snippet',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './snippet.component.html',
   styleUrls: ['./snippet.component.scss'],
 })

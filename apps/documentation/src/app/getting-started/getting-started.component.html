@@ -28,13 +28,12 @@
   </div>
 
   <app-snippet appFadeIn>
-    <pre
-      *ngIf="selectedIndex === 1"
-      ngNonBindable
-    ><span style="color: #E5ACAC">import</span> &#123; NgIconsModule &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/core&#39;</span>;
+    @if (selectedIndex === 1) {
+      <pre
+        ngNonBindable
+      ><span style="color: #E5ACAC">import</span> &#123; NgIconsModule &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/core&#39;</span>;
 <span style="color: #E5ACAC">import</span> &#123; featherAirplay &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/feather-icons&#39;</span>;
 <span style="color: #E5ACAC">import</span> &#123; heroUsers &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/heroicons/outline&#39;</span>;
-
 <span style="color: #B3D1FE">&#64;NgModule</span>(&#123;
   imports: [
     BrowserModule,
@@ -42,23 +41,24 @@
   ],
 &#125;)
 <span style="color: #E5ACAC">export class</span> AppModule &#123;&#125;
-</pre>
+      </pre>
+    }
 
-    <pre
-      *ngIf="selectedIndex === 0"
-      ngNonBindable
-    ><span style="color: #E5ACAC">import</span> &#123; NgIcon, provideIcons &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/core&#39;</span>;
+    @if (selectedIndex === 0) {
+      <pre
+        ngNonBindable
+      ><span style="color: #E5ACAC">import</span> &#123; NgIcon, provideIcons &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/core&#39;</span>;
 <span style="color: #E5ACAC">import</span> &#123; featherAirplay &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/feather-icons&#39;</span>;
 <span style="color: #E5ACAC">import</span> &#123; heroUsers &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/heroicons/outline&#39;</span>;
-
 <span style="color: #B3D1FE">&#64;Component</span>(&#123;
-    selector<span style="color: #333333">:</span> <span style="color: #FEDBB3">&#39;app-root&#39;</span>,
-    templateUrl<span style="color: #333333">:</span> <span style="color: #FEDBB3">&#39;./app.component.html&#39;</span>,
-    imports<span style="color: #333333">:</span> [NgIcon],
-    viewProviders: [<span style="color: #B3D1FE">provideIcons</span>(&#123; featherAirplay, heroUsers &#125;)]
+  selector<span style="color: #333333">:</span> <span style="color: #FEDBB3">&#39;app-root&#39;</span>,
+  templateUrl<span style="color: #333333">:</span> <span style="color: #FEDBB3">&#39;./app.component.html&#39;</span>,
+  imports<span style="color: #333333">:</span> [NgIcon],
+  viewProviders: [<span style="color: #B3D1FE">provideIcons</span>(&#123; featherAirplay, heroUsers &#125;)]
 &#125;)
 <span style="color: #E5ACAC">export</span> <span style="color: #E5ACAC">class</span> AppComponent &#123;&#125;
 </pre>
+    }
   </app-snippet>
 
   <hr appFadeIn />
@@ -73,7 +73,7 @@
 
   <app-snippet appFadeIn>
     <pre><span style="color: #E5ACAC">&lt;ng-icon</span> <span style="color: #D0B3FE">name</span>=<span style="color: #FEDBB3">&quot;heroUsers&quot;</span>&nbsp;/&gt;
-</pre>
+  </pre>
   </app-snippet>
 
   <hr appFadeIn />
@@ -90,8 +90,8 @@
 
   <app-snippet appFadeIn>
     <pre>provideNgIconLoader(name =&gt; &#123;
-  <span style="color: #E5ACAC">const</span> http = inject(HttpClient);
-  <span style="color: #E5ACAC">return</span> http.get(<span style="color: #FEDBB3">`/assets/icons/$&#123;name&#125;.svg`</span>);
+    <span style="color: #E5ACAC">const</span> http = inject(HttpClient);
+    <span style="color: #E5ACAC">return</span> http.get(<span style="color: #FEDBB3">`/assets/icons/$&#123;name&#125;.svg`</span>);
 &#125;)</pre>
   </app-snippet>
 
