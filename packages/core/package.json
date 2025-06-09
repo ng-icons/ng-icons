@@ -12,8 +12,8 @@
   },
   "homepage": "https://ng-icons.github.io/ng-icons/",
   "peerDependencies": {
-    "@angular/core": ">=18.0.0",
-    "@angular/common": ">=18.0.0",
+    "@angular/core": ">=20.0.0",
+    "@angular/common": ">=20.0.0",
     "rxjs": "^6.5.3 || ^7.4.0"
   }
 }
