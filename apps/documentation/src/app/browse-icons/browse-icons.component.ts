@@ -3,12 +3,13 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import {
   ChangeDetectionStrategy,
   Component,
-  Injector,
-  OnInit,
   computed,
+  ElementRef,
   inject,
+  Injector,
   model,
   signal,
+  viewChild,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { akarPaper, akarRadish } from '@ng-icons/akar-icons';
@@ -102,7 +103,7 @@ const circumIcon = `
     }),
   ],
 })
-export class BrowseIconsComponent implements OnInit {
+export class BrowseIconsComponent {
   private readonly injector = inject(Injector);
   private readonly clipboard = inject(Clipboard);
   readonly year = new Date().getFullYear();
@@ -586,9 +587,8 @@ export class BrowseIconsComponent implements OnInit {
       .map(result => result.item);
   });
   private toastTimeout?: number;
-  ngOnInit(): void {
-    Promise.resolve().then(() => this.loadIconset(this.iconsets[0]));
-  }
+  private readonly infoSection = viewChild<ElementRef<HTMLHRElement>>('info');
+
   copyToClipboard(icon: string): void {
     this.clipboard.copy(icon);
     // show the toast
@@ -622,6 +622,11 @@ export class BrowseIconsComponent implements OnInit {
     this.activeIconset.set(iconset);
     this.category.set(Object.keys(icons)[0]);
     this.icons.set(icons);
+    // Auto-scroll to info section after iconset is loaded
+    this.infoSection()?.nativeElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
   }
   setCategoryIndex(index: number): void {
     const category = Object.keys(this.icons())[index];
