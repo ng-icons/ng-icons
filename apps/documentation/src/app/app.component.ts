@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   readonly dismissed = signal(localStorage.getItem('dismissed') === 'true');
 
-  constructor(private readonly router: Router) {}
+  private readonly router = inject(Router);
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
