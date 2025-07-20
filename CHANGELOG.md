@@ -1,3 +1,13 @@
+## 32.1.0 (2025-07-20)
+
+### 🚀 Features
+
+- auto-scroll to info section when iconset is selected ([#191](https://github.com/ng-icons/ng-icons/pull/191))
+
+### ❤️ Thank You
+
+- Jeevan @JeevanMahesha
+
 # 32.0.0 (2025-06-09)
 
 ### 🚀 Features
