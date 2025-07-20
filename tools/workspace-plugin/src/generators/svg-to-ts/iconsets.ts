@@ -2,6 +2,7 @@
 import { names } from '@nx/devkit';
 import { dirname } from 'path';
 import type { CustomPlugin } from 'svgo';
+
 export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/heroicons/24/outline/**/*.svg',
@@ -287,9 +288,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/iconsax/bold/**/*.svg',
     output: 'packages/iconsax/bold/src/index.ts',
-    getIconName: (name: string) => {
-      return `sax${name}Bold`;
-    },
+    getIconName: (name: string) => `sax${getIconSaxName(name)}Bold`,
     svg: {
       removeColor: true,
     },
@@ -297,9 +296,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/iconsax/bulk/**/*.svg',
     output: 'packages/iconsax/bulk/src/index.ts',
-    getIconName: (name: string) => {
-      return `sax${name}Bulk`;
-    },
+    getIconName: (name: string) => `sax${getIconSaxName(name)}Bulk`,
     svg: {
       removeColor: true,
     },
@@ -307,9 +304,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/iconsax/outline/**/*.svg',
     output: 'packages/iconsax/outline/src/index.ts',
-    getIconName: (name: string) => {
-      return `sax${name}Outline`;
-    },
+    getIconName: (name: string) => `sax${getIconSaxName(name)}Outline`,
     svg: {
       removeColor: true,
     },
@@ -540,6 +535,7 @@ export const iconsets: Iconset[] = [
     },
   },
 ];
+
 export interface Iconset {
   glob: string;
   filter?: (name: string) => boolean;
@@ -550,6 +546,7 @@ export interface Iconset {
   deprecatedMessage?: string;
   plugins?: CustomPlugin[];
 }
+
 export interface SvgOptions {
   colorAttr?: 'fill' | 'stroke';
   removeStroke?: boolean;
@@ -557,4 +554,12 @@ export interface SvgOptions {
   removeBackground?: boolean;
   strokeCurrentColor?: boolean;
   fillCurrentColor?: boolean;
+}
+
+/**
+ *
+ * @returns the iconSax name fixing the misspelling error of the word Circle (from Cirlce)
+ */
+function getIconSaxName(name: string): string {
+  return name.replace(/Cirlce/g, 'Circle');
 }
