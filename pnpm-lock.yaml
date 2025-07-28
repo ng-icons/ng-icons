@@ -63,11 +63,11 @@ importers:
         specifier: https://gitpkg.now.sh/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50
         version: https://gitpkg.now.sh/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50(react@16.14.0)
       '@rx-angular/cdk':
-        specifier: 19.0.1
-        version: 19.0.1(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)
+        specifier: 20.0.0
+        version: 20.0.0(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)
       '@rx-angular/template':
-        specifier: 19.1.2
-        version: 19.1.2(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(@rx-angular/cdk@19.0.1(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0))(rxjs@7.8.0)
+        specifier: 20.0.0
+        version: 20.0.0(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(@rx-angular/cdk@20.0.0(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0))(rxjs@7.8.0)
       '@swc/helpers':
         specifier: 0.5.11
         version: 0.5.11
@@ -2492,6 +2492,9 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.0':
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
 
+  '@jridgewell/sourcemap-codec@1.5.4':
+    resolution: {integrity: sha512-VT2+G1VQs/9oz078bLrYbecdZKs912zQlkelYpuf+SXF+QvZDYJlbx/LSx+meSAwdDFnF8FVXW92AVjjkVmgFw==}
+
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
@@ -3384,17 +3387,17 @@ packages:
       webpack-hot-middleware:
         optional: true
 
-  '@rx-angular/cdk@19.0.1':
-    resolution: {integrity: sha512-CYxu048bqBbZw4uliOPWwchLNv2r+tuB9LrW2I4N/ciUT+q5HKci9ysZkGzm3bq2lXwVIOVxjMDfNLJJxrnLgg==}
+  '@rx-angular/cdk@20.0.0':
+    resolution: {integrity: sha512-8ulzp1P3I7ijtA+0rgo6ZowUtIJikQ4Z25ViTv+mPP3v8hO+Fj6gindXEj1OHoVmVwD0BtUDTUj+clb+yvK/KQ==}
     peerDependencies:
-      '@angular/core': ^19.0.0
+      '@angular/core': ^20.0.0
       rxjs: ^6.5.3 || ^7.4.0
 
-  '@rx-angular/template@19.1.2':
-    resolution: {integrity: sha512-pTGQxsiWb2ZEdNGVPhSW7EIc8Q3gErv0vh9TzYVaFiKSc/LWi2vrs6b+lNrds/CEzpXc9TPYNxnNDgL8wRzUIQ==}
+  '@rx-angular/template@20.0.0':
+    resolution: {integrity: sha512-HYWlHNZuyM7kZj/TZp/5JqcZ7FIyWsw+cSemyPFOK+LuI6OBmyEwzsLhJvad9OLozzQHSfgbQfmV9rWKehD8PQ==}
     peerDependencies:
-      '@angular/core': ^19.0.0
-      '@rx-angular/cdk': ^19.0.1
+      '@angular/core': ^20.0.0
+      '@rx-angular/cdk': ^20.0.0
       rxjs: ^6.5.3 || ^7.4.0
 
   '@schematics/angular@20.0.0':
@@ -4624,6 +4627,9 @@ packages:
   brace-expansion@2.0.1:
     resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
 
+  brace-expansion@2.0.2:
+    resolution: {integrity: sha512-Jt0vHyM+jmUBqojB7E1NIYadt0vI0Qxjxd2TErW94wDz+E2LAm5vKMXXwg6ZZBTHPuUlDgQHKXvjGBdfcF1ZDQ==}
+
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
@@ -4863,8 +4869,8 @@ packages:
     resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}
     engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
 
-  code-block-writer@13.0.2:
-    resolution: {integrity: sha512-XfXzAGiStXSmCIwrkdfvc7FS5Dtj8yelCtyOf2p2skCAfvLd6zu0rGzuS9NSCO3bq1JKpFZ7tbKdKlcd5occQA==}
+  code-block-writer@13.0.3:
+    resolution: {integrity: sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==}
 
   collect-v8-coverage@1.0.2:
     resolution: {integrity: sha512-lHl4d5/ONEbLlJvaJNtsF/Lz+WvB07u2ycqTYbdrq7UypDXailES4valYb2eWiJFxZlVmpGekfqoxQhzyFdT4Q==}
@@ -7572,12 +7578,12 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  ng-morph@4.5.4:
-    resolution: {integrity: sha512-g7asHMUZR05bOw/kX5nIVEFs8SDcuH0t5WjdMuVBlJEvl0mY1gDlz1LoIhGlzcbRleMg9n1J0PdrrmYJchWJ9g==}
+  ng-morph@4.8.4:
+    resolution: {integrity: sha512-XwL53wCOhyaAxvoekN74ONbWUK30huzp+GpZYyC01RfaG2AX9l7YlC1mGG/l7Rx7YXtFAk85VFnNJqn2e46K8g==}
     peerDependencies:
       '@angular-devkit/core': '>=16.0.0'
       '@angular-devkit/schematics': '>=16.0.0'
-      tslib: ^2.6.3
+      tslib: ^2.7.0
 
   ng-packagr@20.0.0:
     resolution: {integrity: sha512-p4pKkeulFi8wIOE2oLCPuzGLWE3uCNdrovSHGK5/w3+eA3l6DZmdEcvXM8YrEhbi253aB3yp4nKipc1OlK7hvQ==}
@@ -13210,6 +13216,8 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
 
+  '@jridgewell/sourcemap-codec@1.5.4': {}
+
   '@jridgewell/trace-mapping@0.3.25':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
@@ -14481,23 +14489,23 @@ snapshots:
       html-entities: 2.6.0
       react-refresh: 0.17.0
 
-  '@rx-angular/cdk@19.0.1(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)':
+  '@rx-angular/cdk@20.0.0(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)':
     dependencies:
       '@angular/core': 20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0)
-      ng-morph: 4.5.4(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(tslib@2.8.1)
+      ng-morph: 4.8.4(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(tslib@2.6.3)
       rxjs: 7.8.0
-      tslib: 2.8.1
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@angular-devkit/core'
       - '@angular-devkit/schematics'
 
-  '@rx-angular/template@19.1.2(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(@rx-angular/cdk@19.0.1(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0))(rxjs@7.8.0)':
+  '@rx-angular/template@20.0.0(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(@rx-angular/cdk@20.0.0(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0))(rxjs@7.8.0)':
     dependencies:
       '@angular/core': 20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0)
-      '@rx-angular/cdk': 19.0.1(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)
-      ng-morph: 4.5.4(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(tslib@2.8.1)
+      '@rx-angular/cdk': 20.0.0(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(@angular/core@20.0.0(@angular/compiler@20.0.0)(rxjs@7.8.0)(zone.js@0.15.0))(rxjs@7.8.0)
+      ng-morph: 4.8.4(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(tslib@2.6.3)
       rxjs: 7.8.0
-      tslib: 2.8.1
+      tslib: 2.6.3
     transitivePeerDependencies:
       - '@angular-devkit/core'
       - '@angular-devkit/schematics'
@@ -16106,6 +16114,10 @@ snapshots:
     dependencies:
       balanced-match: 1.0.2
 
+  brace-expansion@2.0.2:
+    dependencies:
+      balanced-match: 1.0.2
+
   braces@3.0.3:
     dependencies:
       fill-range: 7.1.1
@@ -16344,7 +16356,7 @@ snapshots:
 
   co@4.6.0: {}
 
-  code-block-writer@13.0.2: {}
+  code-block-writer@13.0.3: {}
 
   collect-v8-coverage@1.0.2: {}
 
@@ -17134,7 +17146,7 @@ snapshots:
 
   esrap@1.4.9:
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.0
+      '@jridgewell/sourcemap-codec': 1.5.4
 
   esrecurse@4.3.0:
     dependencies:
@@ -19413,7 +19425,7 @@ snapshots:
 
   minimatch@10.0.1:
     dependencies:
-      brace-expansion: 2.0.1
+      brace-expansion: 2.0.2
 
   minimatch@3.0.8:
     dependencies:
@@ -19565,7 +19577,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  ng-morph@4.5.4(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(tslib@2.8.1):
+  ng-morph@4.8.4(@angular-devkit/core@20.0.0(chokidar@4.0.3))(@angular-devkit/schematics@20.0.0(chokidar@4.0.3))(tslib@2.6.3):
     dependencies:
       '@angular-devkit/core': 20.0.0(chokidar@4.0.3)
       '@angular-devkit/schematics': 20.0.0(chokidar@4.0.3)
@@ -19573,7 +19585,7 @@ snapshots:
       minimatch: 10.0.1
       multimatch: 5.0.0
       ts-morph: 23.0.0
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   ng-packagr@20.0.0(@angular/compiler-cli@20.0.0(@angular/compiler@20.0.0)(typescript@5.8.3))(tailwindcss@3.4.7(ts-node@10.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@18.19.43)(typescript@5.8.3)))(tslib@2.6.3)(typescript@5.8.3):
     dependencies:
@@ -21635,7 +21647,7 @@ snapshots:
   svelte@5.16.0:
     dependencies:
       '@ampproject/remapping': 2.3.0
-      '@jridgewell/sourcemap-codec': 1.5.0
+      '@jridgewell/sourcemap-codec': 1.5.4
       '@types/estree': 1.0.8
       acorn: 8.15.0
       acorn-typescript: 1.4.13(acorn@8.15.0)
@@ -21973,7 +21985,7 @@ snapshots:
   ts-morph@23.0.0:
     dependencies:
       '@ts-morph/common': 0.24.0
-      code-block-writer: 13.0.2
+      code-block-writer: 13.0.3
 
   ts-node@10.9.1(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@18.19.43)(typescript@5.8.3):
     dependencies:
