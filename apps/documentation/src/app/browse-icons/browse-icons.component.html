@@ -27,70 +27,73 @@
 
   <hr appFadeIn #info />
 
-  <h1 appFadeIn class="heading mb-8 text-center text-5xl font-extrabold">
-    {{ activeIconset()?.name }}
-  </h1>
+  @if (activeIconset(); as iconset) {
+    <h1 appFadeIn class="heading mb-8 text-center text-5xl font-extrabold">
+      {{ iconset.name }}
+    </h1>
 
-  <div
-    appFadeIn
-    class="mb-12 flex justify-center gap-8 text-sm font-medium text-[#E4F4FB]"
-  >
-    <div>
-      <span class="mr-2 opacity-50">Package:</span>
-      <span class="opacity-80">{{ activeIconset()?.package }}</span>
+    <div
+      appFadeIn
+      class="mb-12 flex justify-center gap-8 text-sm font-medium text-[#E4F4FB]"
+    >
+      <div>
+        <span class="mr-2 opacity-50">Package:</span>
+        <span class="opacity-80">{{ iconset.package }}</span>
+      </div>
+      <div>
+        <span class="mr-2 opacity-50">Website:</span>
+        <a
+          [href]="'https://' + iconset.website"
+          target="_blank"
+          class="opacity-80"
+          >{{ shortUrl(iconset.website) }}</a
+        >
+      </div>
+      <div>
+        <span class="mr-2 opacity-50">License:</span>
+        <span class="opacity-80">{{ iconset.license }}</span>
+      </div>
     </div>
-    <div>
-      <span class="mr-2 opacity-50">Website:</span>
-      <a
-        [href]="'https://' + activeIconset()?.website"
-        target="_blank"
-        class="opacity-80"
-        >{{ shortUrl(activeIconset()?.website) }}</a
-      >
-    </div>
-    <div>
-      <span class="mr-2 opacity-50">License:</span>
-      <span class="opacity-80">{{ activeIconset()?.license }}</span>
-    </div>
-  </div>
 
-  <div appFadeIn class="search">
-    <ng-icon class="search-icon" name="heroMagnifyingGlass" />
-    <input
-      type="text"
-      class="search-input"
-      placeholder="Search icons..."
-      [(ngModel)]="search"
-    />
-  </div>
-
-  @if (categories().length > 1) {
-    <div appFadeIn class="mb-16 flex justify-center">
-      <app-segment
-        [options]="categories()"
-        [selectedIndex]="activeCategoryIndex()"
-        (selectedIndexChange)="setCategoryIndex($event)"
+    <div appFadeIn class="search">
+      <ng-icon class="search-icon" name="heroMagnifyingGlass" />
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search icons..."
+        [(ngModel)]="search"
       />
     </div>
-  }
 
-  <div
-    appFadeIn
-    class="mb-16 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
-  >
+    @if (categories().length > 1) {
+      <div appFadeIn class="mb-16 flex justify-center">
+        <app-segment
+          [options]="categories()"
+          [selectedIndex]="activeCategoryIndex()"
+          (selectedIndexChange)="setCategoryIndex($event)"
+        />
+      </div>
+    }
+
     <div
-      *rxFor="let icon of filteredIcons(); trackBy: trackByFn"
-      class="icon-card"
-      (click)="copyToClipboard(icon)"
-      (keydown.enter)="copyToClipboard(icon)"
-      tabindex="0"
+      appFadeIn
+      class="mb-16 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
     >
-      <ng-icon class="text-2xl" [name]="icon" />
-      <span class="max-w-full break-all px-2 text-center text-xs font-medium">{{
-        icon
-      }}</span>
+      <div
+        *rxFor="let icon of filteredIcons(); trackBy: trackByFn"
+        class="icon-card"
+        (click)="copyToClipboard(icon)"
+        (keydown.enter)="copyToClipboard(icon)"
+        tabindex="0"
+      >
+        <ng-icon class="text-2xl" [name]="icon" />
+        <span
+          class="max-w-full break-all px-2 text-center text-xs font-medium"
+          >{{ icon }}</span
+        >
+      </div>
     </div>
-  </div>
+  }
 
   <p appFadeIn class="text-medium mb-16 text-center text-sm text-[#E4F4FB]">
     © Copyright {{ year }} - Angular Icons
