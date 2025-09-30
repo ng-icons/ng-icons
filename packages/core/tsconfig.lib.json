@@ -8,7 +8,8 @@
     "inlineSources": true,
     "types": [],
     "lib": ["dom", "es2018"],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "moduleResolution": "bundler"
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,

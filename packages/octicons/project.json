@@ -4,6 +4,7 @@
   "projectType": "library",
   "sourceRoot": "packages/octicons/src",
   "prefix": "ng",
+  "tags": [],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
@@ -38,6 +39,5 @@
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
-  },
-  "tags": []
+  }
 }
