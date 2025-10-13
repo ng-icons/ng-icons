@@ -1,3 +1,13 @@
+## 32.2.0 (2025-10-13)
+
+### 🚀 Features
+
+- update lucide ([0020400](https://github.com/ng-icons/ng-icons/commit/0020400))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 32.1.0 (2025-07-20)
 
 ### 🚀 Features
