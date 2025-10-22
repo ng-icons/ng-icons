@@ -1,9 +1,10 @@
 import { NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { fromEvent } from 'rxjs';
+import { distinctUntilChanged, fromEvent, map } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -12,13 +13,16 @@ import { fromEvent } from 'rxjs';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
-  showBlurredNavbar = false;
+export class NavbarComponent {
+  public readonly showBlurredNavbar: Signal<boolean>;
 
-  ngOnInit(): void {
-    // monitor the scroll position and update the navbar accordingly
-    fromEvent(window, 'scroll').subscribe(() => {
-      this.showBlurredNavbar = window.scrollY > 0;
-    });
+  constructor() {
+    this.showBlurredNavbar = toSignal(
+      fromEvent(window, 'scroll').pipe(
+        map(() => window.scrollY > 0),
+        distinctUntilChanged(),
+      ),
+      { initialValue: false },
+    );
   }
 }
