@@ -132,6 +132,7 @@ The following packages are available:
 | `@ng-icons/mynaui`               | MIT                                   |
 | `@ng-icons/boxicons`             | MIT                                   |
 | `@ng-icons/mono-icons`           | MIT                                   |
+| `@ng-icons/lucide`               | MIT                                   |
 
 ## Usage
 
