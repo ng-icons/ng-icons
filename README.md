@@ -48,6 +48,7 @@ Currently, we support the following libraries:
 - [MynaUI](https://mynaui.com/icons)
 - [Boxicons](https://boxicons.com/)
 - [Mono Icons](https://icons.mono.company/)
+- [Lucide Icons](https://lucide.dev/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
