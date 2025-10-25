@@ -22,7 +22,7 @@ Currently, we support the following libraries:
 - [Feather Icons](https://feathericons.com/)
 - [Jam Icons](https://jam-icons.com/)
 - [Octicons](https://github.com/primer/octicons)
-- [Radix UI Icons](https://icons.modulz.app/)
+- [Radix UI Icons](https://www.radix-ui.com/icons)
 - [Tabler Icons](https://tabler-icons.io/)
 - [Akar Icons](https://akaricons.com/)
 - [Iconoir](https://iconoir.com/)
