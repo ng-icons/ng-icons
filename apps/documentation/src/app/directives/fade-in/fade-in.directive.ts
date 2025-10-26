@@ -1,13 +1,13 @@
-import { Directive, HostBinding } from '@angular/core';
+import { Directive, signal } from '@angular/core';
 
 @Directive({
   selector: '[appFadeIn]',
   standalone: true,
   host: {
     '[class.fade-in]': 'true',
+    '[style.animation-delay.ms]': 'delay()',
   },
 })
 export class FadeInDirective {
-  @HostBinding('style.animation-delay.ms')
-  delay = 0;
+  delay = signal(0);
 }
