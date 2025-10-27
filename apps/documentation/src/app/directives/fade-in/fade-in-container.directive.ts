@@ -1,22 +1,18 @@
-import {
-  AfterContentInit,
-  ContentChildren,
-  Directive,
-  QueryList,
-} from '@angular/core';
+import { contentChildren, Directive, effect } from '@angular/core';
 import { FadeInDirective } from './fade-in.directive';
 
 @Directive({
   selector: '[appFadeInContainer]',
   standalone: true,
 })
-export class FadeInContainerDirective implements AfterContentInit {
-  @ContentChildren(FadeInDirective)
-  fadeInDirectives?: QueryList<FadeInDirective>;
+export class FadeInContainerDirective {
+  fadeInDirectives = contentChildren<FadeInDirective>(FadeInDirective);
 
-  ngAfterContentInit(): void {
-    this.fadeInDirectives?.forEach((directive, index) => {
-      directive.delay = (index + 1) * 50;
+  constructor() {
+    effect(() => {
+      this.fadeInDirectives().forEach((directive, index) => {
+        directive.delay.set((index + 1) * 50);
+      });
     });
   }
 }
