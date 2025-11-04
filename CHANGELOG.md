@@ -1,3 +1,13 @@
+## 32.3.0 (2025-11-04)
+
+### 🩹 Fixes
+
+- icons with ids ([#206](https://github.com/ng-icons/ng-icons/pull/206))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 32.2.0 (2025-10-13)
 
 ### 🚀 Features
