@@ -22,7 +22,7 @@ Currently, we support the following libraries:
 - [Feather Icons](https://feathericons.com/)
 - [Jam Icons](https://jam-icons.com/)
 - [Octicons](https://github.com/primer/octicons)
-- [Radix UI Icons](https://icons.modulz.app/)
+- [Radix UI Icons](https://www.radix-ui.com/icons)
 - [Tabler Icons](https://tabler-icons.io/)
 - [Akar Icons](https://akaricons.com/)
 - [Iconoir](https://iconoir.com/)
@@ -48,6 +48,7 @@ Currently, we support the following libraries:
 - [MynaUI](https://mynaui.com/icons)
 - [Boxicons](https://boxicons.com/)
 - [Mono Icons](https://icons.mono.company/)
+- [Lucide Icons](https://lucide.dev/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -131,6 +132,7 @@ The following packages are available:
 | `@ng-icons/mynaui`               | MIT                                   |
 | `@ng-icons/boxicons`             | MIT                                   |
 | `@ng-icons/mono-icons`           | MIT                                   |
+| `@ng-icons/lucide`               | MIT                                   |
 
 ## Usage
 
