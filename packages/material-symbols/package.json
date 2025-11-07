@@ -1,8 +1,8 @@
 {
   "name": "@ng-icons/material-symbols",
-  "version": "32.3.0",
+  "version": "32.4.0",
   "peerDependencies": {
-    "@ng-icons/core": "32.3.0"
+    "@ng-icons/core": "32.4.0"
   },
   "dependencies": {},
   "sideEffects": false

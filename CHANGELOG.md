@@ -1,3 +1,7 @@
+## 32.4.0 (2025-11-07)
+
+This was a version bump only, there were no code changes.
+
 ## 32.3.0 (2025-11-04)
 
 ### 🩹 Fixes
