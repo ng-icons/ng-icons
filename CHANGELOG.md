@@ -1,6 +1,10 @@
 ## 32.4.0 (2025-11-07)
 
-This was a version bump only, there were no code changes.
+- fix: resolve angular 20 localization extraction issue ([#209](https://github.com/ng-icons/ng-icons/pull/209))
+
+### ❤️ Thank You
+
+- Florian Sey @sey
 
 ## 32.3.0 (2025-11-04)
 
