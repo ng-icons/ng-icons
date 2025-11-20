@@ -11,6 +11,13 @@ module.exports = [
         'error',
         {
           ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'],
+          ignoredDependencies: [
+            '@analogjs/vitest-angular',
+            '@angular/compiler',
+            '@analogjs/vite-plugin-angular',
+            '@nx/vite',
+            'vite',
+          ],
         },
       ],
     },
