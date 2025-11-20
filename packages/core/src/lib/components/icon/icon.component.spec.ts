@@ -31,6 +31,10 @@ describe('Icon', () => {
     nativeElement = fixture.nativeElement;
   });
 
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
+
   it('should insert the expected template', () => {
     expect(nativeElement).toMatchSnapshot();
   });
@@ -170,6 +174,10 @@ describe('Icon with multiple modules', () => {
     router.initialNavigation();
   });
 
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
+
   it('should display icons registered in both parent and child modules', async () => {
     await router.navigate(['']);
     fixture.detectChanges();
@@ -207,6 +215,10 @@ describe('Standalone icon component', () => {
     nativeElement = fixture.nativeElement;
   });
 
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
+
   it('should display the icon', () => {
     const icon = nativeElement.querySelector<HTMLElement>('ng-icon');
     expect(icon?.innerHTML).toMatchSnapshot();
@@ -226,6 +238,10 @@ class LoaderComponent {}
 
 describe('Custom loader', () => {
   let fixture: ComponentFixture<LoaderComponent>;
+
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
 
   it('should display the icon', async () => {
     await TestBed.configureTestingModule({
@@ -262,6 +278,10 @@ class RepeatedCachedLoaderComponent {
 
 describe('Custom loader with caching', () => {
   let fixture: ComponentFixture<CachedLoaderComponent>;
+
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
 
   it('should display the icon', async () => {
     const loaderSpy = vi.fn(() => Promise.resolve(featherAlertCircle));

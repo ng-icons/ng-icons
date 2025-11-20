@@ -31,6 +31,10 @@ describe('Glyph', () => {
     nativeElement = fixture.nativeElement;
   });
 
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
+
   it('should allow the optical size to be changed', () => {
     fixture.componentRef.setInput('opticalSize', 24);
     fixture.detectChanges();
