@@ -5,9 +5,3 @@ exports[`FontAwesome Icons > should ensure the export names have not changed une
   "default",
 ]
 `;
-
-exports[`FontAwesome Icons should ensure the export names have not changed unexpectedly 1`] = `
-Array [
-  "default",
-]
-`;
