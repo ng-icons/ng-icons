@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgGlyphset, provideNgGlyphs } from '../../providers/glyph.provider';
 import { NgGlyph } from './glyph.component';

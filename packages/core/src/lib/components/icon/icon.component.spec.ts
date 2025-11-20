@@ -1,14 +1,14 @@
+/// <reference types="jest" />
 import { Component, NgModule } from '@angular/core';
 import {
   ComponentFixture,
-  TestBed,
   fakeAsync,
   flushMicrotasks,
+  TestBed,
   tick,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Router, RouterModule } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter, Router, RouterModule } from '@angular/router';
 import {
   featherAlertCircle,
   featherAlertTriangle,
@@ -160,7 +160,7 @@ describe('Icon with multiple modules', () => {
     await TestBed.configureTestingModule({
       declarations: [RootComponent],
       imports: [
-        RouterTestingModule.withRoutes([
+        provideRouter([
           {
             path: '',
             pathMatch: 'full',
