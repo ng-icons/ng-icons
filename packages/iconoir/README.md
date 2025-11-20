@@ -72,6 +72,7 @@ Ng Icons is an MIT-licensed open source project with its ongoing development mad
 | 18.x.x          | 28.x.x - 29.x.x |
 | 19.x.x          | 30.x.x - 31.x.x |
 | 20.x.x          | 32.x.x          |
+| 21.x.x          | 33.x.x          |
 
 > **Note**: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 

@@ -113,10 +113,7 @@
   "nxCloudAccessToken": "ZTU5Nzk3NjQtZjUzMC00YzA1LWE3MGItMjRiNmFiOWFhYTllfHJlYWQ=",
   "defaultBase": "origin/main",
   "release": {
-    "projectsRelationship": "fixed",
-    "version": {
-      "preVersionCommand": "pnpm dlx nx run-many -t build"
-    }
+    "projectsRelationship": "fixed"
   },
   "tui": {
     "enabled": false
