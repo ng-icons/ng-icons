@@ -21,14 +21,6 @@
       },
       "defaultConfiguration": "production"
     },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/core"],
-      "options": {
-        "jestConfig": "packages/core/jest.config.ts",
-        "tsConfig": "packages/core/tsconfig.spec.json"
-      }
-    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
@@ -37,6 +29,13 @@
       "dependsOn": ["build"],
       "options": {
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../coverage/packages/core"
       }
     }
   }

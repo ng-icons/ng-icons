@@ -26,4 +26,7 @@ module.exports = [
     files: ['**/*.js', '**/*.jsx'],
     rules: {},
   },
+  {
+    ignores: ['**/vite.config.*.timestamp*', '**/vitest.config.*.timestamp*'],
+  },
 ];

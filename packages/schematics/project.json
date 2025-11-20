@@ -47,10 +47,10 @@
       "outputs": ["{options.outputFile}"]
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/schematics"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "packages/schematics/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/schematics"
       }
     },
     "nx-release-publish": {
