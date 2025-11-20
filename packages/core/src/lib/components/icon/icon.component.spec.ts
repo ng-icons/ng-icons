@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { provideRouter, Router, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {
   featherAlertCircle,
   featherAlertTriangle,
