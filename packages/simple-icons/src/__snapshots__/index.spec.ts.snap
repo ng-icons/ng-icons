@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SimpleIcons Icons should ensure the export names have not changed unexpectedly 1`] = `
-Array [
+exports[`SimpleIcons Icons > should ensure the export names have not changed unexpectedly 1`] = `
+[
   "simple1001tracklists",
   "simple1and1",
   "simple1dot1dot1dot1",

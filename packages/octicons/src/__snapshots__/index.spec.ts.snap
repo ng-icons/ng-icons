@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Octicons Icons should ensure the export names have not changed unexpectedly 1`] = `
-Array [
+exports[`Octicons Icons > should ensure the export names have not changed unexpectedly 1`] = `
+[
   "octAccessibility",
   "octAccessibilityInset",
   "octAgent",
@@ -370,8 +370,8 @@ Array [
 ]
 `;
 
-exports[`Octicons Icons should ensure the export names have not changed unexpectedly 2`] = `
-Array [
+exports[`Octicons Icons > should ensure the export names have not changed unexpectedly 2`] = `
+[
   "octAccessibilityLarge",
   "octAccessibilityInsetLarge",
   "octAgentLarge",

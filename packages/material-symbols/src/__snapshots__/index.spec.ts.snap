@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Material Symbols > should ensure the export names have not changed unexpectedly 1`] = `
+[
+  "withMaterialSymbolsOutlined",
+  "withMaterialSymbolsRounded",
+  "withMaterialSymbolsSharp",
+]
+`;

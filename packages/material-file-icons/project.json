@@ -7,10 +7,10 @@
   "tags": [],
   "targets": {
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/material-file-icons"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "packages/material-file-icons/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/material-file-icons"
       }
     },
     "build": {

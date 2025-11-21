@@ -23,10 +23,10 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/akar-icons"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "packages/akar-icons/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/akar-icons"
       }
     },
     "lint": {

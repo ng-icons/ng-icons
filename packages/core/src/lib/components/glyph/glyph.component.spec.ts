@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgGlyphset, provideNgGlyphs } from '../../providers/glyph.provider';
 import { NgGlyph } from './glyph.component';
@@ -28,6 +29,10 @@ describe('Glyph', () => {
     fixture.componentRef.setInput('name', 'test');
     fixture.detectChanges();
     nativeElement = fixture.nativeElement;
+  });
+
+  afterEach(() => {
+    TestBed.resetTestingModule();
   });
 
   it('should allow the optical size to be changed', () => {

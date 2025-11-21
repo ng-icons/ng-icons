@@ -1,18 +1,12 @@
 import { Component, NgModule } from '@angular/core';
-import {
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  flushMicrotasks,
-  tick,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
 import {
   featherAlertCircle,
   featherAlertTriangle,
 } from '@ng-icons/feather-icons';
+import { vi } from 'vitest';
 import { NgIconsModule } from '../../icon.module';
 import {
   provideNgIconLoader,
@@ -35,6 +29,10 @@ describe('Icon', () => {
     fixture.componentRef.setInput('name', 'featherAlertCircle');
     fixture.detectChanges();
     nativeElement = fixture.nativeElement;
+  });
+
+  afterEach(() => {
+    TestBed.resetTestingModule();
   });
 
   it('should insert the expected template', () => {
@@ -160,7 +158,7 @@ describe('Icon with multiple modules', () => {
     await TestBed.configureTestingModule({
       declarations: [RootComponent],
       imports: [
-        RouterTestingModule.withRoutes([
+        RouterModule.forRoot([
           {
             path: '',
             pathMatch: 'full',
@@ -176,9 +174,15 @@ describe('Icon with multiple modules', () => {
     router.initialNavigation();
   });
 
-  it('should display icons registered in both parent and child modules', fakeAsync(() => {
-    tick();
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
+
+  it('should display icons registered in both parent and child modules', async () => {
+    await router.navigate(['']);
     fixture.detectChanges();
+    await fixture.whenStable();
+
     const icons = fixture.debugElement.queryAll(By.directive(NgIcon));
 
     expect(icons[0].nativeElement.innerHTML).toBe(
@@ -187,7 +191,7 @@ describe('Icon with multiple modules', () => {
     expect(icons[1].nativeElement.innerHTML).toBe(
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--ng-icon__stroke-width, 2)"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
     );
-  }));
+  });
 });
 
 @Component({
@@ -211,6 +215,10 @@ describe('Standalone icon component', () => {
     nativeElement = fixture.nativeElement;
   });
 
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
+
   it('should display the icon', () => {
     const icon = nativeElement.querySelector<HTMLElement>('ng-icon');
     expect(icon?.innerHTML).toMatchSnapshot();
@@ -231,18 +239,23 @@ class LoaderComponent {}
 describe('Custom loader', () => {
   let fixture: ComponentFixture<LoaderComponent>;
 
-  it('should display the icon', fakeAsync(async () => {
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
+
+  it('should display the icon', async () => {
     await TestBed.configureTestingModule({
       imports: [LoaderComponent],
     }).compileComponents();
     fixture = TestBed.createComponent(LoaderComponent);
     fixture.detectChanges();
-    flushMicrotasks();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    fixture.detectChanges();
     const icon = fixture.debugElement.query(By.directive(NgIcon));
     expect(icon.nativeElement.innerHTML).toBe(
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--ng-icon__stroke-width, 2)"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
     );
-  }));
+  });
 });
 
 @Component({
@@ -266,8 +279,12 @@ class RepeatedCachedLoaderComponent {
 describe('Custom loader with caching', () => {
   let fixture: ComponentFixture<CachedLoaderComponent>;
 
-  it('should display the icon', fakeAsync(async () => {
-    const loaderSpy = jest.fn(() => Promise.resolve(featherAlertCircle));
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
+
+  it('should display the icon', async () => {
+    const loaderSpy = vi.fn(() => Promise.resolve(featherAlertCircle));
 
     await TestBed.configureTestingModule({
       imports: [CachedLoaderComponent],
@@ -279,17 +296,17 @@ describe('Custom loader with caching', () => {
 
     expect(loaderSpy).toHaveBeenCalledWith('featherAlertCircle');
 
-    // await the promise to resolve
-    flushMicrotasks();
+    await new Promise(resolve => setTimeout(resolve, 0));
+    fixture.detectChanges();
 
     const icon = fixture.debugElement.query(By.directive(NgIcon));
     expect(icon!.nativeElement.innerHTML).toBe(
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--ng-icon__stroke-width, 2)"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
     );
-  }));
+  });
 
-  it('should only call the loader function once', fakeAsync(async () => {
-    const loaderSpy = jest.fn(() => Promise.resolve(featherAlertCircle));
+  it('should only call the loader function once', async () => {
+    const loaderSpy = vi.fn(() => Promise.resolve(featherAlertCircle));
 
     await TestBed.configureTestingModule({
       imports: [RepeatedCachedLoaderComponent],
@@ -299,9 +316,8 @@ describe('Custom loader with caching', () => {
     fixture = TestBed.createComponent(RepeatedCachedLoaderComponent);
     fixture.detectChanges();
 
-    // await the promise to resolve
-    flushMicrotasks();
+    await new Promise(resolve => setTimeout(resolve, 0));
 
     expect(loaderSpy).toHaveBeenCalledTimes(1);
-  }));
+  });
 });

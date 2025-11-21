@@ -10,7 +10,14 @@ module.exports = [
         'error',
         {
           ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'],
-          ignoredDependencies: ['jest-preset-angular'],
+          ignoredDependencies: [
+            'jest-preset-angular',
+            '@analogjs/vitest-angular',
+            '@angular/compiler',
+            '@analogjs/vite-plugin-angular',
+            '@nx/vite',
+            'vite',
+          ],
         },
       ],
     },
