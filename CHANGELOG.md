@@ -1,3 +1,13 @@
+# 33.0.0 (2025-11-21)
+
+### 🚀 Features
+
+- angular 21 ([#214](https://github.com/ng-icons/ng-icons/pull/214))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 32.5.0 (2025-11-18)
 
 This was a version bump only, there were no code changes.
