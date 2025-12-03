@@ -4,12 +4,13 @@
   "projectType": "library",
   "sourceRoot": "packages/tabler-icons/src",
   "prefix": "ng",
+  "tags": [],
   "targets": {
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/tabler-icons"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "packages/tabler-icons/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/tabler-icons"
       }
     },
     "build": {
@@ -37,6 +38,5 @@
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
-  },
-  "tags": []
+  }
 }

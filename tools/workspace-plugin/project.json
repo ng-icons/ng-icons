@@ -41,10 +41,10 @@
       "outputs": ["{options.outputFile}"]
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "tools/workspace-plugin/jest.config.ts"
+        "reportsDirectory": "../../coverage/tools/workspace-plugin"
       }
     }
   }

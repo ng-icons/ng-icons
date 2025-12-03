@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tabler Icons should ensure the export names have not changed unexpectedly 1`] = `
-Array [
+exports[`Tabler Icons > should ensure the export names have not changed unexpectedly 1`] = `
+[
   "tablerAB2",
   "tablerABOff",
   "tablerAB",
@@ -721,6 +721,7 @@ Array [
   "tablerBrandDolbyDigital",
   "tablerBrandDouban",
   "tablerBrandDribbble",
+  "tablerBrandDropbox",
   "tablerBrandDrops",
   "tablerBrandDrupal",
   "tablerBrandEdge",

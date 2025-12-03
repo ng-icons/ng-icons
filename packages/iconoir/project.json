@@ -4,6 +4,7 @@
   "projectType": "library",
   "sourceRoot": "packages/iconoir/src",
   "prefix": "ng",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
@@ -22,10 +23,10 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/iconoir"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "packages/iconoir/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/iconoir"
       }
     },
     "lint": {
@@ -37,6 +38,5 @@
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
-  },
-  "tags": []
+  }
 }

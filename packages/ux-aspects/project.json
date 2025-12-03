@@ -4,6 +4,7 @@
   "projectType": "library",
   "sourceRoot": "packages/ux-aspects/src",
   "prefix": "ng",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
@@ -22,10 +23,10 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/ux-aspects"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "packages/ux-aspects/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/ux-aspects"
       }
     },
     "lint": {
@@ -37,6 +38,5 @@
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
-  },
-  "tags": []
+  }
 }

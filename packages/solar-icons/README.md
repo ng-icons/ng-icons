@@ -9,7 +9,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 96,000 icons for you to use in your projects.
+Containing over 100,000 icons for you to use in your projects.
 
 Currently, we support the following libraries:
 
@@ -22,7 +22,7 @@ Currently, we support the following libraries:
 - [Feather Icons](https://feathericons.com/)
 - [Jam Icons](https://jam-icons.com/)
 - [Octicons](https://github.com/primer/octicons)
-- [Radix UI Icons](https://icons.modulz.app/)
+- [Radix UI Icons](https://www.radix-ui.com/icons)
 - [Tabler Icons](https://tabler-icons.io/)
 - [Akar Icons](https://akaricons.com/)
 - [Iconoir](https://iconoir.com/)
@@ -48,6 +48,7 @@ Currently, we support the following libraries:
 - [MynaUI](https://mynaui.com/icons)
 - [Boxicons](https://boxicons.com/)
 - [Mono Icons](https://icons.mono.company/)
+- [Lucide Icons](https://lucide.dev/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -71,6 +72,7 @@ Ng Icons is an MIT-licensed open source project with its ongoing development mad
 | 18.x.x          | 28.x.x - 29.x.x |
 | 19.x.x          | 30.x.x - 31.x.x |
 | 20.x.x          | 32.x.x          |
+| 21.x.x          | 33.x.x          |
 
 > **Note**: Ng Icons relies on modern browser features and is designed to work on evergreen browsers. We do not support older browsers such as IE11.
 
@@ -131,6 +133,7 @@ The following packages are available:
 | `@ng-icons/mynaui`               | MIT                                   |
 | `@ng-icons/boxicons`             | MIT                                   |
 | `@ng-icons/mono-icons`           | MIT                                   |
+| `@ng-icons/lucide`               | MIT                                   |
 
 ## Usage
 

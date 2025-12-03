@@ -4,12 +4,13 @@
   "projectType": "library",
   "sourceRoot": "packages/heroicons/src",
   "prefix": "ng-icons",
+  "tags": [],
   "targets": {
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/heroicons"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "packages/heroicons/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/heroicons"
       }
     },
     "build": {
@@ -38,6 +39,5 @@
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
-  },
-  "tags": []
+  }
 }

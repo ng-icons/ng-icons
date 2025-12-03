@@ -4,6 +4,7 @@
   "projectType": "library",
   "sourceRoot": "packages/lucide/src",
   "prefix": "ng",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
@@ -22,10 +23,10 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nx/jest:jest",
+      "executor": "@nx/vitest:test",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/lucide/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/lucide"
       }
     },
     "lint": {
@@ -38,6 +39,5 @@
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
-  },
-  "tags": []
+  }
 }

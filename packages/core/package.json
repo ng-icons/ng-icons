@@ -1,6 +1,6 @@
 {
   "name": "@ng-icons/core",
-  "version": "32.0.0",
+  "version": "33.0.0",
   "license": "MIT",
   "keywords": [
     "angular",
@@ -12,8 +12,8 @@
   },
   "homepage": "https://ng-icons.github.io/ng-icons/",
   "peerDependencies": {
-    "@angular/core": ">=20.0.0",
-    "@angular/common": ">=20.0.0",
+    "@angular/core": ">=21.0.0",
+    "@angular/common": ">=21.0.0",
     "rxjs": "^6.5.3 || ^7.4.0"
   }
 }

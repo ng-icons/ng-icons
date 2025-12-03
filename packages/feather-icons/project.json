@@ -4,12 +4,13 @@
   "projectType": "library",
   "sourceRoot": "packages/feather-icons/src",
   "prefix": "ng-icons",
+  "tags": [],
   "targets": {
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/feather-icons"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "packages/feather-icons/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/feather-icons"
       }
     },
     "build": {
@@ -38,6 +39,5 @@
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
-  },
-  "tags": []
+  }
 }

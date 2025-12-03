@@ -4,29 +4,22 @@
   "projectType": "library",
   "sourceRoot": "packages/core/src",
   "prefix": "ng",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/core"],
       "options": {
-        "project": "packages/core/ng-package.json"
+        "project": "packages/core/ng-package.json",
+        "tsConfig": "packages/core/tsconfig.lib.json"
       },
       "configurations": {
         "production": {
           "tsConfig": "packages/core/tsconfig.lib.prod.json"
         },
-        "development": {
-          "tsConfig": "packages/core/tsconfig.lib.json"
-        }
+        "development": {}
       },
       "defaultConfiguration": "production"
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/core"],
-      "options": {
-        "jestConfig": "packages/core/jest.config.ts"
-      }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
@@ -37,7 +30,13 @@
       "options": {
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../coverage/packages/core"
+      }
     }
-  },
-  "tags": []
+  }
 }

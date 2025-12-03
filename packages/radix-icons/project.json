@@ -4,12 +4,13 @@
   "projectType": "library",
   "sourceRoot": "packages/radix-icons/src",
   "prefix": "ng",
+  "tags": [],
   "targets": {
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/radix-icons"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "packages/radix-icons/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/radix-icons"
       }
     },
     "build": {
@@ -38,6 +39,5 @@
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
-  },
-  "tags": []
+  }
 }

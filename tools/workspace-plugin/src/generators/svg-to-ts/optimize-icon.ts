@@ -28,65 +28,59 @@ export async function optimizeIcon(
       params: {},
       fn: function () {
         const idMap = new Map<string, string>();
+        let isFirstPass = true;
 
         return {
           element: {
             enter: node => {
-              if (node.name !== 'svg') {
-                return;
-              }
+              // First pass: collect all IDs in the entire tree
+              if (isFirstPass && node.name === 'svg') {
+                function collectIds(node: XastElement) {
+                  if (node.attributes.id) {
+                    const id = node.attributes.id;
+                    const placeholder = `ID_PLACEHOLDER_${idMap.size}`;
+                    idMap.set(id, placeholder);
+                  }
 
-              function replaceIds(node: XastElement) {
-                // if there is an id attribute replace it with a placeholder
-                if (node.attributes.id) {
-                  const id = node.attributes.id;
-                  const placeholder = `ID_PLACEHOLDER_${idMap.size}`;
-                  idMap.set(id, placeholder);
-                  node.attributes.id = placeholder;
+                  if (node.children) {
+                    node.children.forEach(child => {
+                      if (child.type === 'element') {
+                        collectIds(child);
+                      }
+                    });
+                  }
                 }
 
-                // if there are any children visit them
-                if (node.children) {
-                  node.children.forEach(child => {
-                    if (child.type === 'element') {
-                      replaceIds(child);
-                    }
-                  });
-                }
+                collectIds(node);
+                isFirstPass = false;
               }
 
-              replaceIds(node);
-
-              // if there are no ids return
-              if (idMap.size === 0) {
-                return;
+              // Replace IDs with placeholders
+              if (node.attributes.id && idMap.has(node.attributes.id)) {
+                node.attributes.id = idMap.get(node.attributes.id)!;
               }
 
-              function replaceUsages(node: XastElement) {
-                // if there is any attribute that references an id replace it with the placeholder
-                Object.keys(node.attributes).forEach(attr => {
-                  const value = node.attributes[attr];
+              // Replace URL references with placeholders
+              Object.keys(node.attributes).forEach(attr => {
+                const value = node.attributes[attr];
 
-                  // if this is a url reference replace the id with the placeholder
+                if (typeof value === 'string') {
+                  // Handle url(#id) references
                   if (value.includes('url(#')) {
                     const id = value.replace('url(#', '').replace(')', '');
                     if (idMap.has(id)) {
                       node.attributes[attr] = value.replace(id, idMap.get(id)!);
                     }
                   }
-                });
-
-                // if there are any children visit them
-                if (node.children) {
-                  node.children.forEach(child => {
-                    if (child.type === 'element') {
-                      replaceUsages(child);
+                  // Handle href="#id" and xlink:href="#id" references
+                  else if (value.startsWith('#')) {
+                    const id = value.substring(1);
+                    if (idMap.has(id)) {
+                      node.attributes[attr] = '#' + idMap.get(id)!;
                     }
-                  });
+                  }
                 }
-              }
-
-              replaceUsages(node);
+              });
             },
           },
         };

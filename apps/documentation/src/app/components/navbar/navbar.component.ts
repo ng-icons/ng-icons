@@ -1,24 +1,29 @@
-import { NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { fromEvent } from 'rxjs';
+import { distinctUntilChanged, fromEvent, map } from 'rxjs';
+import { NAV_LINKS } from '../../constants/nav-link.constant';
 
 @Component({
   selector: 'app-navbar',
-  imports: [NgIconComponent, RouterLink, RouterLink, NgClass],
+  imports: [NgIconComponent, RouterLink],
   providers: [provideIcons({ bootstrapGithub })],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
-  showBlurredNavbar = false;
+export class NavbarComponent {
+  protected readonly showBlurredNavbar: Signal<string>;
+  protected readonly navLinks = NAV_LINKS;
 
-  ngOnInit(): void {
-    // monitor the scroll position and update the navbar accordingly
-    fromEvent(window, 'scroll').subscribe(() => {
-      this.showBlurredNavbar = window.scrollY > 0;
-    });
+  constructor() {
+    this.showBlurredNavbar = toSignal(
+      fromEvent(window, 'scroll').pipe(
+        map(() => (window.scrollY > 0 ? 'bg-black/5 backdrop-blur-sm' : '')),
+        distinctUntilChanged(),
+      ),
+      { initialValue: '' },
+    );
   }
 }

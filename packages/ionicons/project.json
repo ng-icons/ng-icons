@@ -4,12 +4,13 @@
   "projectType": "library",
   "sourceRoot": "packages/ionicons/src",
   "prefix": "ng",
+  "tags": [],
   "targets": {
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/ionicons"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "packages/ionicons/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/ionicons"
       }
     },
     "build": {
@@ -37,6 +38,5 @@
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
-  },
-  "tags": []
+  }
 }

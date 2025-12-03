@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TdesignIcons Icons should ensure the export names have not changed unexpectedly 1`] = `
-Array [
+exports[`TdesignIcons Icons > should ensure the export names have not changed unexpectedly 1`] = `
+[
   "tdesignAccessibilityFilled",
   "tdesignAccessibility",
   "tdesignActivityFilled",
@@ -24,6 +24,7 @@ Array [
   "tdesignAlarmOffFilled",
   "tdesignAlarmOff",
   "tdesignAlarm",
+  "tdesignAlignBottom",
   "tdesignAlignTop",
   "tdesignAlignVertical",
   "tdesignAlpha",
@@ -669,6 +670,7 @@ Array [
   "tdesignDrink",
   "tdesignDrumstickFilled",
   "tdesignDrumstick",
+  "tdesignDVDv",
   "tdesignDvFilled",
   "tdesignDv",
   "tdesignDvdFilled",
@@ -1082,6 +1084,7 @@ Array [
   "tdesignInternetFilled",
   "tdesignInternet",
   "tdesignIpodFilled",
+  "tdesignIpodIpod",
   "tdesignIpod",
   "tdesignJoyfulFilled",
   "tdesignJoyful",
@@ -1217,12 +1220,15 @@ Array [
   "tdesignLogoMiniprogram",
   "tdesignLogoQqFilled",
   "tdesignLogoQq",
+  "tdesignLogoStackblitzFilled",
+  "tdesignLogoStackblitz",
   "tdesignLogoTwitterFilled",
   "tdesignLogoTwitter",
   "tdesignLogoWechatStrokeFilled",
   "tdesignLogoWechatStroke",
   "tdesignLogoWechatpayFilled",
   "tdesignLogoWechatpay",
+  "tdesignLogoWecomFilled",
   "tdesignLogoWecom",
   "tdesignLogoWindowsFilled",
   "tdesignLogoWindows",
@@ -1399,6 +1405,8 @@ Array [
   "tdesignNext",
   "tdesignNoExpressionFilled",
   "tdesignNoExpression",
+  "tdesignNoResultFilled",
+  "tdesignNoResult",
   "tdesignNoodleFilled",
   "tdesignNoodle",
   "tdesignNotificationAddFilled",
@@ -1923,6 +1931,7 @@ Array [
   "tdesignTransform",
   "tdesignTranslate1",
   "tdesignTranslate",
+  "tdesignTreeList",
   "tdesignTreeRoundDotFilled",
   "tdesignTreeRoundDotVerticalFilled",
   "tdesignTreeRoundDotVertical",
@@ -2102,6 +2111,8 @@ Array [
   "tdesignWidget",
   "tdesignWifi1Filled",
   "tdesignWifi1",
+  "tdesignWifiNoFilled",
+  "tdesignWifiNo",
   "tdesignWifiOff1Filled",
   "tdesignWifiOff1",
   "tdesignWifiOff",

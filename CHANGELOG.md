@@ -1,3 +1,58 @@
+# 33.0.0 (2025-11-21)
+
+### 🚀 Features
+
+- angular 21 ([#214](https://github.com/ng-icons/ng-icons/pull/214))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
+## 32.5.0 (2025-11-18)
+
+This was a version bump only, there were no code changes.
+
+## 32.4.0 (2025-11-07)
+
+- fix: resolve angular 20 localization extraction issue ([#209](https://github.com/ng-icons/ng-icons/pull/209))
+
+### ❤️ Thank You
+
+- Florian Sey @sey
+
+## 32.3.0 (2025-11-04)
+
+### 🩹 Fixes
+
+- icons with ids ([#206](https://github.com/ng-icons/ng-icons/pull/206))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
+## 32.2.0 (2025-10-13)
+
+### 🚀 Features
+
+- update lucide ([0020400](https://github.com/ng-icons/ng-icons/commit/0020400))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
+## 32.1.0 (2025-07-20)
+
+### 🚀 Features
+
+- auto-scroll to info section when iconset is selected ([#191](https://github.com/ng-icons/ng-icons/pull/191))
+
+- fix iconsax type
+
+### ❤️ Thank You
+
+- Jeevan @JeevanMahesha
+- @lprevidente
+
 # 32.0.0 (2025-06-09)
 
 ### 🚀 Features

@@ -4,12 +4,13 @@
   "projectType": "library",
   "sourceRoot": "packages/bootstrap-icons/src",
   "prefix": "ng",
+  "tags": [],
   "targets": {
     "test": {
-      "executor": "@nx/jest:jest",
+      "executor": "@nx/vitest:test",
       "outputs": ["{workspaceRoot}/coverage/packages/bootsrap-icons"],
       "options": {
-        "jestConfig": "packages/bootstrap-icons/jest.config.ts"
+        "reportsDirectory": "../../coverage/packages/bootstrap-icons"
       }
     },
     "build": {
@@ -37,6 +38,5 @@
         "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
       }
     }
-  },
-  "tags": []
+  }
 }
