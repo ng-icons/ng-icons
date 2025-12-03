@@ -15,8 +15,8 @@
       <div
         class="iconset-card"
         [class.active]="iconset === activeIconset()"
-        (click)="loadIconset(iconset)"
-        (keydown.enter)="loadIconset(iconset)"
+        (click)="setIconset(iconset)"
+        (keydown.enter)="setIconset(iconset)"
         tabindex="0"
       >
         <ng-icon [name]="iconset.icon" />
