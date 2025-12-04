@@ -54,7 +54,10 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/@radix-ui/react-icons/icons/**/*.svg',
+    glob: 'icons/**/*.svg',
+    gitRepo: 'https://github.com/radix-ui/icons.git',
+    gitRef: '237cd76c007a573c2a6f6caabe9ea3de81393f50',
+    gitPath: 'packages/radix-icons',
     output: 'packages/radix-icons/src/index.ts',
     getIconName: (name: string) => `radix${name}`,
   },
@@ -74,7 +77,10 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `css${name}`,
   },
   {
-    glob: 'node_modules/akar-icons-app/**/*.svg',
+    glob: '**/*.svg',
+    gitRepo: 'https://github.com/artcoholic/akar-icons-app.git',
+    gitRef: '938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc',
+    gitPath: 'src/svg',
     output: 'packages/akar-icons/src/index.ts',
     getIconName: (name: string) => `akar${name}`,
     svg: {
@@ -211,7 +217,10 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/dripicons/**/*.svg',
+    glob: '**/*.svg',
+    gitRepo: 'https://github.com/amitjakhu/dripicons.git',
+    gitRef: 'b8b7035c6c0f34035b0a78af4b393a3fd8628c38',
+    gitPath: 'SVG',
     output: 'packages/dripicons/src/index.ts',
     getIconName: (name: string) => `drip${name}`,
     svg: {
@@ -219,7 +228,10 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/UXAspects/**/*.svg',
+    glob: '**/*.svg',
+    gitRepo: 'https://github.com/UXAspects/UXAspects.git',
+    gitRef: '5d63a0e39423bc331994e06e8bb2ba5b5517e799',
+    gitPath: 'src/icons/ux',
     output: 'packages/ux-aspects/src/index.ts',
     getIconName: (name: string) => `aspects${name}`,
     svg: {
@@ -227,7 +239,10 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/@klarr-agency/circum-icons/**/*.svg',
+    glob: '**/*.svg',
+    gitRepo: 'https://github.com/Klarr-Agency/Circum-Icons.git',
+    gitRef: '6522c0a4aea8fb4c0818228f444f0082d6e6820c',
+    gitPath: 'svg',
     output: 'packages/circum-icons/src/index.ts',
     getIconName: (name: string) => `circum${name}`,
     svg: {
@@ -262,7 +277,10 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/font-awesome-solid/*.svg',
+    glob: '*.svg',
+    gitRepo: 'https://github.com/FortAwesome/Font-Awesome.git',
+    gitRef: '6.x',
+    gitPath: 'svgs/solid',
     output: 'packages/font-awesome/solid/src/index.ts',
     getIconName: (name: string) => `faSolid${name}`,
     svg: {
@@ -270,7 +288,10 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/font-awesome-regular/*.svg',
+    glob: '*.svg',
+    gitRepo: 'https://github.com/FortAwesome/Font-Awesome.git',
+    gitRef: '6.x',
+    gitPath: 'svgs/regular',
     output: 'packages/font-awesome/regular/src/index.ts',
     getIconName: (name: string) => `fa${name}`,
     svg: {
@@ -278,7 +299,10 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/font-awesome-brands/*.svg',
+    glob: '*.svg',
+    gitRepo: 'https://github.com/FortAwesome/Font-Awesome.git',
+    gitRef: '6.x',
+    gitPath: 'svgs/brands',
     output: 'packages/font-awesome/brands/src/index.ts',
     getIconName: (name: string) => `faBrand${name}`,
     svg: {
@@ -286,7 +310,10 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/iconsax/bold/**/*.svg',
+    glob: '**/*.svg',
+    gitRepo: 'https://github.com/lusaxweb/iconsax.git',
+    gitRef: '67c8869d0142557d4f70e0a76664d1a71c70f73a',
+    gitPath: 'static/Iconsax/Svg/All/bold',
     output: 'packages/iconsax/bold/src/index.ts',
     getIconName: (name: string) => `sax${getIconSaxName(name)}Bold`,
     svg: {
@@ -294,7 +321,10 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/iconsax/bulk/**/*.svg',
+    glob: '**/*.svg',
+    gitRepo: 'https://github.com/lusaxweb/iconsax.git',
+    gitRef: '67c8869d0142557d4f70e0a76664d1a71c70f73a',
+    gitPath: 'static/Iconsax/Svg/All/bulk',
     output: 'packages/iconsax/bulk/src/index.ts',
     getIconName: (name: string) => `sax${getIconSaxName(name)}Bulk`,
     svg: {
@@ -302,7 +332,10 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/iconsax/outline/**/*.svg',
+    glob: '**/*.svg',
+    gitRepo: 'https://github.com/lusaxweb/iconsax.git',
+    gitRef: '67c8869d0142557d4f70e0a76664d1a71c70f73a',
+    gitPath: 'static/Iconsax/Svg/All/outline',
     output: 'packages/iconsax/outline/src/index.ts',
     getIconName: (name: string) => `sax${getIconSaxName(name)}Outline`,
     svg: {
@@ -545,6 +578,10 @@ export interface Iconset {
   deprecated?: boolean;
   deprecatedMessage?: string;
   plugins?: CustomPlugin[];
+  // Git repository support
+  gitRepo?: string; // e.g., 'https://github.com/owner/repo.git'
+  gitRef?: string; // branch, tag, or commit hash
+  gitPath?: string; // subdirectory within the repo
 }
 
 export interface SvgOptions {
