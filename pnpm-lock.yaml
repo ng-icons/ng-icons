@@ -35,9 +35,6 @@ importers:
       '@angular/router':
         specifier: 21.0.0
         version: 21.0.0(@angular/common@21.0.0(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.0.0(@angular/animations@21.0.0(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.0.0(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2)
-      '@klarr-agency/circum-icons':
-        specifier: https://gitpkg.now.sh/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c
-        version: svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c@https://gitpkg.vercel.app/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c
       '@material-icons/svg':
         specifier: 1.0.33
         version: 1.0.33
@@ -59,9 +56,6 @@ importers:
       '@primer/octicons':
         specifier: 19.21.0
         version: 19.21.0
-      '@radix-ui/react-icons':
-        specifier: https://gitpkg.now.sh/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50
-        version: https://gitpkg.vercel.app/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50(react@16.14.0)
       '@rx-angular/cdk':
         specifier: 20.1.0
         version: 20.1.0(@angular-devkit/core@21.0.0(chokidar@4.0.3))(@angular-devkit/schematics@21.0.0(chokidar@4.0.3))(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
@@ -74,12 +68,6 @@ importers:
       '@tabler/icons':
         specifier: 3.35.0
         version: 3.35.0
-      UXAspects:
-        specifier: https://gitpkg.now.sh/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799
-        version: ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799@https://gitpkg.vercel.app/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799
-      akar-icons-app:
-        specifier: https://gitpkg.now.sh/artcoholic/akar-icons-app/src/svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc
-        version: svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc@https://gitpkg.vercel.app/artcoholic/akar-icons-app/src/svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc
       bootstrap-icons:
         specifier: 1.13.1
         version: 1.13.1
@@ -95,24 +83,12 @@ importers:
       devicon:
         specifier: https://github.com/devicons/devicon.git
         version: https://codeload.github.com/devicons/devicon/tar.gz/54cfe13ac10eaa1ef817a343ab0a9437eb3c2e08
-      dripicons:
-        specifier: https://gitpkg.now.sh/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38
-        version: SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38@https://gitpkg.vercel.app/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38
       feather-icons:
         specifier: 4.29.2
         version: 4.29.2
       flag-icons:
         specifier: ^7.5.0
         version: 7.5.0
-      font-awesome-brands:
-        specifier: https://gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/brands?6.x
-        version: brands?6.x@https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/brands?6.x
-      font-awesome-regular:
-        specifier: https://gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/regular?6.x
-        version: regular?6.x@https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/regular?6.x
-      font-awesome-solid:
-        specifier: https://gitpkg.now.sh/FortAwesome/Font-Awesome/svgs/solid?6.x
-        version: solid?6.x@https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/solid?6.x
       fuse.js:
         specifier: ^7.0.0
         version: 7.1.0
@@ -125,9 +101,6 @@ importers:
       iconoir:
         specifier: 7.11.0
         version: 7.11.0
-      iconsax:
-        specifier: https://gitpkg.now.sh/lusaxweb/iconsax/static/Iconsax/Svg/All?67c8869d0142557d4f70e0a76664d1a71c70f73a
-        version: All?67c8869d0142557d4f70e0a76664d1a71c70f73a@https://gitpkg.vercel.app/lusaxweb/iconsax/static/Iconsax/Svg/All?67c8869d0142557d4f70e0a76664d1a71c70f73a
       ionicons:
         specifier: 8.0.13
         version: 8.0.13
@@ -176,13 +149,13 @@ importers:
     devDependencies:
       '@analogjs/vite-plugin-angular':
         specifier: 2.1.0
-        version: 2.1.0(@angular-devkit/build-angular@21.0.0(e78b5fce7508527d51903e230fec9662))
+        version: 2.1.0(@angular-devkit/build-angular@21.0.0(unn3uc3auzle3mzqmdj2si57fi))
       '@analogjs/vitest-angular':
         specifier: 2.1.0
-        version: 2.1.0(@analogjs/vite-plugin-angular@2.1.0(@angular-devkit/build-angular@21.0.0(e78b5fce7508527d51903e230fec9662)))(@angular-devkit/architect@0.2100.0(chokidar@4.0.3))(vitest@4.0.12)
+        version: 2.1.0(@analogjs/vite-plugin-angular@2.1.0(@angular-devkit/build-angular@21.0.0(unn3uc3auzle3mzqmdj2si57fi)))(@angular-devkit/architect@0.2100.0(chokidar@4.0.3))(vitest@4.0.12)
       '@angular-devkit/build-angular':
         specifier: 21.0.0
-        version: 21.0.0(e78b5fce7508527d51903e230fec9662)
+        version: 21.0.0(unn3uc3auzle3mzqmdj2si57fi)
       '@angular-devkit/core':
         specifier: 21.0.0
         version: 21.0.0(chokidar@4.0.3)
@@ -212,7 +185,7 @@ importers:
         version: 2.1.4
       '@nx/angular':
         specifier: 22.1.0
-        version: 22.1.0(fdc505d2bfb35e3badd3bfc38b28df12)
+        version: 22.1.0(3jfeeslxqg6av4hy4piuukxz4y)
       '@nx/devkit':
         specifier: 22.1.0
         version: 22.1.0(nx@22.1.0(@swc-node/register@1.9.1(@swc/core@1.5.7(@swc/helpers@0.5.17))(@swc/types@0.1.7)(typescript@5.9.2))(@swc/core@1.5.7(@swc/helpers@0.5.17)))
@@ -3221,12 +3194,6 @@ packages:
   '@primer/octicons@19.21.0':
     resolution: {integrity: sha512-87buZ9aPlWbbHvTTzPAy9zqqGZpCc/VH+Q6q9OsZou6zCaExjmsINj6rWjP6FxNK5ZWHfF0UFNKQCai72lhaLA==}
 
-  '@radix-ui/react-icons@https://gitpkg.vercel.app/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50':
-    resolution: {tarball: https://gitpkg.vercel.app/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50}
-    version: 1.1.1
-    peerDependencies:
-      react: ^16.x || ^17.x || ^18.x
-
   '@rolldown/binding-android-arm64@1.0.0-beta.47':
     resolution: {integrity: sha512-vPP9/MZzESh9QtmvQYojXP/midjgkkc1E4AdnPPAzQXo668ncHJcVLKjJKzoBdsQmaIvNjrMdsCwES8vTQHRQw==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -4448,17 +4415,9 @@ packages:
     resolution: {integrity: sha512-nrUSn7hzt7J6JWgWGz78ZYI8wj+gdIJdk0Ynjpp8l+trkn58Uqsf6RYrYkEK+3X18EX+TNdtJI0WxAtc+L84SQ==}
     hasBin: true
 
-  All?67c8869d0142557d4f70e0a76664d1a71c70f73a@https://gitpkg.vercel.app/lusaxweb/iconsax/static/Iconsax/Svg/All?67c8869d0142557d4f70e0a76664d1a71c70f73a:
-    resolution: {tarball: https://gitpkg.vercel.app/lusaxweb/iconsax/static/Iconsax/Svg/All?67c8869d0142557d4f70e0a76664d1a71c70f73a}
-    version: 0.0.0
-
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
     hasBin: true
-
-  SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38@https://gitpkg.vercel.app/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38:
-    resolution: {tarball: https://gitpkg.vercel.app/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38}
-    version: 0.0.0
 
   Solar-Icon-Set#main@https://codeload.github.com/480-Design/Solar-Icon-Set/tar.gz/44017167688b49109d88ae6a98979b23d8950db0:
     resolution: {tarball: https://codeload.github.com/480-Design/Solar-Icon-Set/tar.gz/44017167688b49109d88ae6a98979b23d8950db0}
@@ -4873,10 +4832,6 @@ packages:
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
-
-  brands?6.x@https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/brands?6.x:
-    resolution: {tarball: https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/brands?6.x}
-    version: 0.0.0
 
   browserify-zlib@0.1.4:
     resolution: {integrity: sha512-19OEpq7vWgsH6WkvkBJQDFvJS1uPcbFOQ4v9CU839dO+ZZXUZO6XpE6hNCqvlIIj+4fZvRiJ6DsAQ382GwiyTQ==}
@@ -8923,10 +8878,6 @@ packages:
     resolution: {integrity: sha512-NZQZdC5wOE/H3UT28fVGL+ikOZcEzfMGk/c3iN9UGxzWHMa1op7274oyiUVrAG4B2EuFhus8SvkaYnhvW92p9Q==}
     hasBin: true
 
-  regular?6.x@https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/regular?6.x:
-    resolution: {tarball: https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/regular?6.x}
-    version: 0.0.0
-
   rehype-autolink-headings@7.1.0:
     resolution: {integrity: sha512-rItO/pSdvnvsP4QRB1pmPiNHUskikqtPojZKJPPPAVx9Hj8i8TwMBhofrrAYRhYOOBZH9tgmG5lPqDLuIWPWmw==}
 
@@ -9382,7 +9333,7 @@ packages:
 
   shikiji-core@0.10.2:
     resolution: {integrity: sha512-9Of8HMlF96usXJHmCL3Gd0Fcf0EcyJUF9m8EoAKKd98mHXi0La2AZl1h6PegSFGtiYcBDK/fLuKbDa1l16r1fA==}
-    deprecated: Deprecated, use @shikijs/core instead
+    deprecated: Shikiji is merged back to Shiki v1.0, please migrate over to get the latest updates
 
   shikiji@0.10.2:
     resolution: {integrity: sha512-wtZg3T0vtYV2PnqusWQs3mDaJBdCPWxFDrBM/SE5LfrX92gjUvfEMlc+vJnoKY6Z/S44OWaCRzNIsdBRWcTAiw==}
@@ -9458,10 +9409,6 @@ packages:
   socks@2.8.7:
     resolution: {integrity: sha512-HLpt+uLy/pxB+bum/9DzAgiKS8CX1EvbWxI4zlmgGCExImLdiad2iCwXT5Z4c9c3Eq8rP2318mPW2c+QbtjK8A==}
     engines: {node: '>= 10.0.0', npm: '>= 3.0.0'}
-
-  solid?6.x@https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/solid?6.x:
-    resolution: {tarball: https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/solid?6.x}
-    version: 0.0.0
 
   sonic-boom@3.8.1:
     resolution: {integrity: sha512-y4Z8LCDBuum+PBP3lSV7RHrXscqksve/bi0as7mhwVnBW+/wUqKT/2Kb7um8yqcFy0duYbbPxzt89Zy2nOCaxg==}
@@ -9691,14 +9638,6 @@ packages:
 
   svg-parser@2.0.4:
     resolution: {integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==}
-
-  svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c@https://gitpkg.vercel.app/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c:
-    resolution: {tarball: https://gitpkg.vercel.app/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c}
-    version: 0.0.0
-
-  svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc@https://gitpkg.vercel.app/artcoholic/akar-icons-app/src/svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc:
-    resolution: {tarball: https://gitpkg.vercel.app/artcoholic/akar-icons-app/src/svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc}
-    version: 0.0.0
 
   svgo@3.3.2:
     resolution: {integrity: sha512-OoohrmuUlBs8B8o6MB2Aevn+pRIH9zDALSR+6hhqVfa6fRwG/Qw9VUMSMW9VNg2CFc/MTIfabtdOVl9ODIJjpw==}
@@ -10129,10 +10068,6 @@ packages:
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
-
-  ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799@https://gitpkg.vercel.app/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799:
-    resolution: {tarball: https://gitpkg.vercel.app/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799}
-    version: 0.0.0
 
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
@@ -10707,15 +10642,15 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@analogjs/vite-plugin-angular@2.1.0(@angular-devkit/build-angular@21.0.0(e78b5fce7508527d51903e230fec9662))':
+  '@analogjs/vite-plugin-angular@2.1.0(@angular-devkit/build-angular@21.0.0(unn3uc3auzle3mzqmdj2si57fi))':
     dependencies:
       ts-morph: 21.0.1
     optionalDependencies:
-      '@angular-devkit/build-angular': 21.0.0(e78b5fce7508527d51903e230fec9662)
+      '@angular-devkit/build-angular': 21.0.0(unn3uc3auzle3mzqmdj2si57fi)
 
-  '@analogjs/vitest-angular@2.1.0(@analogjs/vite-plugin-angular@2.1.0(@angular-devkit/build-angular@21.0.0(e78b5fce7508527d51903e230fec9662)))(@angular-devkit/architect@0.2100.0(chokidar@4.0.3))(vitest@4.0.12)':
+  '@analogjs/vitest-angular@2.1.0(@analogjs/vite-plugin-angular@2.1.0(@angular-devkit/build-angular@21.0.0(unn3uc3auzle3mzqmdj2si57fi)))(@angular-devkit/architect@0.2100.0(chokidar@4.0.3))(vitest@4.0.12)':
     dependencies:
-      '@analogjs/vite-plugin-angular': 2.1.0(@angular-devkit/build-angular@21.0.0(e78b5fce7508527d51903e230fec9662))
+      '@analogjs/vite-plugin-angular': 2.1.0(@angular-devkit/build-angular@21.0.0(unn3uc3auzle3mzqmdj2si57fi))
       '@angular-devkit/architect': 0.2100.0(chokidar@4.0.3)
       vitest: 4.0.12(@types/debug@4.1.12)(@types/node@22.15.0)(@vitest/ui@4.0.12)(jiti@2.4.2)(jsdom@22.1.0)(less@4.4.2)(sass-embedded@1.93.3)(sass@1.94.2)(terser@5.44.0)(yaml@2.8.1)
 
@@ -10733,13 +10668,13 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@21.0.0(e78b5fce7508527d51903e230fec9662)':
+  '@angular-devkit/build-angular@21.0.0(unn3uc3auzle3mzqmdj2si57fi)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2100.0(chokidar@4.0.3)
       '@angular-devkit/build-webpack': 0.2100.0(chokidar@4.0.3)(webpack-dev-server@5.2.2(webpack@5.102.1(@swc/core@1.5.7(@swc/helpers@0.5.17))(esbuild@0.26.0)))(webpack@5.102.1(@swc/core@1.5.7(@swc/helpers@0.5.17))(esbuild@0.26.0))
       '@angular-devkit/core': 21.0.0(chokidar@4.0.3)
-      '@angular/build': 21.0.0(fa20e0d31a044d729acfaafe6515a0d0)
+      '@angular/build': 21.0.0(qagxhwgodxhff2725aqfrlizjy)
       '@angular/compiler-cli': 21.0.0(@angular/compiler@21.0.0)(typescript@5.9.2)
       '@babel/core': 7.28.4
       '@babel/generator': 7.28.3
@@ -10960,7 +10895,7 @@ snapshots:
       '@angular/core': 21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1)
       tslib: 2.8.1
 
-  '@angular/build@21.0.0(fa20e0d31a044d729acfaafe6515a0d0)':
+  '@angular/build@21.0.0(qagxhwgodxhff2725aqfrlizjy)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2100.0(chokidar@4.0.3)
@@ -13847,7 +13782,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nx/angular@22.1.0(fdc505d2bfb35e3badd3bfc38b28df12)':
+  '@nx/angular@22.1.0(3jfeeslxqg6av4hy4piuukxz4y)':
     dependencies:
       '@angular-devkit/core': 21.0.0(chokidar@4.0.3)
       '@angular-devkit/schematics': 21.0.0(chokidar@4.0.3)
@@ -13871,7 +13806,7 @@ snapshots:
       tslib: 2.8.1
       webpack-merge: 5.10.0
     optionalDependencies:
-      '@angular-devkit/build-angular': 21.0.0(e78b5fce7508527d51903e230fec9662)
+      '@angular-devkit/build-angular': 21.0.0(unn3uc3auzle3mzqmdj2si57fi)
       ng-packagr: 21.0.0(@angular/compiler-cli@21.0.0(@angular/compiler@21.0.0)(typescript@5.9.2))(tailwindcss@3.4.7(ts-node@10.9.1(@swc/core@1.5.7(@swc/helpers@0.5.17))(@types/node@22.15.0)(typescript@5.9.2)))(tslib@2.8.1)(typescript@5.9.2)
     transitivePeerDependencies:
       - '@babel/traverse'
@@ -14438,10 +14373,6 @@ snapshots:
   '@primer/octicons@19.21.0':
     dependencies:
       object-assign: 4.1.1
-
-  '@radix-ui/react-icons@https://gitpkg.vercel.app/radix-ui/icons/packages/radix-icons?237cd76c007a573c2a6f6caabe9ea3de81393f50(react@16.14.0)':
-    dependencies:
-      react: 16.14.0
 
   '@rolldown/binding-android-arm64@1.0.0-beta.47':
     optional: true
@@ -15828,14 +15759,10 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  All?67c8869d0142557d4f70e0a76664d1a71c70f73a@https://gitpkg.vercel.app/lusaxweb/iconsax/static/Iconsax/Svg/All?67c8869d0142557d4f70e0a76664d1a71c70f73a: {}
-
   JSONStream@1.3.5:
     dependencies:
       jsonparse: 1.3.1
       through: 2.3.8
-
-  SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38@https://gitpkg.vercel.app/amitjakhu/dripicons/SVG?b8b7035c6c0f34035b0a78af4b393a3fd8628c38: {}
 
   Solar-Icon-Set#main@https://codeload.github.com/480-Design/Solar-Icon-Set/tar.gz/44017167688b49109d88ae6a98979b23d8950db0: {}
 
@@ -16319,8 +16246,6 @@ snapshots:
   braces@3.0.3:
     dependencies:
       fill-range: 7.1.1
-
-  brands?6.x@https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/brands?6.x: {}
 
   browserify-zlib@0.1.4:
     dependencies:
@@ -20994,8 +20919,6 @@ snapshots:
     dependencies:
       jsesc: 3.1.0
 
-  regular?6.x@https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/regular?6.x: {}
-
   rehype-autolink-headings@7.1.0:
     dependencies:
       '@types/hast': 3.0.4
@@ -21617,8 +21540,6 @@ snapshots:
       ip-address: 10.1.0
       smart-buffer: 4.2.0
 
-  solid?6.x@https://gitpkg.vercel.app/FortAwesome/Font-Awesome/svgs/solid?6.x: {}
-
   sonic-boom@3.8.1:
     dependencies:
       atomic-sleep: 1.0.0
@@ -21890,10 +21811,6 @@ snapshots:
       zimmerframe: 1.1.4
 
   svg-parser@2.0.4: {}
-
-  svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c@https://gitpkg.vercel.app/Klarr-Agency/Circum-Icons/svg?6522c0a4aea8fb4c0818228f444f0082d6e6820c: {}
-
-  svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc@https://gitpkg.vercel.app/artcoholic/akar-icons-app/src/svg?938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc: {}
 
   svgo@3.3.2:
     dependencies:
@@ -22386,8 +22303,6 @@ snapshots:
   utils-merge@1.0.1: {}
 
   uuid@8.3.2: {}
-
-  ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799@https://gitpkg.vercel.app/UXAspects/UXAspects/src/icons/ux?5d63a0e39423bc331994e06e8bb2ba5b5517e799: {}
 
   v8-compile-cache-lib@3.0.1: {}
 

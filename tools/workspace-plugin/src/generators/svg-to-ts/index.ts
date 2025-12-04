@@ -1,7 +1,10 @@
 import { formatFiles, joinPathFragments, names, Tree } from '@nx/devkit';
+import { execSync } from 'child_process';
+import { mkdtempSync, rmSync } from 'fs';
 import { readFile } from 'fs-extra';
 import { sync } from 'glob';
-import { basename } from 'path';
+import { tmpdir } from 'os';
+import { basename, join } from 'path';
 import * as ts from 'typescript';
 import { Iconset, iconsets } from './iconsets';
 import { optimizeIcon } from './optimize-icon';
@@ -11,39 +14,113 @@ let iconCount = 0;
 
 const iconList = new Set<string>();
 
-async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
-  // load all the svg iconDetails within the path
-  let iconPaths = sync(iconset.glob);
+interface GitCloneResult {
+  tmpDir: string;
+  cleanup: () => void;
+}
 
-  // if there is a filter, apply it
-  if (iconset.filter) {
-    iconPaths = iconPaths.filter(iconset.filter);
-  }
+function cloneGitRepo(gitRepo: string, gitRef: string): GitCloneResult {
+  const tmpDir = mkdtempSync(join(tmpdir(), 'ng-icons-'));
 
-  if (iconPaths.length === 0) {
-    throw new Error('No icons found for iconset: ' + iconset.glob);
-  }
-
-  console.log('Found ' + iconPaths.length + ' icons in ' + iconset.glob);
-
-  // read the contents of each file
-  const output: Record<string, string> = {};
-
-  for (const iconPath of iconPaths) {
-    const iconName = iconset.getIconName(
-      names(basename(iconPath, '.svg')).className,
-      iconPath,
+  try {
+    console.log(`Cloning ${gitRepo} (${gitRef}) to ${tmpDir}...`);
+    // Use minimal clone: depth 1, single branch, no tags
+    execSync(
+      `git clone --depth 1 --single-branch --no-tags --branch ${gitRef} ${gitRepo} ${tmpDir}`,
+      { stdio: 'pipe' },
     );
-    let svg = await readFile(iconPath, 'utf8');
-    svg = await optimizeIcon(svg, iconset.svg, iconset.plugins);
-    output[iconName] = svg;
-
-    iconList.add(iconName);
+  } catch (error) {
+    // If branch clone fails, try fetching specific commit with minimal history
+    try {
+      execSync(`git init ${tmpDir}`, { stdio: 'pipe' });
+      execSync(`git -C ${tmpDir} remote add origin ${gitRepo}`, {
+        stdio: 'pipe',
+      });
+      execSync(`git -C ${tmpDir} fetch --depth 1 origin ${gitRef}`, {
+        stdio: 'pipe',
+      });
+      execSync(`git -C ${tmpDir} checkout FETCH_HEAD`, { stdio: 'pipe' });
+    } catch (innerError) {
+      rmSync(tmpDir, { recursive: true, force: true });
+      throw new Error(`Failed to clone ${gitRepo}: ${error}`);
+    }
   }
 
-  iconCount += iconPaths.length;
+  return {
+    tmpDir,
+    cleanup: () => {
+      try {
+        rmSync(tmpDir, { recursive: true, force: true });
+      } catch (error) {
+        console.warn(`Failed to cleanup ${tmpDir}:`, error);
+      }
+    },
+  };
+}
 
-  return output;
+async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
+  let gitClone: GitCloneResult | null = null;
+  let globPattern = iconset.glob;
+
+  // If this iconset uses a git repository, clone it first
+  if (iconset.gitRepo && iconset.gitRef) {
+    gitClone = cloneGitRepo(iconset.gitRepo, iconset.gitRef);
+
+    // Update glob pattern to point to the cloned repo
+    const basePath = iconset.gitPath
+      ? join(gitClone.tmpDir, iconset.gitPath)
+      : gitClone.tmpDir;
+
+    // Extract the pattern part from the original glob (everything after the last fixed directory)
+    const globParts = iconset.glob.split('/');
+    const patternIndex = globParts.findIndex(
+      part => part.includes('*') || part.includes('?'),
+    );
+    const pattern =
+      patternIndex >= 0 ? globParts.slice(patternIndex).join('/') : '**/*.svg';
+
+    globPattern = join(basePath, pattern);
+  }
+
+  try {
+    // load all the svg iconDetails within the path
+    let iconPaths = sync(globPattern);
+
+    // if there is a filter, apply it
+    if (iconset.filter) {
+      iconPaths = iconPaths.filter(iconset.filter);
+    }
+
+    if (iconPaths.length === 0) {
+      throw new Error('No icons found for iconset: ' + iconset.glob);
+    }
+
+    console.log('Found ' + iconPaths.length + ' icons in ' + iconset.glob);
+
+    // read the contents of each file
+    const output: Record<string, string> = {};
+
+    for (const iconPath of iconPaths) {
+      const iconName = iconset.getIconName(
+        names(basename(iconPath, '.svg')).className,
+        iconPath,
+      );
+      let svg = await readFile(iconPath, 'utf8');
+      svg = await optimizeIcon(svg, iconset.svg, iconset.plugins);
+      output[iconName] = svg;
+
+      iconList.add(iconName);
+    }
+
+    iconCount += iconPaths.length;
+
+    return output;
+  } finally {
+    // Cleanup cloned repository if it exists
+    if (gitClone) {
+      gitClone.cleanup();
+    }
+  }
 }
 
 function createIconDeclaration(name: string, svg: string): ts.Node {
@@ -100,9 +177,11 @@ async function createIconset(iconset: Iconset): Promise<string> {
 }
 
 async function generateIconNameType(tree: Tree): Promise<void> {
-  const iconNamesType = `export type IconName = ${Array.from(iconList)
-    .map(name => `'${name}'`)
-    .join(' | ')};`;
+  const sortedNames = Array.from(iconList).sort((a, b) => a.localeCompare(b));
+  const union = sortedNames.length
+    ? sortedNames.map(name => `'${name}'`).join(' | ')
+    : 'never';
+  const iconNamesType = `export type IconName = ${union};`;
 
   tree.write(
     joinPathFragments(
@@ -118,10 +197,31 @@ async function generateIconNameType(tree: Tree): Promise<void> {
   );
 }
 
-export async function iconGenerator(tree: Tree): Promise<void> {
-  for (const iconset of iconsets) {
-    tree.write(iconset.output, await createIconset(iconset));
+async function processIconsetsInParallel(
+  tree: Tree,
+  iconsets: Iconset[],
+  concurrency = 5,
+): Promise<void> {
+  // Process iconsets in batches for parallel execution
+  for (let i = 0; i < iconsets.length; i += concurrency) {
+    const batch = iconsets.slice(i, i + concurrency);
+    const results = await Promise.all(
+      batch.map(async iconset => {
+        const content = await createIconset(iconset);
+        return { iconset, content };
+      }),
+    );
+
+    // Write results to tree
+    for (const { iconset, content } of results) {
+      tree.write(iconset.output, content);
+    }
   }
+}
+
+export async function iconGenerator(tree: Tree): Promise<void> {
+  // Process iconsets in parallel batches of 5
+  await processIconsetsInParallel(tree, iconsets, 5);
 
   await generateIconNameType(tree);
   updateIconCounts(tree, iconCount);
