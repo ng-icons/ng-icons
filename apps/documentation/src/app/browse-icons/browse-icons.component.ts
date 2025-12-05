@@ -39,7 +39,7 @@ import { octMarkGithub } from '@ng-icons/octicons';
 import { phosphorPhosphorLogo } from '@ng-icons/phosphor-icons/regular';
 import { radixModulzLogo } from '@ng-icons/radix-icons';
 import { remixRemixiconLine } from '@ng-icons/remixicon';
-import { simpleSimpleicons } from '@ng-icons/simple-icons';
+import { simpleLucide, simpleSimpleicons } from '@ng-icons/simple-icons';
 import { solarSun } from '@ng-icons/solar-icons/outline';
 import { tablerBrandGoogle, tablerTools } from '@ng-icons/tabler-icons';
 import { tdesignCombination } from '@ng-icons/tdesign-icons';
@@ -73,6 +73,7 @@ const circumIcon = `
       featherShield,
       ionLogoIonic,
       featherFeather,
+      simpleLucide,
       tablerBrandGoogle,
       cssShapeHexagon,
       jamGlassFilled,
@@ -331,7 +332,7 @@ export class BrowseIconsComponent {
     {
       name: 'Lucide',
       website: 'lucide.dev',
-      icon: 'featherFeather',
+      icon: 'simpleLucide',
       license: 'ISC',
       package: '@ng-icons/lucide',
       icons: async () => {
