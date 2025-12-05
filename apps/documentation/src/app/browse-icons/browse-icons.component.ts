@@ -23,6 +23,7 @@ import { cssShapeHexagon } from '@ng-icons/css.gg';
 import { diDeviconPlain } from '@ng-icons/devicon/plain';
 import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
+import { simpleLucide } from '@ng-icons/simple-icons';
 import { faFlag, faFontAwesome } from '@ng-icons/font-awesome/regular';
 import { gameAncientSword } from '@ng-icons/game-icons';
 import { heroMagnifyingGlass } from '@ng-icons/heroicons/outline';
@@ -73,6 +74,7 @@ const circumIcon = `
       featherShield,
       ionLogoIonic,
       featherFeather,
+      simpleLucide,
       tablerBrandGoogle,
       cssShapeHexagon,
       jamGlassFilled,
@@ -331,7 +333,7 @@ export class BrowseIconsComponent {
     {
       name: 'Lucide',
       website: 'lucide.dev',
-      icon: 'featherFeather',
+      icon: 'simpleLucide',
       license: 'ISC',
       package: '@ng-icons/lucide',
       icons: async () => {
