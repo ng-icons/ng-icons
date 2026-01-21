@@ -11,9 +11,15 @@
     "url": "https://github.com/ng-icons/ng-icons"
   },
   "homepage": "https://ng-icons.github.io/ng-icons/",
+  "schematics": "./schematics/collection.json",
+  "ng-add": {
+    "save": "dependencies"
+  },
   "peerDependencies": {
     "@angular/core": ">=21.0.0",
     "@angular/common": ">=21.0.0",
-    "rxjs": "^6.5.3 || ^7.4.0"
+    "rxjs": "^6.5.3 || ^7.4.0",
+    "@angular-devkit/schematics": ">=21.0.0",
+    "@schematics/angular": ">=21.0.0"
   }
 }
