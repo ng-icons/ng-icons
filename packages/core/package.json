@@ -18,6 +18,8 @@
   "peerDependencies": {
     "@angular/core": ">=21.0.0",
     "@angular/common": ">=21.0.0",
-    "rxjs": "^6.5.3 || ^7.4.0"
+    "rxjs": "^6.5.3 || ^7.4.0",
+    "@angular-devkit/schematics": ">=21.0.0",
+    "@schematics/angular": ">=21.0.0"
   }
 }
