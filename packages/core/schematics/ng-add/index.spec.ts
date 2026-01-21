@@ -1,26 +1,26 @@
-import { Rule, Tree, SchematicContext } from '@angular-devkit/schematics';
+import { SchematicContext, Tree } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
-import { describe, beforeEach, it, expect, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { NgAddOptions } from './schema';
 
 // Mock the angular schematics utilities
 vi.mock('@schematics/angular/utility/dependencies', () => ({
   addPackageJsonDependency: vi.fn(),
   NodeDependencyType: {
-    Default: 'dependencies'
-  }
+    Default: 'dependencies',
+  },
 }));
 
 // Mock fs to return a consistent version
 vi.mock('fs', () => ({
   default: {},
-  readFileSync: vi.fn(() => JSON.stringify({ version: '33.0.0' }))
+  readFileSync: vi.fn(() => JSON.stringify({ version: '33.0.0' })),
 }));
 
 // Mock path
 vi.mock('path', () => ({
   default: {},
-  join: vi.fn((...paths) => paths.join('/'))
+  join: vi.fn((...paths) => paths.join('/')),
 }));
 
 // Import after mock
@@ -36,7 +36,9 @@ describe('ng-add schematic', () => {
     vi.clearAllMocks();
 
     // Get the mocked function
-    const deps = await vi.importMock('@schematics/angular/utility/dependencies');
+    const deps = await vi.importMock(
+      '@schematics/angular/utility/dependencies',
+    );
     mockAddPackageJsonDependency = deps.addPackageJsonDependency;
 
     // Create a mock tree
@@ -49,7 +51,7 @@ describe('ng-add schematic', () => {
       rename: vi.fn(),
       actions: [],
       getDir: vi.fn(),
-      visit: vi.fn()
+      visit: vi.fn(),
     } as unknown as Tree;
 
     // Create a mock context
@@ -60,7 +62,7 @@ describe('ng-add schematic', () => {
         error: vi.fn(),
         debug: vi.fn(),
       },
-      addTask: vi.fn()
+      addTask: vi.fn(),
     } as unknown as SchematicContext;
   });
 
@@ -76,14 +78,14 @@ describe('ng-add schematic', () => {
         type: 'dependencies',
         name: '@ng-icons/core',
         version: '^33.0.0',
-        overwrite: true
-      })
+        overwrite: true,
+      }),
     );
   });
 
   it('should add selected iconset dependencies', () => {
     const options: NgAddOptions = {
-      iconsets: ['lucide', 'heroicons']
+      iconsets: ['lucide', 'heroicons'],
     };
     const rule = ngAdd(options);
 
@@ -95,8 +97,8 @@ describe('ng-add schematic', () => {
         type: 'dependencies',
         name: '@ng-icons/core',
         version: '^33.0.0',
-        overwrite: true
-      })
+        overwrite: true,
+      }),
     );
 
     expect(mockAddPackageJsonDependency).toHaveBeenCalledWith(
@@ -105,8 +107,8 @@ describe('ng-add schematic', () => {
         type: 'dependencies',
         name: '@ng-icons/lucide',
         version: '^33.0.0',
-        overwrite: true
-      })
+        overwrite: true,
+      }),
     );
 
     expect(mockAddPackageJsonDependency).toHaveBeenCalledWith(
@@ -115,14 +117,14 @@ describe('ng-add schematic', () => {
         type: 'dependencies',
         name: '@ng-icons/heroicons',
         version: '^33.0.0',
-        overwrite: true
-      })
+        overwrite: true,
+      }),
     );
   });
 
   it('should work with empty iconsets array', () => {
     const options: NgAddOptions = {
-      iconsets: []
+      iconsets: [],
     };
     const rule = ngAdd(options);
 
@@ -132,8 +134,8 @@ describe('ng-add schematic', () => {
     expect(mockAddPackageJsonDependency).toHaveBeenCalledWith(
       tree,
       expect.objectContaining({
-        name: '@ng-icons/core'
-      })
+        name: '@ng-icons/core',
+      }),
     );
   });
 
@@ -143,44 +145,81 @@ describe('ng-add schematic', () => {
 
     rule(tree, context);
 
-    expect(context.addTask).toHaveBeenCalledWith(expect.any(NodePackageInstallTask));
+    expect(context.addTask).toHaveBeenCalledWith(
+      expect.any(NodePackageInstallTask),
+    );
   });
 
   it('should log appropriate messages', () => {
     const options: NgAddOptions = {
-      iconsets: ['lucide']
+      iconsets: ['lucide'],
     };
     const rule = ngAdd(options);
 
     rule(tree, context);
 
-    expect(context.logger.info).toHaveBeenCalledWith('Adding ng-icons to your project...');
-    expect(context.logger.info).toHaveBeenCalledWith('Added @ng-icons/core dependency');
-    expect(context.logger.info).toHaveBeenCalledWith('Added @ng-icons/lucide dependency');
+    expect(context.logger.info).toHaveBeenCalledWith(
+      'Adding ng-icons to your project...',
+    );
+    expect(context.logger.info).toHaveBeenCalledWith(
+      'Added @ng-icons/core dependency',
+    );
+    expect(context.logger.info).toHaveBeenCalledWith(
+      'Added @ng-icons/lucide dependency',
+    );
   });
 
   it('should handle all available iconsets', () => {
     const allIconsets = [
-      'akar-icons', 'bootstrap-icons', 'boxicons', 'circum-icons',
-      'cryptocurrency-icons', 'css-gg', 'devicon', 'dripicons',
-      'feather-icons', 'flag-icons', 'font-awesome', 'game-icons',
-      'heroicons', 'huge-icons', 'iconoir', 'iconsax', 'ionicons',
-      'jam-icons', 'lets-icons', 'lucide', 'material-file-icons',
-      'material-icons', 'material-symbols', 'mono-icons', 'mynaui',
-      'octicons', 'phosphor-icons', 'radix-icons', 'remixicon',
-      'simple-icons', 'solar-icons', 'svgl', 'tabler-icons',
-      'tdesign-icons', 'typicons', 'ux-aspects'
+      'akar-icons',
+      'bootstrap-icons',
+      'boxicons',
+      'circum-icons',
+      'cryptocurrency-icons',
+      'css-gg',
+      'devicon',
+      'dripicons',
+      'feather-icons',
+      'flag-icons',
+      'font-awesome',
+      'game-icons',
+      'heroicons',
+      'huge-icons',
+      'iconoir',
+      'iconsax',
+      'ionicons',
+      'jam-icons',
+      'lets-icons',
+      'lucide',
+      'material-file-icons',
+      'material-icons',
+      'material-symbols',
+      'mono-icons',
+      'mynaui',
+      'octicons',
+      'phosphor-icons',
+      'radix-icons',
+      'remixicon',
+      'simple-icons',
+      'solar-icons',
+      'svgl',
+      'tabler-icons',
+      'tdesign-icons',
+      'typicons',
+      'ux-aspects',
     ];
 
     const options: NgAddOptions = {
-      iconsets: allIconsets
+      iconsets: allIconsets,
     };
     const rule = ngAdd(options);
 
     rule(tree, context);
 
     // Should call addPackageJsonDependency once for core + once for each iconset
-    expect(mockAddPackageJsonDependency).toHaveBeenCalledTimes(1 + allIconsets.length);
+    expect(mockAddPackageJsonDependency).toHaveBeenCalledTimes(
+      1 + allIconsets.length,
+    );
 
     // Check that all iconsets were added
     for (const iconset of allIconsets) {
@@ -188,8 +227,8 @@ describe('ng-add schematic', () => {
         tree,
         expect.objectContaining({
           name: `@ng-icons/${iconset}`,
-          version: '^33.0.0'
-        })
+          version: '^33.0.0',
+        }),
       );
     }
   });

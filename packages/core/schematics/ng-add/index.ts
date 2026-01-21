@@ -5,9 +5,9 @@ import {
   NodeDependency,
   NodeDependencyType,
 } from '@schematics/angular/utility/dependencies';
-import { NgAddOptions } from './schema';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { NgAddOptions } from './schema';
 
 function getPackageVersion(): string {
   try {

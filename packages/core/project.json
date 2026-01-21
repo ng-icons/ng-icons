@@ -10,10 +10,7 @@
       "executor": "nx:run-commands",
       "outputs": ["{workspaceRoot}/dist/packages/core"],
       "options": {
-        "commands": [
-          "nx run core:build-lib",
-          "nx run core:build-schematics"
-        ],
+        "commands": ["nx run core:build-lib", "nx run core:build-schematics"],
         "parallel": false
       },
       "configurations": {
