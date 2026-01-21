@@ -7,6 +7,22 @@
   "tags": [],
   "targets": {
     "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/packages/core"],
+      "options": {
+        "commands": [
+          "nx run core:build-lib",
+          "nx run core:build-schematics"
+        ],
+        "parallel": false
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      },
+      "defaultConfiguration": "production"
+    },
+    "build-lib": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/core"],
       "options": {
@@ -20,6 +36,17 @@
         "development": {}
       },
       "defaultConfiguration": "production"
+    },
+    "build-schematics": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/packages/core/schematics"],
+      "options": {
+        "commands": [
+          "npx tsc -p packages/core/schematics/tsconfig.json",
+          "cp packages/core/schematics/**/*.json dist/packages/core/schematics/"
+        ],
+        "parallel": false
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
