@@ -8,3 +8,11 @@
     transform: scale(1);
   }
 }
+
+.logo {
+  &:hover {
+    img {
+      filter: drop-shadow(3px 0px 10px rgba(255, 255, 255, 0.6));
+    }
+  }
+}
