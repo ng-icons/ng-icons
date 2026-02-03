@@ -20,3 +20,9 @@
     transform: translateY(0);
   }
 }
+
+.snippet-content pre {
+  overflow-x: scroll;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  scrollbar-width: thin;
+}

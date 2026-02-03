@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   margin: 64px auto;
-  width: 640px;
+  width: 100%;
+  max-width: 640px;
   background: rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(228, 244, 251, 0.2);
   backdrop-filter: blur(50px);
