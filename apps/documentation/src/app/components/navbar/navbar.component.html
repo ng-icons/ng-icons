@@ -3,19 +3,16 @@
   [class]="showBlurredNavbar()"
 >
   <div class="container mx-auto flex h-16 items-center justify-between px-4">
-    <img
-      class="hidden cursor-pointer md:block"
+    <div
+      class="logo flex cursor-pointer items-center justify-center"
       routerLink="/"
-      src="assets/logo.svg"
-      alt="Logo"
-    />
-
-    <img
-      class="cursor-pointer md:hidden"
-      routerLink="/"
-      src="assets/logo-small.svg"
-      alt="Logo"
-    />
+    >
+      <img src="assets/logo.svg" alt="Angular Icons Logo" />
+      <span
+        class="sm:text-md hidden font-black tracking-widest text-white sm:ml-2 sm:inline-block md:text-xl"
+        >ANGULAR ICONS</span
+      >
+    </div>
 
     @let NAV_CLASSES =
       'inline-flex items-center rounded-md p-2 text-center text-white/80 outline-none transition-colors duration-150 hover:text-white focus-visible:ring-2 focus-visible:ring-white/50';
