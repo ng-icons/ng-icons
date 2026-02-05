@@ -26695,6 +26695,7 @@ export type IconName =
   | 'lucideDatabase'
   | 'lucideDatabaseBackup'
   | 'lucideDatabaseZap'
+  | 'lucideDatabaseSearch'
   | 'lucideDecimalsArrowLeft'
   | 'lucideDecimalsArrowRight'
   | 'lucideDelete'

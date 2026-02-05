@@ -578,6 +578,7 @@ exports[`Lucide Icons > should ensure the export names have not changed unexpect
   "lucideDam",
   "lucideDatabaseBackup",
   "lucideDatabaseZap",
+  "lucideDatabaseSearch",
   "lucideDatabase",
   "lucideDecimalsArrowLeft",
   "lucideDecimalsArrowRight",
