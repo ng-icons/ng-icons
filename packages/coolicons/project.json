@@ -1,0 +1,43 @@
+{
+  "name": "coolicons",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/coolicons/src",
+  "prefix": "ng-icons",
+  "tags": [],
+  "targets": {
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../coverage/packages/coolicons"
+      }
+    },
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/packages/coolicons"],
+      "options": {
+        "project": "packages/coolicons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/coolicons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/coolicons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "nx-release-publish": {
+      "dependsOn": ["build"],
+      "options": {
+        "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
+      }
+    }
+  }
+}

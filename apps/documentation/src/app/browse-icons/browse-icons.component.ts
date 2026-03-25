@@ -17,6 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { akarPaper, akarRadish } from '@ng-icons/akar-icons';
 import { bootstrapBootstrapFill } from '@ng-icons/bootstrap-icons';
 import { boxBox } from '@ng-icons/boxicons/regular';
+import { coolCarAuto } from '@ng-icons/coolicons';
 import { NgIcon, NgIconsToken, provideIcons } from '@ng-icons/core';
 import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { cssShapeHexagon } from '@ng-icons/css.gg';
@@ -51,7 +52,6 @@ import { filter, map } from 'rxjs';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { FadeInContainerDirective } from '../directives/fade-in/fade-in-container.directive';
 import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
-
 const circumIcon = `
 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.47 35.47"><path d="M17.74,0A17.74,17.74,0,1,0,35.47,17.74,17.72,17.72,0,0,0,17.74,0ZM21.5,28A10.27,10.27,0,1,1,31.77,17.74,10.26,10.26,0,0,1,21.5,28Z"></path></svg>`;
 @Component({
@@ -69,6 +69,7 @@ const circumIcon = `
   ],
   providers: [
     provideIcons({
+      coolCarAuto,
       bootstrapBootstrapFill,
       featherShield,
       ionLogoIonic,
@@ -113,7 +114,6 @@ export class BrowseIconsComponent {
   private readonly clipboard = inject(Clipboard);
   private readonly router = inject(Router);
   private readonly activatedRoute = inject(ActivatedRoute);
-
   readonly year = new Date().getFullYear();
   readonly iconsets: Iconset[] = [
     {
@@ -557,6 +557,16 @@ export class BrowseIconsComponent {
         return { default: await import('@ng-icons/mono-icons') };
       },
     },
+    {
+      name: 'Coolicons',
+      website: 'coolicons.cool',
+      icon: 'coolCarAuto',
+      license: 'CC-BY-4.0',
+      package: '@ng-icons/coolicons',
+      icons: async () => {
+        return { default: await import('@ng-icons/coolicons') };
+      },
+    },
   ];
   // store the current active iconset
   readonly activeIconset = signal<Iconset | null>(null);
@@ -596,7 +606,6 @@ export class BrowseIconsComponent {
   });
   private toastTimeout?: number;
   private readonly infoSection = viewChild<ElementRef<HTMLHRElement>>('info');
-
   constructor() {
     this.activatedRoute.queryParamMap
       .pipe(
@@ -608,7 +617,6 @@ export class BrowseIconsComponent {
       )
       .subscribe(iconSet => this.loadIconset(iconSet));
   }
-
   copyToClipboard(icon: string): void {
     this.clipboard.copy(icon);
     // show the toast
@@ -629,7 +637,6 @@ export class BrowseIconsComponent {
     // only take the url up until the first slash
     return url.split('/')[0];
   }
-
   setIconset(iconset: Iconset): Promise<boolean> {
     // Add the iconset to query params
     return this.router.navigate(['./'], {
@@ -638,7 +645,6 @@ export class BrowseIconsComponent {
       queryParamsHandling: 'replace',
     });
   }
-
   async loadIconset(iconset: Iconset): Promise<void> {
     const icons = await iconset.icons();
     const token = this.injector.get(NgIconsToken);

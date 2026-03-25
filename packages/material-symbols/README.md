@@ -49,6 +49,7 @@ Currently, we support the following libraries:
 - [Boxicons](https://boxicons.com/)
 - [Mono Icons](https://icons.mono.company/)
 - [Lucide Icons](https://lucide.dev/)
+- [Coolicons](https://coolicons.cool/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
@@ -134,6 +135,7 @@ The following packages are available:
 | `@ng-icons/boxicons`             | MIT                                   |
 | `@ng-icons/mono-icons`           | MIT                                   |
 | `@ng-icons/lucide`               | MIT                                   |
+| `@ng-icons/coolicons`            | CC-BY-4.0                             |
 
 ## Usage
 
