@@ -2,7 +2,6 @@
 import { names } from '@nx/devkit';
 import { dirname } from 'path';
 import type { CustomPlugin } from 'svgo';
-
 export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/heroicons/24/outline/**/*.svg',
@@ -567,8 +566,15 @@ export const iconsets: Iconset[] = [
       fillCurrentColor: true,
     },
   },
+  {
+    glob: 'coolicons SVG/**/*.svg',
+    gitRepo: 'https://github.com/krystonschwarze/coolicons.git',
+    gitRef: '1a92717b6050b8256465e09a285238a9fa4a1b45',
+    gitPath: 'coolicons SVG',
+    output: 'packages/coolicons/src/index.ts',
+    getIconName: (name: string) => `cool${name}`,
+  },
 ];
-
 export interface Iconset {
   glob: string;
   filter?: (name: string) => boolean;
@@ -583,7 +589,6 @@ export interface Iconset {
   gitRef?: string; // branch, tag, or commit hash
   gitPath?: string; // subdirectory within the repo
 }
-
 export interface SvgOptions {
   colorAttr?: 'fill' | 'stroke';
   removeStroke?: boolean;
@@ -592,7 +597,6 @@ export interface SvgOptions {
   strokeCurrentColor?: boolean;
   fillCurrentColor?: boolean;
 }
-
 /**
  *
  * @returns the iconSax name fixing the misspelling error of the word Circle (from Cirlce)

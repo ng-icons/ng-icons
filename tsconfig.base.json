@@ -22,6 +22,7 @@
       "@ng-icons/boxicons/regular": ["packages/boxicons/regular/src/index.ts"],
       "@ng-icons/boxicons/solid": ["packages/boxicons/solid/src/index.ts"],
       "@ng-icons/circum-icons": ["packages/circum-icons/src/index.ts"],
+      "@ng-icons/coolicons": ["packages/coolicons/src/index.ts"],
       "@ng-icons/core": ["packages/core/src/index.ts"],
       "@ng-icons/cryptocurrency-icons": [
         "packages/cryptocurrency-icons/src/index.ts"
