@@ -74,6 +74,7 @@
     "@angular/compiler-cli": "21.0.0",
     "@angular/language-service": "21.0.0",
     "@eslint/eslintrc": "^2.1.1",
+    "@lobehub/icons-static-svg": "^1.84.0",
     "@nx/angular": "22.1.0",
     "@nx/devkit": "22.1.0",
     "@nx/eslint": "22.1.0",

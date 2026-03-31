@@ -33,6 +33,7 @@ import { saxColorsSquareOutline } from '@ng-icons/iconsax/outline';
 import { ionLogoIonic } from '@ng-icons/ionicons';
 import { jamGlassFilled } from '@ng-icons/jam-icons';
 import { letsDimondAltLight } from '@ng-icons/lets-icons/light';
+import { lobeClaude } from '@ng-icons/lobe-icons';
 import { matfDocumentUncolored } from '@ng-icons/material-file-icons/uncolored';
 import { monoArrowRightDown } from '@ng-icons/mono-icons';
 import { mynaMyna } from '@ng-icons/mynaui/outline';
@@ -106,6 +107,7 @@ const circumIcon = `
       akarPaper,
       mynaMyna,
       boxBox,
+      lobeClaude,
     }),
   ],
 })
@@ -565,6 +567,20 @@ export class BrowseIconsComponent {
       package: '@ng-icons/coolicons',
       icons: async () => {
         return { default: await import('@ng-icons/coolicons') };
+      },
+    },
+    {
+      name: 'Lobe Icons',
+      website: 'lobehub.com/icons',
+      icon: 'lobeClaude',
+      license: 'MIT',
+      package: '@ng-icons/lobe-icons',
+      icons: async () => {
+        const [defaultIcons, color] = await Promise.all([
+          import('@ng-icons/lobe-icons'),
+          import('@ng-icons/lobe-icons/color'),
+        ]);
+        return { default: defaultIcons, color };
       },
     },
   ];
