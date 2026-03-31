@@ -183,6 +183,9 @@ importers:
       '@eslint/eslintrc':
         specifier: ^2.1.1
         version: 2.1.4
+      '@lobehub/icons-static-svg':
+        specifier: ^1.84.0
+        version: 1.84.0
       '@nx/angular':
         specifier: 22.1.0
         version: 22.1.0(a2808e37238c5c680584dd5636af75aa)
@@ -2602,6 +2605,9 @@ packages:
     resolution: {integrity: sha512-1JdBkcO0Vrua4LUgr4jAe4FUyluwCeq/pDkBrlaVjX3/BBWP1TzVjCL+TibWNQtPAL1BITXPAhlK5Ru4FBd/hg==}
     cpu: [x64]
     os: [win32]
+
+  '@lobehub/icons-static-svg@1.84.0':
+    resolution: {integrity: sha512-4agZ/xGsf0bTXSofvWHZJev+TTfn9MFvV7x+feYvVTNCmmH9u8ZHxZOpKRU+9+vFZD/QTjfWne/nD1/kwChqhA==}
 
   '@material-icons/svg@1.0.33':
     resolution: {integrity: sha512-sYXcybBWH3rNijK1D6Dv1Se/aZ7OAC2cCNkn4HiZOXQwkswtRVoDqHPw+GfsBoIC70UintfPXUsmiuaxMicWtw==}
@@ -6269,6 +6275,7 @@ packages:
 
   glob@10.5.0:
     resolution: {integrity: sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@11.1.0:
@@ -13398,6 +13405,8 @@ snapshots:
 
   '@lmdb/lmdb-win32-x64@3.4.3':
     optional: true
+
+  '@lobehub/icons-static-svg@1.84.0': {}
 
   '@material-icons/svg@1.0.33': {}
 

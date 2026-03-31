@@ -574,6 +574,23 @@ export const iconsets: Iconset[] = [
     output: 'packages/coolicons/src/index.ts',
     getIconName: (name: string) => `cool${name}`,
   },
+  {
+    glob: 'node_modules/@lobehub/icons-static-svg/icons/*.svg',
+    filter: (name: string) =>
+      !name.endsWith('-color.svg') &&
+      !name.endsWith('-text.svg') &&
+      !name.endsWith('-brand.svg') &&
+      !name.endsWith('-text-color.svg') &&
+      !name.endsWith('-brand-color.svg') &&
+      !name.endsWith('-text-cn.svg'),
+    output: 'packages/lobe-icons/src/index.ts',
+    getIconName: (name: string) => `lobe${name}`,
+  },
+  {
+    glob: 'node_modules/@lobehub/icons-static-svg/icons/*-color.svg',
+    output: 'packages/lobe-icons/color/src/index.ts',
+    getIconName: (name: string) => `lobe${name}`,
+  },
 ];
 export interface Iconset {
   glob: string;

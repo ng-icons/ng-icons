@@ -166,7 +166,9 @@
       "@ng-icons/tdesign-icons": ["packages/tdesign-icons/src/index.ts"],
       "@ng-icons/typicons": ["packages/typicons/src/index.ts"],
       "@ng-icons/ux-aspects": ["packages/ux-aspects/src/index.ts"],
-      "@ng-icons/workspace-plugin": ["tools/workspace-plugin/src/index.ts"]
+      "@ng-icons/workspace-plugin": ["tools/workspace-plugin/src/index.ts"],
+      "@ng-icons/lobe-icons": ["packages/lobe-icons/src/index.ts"],
+      "@ng-icons/lobe-icons/color": ["packages/lobe-icons/color/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

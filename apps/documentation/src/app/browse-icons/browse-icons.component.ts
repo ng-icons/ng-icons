@@ -18,6 +18,7 @@ import { akarPaper, akarRadish } from '@ng-icons/akar-icons';
 import { bootstrapBootstrapFill } from '@ng-icons/bootstrap-icons';
 import { boxBox } from '@ng-icons/boxicons/regular';
 import { coolCarAuto } from '@ng-icons/coolicons';
+import { lobeClaude } from '@ng-icons/lobe-icons';
 import { NgIcon, NgIconsToken, provideIcons } from '@ng-icons/core';
 import { cryptoBtc } from '@ng-icons/cryptocurrency-icons';
 import { cssShapeHexagon } from '@ng-icons/css.gg';
@@ -106,6 +107,7 @@ const circumIcon = `
       akarPaper,
       mynaMyna,
       boxBox,
+      lobeClaude,
     }),
   ],
 })
@@ -565,6 +567,20 @@ export class BrowseIconsComponent {
       package: '@ng-icons/coolicons',
       icons: async () => {
         return { default: await import('@ng-icons/coolicons') };
+      },
+    },
+    {
+      name: 'Lobe Icons',
+      website: 'lobehub.com/icons',
+      icon: 'lobeClaude',
+      license: 'MIT',
+      package: '@ng-icons/lobe-icons',
+      icons: async () => {
+        const [defaultIcons, color] = await Promise.all([
+          import('@ng-icons/lobe-icons'),
+          import('@ng-icons/lobe-icons/color'),
+        ]);
+        return { default: defaultIcons, color };
       },
     },
   ];
