@@ -1,6 +1,9 @@
 {
   "name": "@ng-icons/schematics",
   "version": "33.0.0",
+  "repository": {
+    "url": "https://github.com/ng-icons/ng-icons"
+  },
   "main": "src/index.js",
   "generators": "./generators.json",
   "executors": "./executors.json",
