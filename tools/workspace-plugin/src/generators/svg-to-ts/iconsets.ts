@@ -449,6 +449,7 @@ export const iconsets: Iconset[] = [
     getIconName: (name: string) => `solar${name}Duotone`,
     svg: {
       strokeCurrentColor: true,
+      fillCurrentColor: true,
     },
   },
   {
