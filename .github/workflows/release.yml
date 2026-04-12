@@ -66,6 +66,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Commit release changes
+        run: |
+          VERSION=$(node -p "require('./packages/core/package.json').version")
+          git add -A
+          git commit -m "chore(release): publish ${VERSION}"
+
       - name: Push to main
         run: git push origin HEAD:main --follow-tags --no-verify
 
