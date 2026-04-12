@@ -1,3 +1,23 @@
+## 33.2.1 (2026-04-12)
+
+### 🚀 Features
+
+- **core:** add Lobe Icons and remove Jest dependencies ([#236](https://github.com/ng-icons/ng-icons/pull/236))
+
+### 🩹 Fixes
+
+- add repository field to schematics and material-symbols packages ([#241](https://github.com/ng-icons/ng-icons/pull/241))
+- correct package versions and commit release changes ([#242](https://github.com/ng-icons/ng-icons/pull/242))
+- remove stale peerDependency and fix release changelog configuration ([#243](https://github.com/ng-icons/ng-icons/pull/243))
+- **lobe-icons:** remove custom release config blocking nx release version ([#240](https://github.com/ng-icons/ng-icons/pull/240))
+- **solar-icons:** #237 - honor currentColor in Line Duotone variant ([#238](https://github.com/ng-icons/ng-icons/pull/238), [#237](https://github.com/ng-icons/ng-icons/issues/237))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+- Claude
+- Claude Opus 4.6 (1M context)
+
 # 33.0.0 (2025-11-21)
 
 ### 🚀 Features
