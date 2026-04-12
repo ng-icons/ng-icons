@@ -68,7 +68,7 @@ jobs:
               process.stdout.write(pkg.version);
             ")
             echo "No tags found. Creating baseline tag v${OLD_VERSION} at HEAD."
-            git tag "v${OLD_VERSION}"
+            git tag -a "v${OLD_VERSION}" -m "v${OLD_VERSION}"
           fi
 
       - name: Changelog
@@ -83,7 +83,7 @@ jobs:
           VERSION=$(node -p "require('./packages/core/package.json').version")
           git add -A
           git commit -m "chore(release): publish ${VERSION}"
-          git tag "v${VERSION}"
+          git tag -a "v${VERSION}" -m "v${VERSION}"
 
       - name: Push to main
         run: git push origin HEAD:main --follow-tags
