@@ -4,9 +4,6 @@
   "repository": {
     "url": "https://github.com/ng-icons/ng-icons"
   },
-  "peerDependencies": {
-    "@ng-icons/core": "33.0.0"
-  },
   "dependencies": {},
   "sideEffects": false
 }
