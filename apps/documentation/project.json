@@ -28,6 +28,9 @@
       "configurations": {
         "production": {
           "budgets": [],
+          "optimization": {
+            "fonts": false
+          },
           "fileReplacements": [
             {
               "replace": "apps/documentation/src/environments/environment.ts",
