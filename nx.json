@@ -104,7 +104,12 @@
   "nxCloudAccessToken": "ZTU5Nzk3NjQtZjUzMC00YzA1LWE3MGItMjRiNmFiOWFhYTllfHJlYWQ=",
   "defaultBase": "origin/main",
   "release": {
-    "projectsRelationship": "fixed"
+    "projectsRelationship": "fixed",
+    "changelog": {
+      "workspaceChangelog": {
+        "createRelease": "github"
+      }
+    }
   },
   "tui": {
     "enabled": false
