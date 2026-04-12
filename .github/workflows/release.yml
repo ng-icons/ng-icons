@@ -62,7 +62,11 @@ jobs:
       - name: Create baseline tag if needed
         run: |
           if ! git describe --tags --abbrev=0 2>/dev/null; then
-            OLD_VERSION=$(git show HEAD:packages/core/package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')).version")
+            OLD_VERSION=$(git show HEAD:packages/core/package.json | node -e "
+              const pkg = JSON.parse(require('fs').readFileSync('/dev/stdin', 'utf8'));
+              if (!pkg.version) { process.exit(1); }
+              process.stdout.write(pkg.version);
+            ")
             echo "No tags found. Creating baseline tag v${OLD_VERSION} at HEAD."
             git tag "v${OLD_VERSION}"
           fi
@@ -70,18 +74,19 @@ jobs:
       - name: Changelog
         run: |
           VERSION=$(node -p "require('./packages/core/package.json').version")
-          pnpm exec nx release changelog ${VERSION} --git-tag
+          pnpm exec nx release changelog ${VERSION}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit release changes
+      - name: Commit and tag release
         run: |
           VERSION=$(node -p "require('./packages/core/package.json').version")
           git add -A
           git commit -m "chore(release): publish ${VERSION}"
+          git tag "v${VERSION}"
 
       - name: Push to main
-        run: git push origin HEAD:main --follow-tags --no-verify
+        run: git push origin HEAD:main --follow-tags
 
       - name: Release Summary
         run: |
