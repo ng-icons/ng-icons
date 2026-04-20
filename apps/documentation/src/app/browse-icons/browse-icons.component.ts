@@ -527,9 +527,9 @@ export class BrowseIconsComponent {
       package: '@ng-icons/material-symbols',
       icons: async () => {
         const [outline, round, sharp] = await Promise.all([
-          import('@ng-icons/material-icons/outline'),
-          import('@ng-icons/material-icons/round'),
-          import('@ng-icons/material-icons/sharp'),
+          import('@ng-icons/material-symbols/outline'),
+          import('@ng-icons/material-symbols/round'),
+          import('@ng-icons/material-symbols/sharp'),
         ]);
         return { outline, round, sharp };
       },
@@ -628,7 +628,7 @@ export class BrowseIconsComponent {
         takeUntilDestroyed(),
         map(params => params.get('iconset')),
         filter(iconset => !!iconset),
-        map(iconset => this.iconsets.find(i => i.icon === iconset)),
+        map(iconset => this.iconsets.find(i => i.name === iconset)),
         filter(iconset => !!iconset),
       )
       .subscribe(iconSet => this.loadIconset(iconSet));
@@ -657,7 +657,7 @@ export class BrowseIconsComponent {
     // Add the iconset to query params
     return this.router.navigate(['./'], {
       relativeTo: this.activatedRoute,
-      queryParams: { iconset: iconset.icon },
+      queryParams: { iconset: iconset.name },
       queryParamsHandling: 'replace',
     });
   }
