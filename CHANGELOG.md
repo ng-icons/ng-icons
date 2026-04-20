@@ -1,3 +1,16 @@
+## 33.2.2 (2026-04-20)
+
+### 🩹 Fixes
+
+- **docs:** disable Google Fonts inlining in production build ([#244](https://github.com/ng-icons/ng-icons/pull/244))
+- **material-symbols:** correct icon name generation and regenerate exports ([#245](https://github.com/ng-icons/ng-icons/pull/245))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+- Claude
+- Claude Opus 4.6 (1M context)
+
 ## 33.2.1 (2026-04-12)
 
 ### 🚀 Features
