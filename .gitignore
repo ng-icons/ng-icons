@@ -51,3 +51,6 @@ Thumbs.db
 
 vite.config.*.timestamp*
 vitest.config.*.timestamp*
+
+# Vitest browser mode failure screenshots
+**/__screenshots__/

@@ -24,6 +24,7 @@ module.exports = [
             '@nx/vite',
             'vite',
             'vitest',
+            '@vitest/browser-playwright',
           ],
         },
       ],

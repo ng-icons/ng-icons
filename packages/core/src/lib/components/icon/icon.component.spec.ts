@@ -88,6 +88,32 @@ describe('Icon', () => {
     ).toBe('4');
   });
 
+  // regression test for https://github.com/ng-icons/ng-icons/issues/246
+  // the stroke width must reach the rendered svg, not just the host css variable
+  it('should apply the stroke width to the rendered svg', () => {
+    const svg = nativeElement.querySelector('svg')!;
+    const child = svg.querySelector('circle')!;
+
+    // defaults to the fallback baked into the svg when unset
+    expect(getComputedStyle(svg).strokeWidth).toBe('2px');
+    expect(getComputedStyle(child).strokeWidth).toBe('2px');
+
+    fixture.componentRef.setInput('strokeWidth', 4);
+    fixture.detectChanges();
+
+    expect(getComputedStyle(svg).strokeWidth).toBe('4px');
+    expect(getComputedStyle(child).strokeWidth).toBe('4px');
+  });
+
+  it('should apply the stroke width when set as a string', () => {
+    const child = nativeElement.querySelector('svg circle')!;
+
+    fixture.componentRef.setInput('strokeWidth', '6');
+    fixture.detectChanges();
+
+    expect(getComputedStyle(child).strokeWidth).toBe('6px');
+  });
+
   it('should not define a value for --ng-icon__size if the size is not set', () => {
     expect(nativeElement.style.getPropertyValue('--ng-icon__size')).toBe('');
   });
