@@ -38,25 +38,25 @@ describe('Glyph', () => {
   it('should allow the optical size to be changed', () => {
     fixture.componentRef.setInput('opticalSize', 24);
     fixture.detectChanges();
-    expect(nativeElement.style.fontVariationSettings).toContain("'opsz' 24");
+    expect(nativeElement.style.fontVariationSettings).toContain('"opsz" 24');
   });
 
   it('should allow the weight to be changed', () => {
     fixture.componentRef.setInput('weight', 500);
     fixture.detectChanges();
-    expect(nativeElement.style.fontVariationSettings).toContain("'wght' 500");
+    expect(nativeElement.style.fontVariationSettings).toContain('"wght" 500');
   });
 
   it('should allow the grade to be changed', () => {
     fixture.componentRef.setInput('grade', 1);
     fixture.detectChanges();
-    expect(nativeElement.style.fontVariationSettings).toContain("'GRAD' 1");
+    expect(nativeElement.style.fontVariationSettings).toContain('"GRAD" 1');
   });
 
   it('should allow the fill to be changed', () => {
     fixture.componentRef.setInput('fill', true);
     fixture.detectChanges();
-    expect(nativeElement.style.fontVariationSettings).toContain("'FILL' 1");
+    expect(nativeElement.style.fontVariationSettings).toContain('"FILL" 1');
   });
 
   it('should allow the color to be changed', () => {
