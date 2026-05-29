@@ -1,3 +1,13 @@
+## 33.2.3 (2026-05-29)
+
+### 🩹 Fixes
+
+- **iconoir:** split regular and solid into separate entry points ([#249](https://github.com/ng-icons/ng-icons/pull/249), [#248](https://github.com/ng-icons/ng-icons/issues/248))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 33.2.2 (2026-04-20)
 
 ### 🩹 Fixes
