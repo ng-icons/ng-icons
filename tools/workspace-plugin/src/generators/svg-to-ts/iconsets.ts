@@ -179,9 +179,14 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    glob: 'node_modules/iconoir/icons/**/*.svg',
-    output: 'packages/iconoir/src/index.ts',
+    glob: 'node_modules/iconoir/icons/regular/**/*.svg',
+    output: 'packages/iconoir/regular/src/index.ts',
     getIconName: (name: string) => `iconoir${name}`,
+  },
+  {
+    glob: 'node_modules/iconoir/icons/solid/**/*.svg',
+    output: 'packages/iconoir/solid/src/index.ts',
+    getIconName: (name: string) => `iconoir${name}Solid`,
   },
   {
     glob: 'node_modules/cryptocurrency-icons/svg/black/**/*.svg',

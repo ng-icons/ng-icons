@@ -251,7 +251,11 @@ export class BrowseIconsComponent {
       license: 'MIT',
       package: '@ng-icons/iconoir',
       icons: async () => {
-        return { default: await import('@ng-icons/iconoir') };
+        const [regular, solid] = await Promise.all([
+          import('@ng-icons/iconoir/regular'),
+          import('@ng-icons/iconoir/solid'),
+        ]);
+        return { regular, solid };
       },
     },
     {
