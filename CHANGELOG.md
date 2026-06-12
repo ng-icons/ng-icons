@@ -1,3 +1,13 @@
+## 33.2.4 (2026-06-12)
+
+### 🩹 Fixes
+
+- **core:** restore inline style on root svg element when CSP is enabled ([#250](https://github.com/ng-icons/ng-icons/pull/250), [#246](https://github.com/ng-icons/ng-icons/issues/246))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 33.2.3 (2026-05-29)
 
 ### 🩹 Fixes
