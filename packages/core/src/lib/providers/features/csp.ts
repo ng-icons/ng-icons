@@ -32,12 +32,17 @@ function preprocessIcon(icon: string): string {
 
 function postprocessIcon(element: HTMLElement | SVGElement): void {
   // find all elements with a data-style attribute and get the styles from it
-  // and apply them to the element using the style property and remove the data-style attribute
-  const elements = element.querySelectorAll<HTMLElement | SVGElement>(
-    '[data-style]',
-  );
+  // and apply them to the element using the style property and remove the data-style attribute.
+  // the root element is included as querySelectorAll only matches descendants, but the
+  // style on the root svg (e.g. the stroke-width) must be restored too.
+  const elements = [
+    ...(element.hasAttribute('data-style') ? [element] : []),
+    ...Array.from(
+      element.querySelectorAll<HTMLElement | SVGElement>('[data-style]'),
+    ),
+  ];
 
-  for (const element of Array.from(elements)) {
+  for (const element of elements) {
     const styles = element.getAttribute('data-style');
 
     styles?.split(';').forEach(style => {

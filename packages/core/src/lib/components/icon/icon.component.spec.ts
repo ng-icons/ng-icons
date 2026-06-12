@@ -8,6 +8,8 @@ import {
 } from '@ng-icons/feather-icons';
 import { vi } from 'vitest';
 import { NgIconsModule } from '../../icon.module';
+import { withContentSecurityPolicy } from '../../providers/features/csp';
+import { provideNgIconsConfig } from '../../providers/icon-config.provider';
 import {
   provideNgIconLoader,
   withCaching,
@@ -345,5 +347,57 @@ describe('Custom loader with caching', () => {
     await new Promise(resolve => setTimeout(resolve, 0));
 
     expect(loaderSpy).toHaveBeenCalledTimes(1);
+  });
+});
+
+// regression tests for https://github.com/ng-icons/ng-icons/issues/246
+// with the content security policy feature enabled, inline styles are renamed to
+// data-style during pre-processing and must be restored during post-processing -
+// including the style on the root svg element itself, not just its descendants.
+describe('Icon with content security policy', () => {
+  let fixture: ComponentFixture<NgIcon>;
+  let nativeElement: HTMLElement;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [NgIcon],
+      providers: [
+        provideIcons({ featherAlertCircle }),
+        provideNgIconsConfig({}, withContentSecurityPolicy()),
+      ],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(NgIcon);
+    fixture.componentRef.setInput('name', 'featherAlertCircle');
+    fixture.detectChanges();
+    nativeElement = fixture.nativeElement;
+  });
+
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
+
+  it('should restore the inline style on the root svg element', () => {
+    const svg = nativeElement.querySelector('svg')!;
+
+    // the data-style attribute used to dodge the CSP must have been removed
+    expect(svg.hasAttribute('data-style')).toBe(false);
+    // and the style it carried must have been applied to the element
+    expect(svg.style.strokeWidth).toBe('var(--ng-icon__stroke-width, 2)');
+  });
+
+  it('should apply the stroke width to the rendered svg', () => {
+    const svg = nativeElement.querySelector('svg')!;
+    const child = svg.querySelector('circle')!;
+
+    // defaults to the fallback baked into the svg when unset
+    expect(getComputedStyle(svg).strokeWidth).toBe('2px');
+    expect(getComputedStyle(child).strokeWidth).toBe('2px');
+
+    fixture.componentRef.setInput('strokeWidth', 4);
+    fixture.detectChanges();
+
+    expect(getComputedStyle(svg).strokeWidth).toBe('4px');
+    expect(getComputedStyle(child).strokeWidth).toBe('4px');
   });
 });
