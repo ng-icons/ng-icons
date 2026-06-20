@@ -594,6 +594,23 @@ export const iconsets: Iconset[] = [
     output: 'packages/lobe-icons/color/src/index.ts',
     getIconName: (name: string) => `lobe${name}`,
   },
+  {
+    glob: 'node_modules/@fluentui/svg-icons/icons/*_24_regular.svg',
+    output: 'packages/fluent-ui/src/index.ts',
+    getIconName: (name: string) => `fluent${name.replace(/24Regular$/, '')}`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
+  {
+    glob: 'node_modules/@fluentui/svg-icons/icons/*_24_filled.svg',
+    output: 'packages/fluent-ui/filled/src/index.ts',
+    getIconName: (name: string) =>
+      `fluent${name.replace(/24Filled$/, '')}Filled`,
+    svg: {
+      colorAttr: 'fill',
+    },
+  },
 ];
 export interface Iconset {
   glob: string;

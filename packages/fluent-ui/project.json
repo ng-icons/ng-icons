@@ -1,0 +1,41 @@
+{
+  "name": "fluent-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/fluent-ui/src",
+  "prefix": "ng",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "packages/fluent-ui/ng-package.json",
+        "tsConfig": "packages/fluent-ui/tsconfig.lib.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/fluent-ui/tsconfig.lib.prod.json"
+        },
+        "development": {}
+      },
+      "defaultConfiguration": "production"
+    },
+    "nx-release-publish": {
+      "dependsOn": ["build"],
+      "options": {
+        "packageRoot": "{workspaceRoot}/dist/{projectRoot}"
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{workspaceRoot}/coverage/packages/fluent-ui"],
+      "options": {
+        "reportsDirectory": "../../coverage/packages/fluent-ui"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

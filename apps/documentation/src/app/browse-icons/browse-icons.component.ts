@@ -24,6 +24,7 @@ import { cssShapeHexagon } from '@ng-icons/css.gg';
 import { diDeviconPlain } from '@ng-icons/devicon/plain';
 import { dripFlag } from '@ng-icons/dripicons';
 import { featherFeather, featherShield } from '@ng-icons/feather-icons';
+import { fluentHome } from '@ng-icons/fluent-ui';
 import { faFlag, faFontAwesome } from '@ng-icons/font-awesome/regular';
 import { gameAncientSword } from '@ng-icons/game-icons';
 import { heroMagnifyingGlass } from '@ng-icons/heroicons/outline';
@@ -108,6 +109,7 @@ const circumIcon = `
       mynaMyna,
       boxBox,
       lobeClaude,
+      fluentHome,
     }),
   ],
 })
@@ -585,6 +587,20 @@ export class BrowseIconsComponent {
           import('@ng-icons/lobe-icons/color'),
         ]);
         return { default: defaultIcons, color };
+      },
+    },
+    {
+      name: 'Fluent UI',
+      website: 'https://fluenticons.co',
+      icon: 'fluentHome',
+      license: 'MIT',
+      package: '@ng-icons/fluent-ui',
+      icons: async () => {
+        const [regular, filled] = await Promise.all([
+          import('@ng-icons/fluent-ui'),
+          import('@ng-icons/fluent-ui/filled'),
+        ]);
+        return { regular, filled };
       },
     },
   ];
