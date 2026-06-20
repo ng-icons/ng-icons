@@ -50,6 +50,7 @@ Currently, we support the following libraries:
 - [Mono Icons](https://icons.mono.company/)
 - [Lucide Icons](https://lucide.dev/)
 - [Coolicons](https://coolicons.cool/)
+- [Fluent UI](https://fluenticons.co/)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
