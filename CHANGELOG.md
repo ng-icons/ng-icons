@@ -1,3 +1,13 @@
+## 33.3.0 (2026-06-20)
+
+### 🚀 Features
+
+- **core:** add Fluent UI icons ([#252](https://github.com/ng-icons/ng-icons/pull/252))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 33.2.4 (2026-06-12)
 
 ### 🩹 Fixes
