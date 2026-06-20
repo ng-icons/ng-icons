@@ -137,6 +137,7 @@ The following packages are available:
 | `@ng-icons/mono-icons`           | MIT                                   |
 | `@ng-icons/lucide`               | MIT                                   |
 | `@ng-icons/coolicons`            | CC-BY-4.0                             |
+| `@ng-icons/fluent-ui`            | MIT                                   |
 
 ## Usage
 
