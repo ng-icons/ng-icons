@@ -40,6 +40,7 @@ import { monoArrowRightDown } from '@ng-icons/mono-icons';
 import { mynaMyna } from '@ng-icons/mynaui/outline';
 import { octMarkGithub } from '@ng-icons/octicons';
 import { phosphorPhosphorLogo } from '@ng-icons/phosphor-icons/regular';
+import { primePrime } from '@ng-icons/primeicons';
 import { radixModulzLogo } from '@ng-icons/radix-icons';
 import { remixRemixiconLine } from '@ng-icons/remixicon';
 import { simpleLucide, simpleSimpleicons } from '@ng-icons/simple-icons';
@@ -110,6 +111,7 @@ const circumIcon = `
       boxBox,
       lobeClaude,
       fluentHome,
+      primePrime,
     }),
   ],
 })
@@ -601,6 +603,16 @@ export class BrowseIconsComponent {
           import('@ng-icons/fluent-ui/filled'),
         ]);
         return { regular, filled };
+      },
+    },
+    {
+      name: 'PrimeIcons',
+      website: 'https://primeng.org/icons',
+      icon: 'primePrime',
+      license: 'MIT',
+      package: '@ng-icons/primeicons',
+      icons: async () => {
+        return { default: await import('@ng-icons/primeicons') };
       },
     },
   ];
