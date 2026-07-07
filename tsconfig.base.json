@@ -172,7 +172,8 @@
       "@ng-icons/lobe-icons": ["packages/lobe-icons/src/index.ts"],
       "@ng-icons/lobe-icons/color": ["packages/lobe-icons/color/src/index.ts"],
       "@ng-icons/fluent-ui": ["packages/fluent-ui/src/index.ts"],
-      "@ng-icons/fluent-ui/filled": ["packages/fluent-ui/filled/src/index.ts"]
+      "@ng-icons/fluent-ui/filled": ["packages/fluent-ui/filled/src/index.ts"],
+      "@ng-icons/primeicons": ["packages/primeicons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

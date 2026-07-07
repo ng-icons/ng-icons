@@ -611,6 +611,17 @@ export const iconsets: Iconset[] = [
       colorAttr: 'fill',
     },
   },
+  {
+    glob: 'node_modules/primeicons/raw-svg/*.svg',
+    output: 'packages/primeicons/src/index.ts',
+    getIconName: (name: string) => `prime${name}`,
+    svg: {
+      // Older icons have no fill (colorAttr adds currentColor to the root);
+      // newer ones ship fill="black" on paths (fillCurrentColor rewrites those).
+      colorAttr: 'fill',
+      fillCurrentColor: true,
+    },
+  },
 ];
 export interface Iconset {
   glob: string;

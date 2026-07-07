@@ -125,6 +125,7 @@
     "prettier": "3.6.2",
     "prettier-plugin-organize-imports": "4.3.0",
     "prettier-plugin-tailwindcss": "^0.7.1",
+    "primeicons": "7.0.0",
     "svgo": "3.3.2",
     "tailwindcss": "3.4.7",
     "ts-node": "10.9.1",

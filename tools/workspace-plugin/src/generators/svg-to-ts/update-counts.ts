@@ -14,7 +14,7 @@ export function updateIconCounts(tree: Tree, count: number): void {
   // Containing over 56,000 icons
   // we need to replace the number in this string with the new count
   const updatedReadme = readme.replace(
-    /Containing over \d+,+ icons/,
+    /Containing over [\d,]+ icons/,
     `Containing over ${countString} icons`,
   );
 
@@ -29,7 +29,7 @@ export function updateIconCounts(tree: Tree, count: number): void {
   // Providing over 56,000 icons
   // we need to replace the number in this string with the new count
   const updatedIndex = index.replace(
-    /Providing over \d+,+ icons/,
+    /Providing over [\d,]+ icons/,
     `Providing over ${countString} icons`,
   );
 
