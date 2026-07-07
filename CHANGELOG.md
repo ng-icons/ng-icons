@@ -1,3 +1,13 @@
+## 33.4.0 (2026-07-07)
+
+### 🚀 Features
+
+- **core:** add PrimeIcons ([#254](https://github.com/ng-icons/ng-icons/pull/254))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 33.3.0 (2026-06-20)
 
 ### 🚀 Features
