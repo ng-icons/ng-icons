@@ -1052,6 +1052,7 @@ exports[`FluentUi Icons > should ensure the export names have not changed unexpe
   "fluentGas",
   "fluentGasPump",
   "fluentGauge",
+  "fluentGaugeRotate0",
   "fluentGaugeRotate315",
   "fluentGavel",
   "fluentGesture",

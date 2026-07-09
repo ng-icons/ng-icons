@@ -444,6 +444,7 @@ exports[`Lucide Icons > should ensure the export names have not changed unexpect
   "lucideCircleDot",
   "lucideCircleEllipsis",
   "lucideCircleEqual",
+  "lucideCircleEuroSign",
   "lucideCircleFadingArrowUp",
   "lucideCircleFadingPlus",
   "lucideCircleGauge",

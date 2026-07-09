@@ -36,17 +36,17 @@ importers:
         specifier: 21.0.0
         version: 21.0.0(@angular/common@21.0.0(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.0.0(@angular/animations@21.0.0(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.0.0(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2)
       '@fluentui/svg-icons':
-        specifier: 1.1.330
-        version: 1.1.330
+        specifier: 1.1.332
+        version: 1.1.332
       '@material-icons/svg':
         specifier: 1.0.33
         version: 1.0.33
       '@material-symbols/svg-400':
-        specifier: ^0.39.3
-        version: 0.39.4
+        specifier: ^0.45.5
+        version: 0.45.5
       '@mynaui/icons':
-        specifier: ^0.3.7
-        version: 0.3.9
+        specifier: ^0.4.8
+        version: 0.4.8
       '@ng-icons/svgs':
         specifier: git://github.com/ng-icons/svgs
         version: svgs@https://codeload.github.com/ng-icons/svgs/tar.gz/aafbe5e46f13cf29855c04413ca78c0d7611da3f
@@ -57,8 +57,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       '@primer/octicons':
-        specifier: 19.21.0
-        version: 19.21.0
+        specifier: 19.29.1
+        version: 19.29.1
       '@rx-angular/cdk':
         specifier: 20.1.0
         version: 20.1.0(@angular-devkit/core@21.0.0(chokidar@4.0.3))(@angular-devkit/schematics@21.0.0(chokidar@4.0.3))(@angular/core@21.0.0(@angular/compiler@21.0.0)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
@@ -69,8 +69,8 @@ importers:
         specifier: 0.5.17
         version: 0.5.17
       '@tabler/icons':
-        specifier: 3.35.0
-        version: 3.35.0
+        specifier: 3.44.0
+        version: 3.44.0
       bootstrap-icons:
         specifier: 1.13.1
         version: 1.13.1
@@ -102,8 +102,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       iconoir:
-        specifier: 7.11.0
-        version: 7.11.0
+        specifier: 7.11.1
+        version: 7.11.1
       ionicons:
         specifier: 8.0.13
         version: 8.0.13
@@ -114,32 +114,32 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       lucide-static:
-        specifier: 1.23.0
-        version: 1.23.0
+        specifier: 1.24.0
+        version: 1.24.0
       material-icon-theme:
-        specifier: 5.28.0
-        version: 5.28.0
+        specifier: 5.36.1
+        version: 5.36.1
       material-symbols:
-        specifier: 0.39.3
-        version: 0.39.3
+        specifier: 0.45.6
+        version: 0.45.6
       mono-icons:
         specifier: ^1.3.1
         version: 1.3.1
       remixicon:
-        specifier: 4.7.0
-        version: 4.7.0
+        specifier: 4.9.1
+        version: 4.9.1
       rxjs:
         specifier: 7.8.2
         version: 7.8.2
       simple-icons:
-        specifier: 15.21.0
-        version: 15.21.0
+        specifier: 16.25.0
+        version: 16.25.0
       solar-icons:
         specifier: github:480-Design/Solar-Icon-Set#main
         version: Solar-Icon-Set#main@https://codeload.github.com/480-Design/Solar-Icon-Set/tar.gz/44017167688b49109d88ae6a98979b23d8950db0
       tdesign-icons-svg:
-        specifier: 0.4.0
-        version: 0.4.0
+        specifier: 0.4.2
+        version: 0.4.2
       tslib:
         specifier: ^2.3.0
         version: 2.8.1
@@ -190,8 +190,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.4
       '@lobehub/icons-static-svg':
-        specifier: ^1.84.0
-        version: 1.84.0
+        specifier: ^1.91.0
+        version: 1.91.0
       '@nx/angular':
         specifier: 22.1.0
         version: 22.1.0(62c7123d49b3d4e5a4ed48080ae3e2e5)
@@ -2254,8 +2254,8 @@ packages:
   '@figma/plugin-typings@1.100.2':
     resolution: {integrity: sha512-xRlneaT5D6afuzkt8J28DXgHAcglncqNVzh1qe5bJVzTLfniiDQY5N/IVXIJj/u7vXYMY6uqvJt8UBFe5l4FXA==}
 
-  '@fluentui/svg-icons@1.1.330':
-    resolution: {integrity: sha512-yREGomPwVEQ7gVRFSxg1kTBnvH65KvpClekhcN7/uZvmO/PSEFwrBGI+lQC/rqGXvTzISYxk9hYJbN3SHJepFQ==}
+  '@fluentui/svg-icons@1.1.332':
+    resolution: {integrity: sha512-X6bmNYHZZE1PO1AmAWiu9AVJ6ZrFhShFZ3QtdDsIbFEvQAiH4aEYoSBI2g2dR5JObENyk3kQRFhERqW+0o5kbg==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -2624,14 +2624,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@lobehub/icons-static-svg@1.84.0':
-    resolution: {integrity: sha512-4agZ/xGsf0bTXSofvWHZJev+TTfn9MFvV7x+feYvVTNCmmH9u8ZHxZOpKRU+9+vFZD/QTjfWne/nD1/kwChqhA==}
+  '@lobehub/icons-static-svg@1.91.0':
+    resolution: {integrity: sha512-ZDflEq0uUvAkH4WK4h3qNvvY09ts4OqUb5azD7A0xKfcuYhffGwB1Q/As2RguZYq4Gh4v925CJ8iodiClzc4zw==}
 
   '@material-icons/svg@1.0.33':
     resolution: {integrity: sha512-sYXcybBWH3rNijK1D6Dv1Se/aZ7OAC2cCNkn4HiZOXQwkswtRVoDqHPw+GfsBoIC70UintfPXUsmiuaxMicWtw==}
 
-  '@material-symbols/svg-400@0.39.4':
-    resolution: {integrity: sha512-98F0wB7VdkdTRKHiFCsYs9AqK0EX9fOLTPclg4nWUOcvYT2QgFMi8hO+0Y8Gm6UJMlu4hNZDHMSYYiRG9QkhDw==}
+  '@material-symbols/svg-400@0.45.5':
+    resolution: {integrity: sha512-0iwoWUGQPCwI/HDxOrl5BSI0T3dHDDNoKhkSgL9TrKkgAcWNHT3+NawaLBc4XTMMX4+obSy2CegX8FfOQHukng==}
 
   '@modelcontextprotocol/sdk@1.20.1':
     resolution: {integrity: sha512-j/P+yuxXfgxb+mW7OEoRCM3G47zCTDqUPivJo/VzpjbG8I9csTXtOprCf5FfOfHK4whOJny0aHuBEON+kS7CCA==}
@@ -2770,8 +2770,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@mynaui/icons@0.3.9':
-    resolution: {integrity: sha512-Mc8bIQYWTJXBMt2tQ0KQzCyKZ0oZk4I64PHKxhL0HSj10HKEY2yEBJSe6j3wXAO2xuTq3/mQQ2ptQj0HOtxIhQ==}
+  '@mynaui/icons@0.4.8':
+    resolution: {integrity: sha512-nU/V5I8IwYzj1oTvqufaK/ShmZ97WBAOAa0OuU7q/ftEduF1L2x0FeVx1QiZWsYuhLdxq53nW4n92kVmseKG9A==}
 
   '@napi-rs/nice-android-arm-eabi@1.1.1':
     resolution: {integrity: sha512-kjirL3N6TnRPv5iuHw36wnucNqXAO46dzK9oPb0wj076R5Xm8PfUVA9nAFB5ZNMmfJQJVKACAPd/Z2KYMppthw==}
@@ -3202,8 +3202,8 @@ packages:
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
 
-  '@primer/octicons@19.21.0':
-    resolution: {integrity: sha512-87buZ9aPlWbbHvTTzPAy9zqqGZpCc/VH+Q6q9OsZou6zCaExjmsINj6rWjP6FxNK5ZWHfF0UFNKQCai72lhaLA==}
+  '@primer/octicons@19.29.1':
+    resolution: {integrity: sha512-XVRArUP8bN+IEjfNQSquXAJinVqAWRx36sVvhN5VzC+gOLfbx16EfFFvcFhSVaqQJ+57PjBrbj75oqm8VlOoYQ==}
 
   '@rolldown/binding-android-arm64@1.0.0-beta.47':
     resolution: {integrity: sha512-vPP9/MZzESh9QtmvQYojXP/midjgkkc1E4AdnPPAzQXo668ncHJcVLKjJKzoBdsQmaIvNjrMdsCwES8vTQHRQw==}
@@ -3816,8 +3816,8 @@ packages:
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
     engines: {node: '>=14.16'}
 
-  '@tabler/icons@3.35.0':
-    resolution: {integrity: sha512-yYXe+gJ56xlZFiXwV9zVoe3FWCGuZ/D7/G4ZIlDtGxSx5CGQK110wrnT29gUj52kEZoxqF7oURTk97GQxELOFQ==}
+  '@tabler/icons@3.44.0':
+    resolution: {integrity: sha512-Wn0AOZG9sg0L+bjfMqq4eNhC6pQjIrk94LvvWYNYkY8KH8wC3YILRzQlrnVJc4FUeMxH/AK97QsYCX35H3LndA==}
 
   '@tailwindcss/typography@0.5.13':
     resolution: {integrity: sha512-ADGcJ8dX21dVVHIwTRgzrcunY6YY9uSlAHHGVKvkA+vLc5qLwEszvKts40lx7z0qc4clpjclwLeK5rVCV2P/uw==}
@@ -4996,8 +4996,8 @@ packages:
     resolution: {integrity: sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g==}
     engines: {node: '>=18'}
 
-  chroma-js@3.1.2:
-    resolution: {integrity: sha512-IJnETTalXbsLx1eKEgx19d5L6SRM7cH4vINw/99p/M11HCuXGRWL+6YmCm7FWFGIo6dtWuQoQi1dc5yQ7ESIHg==}
+  chroma-js@3.2.0:
+    resolution: {integrity: sha512-os/OippSlX1RlWWr+QDPcGUZs0uoqr32urfxESG9U93lhUfbnlyckte84Q8P1UQY/qth983AS1JONKmLS4T0nw==}
 
   chrome-trace-event@1.0.4:
     resolution: {integrity: sha512-rNjApaLzuwaOTjCiT8lSDdGN1APCiqkChLMJxJPWLunPAt5fy8xgU9/jNOchV84wfIxrA0lRQB7oCT8jrn/wrQ==}
@@ -5479,10 +5479,6 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
-  deep-rename-keys@0.2.1:
-    resolution: {integrity: sha512-RHd9ABw4Fvk+gYDWqwOftG849x0bYOySl/RgX0tLI9i27ZIeSO91mLZJEp7oPHOMFqHvpgu21YptmDt0FYD/0A==}
-    engines: {node: '>=0.10.0'}
-
   deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
@@ -5890,9 +5886,6 @@ packages:
   event-target-shim@5.0.1:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
     engines: {node: '>=6'}
-
-  eventemitter3@2.0.3:
-    resolution: {integrity: sha512-jLN68Dx5kyFHaePoXWPsCGW5qdyZQtLYHkxkg02/Mz6g0kYpDx4FyP6XfArhQdlOC4b8Mv+EMxPo/8La7Tzghg==}
 
   eventemitter3@4.0.7:
     resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
@@ -6520,8 +6513,8 @@ packages:
     resolution: {integrity: sha512-Y93lCzHYgGWdrJ66yIktxiaGULYc6oGiABxhcO5AufBeOyoIdZF7bIfLaOrbM0iGIOXQQgxxRrFEnb+Y6w1n4A==}
     engines: {node: '>=10.18'}
 
-  iconoir@7.11.0:
-    resolution: {integrity: sha512-F9T/E08aJBaQ+VOBjn+ChWKn3hFwsaK5VZ024OFMxdDaxKjLGDpU/OsU7MO9wXM+mDs4ZImypdXIn0fFZAXKmA==}
+  iconoir@7.11.1:
+    resolution: {integrity: sha512-W3LG94l/LcZZv/Q7XZNFvQSkaQibS21B4pUytrIl+6Ue2FKAwhuuOo1+o7chjkWqhmYqboDUeUlQGXwPShCijw==}
 
   icons@https://codeload.github.com/game-icons/icons/tar.gz/b659ba7773ed6ad1e1fee228b089f7104bea4984:
     resolution: {tarball: https://codeload.github.com/game-icons/icons/tar.gz/b659ba7773ed6ad1e1fee228b089f7104bea4984}
@@ -6634,9 +6627,6 @@ packages:
   is-binary-path@2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
     engines: {node: '>=8'}
-
-  is-buffer@1.1.6:
-    resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==}
 
   is-core-module@2.16.1:
     resolution: {integrity: sha512-UfoeMA6fIJ8wTYFEUjelnaGI67v6+N7qXJEvQuIGa99l4xsCruSYOVSQ0uPANn4dAzm8lkYPaKLrrijLq7x23w==}
@@ -7067,10 +7057,6 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-  kind-of@3.2.2:
-    resolution: {integrity: sha512-NOW9QQXMoZGg/oqnVNoNTTIFEIid1627WCffUBJEdMxYApq7mNE7CpzucIPc+ZQg25Phej7IJSmX3hO+oblOtQ==}
-    engines: {node: '>=0.10.0'}
-
   kind-of@6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
@@ -7294,8 +7280,8 @@ packages:
     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
     engines: {node: '>=12'}
 
-  lucide-static@1.23.0:
-    resolution: {integrity: sha512-V4tqLEHfvsptGaAZMD8sFJKeGsz2nTAU0+ctxTX3afao/5bs+mhrvvGDmvQmyI7YhQwpIFodZmnkPTMYyGzH4Q==}
+  lucide-static@1.24.0:
+    resolution: {integrity: sha512-NDSgPb/RWllI9QooPbGXfQCXQi/45oquDmtljeN3qVxqfEUf91uM2C4zijy8bs+pEWxKckA0/WZLZT43YD4Xnw==}
 
   lucide-svelte@0.445.0:
     resolution: {integrity: sha512-+4q7aL0fJArdAYw8CzO5DhfH4K5Hx/Z3JX5ggUDVMKjq6UHWWSvQ6wKOe7yNxc5muw22U7x3tzoLbHr/5pYPsg==}
@@ -7351,12 +7337,12 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  material-icon-theme@5.28.0:
-    resolution: {integrity: sha512-71MxNSngYnNRUQ2YZpcVJg1KPsCFMlvdJV2LtSk434DjSkIjEeh0soHcJjaUp7ohbyYdpU4rukbvzfOylh+lxg==}
+  material-icon-theme@5.36.1:
+    resolution: {integrity: sha512-m61BOQlbzno5KrDMuSb2Z+SxPYXWrVSRZRo6YtmoboZjFdP+HMMAzl6fGlKZUkX7dDBV++eDXYOx5hAsr7derA==}
     engines: {vscode: ^1.55.0}
 
-  material-symbols@0.39.3:
-    resolution: {integrity: sha512-74aewr9UBMa6jP/noVVFgegMUXkz0OiH3iL+ES0adWqvKgExHv1dxL5TjDIyGwS2VwjRjEGCsRufZRJv6hA0lQ==}
+  material-symbols@0.45.6:
+    resolution: {integrity: sha512-sPsLRMFIRETZKVrkwc5VW8lH6FT62vMuTmmQVjftFQ1UJXhK0dQX8isGDDwR72N+rN3oYATC2w9Q5oZB8lczdw==}
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -8963,12 +8949,8 @@ packages:
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
 
-  remixicon@4.7.0:
-    resolution: {integrity: sha512-g2pHOofQWARWpxdbrQu5+K3C8ZbqguQFzE54HIMWFCpFa63pumaAltIgZmFMRQpKKBScRWQASQfWxS9asNCcHQ==}
-
-  rename-keys@1.2.0:
-    resolution: {integrity: sha512-U7XpAktpbSgHTRSNRrjKSrjYkZKuhUukfoBlXWXUExCAqhzh1TU3BDRAfJmarcl5voKS+pbKU9MvyLWKZ4UEEg==}
-    engines: {node: '>= 0.8.0'}
+  remixicon@4.9.1:
+    resolution: {integrity: sha512-36gLSoujkabnCFZFDyP17VNh9piuBA/rsXUb4auSJWLGsHVXtmxLj/EM5FjaEAGnk8oIAj1Azob/DZ2N+90lAQ==}
 
   require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
@@ -9414,8 +9396,8 @@ packages:
     resolution: {integrity: sha512-Gw/FgHtrLM9WP8P5lLcSGh9OQcrTruWCELAiS48ik1QbL0cH+dfjomiRTUE9zzz+D1N6rOLkwXUvVmXZAsNE0Q==}
     engines: {node: ^20.17.0 || >=22.9.0}
 
-  simple-icons@15.21.0:
-    resolution: {integrity: sha512-xEKtyjl3bmmnyxZIsxNlN4RnN/BaP2tecQCSxOj1C6llJKt0TG4u+ZNJKSA82yBGrkO0CWW10UBTFMkH6tVKzQ==}
+  simple-icons@16.25.0:
+    resolution: {integrity: sha512-ReYPfbqjkTBovxjerHw2tf6E1rQdaCqNJKaJbd78Mui8w+78xQlE1aDO/2ekID++n8qa+1t+oaueYLeiSoQsIA==}
     engines: {node: '>=0.12.18'}
 
   sirv@3.0.2:
@@ -9693,9 +9675,6 @@ packages:
     resolution: {tarball: https://codeload.github.com/ng-icons/svgs/tar.gz/aafbe5e46f13cf29855c04413ca78c0d7611da3f}
     version: 0.0.0
 
-  svgson@5.3.1:
-    resolution: {integrity: sha512-qdPgvUNWb40gWktBJnbJRelWcPzkLed/ShhnRsjbayXz8OtdPOzbil9jtiZdrYvSDumAz/VNQr6JaNfPx/gvPA==}
-
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
 
@@ -9740,8 +9719,8 @@ packages:
     resolution: {integrity: sha512-7NyxrTE4Anh8km8iEy7o0QYPs+0JKBTj5ZaqHg6B39erLg0qYXN3BijtShwbsNSvQ+LN75+KV+C4QR/f6Gwnpg==}
     engines: {node: '>=18'}
 
-  tdesign-icons-svg@0.4.0:
-    resolution: {integrity: sha512-wBZjtzj/xB/Gz0/Z/c/yvUD7ys4rm5GRzw8lGeGIKNr3cKAA5cRctJkglUEfLRUsEMYYDOp0j5Lq4c9IIG3IOA==}
+  tdesign-icons-svg@0.4.2:
+    resolution: {integrity: sha512-vlrX01tg/CSJKGz73EAikoNI6ePmuPDFIDWRIFq6M8CZ+dUTypBlayChCl6wNnS+XvIcrR8950bMChUCiVHUyw==}
 
   terser-webpack-plugin@5.3.14:
     resolution: {integrity: sha512-vkZjpUjb6OMS7dhV+tILUW6BhpDR7P2L/aQSAv+Uwk+m8KATX9EccViHTJR2qDtACKPIYndLGCyl3FMo+r2LMw==}
@@ -10494,15 +10473,9 @@ packages:
     resolution: {integrity: sha512-h3Fbisa2nKGPxCpm89Hk33lBLsnaGBvctQopaBSOW/uIs6FTe1ATyAnKFJrzVs9vpGdsTe73WF3V4lIsk4Gacw==}
     engines: {node: '>=18'}
 
-  xml-lexer@0.2.2:
-    resolution: {integrity: sha512-G0i98epIwiUEiKmMcavmVdhtymW+pCAohMRgybyIME9ygfVu8QheIi+YoQh3ngiThsT0SQzJT4R0sKDEv8Ou0w==}
-
   xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
     engines: {node: '>=12'}
-
-  xml-reader@2.4.3:
-    resolution: {integrity: sha512-xWldrIxjeAMAu6+HSf9t50ot1uL5M+BtOidRCWHXIeewvSeIpscWCsp4Zxjk8kHHhdqFBrfK8U0EJeCcnyQ/gA==}
 
   xmlchars@2.2.0:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
@@ -13033,7 +13006,7 @@ snapshots:
 
   '@figma/plugin-typings@1.100.2': {}
 
-  '@fluentui/svg-icons@1.1.330': {}
+  '@fluentui/svg-icons@1.1.332': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -13459,11 +13432,11 @@ snapshots:
   '@lmdb/lmdb-win32-x64@3.4.3':
     optional: true
 
-  '@lobehub/icons-static-svg@1.84.0': {}
+  '@lobehub/icons-static-svg@1.91.0': {}
 
   '@material-icons/svg@1.0.33': {}
 
-  '@material-symbols/svg-400@0.39.4': {}
+  '@material-symbols/svg-400@0.45.5': {}
 
   '@modelcontextprotocol/sdk@1.20.1':
     dependencies:
@@ -13691,7 +13664,7 @@ snapshots:
   '@msgpackr-extract/msgpackr-extract-win32-x64@3.0.3':
     optional: true
 
-  '@mynaui/icons@0.3.9': {}
+  '@mynaui/icons@0.4.8': {}
 
   '@napi-rs/nice-android-arm-eabi@1.1.1':
     optional: true
@@ -14455,7 +14428,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@primer/octicons@19.21.0':
+  '@primer/octicons@19.29.1':
     dependencies:
       object-assign: 4.1.1
 
@@ -15003,7 +14976,7 @@ snapshots:
     dependencies:
       defer-to-connect: 2.0.1
 
-  '@tabler/icons@3.35.0': {}
+  '@tabler/icons@3.44.0': {}
 
   '@tailwindcss/typography@0.5.13(tailwindcss@3.4.7(ts-node@10.9.1(@swc/core@1.5.7(@swc/helpers@0.5.17))(@types/node@22.15.0)(typescript@5.9.2)))':
     dependencies:
@@ -16518,7 +16491,7 @@ snapshots:
 
   chownr@3.0.0: {}
 
-  chroma-js@3.1.2: {}
+  chroma-js@3.2.0: {}
 
   chrome-trace-event@1.0.4: {}
 
@@ -16952,11 +16925,6 @@ snapshots:
   deep-equal@1.0.1: {}
 
   deep-is@0.1.4: {}
-
-  deep-rename-keys@0.2.1:
-    dependencies:
-      kind-of: 3.2.2
-      rename-keys: 1.2.0
 
   deepmerge@4.3.1: {}
 
@@ -17442,8 +17410,6 @@ snapshots:
   etag@1.8.1: {}
 
   event-target-shim@5.0.1: {}
-
-  eventemitter3@2.0.3: {}
 
   eventemitter3@4.0.7: {}
 
@@ -18274,7 +18240,7 @@ snapshots:
 
   hyperdyperid@1.2.0: {}
 
-  iconoir@7.11.0: {}
+  iconoir@7.11.1: {}
 
   icons@https://codeload.github.com/game-icons/icons/tar.gz/b659ba7773ed6ad1e1fee228b089f7104bea4984: {}
 
@@ -18364,8 +18330,6 @@ snapshots:
   is-binary-path@2.1.0:
     dependencies:
       binary-extensions: 2.3.0
-
-  is-buffer@1.1.6: {}
 
   is-core-module@2.16.1:
     dependencies:
@@ -18955,10 +18919,6 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  kind-of@3.2.2:
-    dependencies:
-      is-buffer: 1.1.6
-
   kind-of@6.0.3: {}
 
   klona@2.0.6: {}
@@ -19205,7 +19165,7 @@ snapshots:
 
   lru-cache@7.18.3: {}
 
-  lucide-static@1.23.0: {}
+  lucide-static@1.24.0: {}
 
   lucide-svelte@0.445.0(svelte@5.43.14):
     dependencies:
@@ -19276,14 +19236,12 @@ snapshots:
 
   marked@0.7.0: {}
 
-  material-icon-theme@5.28.0:
+  material-icon-theme@5.36.1:
     dependencies:
-      chroma-js: 3.1.2
-      events: 3.3.0
+      chroma-js: 3.2.0
       fast-deep-equal: 3.1.3
-      svgson: 5.3.1
 
-  material-symbols@0.39.3: {}
+  material-symbols@0.45.6: {}
 
   math-intrinsics@1.1.0: {}
 
@@ -21136,9 +21094,7 @@ snapshots:
       mdast-util-to-markdown: 2.1.2
       unified: 11.0.5
 
-  remixicon@4.7.0: {}
-
-  rename-keys@1.2.0: {}
+  remixicon@4.9.1: {}
 
   require-directory@2.1.1: {}
 
@@ -21627,7 +21583,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  simple-icons@15.21.0: {}
+  simple-icons@16.25.0: {}
 
   sirv@3.0.2:
     dependencies:
@@ -21956,11 +21912,6 @@ snapshots:
 
   svgs@https://codeload.github.com/ng-icons/svgs/tar.gz/aafbe5e46f13cf29855c04413ca78c0d7611da3f: {}
 
-  svgson@5.3.1:
-    dependencies:
-      deep-rename-keys: 0.2.1
-      xml-reader: 2.4.3
-
   symbol-tree@3.2.4: {}
 
   sync-child-process@1.0.2:
@@ -22034,7 +21985,7 @@ snapshots:
       minizlib: 3.1.0
       yallist: 5.0.0
 
-  tdesign-icons-svg@0.4.0: {}
+  tdesign-icons-svg@0.4.2: {}
 
   terser-webpack-plugin@5.3.14(@swc/core@1.5.7(@swc/helpers@0.5.17))(esbuild@0.19.12)(webpack@5.103.0(@swc/core@1.5.7(@swc/helpers@0.5.17))(esbuild@0.19.12)):
     dependencies:
@@ -22912,16 +22863,7 @@ snapshots:
     dependencies:
       is-wsl: 3.1.0
 
-  xml-lexer@0.2.2:
-    dependencies:
-      eventemitter3: 2.0.3
-
   xml-name-validator@4.0.0: {}
-
-  xml-reader@2.4.3:
-    dependencies:
-      eventemitter3: 2.0.3
-      xml-lexer: 0.2.2
 
   xmlchars@2.2.0: {}
 

@@ -55,7 +55,7 @@ export const iconsets: Iconset[] = [
   {
     glob: 'icons/**/*.svg',
     gitRepo: 'https://github.com/radix-ui/icons.git',
-    gitRef: '237cd76c007a573c2a6f6caabe9ea3de81393f50',
+    gitRef: '112af91ad275a63c3a29b0da2588342af74ef9bf',
     gitPath: 'packages/radix-icons',
     output: 'packages/radix-icons/src/index.ts',
     getIconName: (name: string) => `radix${name}`,
@@ -78,7 +78,7 @@ export const iconsets: Iconset[] = [
   {
     glob: '**/*.svg',
     gitRepo: 'https://github.com/artcoholic/akar-icons-app.git',
-    gitRef: '938a77e1fbb1e19d770f1b3c5e3e49daaf2578bc',
+    gitRef: 'c6fe9e3fcdfb8b21829665823b43adf79dba31f8',
     gitPath: 'src/svg',
     output: 'packages/akar-icons/src/index.ts',
     getIconName: (name: string) => `akar${name}`,
@@ -245,7 +245,7 @@ export const iconsets: Iconset[] = [
   {
     glob: '**/*.svg',
     gitRepo: 'https://github.com/Klarr-Agency/Circum-Icons.git',
-    gitRef: '6522c0a4aea8fb4c0818228f444f0082d6e6820c',
+    gitRef: 'cec1364b5199f55e946a9a8360385a958b98cc60',
     gitPath: 'svg',
     output: 'packages/circum-icons/src/index.ts',
     getIconName: (name: string) => `circum${name}`,
