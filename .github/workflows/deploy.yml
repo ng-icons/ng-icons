@@ -21,17 +21,24 @@ jobs:
       # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "build" targets have been requested
       # - run: pnpm exec nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="build"
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         with:
           version: 9
       # Cache node_modules
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
 
+      # Cache the Playwright browser binary (only `core`'s browser test needs it).
+      - uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('pnpm-lock.yaml') }}
       - run: pnpm exec playwright install chromium --with-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
 
       - uses: nrwl/nx-set-shas@v4
 
