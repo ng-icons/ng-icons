@@ -114,8 +114,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       lucide-static:
-        specifier: 0.563.0
-        version: 0.563.0
+        specifier: 1.23.0
+        version: 1.23.0
       material-icon-theme:
         specifier: 5.28.0
         version: 5.28.0
@@ -7294,8 +7294,8 @@ packages:
     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
     engines: {node: '>=12'}
 
-  lucide-static@0.563.0:
-    resolution: {integrity: sha512-O7ZlK+VFfc/G5KYwUb9jO60RlPNKV6Dyu+OgQC/QCiO4FMPIK9qrIIkYHHG6PLgLKvmELmf1eKSAso+D/vAvcg==}
+  lucide-static@1.23.0:
+    resolution: {integrity: sha512-V4tqLEHfvsptGaAZMD8sFJKeGsz2nTAU0+ctxTX3afao/5bs+mhrvvGDmvQmyI7YhQwpIFodZmnkPTMYyGzH4Q==}
 
   lucide-svelte@0.445.0:
     resolution: {integrity: sha512-+4q7aL0fJArdAYw8CzO5DhfH4K5Hx/Z3JX5ggUDVMKjq6UHWWSvQ6wKOe7yNxc5muw22U7x3tzoLbHr/5pYPsg==}
@@ -19205,7 +19205,7 @@ snapshots:
 
   lru-cache@7.18.3: {}
 
-  lucide-static@0.563.0: {}
+  lucide-static@1.23.0: {}
 
   lucide-svelte@0.445.0(svelte@5.43.14):
     dependencies:
