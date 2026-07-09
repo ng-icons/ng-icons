@@ -12,28 +12,40 @@ permissions:
 jobs:
   main:
     runs-on: ubuntu-latest
+    # Runs only on `main`, so it always uses the read-write cache token.
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Connect your workspace on nx.app and uncomment this to enable task distribution.
-      # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "build" targets have been requested
-      # - run: pnpm exec nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="build"
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 9
+      # pnpm version comes from the "packageManager" field in package.json
+      - uses: pnpm/action-setup@v4
       # Cache node_modules
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
 
+      # Cache the Playwright browser binary (only `core`'s browser test needs it).
+      - uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('pnpm-lock.yaml') }}
       - run: pnpm exec playwright install chromium --with-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+      # On a cache hit the binary is restored but the apt system deps aren't, so
+      # install just those (fast) to avoid missing-library flakiness.
+      - run: pnpm exec playwright install-deps chromium
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
 
       - uses: nrwl/nx-set-shas@v4
+
+      # Distribute affected tasks across 3 Nx Agents (Nx Cloud's minimum).
+      - run: pnpm exec nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="lint,test,build"
 
       - run: pnpm exec nx generate @ng-icons/workspace-plugin:svg-to-ts
       - run: pnpm exec nx generate @ng-icons/workspace-plugin:update-readmes
