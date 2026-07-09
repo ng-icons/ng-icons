@@ -20,9 +20,8 @@ jobs:
         with:
           fetch-depth: 0
 
+      # pnpm version comes from the "packageManager" field in package.json
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       # Cache node_modules
       - uses: actions/setup-node@v4
         with:
