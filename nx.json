@@ -105,6 +105,9 @@
   "defaultBase": "origin/main",
   "release": {
     "projectsRelationship": "fixed",
+    "version": {
+      "preserveMatchingDependencyRanges": false
+    },
     "changelog": {
       "workspaceChangelog": {
         "createRelease": "github"
