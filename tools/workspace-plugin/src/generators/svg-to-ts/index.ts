@@ -1,12 +1,12 @@
 import { formatFiles, joinPathFragments, names, Tree } from '@nx/devkit';
 import { exec } from 'child_process';
 import { mkdtempSync, rmSync } from 'fs';
-import { promisify } from 'util';
 import { readFile } from 'fs-extra';
 import { sync } from 'glob';
 import { tmpdir } from 'os';
 import { basename, join } from 'path';
 import * as ts from 'typescript';
+import { promisify } from 'util';
 import { Iconset, iconsets } from './iconsets';
 import { optimizeIcon } from './optimize-icon';
 import { updateIconCounts } from './update-counts';

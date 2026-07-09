@@ -9,6 +9,10 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
+    # Read-write cache token only on the protected `main` branch; PRs (incl. forks)
+    # get an empty value and fall back to the read-only token in nx.json.
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ github.ref == 'refs/heads/main' && secrets.NX_CLOUD_ACCESS_TOKEN || '' }}
     steps:
       - uses: actions/checkout@v4
         with:
