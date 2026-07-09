@@ -45,9 +45,6 @@ jobs:
 
       - uses: nrwl/nx-set-shas@v4
 
-      # Distribute affected tasks across 3 Nx Agents (Nx Cloud's minimum).
-      - run: pnpm exec nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="lint,test,build"
-
       # Regenerate the icon sets, then fail if the committed output is stale.
       # Generation is deterministic (all sources are pinned), so any diff means
       # someone bumped a source or hand-edited generated files without regenerating.
