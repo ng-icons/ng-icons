@@ -1,3 +1,23 @@
+# 34.0.0 (2026-07-09)
+
+### 🚀 Features
+
+- **icons:** update icon sets to latest upstream versions ([#258](https://github.com/ng-icons/ng-icons/pull/258))
+- **lucide:** update to v1.23 ([#256](https://github.com/ng-icons/ng-icons/pull/256))
+
+### 🩹 Fixes
+
+- unblock release (peer-dep ranges) and remove broken nx distribution ([#260](https://github.com/ng-icons/ng-icons/pull/260))
+
+### 🔥 Performance
+
+- **ci:** speed up CI - pin sources, cache playwright, drift-check icons ([#259](https://github.com/ng-icons/ng-icons/pull/259))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+- Marc Stammerjohann @marcjulian
+
 ## 33.4.0 (2026-07-07)
 
 ### 🚀 Features
