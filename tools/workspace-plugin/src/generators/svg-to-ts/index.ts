@@ -19,6 +19,10 @@ const iconList = new Set<string>();
 // used by multiple iconsets (font-awesome, iconsax) is cloned once, not per style.
 const cloneCache = new Map<string, string>();
 
+// Every tmp dir created for a clone, tracked at creation time so cleanup can
+// remove in-flight clones too (Promise.all can reject before they're cached).
+const cloneTmpDirs = new Set<string>();
+
 const execAsync = promisify(exec);
 
 function cloneKey(gitRepo: string, gitRef: string): string {
@@ -27,6 +31,7 @@ function cloneKey(gitRepo: string, gitRef: string): string {
 
 async function cloneGitRepo(gitRepo: string, gitRef: string): Promise<string> {
   const tmpDir = mkdtempSync(join(tmpdir(), 'ng-icons-'));
+  cloneTmpDirs.add(tmpDir);
 
   try {
     console.log(`Cloning ${gitRepo} (${gitRef}) to ${tmpDir}...`);
@@ -70,13 +75,14 @@ async function prepareClones(iconsets: Iconset[]): Promise<void> {
 }
 
 function cleanupClones(): void {
-  for (const tmpDir of cloneCache.values()) {
+  for (const tmpDir of cloneTmpDirs) {
     try {
       rmSync(tmpDir, { recursive: true, force: true });
     } catch (error) {
       console.warn(`Failed to cleanup ${tmpDir}:`, error);
     }
   }
+  cloneTmpDirs.clear();
   cloneCache.clear();
 }
 

@@ -37,11 +37,15 @@ jobs:
           key: ${{ runner.os }}-playwright-${{ hashFiles('pnpm-lock.yaml') }}
       - run: pnpm exec playwright install chromium --with-deps
         if: steps.playwright-cache.outputs.cache-hit != 'true'
+      # On a cache hit the binary is restored but the apt system deps aren't, so
+      # install just those (fast) to avoid missing-library flakiness.
+      - run: pnpm exec playwright install-deps chromium
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
 
       - uses: nrwl/nx-set-shas@v4
 
-      # Distribute affected tasks across Nx Agents (scales with affected size).
-      - run: pnpm exec nx-cloud start-ci-run --distribute-on=".nx/workflows/distribution-config.yaml" --stop-agents-after="lint,test,build"
+      # Distribute affected tasks across 3 Nx Agents (Nx Cloud's minimum).
+      - run: pnpm exec nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="lint,test,build"
 
       - run: pnpm exec nx generate @ng-icons/workspace-plugin:svg-to-ts
       - run: pnpm exec nx generate @ng-icons/workspace-plugin:update-readmes
