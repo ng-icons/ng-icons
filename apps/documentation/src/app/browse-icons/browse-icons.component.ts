@@ -1,4 +1,3 @@
-/* eslint-disable @nx/enforce-module-boundaries */
 import { Clipboard } from '@angular/cdk/clipboard';
 import {
   ChangeDetectionStrategy,

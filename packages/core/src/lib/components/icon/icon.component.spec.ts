@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
@@ -6,7 +6,7 @@ import {
   featherAlertCircle,
   featherAlertTriangle,
 } from '@ng-icons/feather-icons';
-import { vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { NgIconsModule } from '../../icon.module';
 import { withContentSecurityPolicy } from '../../providers/features/csp';
 import { provideNgIconsConfig } from '../../providers/icon-config.provider';
@@ -154,14 +154,12 @@ describe('Icon', () => {
 @Component({
   template: `<ng-icon name="featherAlertCircle"></ng-icon>
     <router-outlet></router-outlet>`,
-  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 class RootComponent {}
 
 @Component({
   template: `<ng-icon name="featherAlertTriangle"></ng-icon>`,
-  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 class ChildComponent {}
@@ -227,7 +225,6 @@ describe('Icon with multiple modules', () => {
 @Component({
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
   imports: [NgIcon],
-  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [provideIcons({ featherAlertCircle })],
 })
 class StandaloneComponent {}
@@ -259,7 +256,6 @@ describe('Standalone icon component', () => {
 @Component({
   template: '<ng-icon name="featherAlertCircle" />',
   imports: [NgIcon],
-  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [
     provideNgIconLoader(() => {
       return Promise.resolve(featherAlertCircle);
@@ -292,7 +288,6 @@ describe('Custom loader', () => {
 
 @Component({
   template: '<ng-icon name="featherAlertCircle"></ng-icon>',
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [NgIcon],
 })
 class CachedLoaderComponent {}
@@ -303,7 +298,6 @@ class CachedLoaderComponent {}
       <ng-icon [name]="icon" />
     }
   `,
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [NgIcon],
 })
 class RepeatedCachedLoaderComponent {

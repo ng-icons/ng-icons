@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Signal } from '@angular/core';
+import { Component, Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
@@ -11,7 +11,6 @@ import { NAV_LINKS } from '../../constants/nav-link.constant';
   imports: [NgIconComponent, RouterLink],
   providers: [provideIcons({ bootstrapGithub })],
   templateUrl: './navbar.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {

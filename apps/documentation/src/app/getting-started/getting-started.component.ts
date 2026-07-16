@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { SegmentComponent } from '../components/segment/segment.component';
 import { SnippetComponent } from '../components/snippet/snippet.component';
 import { TerminalComponent } from '../components/terminal/terminal.component';
@@ -9,7 +9,6 @@ import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
   selector: 'app-getting-started',
   templateUrl: './getting-started.component.html',
   styleUrls: ['./getting-started.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     TerminalComponent,
     SnippetComponent,
@@ -19,7 +18,7 @@ import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
   ],
 })
 export class GettingStartedComponent {
-  selectedIndex = 0;
+  selectedIndex = signal(0);
 
   year = new Date().getFullYear();
 }

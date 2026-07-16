@@ -28,7 +28,7 @@
   </div>
 
   <app-snippet appFadeIn>
-    @if (selectedIndex === 1) {
+    @if (selectedIndex() === 1) {
       <pre
         ngNonBindable
       ><span style="color: #E5ACAC">import</span> &#123; NgIconsModule &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/core&#39;</span>;
@@ -44,7 +44,7 @@
       </pre>
     }
 
-    @if (selectedIndex === 0) {
+    @if (selectedIndex() === 0) {
       <pre
         ngNonBindable
       ><span style="color: #E5ACAC">import</span> &#123; NgIcon, provideIcons &#125; <span style="color: #E5ACAC">from</span> <span style="color: #FEDBB3">&#39;&#64;ng-icons/core&#39;</span>;

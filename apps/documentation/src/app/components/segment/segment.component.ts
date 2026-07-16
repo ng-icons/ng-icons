@@ -1,7 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import {
   afterNextRender,
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   computed,
@@ -18,7 +17,6 @@ import {
   selector: 'app-segment',
   imports: [],
   templateUrl: './segment.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./segment.component.scss'],
 })
 export class SegmentComponent implements OnDestroy {
