@@ -99,7 +99,7 @@
     "@typescript-eslint/eslint-plugin": "8.64.0",
     "@typescript-eslint/parser": "8.64.0",
     "@typescript-eslint/utils": "8.64.0",
-    "@vitest/browser-playwright": "4.0.12",
+    "@vitest/browser-playwright": "4.1.9",
     "@vitest/coverage-v8": "4.1.9",
     "@vitest/ui": "4.1.9",
     "angular-eslint": "22.1.0",
