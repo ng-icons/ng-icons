@@ -10,12 +10,13 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/octicons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/octicons"
       }
     },
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/octicons"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/octicons/ng-package.json"
       },
@@ -26,8 +27,7 @@
         "development": {
           "tsConfig": "packages/octicons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint",

@@ -10,12 +10,13 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/coolicons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/coolicons"
       }
     },
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/coolicons"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/coolicons/ng-package.json"
       },
@@ -26,8 +27,7 @@
         "development": {
           "tsConfig": "packages/coolicons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint",

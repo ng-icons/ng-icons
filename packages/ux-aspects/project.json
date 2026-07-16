@@ -9,6 +9,7 @@
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/ux-aspects"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/ux-aspects/ng-package.json"
       },
@@ -19,14 +20,13 @@
         "development": {
           "tsConfig": "packages/ux-aspects/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "test": {
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/ux-aspects"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/ux-aspects"
       }
     },
     "lint": {

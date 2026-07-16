@@ -10,12 +10,13 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/feather-icons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/feather-icons"
       }
     },
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/feather-icons"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/feather-icons/ng-package.json"
       },
@@ -26,8 +27,7 @@
         "development": {
           "tsConfig": "packages/feather-icons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint",

@@ -9,6 +9,7 @@
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/fluent-ui/ng-package.json",
         "tsConfig": "packages/fluent-ui/tsconfig.lib.json"
@@ -18,8 +19,7 @@
           "tsConfig": "packages/fluent-ui/tsconfig.lib.prod.json"
         },
         "development": {}
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "nx-release-publish": {
       "dependsOn": ["build"],
@@ -31,7 +31,7 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{workspaceRoot}/coverage/packages/fluent-ui"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/fluent-ui"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/fluent-ui"
       }
     },
     "lint": {

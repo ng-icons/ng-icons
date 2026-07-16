@@ -9,6 +9,7 @@
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/huge-icons/ng-package.json"
       },
@@ -19,14 +20,13 @@
         "development": {
           "tsConfig": "packages/huge-icons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "test": {
       "executor": "@nx/vitest:test",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/huge-icons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/huge-icons"
       }
     },
     "lint": {

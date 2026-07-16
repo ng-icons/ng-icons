@@ -9,6 +9,7 @@
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/cryptocurrency-icons"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/cryptocurrency-icons/ng-package.json"
       },
@@ -19,14 +20,13 @@
         "development": {
           "tsConfig": "packages/cryptocurrency-icons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "test": {
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/cryptocurrency-icons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/cryptocurrency-icons"
       }
     },
     "lint": {

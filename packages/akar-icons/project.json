@@ -9,6 +9,7 @@
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/akar-icons"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/akar-icons/ng-package.json"
       },
@@ -19,14 +20,13 @@
         "development": {
           "tsConfig": "packages/akar-icons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "test": {
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/akar-icons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/akar-icons"
       }
     },
     "lint": {

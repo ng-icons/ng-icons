@@ -9,6 +9,7 @@
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/mono-icons/ng-package.json"
       },
@@ -19,8 +20,7 @@
         "development": {
           "tsConfig": "packages/mono-icons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "nx-release-publish": {
       "dependsOn": ["build"],
@@ -32,7 +32,7 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/mono-icons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/mono-icons"
       }
     },
     "lint": {

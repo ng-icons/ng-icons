@@ -7,12 +7,18 @@
     "declarationMap": true,
     "inlineSources": true,
     "types": [],
-    "lib": ["dom", "es2018"],
+    "lib": ["dom", "es2022"],
     "useDefineForClassFields": false,
     "moduleResolution": "bundler"
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    },
     "strictMetadataEmit": true,
     "enableResourceInlining": true
   },

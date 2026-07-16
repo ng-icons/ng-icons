@@ -9,6 +9,7 @@
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/dripicons"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/dripicons/ng-package.json"
       },
@@ -19,14 +20,13 @@
         "development": {
           "tsConfig": "packages/dripicons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "test": {
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/dripicons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/dripicons"
       }
     },
     "lint": {

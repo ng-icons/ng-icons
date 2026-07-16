@@ -9,6 +9,7 @@
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/iconoir"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/iconoir/ng-package.json"
       },
@@ -19,14 +20,13 @@
         "development": {
           "tsConfig": "packages/iconoir/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "test": {
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/iconoir"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/iconoir"
       }
     },
     "lint": {

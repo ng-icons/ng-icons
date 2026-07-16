@@ -11,3 +11,4 @@ pnpm-lock.yaml
 /.nx/workspace-data
 CHANGELOG.md
 CONTRIBUTING.md
+.nx/self-healing

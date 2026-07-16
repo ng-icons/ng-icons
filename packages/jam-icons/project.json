@@ -10,12 +10,13 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/jam-icons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/jam-icons"
       }
     },
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/jam-icons"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/jam-icons/ng-package.json"
       },
@@ -26,8 +27,7 @@
         "development": {
           "tsConfig": "packages/jam-icons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint",

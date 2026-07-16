@@ -1,5 +1,5 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroChevronRightMini } from '@ng-icons/heroicons/mini';
@@ -16,6 +16,7 @@ import { FadeInDirective } from '../directives/fade-in/fade-in.directive';
     FadeInContainerDirective,
     FadeInDirective,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [provideIcons({ heroChevronRightMini })],
 })
 export class IndexComponent {}

@@ -9,6 +9,7 @@
     "build": {
       "executor": "nx:run-commands",
       "outputs": ["{workspaceRoot}/dist/packages/core"],
+      "defaultConfiguration": "production",
       "options": {
         "commands": ["nx run core:build-lib", "nx run core:build-schematics"],
         "parallel": false
@@ -16,12 +17,12 @@
       "configurations": {
         "production": {},
         "development": {}
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "build-lib": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/core"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/core/ng-package.json",
         "tsConfig": "packages/core/tsconfig.lib.json"
@@ -31,8 +32,7 @@
           "tsConfig": "packages/core/tsconfig.lib.prod.json"
         },
         "development": {}
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "build-schematics": {
       "executor": "nx:run-commands",
@@ -59,7 +59,7 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/core"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/core"
       }
     }
   }

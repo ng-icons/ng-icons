@@ -10,12 +10,13 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/css-gg"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/css-gg"
       }
     },
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/css-gg"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/css-gg/ng-package.json"
       },
@@ -26,8 +27,7 @@
         "development": {
           "tsConfig": "packages/css-gg/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint"
