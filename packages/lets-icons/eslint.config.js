@@ -17,7 +17,6 @@ module.exports = [
             '@analogjs/vite-plugin-angular',
             '@nx/vite',
             'vite',
-            'vitest',
           ],
         },
       ],

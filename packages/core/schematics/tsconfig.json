@@ -11,8 +11,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "rootDir": ".",
-    "preserveWatchOutput": true,
-    "ignoreDeprecations": "6.0"
+    "preserveWatchOutput": true
   },
   "include": ["**/*.ts"],
   "exclude": ["**/*.spec.ts"]

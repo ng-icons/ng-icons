@@ -18,8 +18,7 @@
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "target": "es2020",
-    "ignoreDeprecations": "6.0"
+    "target": "es2020"
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

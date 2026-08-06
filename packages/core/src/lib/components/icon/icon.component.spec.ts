@@ -6,7 +6,7 @@ import {
   featherAlertCircle,
   featherAlertTriangle,
 } from '@ng-icons/feather-icons';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { vi } from 'vitest';
 import { NgIconsModule } from '../../icon.module';
 import { withContentSecurityPolicy } from '../../providers/features/csp';
 import { provideNgIconsConfig } from '../../providers/icon-config.provider';
@@ -31,6 +31,10 @@ describe('Icon', () => {
     fixture.componentRef.setInput('name', 'featherAlertCircle');
     fixture.detectChanges();
     nativeElement = fixture.nativeElement;
+
+    // Angular stamps the exact framework version onto the root element, which
+    // would otherwise churn these snapshots on every patch release.
+    nativeElement.removeAttribute('ng-version');
   });
 
   afterEach(() => {
