@@ -1,3 +1,13 @@
+# 35.0.0 (2026-08-06)
+
+### 🩹 Fixes
+
+- address review feedback on Angular v22 upgrade ([#263](https://github.com/ng-icons/ng-icons/pull/263), [#262](https://github.com/ng-icons/ng-icons/issues/262))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 # 34.0.0 (2026-07-09)
 
 ### 🚀 Features
