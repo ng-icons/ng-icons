@@ -1,3 +1,13 @@
+## 35.0.1 (2026-08-06)
+
+### 🩹 Fixes
+
+- **core:** repair ng-add packaging ([#264](https://github.com/ng-icons/ng-icons/pull/264))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 # 35.0.0 (2026-08-06)
 
 ### 🩹 Fixes
