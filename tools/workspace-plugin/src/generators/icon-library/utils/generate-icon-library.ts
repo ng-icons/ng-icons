@@ -16,7 +16,7 @@ export async function generateIconLibrary(tree: Tree, schema: Schema) {
     importPath: `@ng-icons/${schema.name}`,
     prefix: 'ng',
     strict: true,
-    unitTestRunner: UnitTestRunner.Vitest,
+    unitTestRunner: UnitTestRunner.VitestAnalog,
     addModuleSpec: false,
     directory: `packages/${schema.name}`,
   });

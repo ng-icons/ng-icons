@@ -7,21 +7,19 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "nx:run-commands",
+      "executor": "nx:noop",
       "outputs": ["{workspaceRoot}/dist/packages/core"],
-      "options": {
-        "commands": ["nx run core:build-lib", "nx run core:build-schematics"],
-        "parallel": false
-      },
+      "defaultConfiguration": "production",
+      "dependsOn": ["build-lib", "build-schematics"],
       "configurations": {
         "production": {},
         "development": {}
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "build-lib": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/core"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/core/ng-package.json",
         "tsConfig": "packages/core/tsconfig.lib.json"
@@ -31,12 +29,12 @@
           "tsConfig": "packages/core/tsconfig.lib.prod.json"
         },
         "development": {}
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "build-schematics": {
       "executor": "nx:run-commands",
       "outputs": ["{workspaceRoot}/dist/packages/core/schematics"],
+      "dependsOn": ["build-lib"],
       "options": {
         "commands": [
           "npx tsc -p packages/core/schematics/tsconfig.json",
@@ -59,7 +57,7 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/core"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/core"
       }
     }
   }

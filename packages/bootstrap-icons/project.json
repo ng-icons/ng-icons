@@ -10,12 +10,13 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{workspaceRoot}/coverage/packages/bootsrap-icons"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/bootstrap-icons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/bootstrap-icons"
       }
     },
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/bootstrap-icons"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/bootstrap-icons/ng-package.json"
       },
@@ -26,8 +27,7 @@
         "development": {
           "tsConfig": "packages/bootstrap-icons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint"

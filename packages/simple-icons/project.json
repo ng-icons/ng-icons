@@ -9,6 +9,7 @@
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/packages/simple-icons"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/simple-icons/ng-package.json"
       },
@@ -19,14 +20,13 @@
         "development": {
           "tsConfig": "packages/simple-icons/tsconfig.lib.json"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "test": {
       "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/simple-icons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/simple-icons"
       }
     },
     "lint": {

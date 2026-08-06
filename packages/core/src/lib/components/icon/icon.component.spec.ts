@@ -6,7 +6,7 @@ import {
   featherAlertCircle,
   featherAlertTriangle,
 } from '@ng-icons/feather-icons';
-import { vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { NgIconsModule } from '../../icon.module';
 import { withContentSecurityPolicy } from '../../providers/features/csp';
 import { provideNgIconsConfig } from '../../providers/icon-config.provider';

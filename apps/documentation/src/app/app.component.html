@@ -21,6 +21,6 @@
 
 <app-navbar />
 
-<div class="background-blob" [class.blue]="background === 'blue'"></div>
+<div class="background-blob" [class.blue]="background() === 'blue'"></div>
 
 <router-outlet />

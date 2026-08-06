@@ -2,7 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
-// eslint-disable-next-line @nx/enforce-module-boundaries
+
 import { heroXMarkMini } from '@ng-icons/heroicons/mini';
 
 @Component({
@@ -13,7 +13,7 @@ import { heroXMarkMini } from '@ng-icons/heroicons/mini';
   viewProviders: [provideIcons({ heroXMarkMini })],
 })
 export class AppComponent implements OnInit {
-  background = 'red';
+  background = signal('red');
 
   readonly dismissed = signal(localStorage.getItem('dismissed') === 'true');
 
@@ -23,9 +23,9 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         if (event.urlAfterRedirects === '/') {
-          this.background = 'red';
+          this.background.set('red');
         } else {
-          this.background = 'blue';
+          this.background.set('blue');
         }
       }
     });

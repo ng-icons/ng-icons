@@ -54,3 +54,7 @@ vitest.config.*.timestamp*
 
 # Vitest browser mode failure screenshots
 **/__screenshots__/
+.claude/worktrees
+.nx/polygraph
+.nx/self-healing
+.nx/migrate-runs

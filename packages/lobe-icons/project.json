@@ -9,6 +9,7 @@
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "defaultConfiguration": "production",
       "options": {
         "project": "packages/lobe-icons/ng-package.json",
         "tsConfig": "packages/lobe-icons/tsconfig.lib.json"
@@ -18,8 +19,7 @@
           "tsConfig": "packages/lobe-icons/tsconfig.lib.prod.json"
         },
         "development": {}
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "nx-release-publish": {
       "dependsOn": ["build"],
@@ -31,7 +31,7 @@
       "executor": "@nx/vitest:test",
       "outputs": ["{workspaceRoot}/coverage/packages/lobe-icons"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/lobe-icons"
+        "reportsDirectory": "{projectRoot}/../../coverage/packages/lobe-icons"
       }
     },
     "lint": {
