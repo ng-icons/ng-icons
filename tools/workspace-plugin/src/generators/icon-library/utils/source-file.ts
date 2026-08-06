@@ -2,10 +2,11 @@ import { Tree } from '@nx/devkit';
 import * as ts from 'typescript';
 
 export function getSourceFile(tree: Tree, path: string): ts.SourceFile {
-  const sourceFile = tree.read(path).toString();
-  if (!sourceFile) {
+  const contents = tree.read(path);
+  if (!contents) {
     throw new Error(`Could not find source file: ${path}`);
   }
+  const sourceFile = contents.toString();
   return ts.createSourceFile(path, sourceFile, ts.ScriptTarget.Latest, true);
 }
 

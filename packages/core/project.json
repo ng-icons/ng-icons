@@ -8,7 +8,6 @@
   "targets": {
     "build": {
       "executor": "nx:noop",
-      "outputs": ["{workspaceRoot}/dist/packages/core"],
       "defaultConfiguration": "production",
       "dependsOn": ["build-lib", "build-schematics"],
       "configurations": {

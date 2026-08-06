@@ -7,13 +7,7 @@
     "moduleResolution": "bundler"
   },
   "angularCompilerOptions": {
-    "compilationMode": "partial",
-    "extendedDiagnostics": {
-      "checks": {
-        "nullishCoalescingNotNullable": "suppress",
-        "optionalChainNotNullable": "suppress"
-      }
-    }
+    "compilationMode": "partial"
   },
   "exclude": ["jest.config.ts"]
 }

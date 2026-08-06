@@ -3,7 +3,6 @@ import * as duotoneLineIcons from '@ng-icons/lets-icons/duotone-line';
 import * as fillIcons from '@ng-icons/lets-icons/fill';
 import * as lightIcons from '@ng-icons/lets-icons/light';
 import * as regularIcons from '@ng-icons/lets-icons/regular';
-import { describe, expect, it } from 'vitest';
 
 describe('Lets Icons', () => {
   it('should ensure the export names have not changed unexpectedly', () => {

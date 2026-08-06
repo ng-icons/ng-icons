@@ -5,10 +5,13 @@ import { factory } from 'typescript';
 import { Schema } from '../schema';
 
 export function addIconset(tree: Tree, schema: Schema): void {
-  const iconsets = tree.read(
-    'tools/workspace-plugin/src/generators/svg-to-ts/iconsets.ts',
-    'utf-8',
-  );
+  const iconsetsPath =
+    'tools/workspace-plugin/src/generators/svg-to-ts/iconsets.ts';
+  const iconsets = tree.read(iconsetsPath, 'utf-8');
+
+  if (iconsets === null) {
+    throw new Error(`Could not read ${iconsetsPath}`);
+  }
 
   const entrypoints =
     schema.entrypoints

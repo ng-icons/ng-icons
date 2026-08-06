@@ -5,10 +5,13 @@ import { Schema } from '../schema';
 
 export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
   // read the apps/documentation/src/app/browse-icons/browse-icons.component.ts file
-  const browseIcons = tree.read(
-    'apps/documentation/src/app/browse-icons/browse-icons.component.ts',
-    'utf-8',
-  );
+  const browseIconsPath =
+    'apps/documentation/src/app/browse-icons/browse-icons.component.ts';
+  const browseIcons = tree.read(browseIconsPath, 'utf-8');
+
+  if (browseIcons === null) {
+    throw new Error(`Could not read ${browseIconsPath}`);
+  }
 
   const entrypoints =
     schema.entrypoints

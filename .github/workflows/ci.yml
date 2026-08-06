@@ -45,10 +45,12 @@ jobs:
 
       - uses: nrwl/nx-set-shas@v4
 
-      # Regenerate the icon sets, then fail if the committed output is stale.
-      # Generation is deterministic (all sources are pinned), so any diff means
-      # someone bumped a source or hand-edited generated files without regenerating.
+      # Regenerate the icon sets and the per-package READMEs, then fail if the
+      # committed output is stale. Generation is deterministic (all sources are
+      # pinned), so any diff means someone bumped a source or hand-edited
+      # generated files without regenerating.
       - run: pnpm exec nx generate @ng-icons/workspace-plugin:svg-to-ts
+      - run: pnpm exec nx generate @ng-icons/workspace-plugin:update-readmes
       - run: git add -A && git diff --staged --exit-code
 
       - run: pnpm exec nx-cloud record -- nx format:check
