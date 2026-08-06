@@ -31,6 +31,12 @@ module.exports = [
     },
     languageOptions: { parser: require('jsonc-eslint-parser') },
   },
+  {
+    // Not a package: it only marks the schematics output as CommonJS, since the
+    // published package root is "type": "module" as of ng-packagr 22.
+    files: ['**/schematics/package.json'],
+    rules: { '@nx/dependency-checks': 'off' },
+  },
   ...nx.configs['flat/angular'],
   ...nx.configs['flat/angular-template'],
   {

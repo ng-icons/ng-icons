@@ -37,7 +37,7 @@
       "options": {
         "commands": [
           "npx tsc -p packages/core/schematics/tsconfig.json",
-          "cp packages/core/schematics/**/*.json dist/packages/core/schematics/"
+          "node packages/core/schematics/verify-package.mjs"
         ],
         "parallel": false
       }
