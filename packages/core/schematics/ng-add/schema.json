@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "NgIconsAdd",
+  "$id": "NgIconsAdd",
   "title": "ng-icons ng-add schematic",
   "description": "Add ng-icons to an Angular project and optionally install iconsets",
   "type": "object",

@@ -3,7 +3,7 @@
   "schematics": {
     "ng-add": {
       "description": "Add ng-icons to an Angular project",
-      "factory": "./schematics/ng-add/index#ngAdd",
+      "factory": "./ng-add/index#ngAdd",
       "schema": "./ng-add/schema.json"
     }
   }
