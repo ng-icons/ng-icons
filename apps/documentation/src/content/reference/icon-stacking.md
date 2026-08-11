@@ -1,7 +1,7 @@
 ---
 title: Icon stacking
 section: Experimental
-order: 12
+order: 13
 lead: Icon stacking layers several icons on top of each other, which is useful for building a composite icon out of simpler ones.
 ---
 

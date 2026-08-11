@@ -1,7 +1,7 @@
 ---
 title: Variable icon fonts
 section: Experimental
-order: 13
+order: 14
 lead: Variable icon fonts are supported through ng-glyph, currently for the Material Symbols icon set only.
 ---
 

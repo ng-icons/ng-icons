@@ -1,7 +1,7 @@
 ---
 title: Custom SVGs
 section: Usage
-order: 8
+order: 9
 lead: If you already have an SVG string, set the svg input and skip registration entirely.
 ---
 

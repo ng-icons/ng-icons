@@ -29,3 +29,7 @@ bootstrapApplication(App, {
 <blockquote class="warning">
 strokeWidth only has an effect on icon sets drawn with strokes, such as Feather or Lucide. It does nothing on filled sets.
 </blockquote>
+
+## Colouring with CSS classes
+
+Setting `color` on the icon, or on anything above it, is enough for most cases. If you use Tailwind, colour icons with `text-*` utilities, which needs ng-icons' cascade layer declared ahead of Tailwind's. See [Tailwind CSS](/docs/tailwind).

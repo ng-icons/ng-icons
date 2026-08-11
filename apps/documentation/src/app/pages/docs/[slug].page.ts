@@ -19,6 +19,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { NgIcon } from '@ng-icons/core';
 import { tap } from 'rxjs';
+import { withBaseHref } from '../../docs/content-links';
 import { injectDocs, type DocAttributes } from '../../docs/docs-nav';
 import { Seo } from '../../shared/seo';
 import { provideUiIcons } from '../../shared/ui-icons';
@@ -53,10 +54,7 @@ import { provideUiIcons } from '../../shared/ui-icons';
           {{ page.lead }}
         </p>
 
-        <analog-markdown
-          class="markdown block"
-          [content]="content()?.content"
-        />
+        <analog-markdown class="markdown block" [content]="body()" />
 
         <div class="border-line mt-12 flex gap-3 border-t pt-6">
           @if (previous(); as previous) {
@@ -151,6 +149,21 @@ export default class DocPage {
   );
 
   protected readonly active = signal('');
+
+  /**
+   * The page body, with its internal links resolved against the base path.
+   *
+   * Content arrives as HTML rather than markdown: @analogjs/content compiles
+   * each file at build time. Fixing the links here rather than in the DOM keeps
+   * them right in the prerendered output too.
+   */
+  protected readonly body = computed(() => {
+    const content = this.content()?.content;
+    // Typed `string | object`; only rendered HTML is ours to rewrite.
+    return typeof content === 'string'
+      ? withBaseHref(content, import.meta.env.BASE_URL)
+      : content;
+  });
 
   protected readonly page = computed(() => {
     const attributes = this.content()?.attributes;

@@ -1,7 +1,7 @@
 ---
 title: Adding a new set
 section: Icon sets
-order: 15
+order: 16
 lead: Icon sets are contributed by the community. If a set you use is missing, it can be added.
 ---
 

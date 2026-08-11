@@ -1,7 +1,7 @@
 ---
 title: Global configuration
 section: Configuration
-order: 9
+order: 10
 lead: provideNgIconsConfig sets application-wide defaults for every icon.
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Content Security Policy
 section: Configuration
-order: 10
+order: 11
 lead: If your application has a strict Content Security Policy, add withContentSecurityPolicy to your configuration to avoid errors.
 ---
 

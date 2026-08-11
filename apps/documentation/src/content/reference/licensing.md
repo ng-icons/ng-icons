@@ -1,7 +1,7 @@
 ---
 title: Licensing
 section: Icon sets
-order: 14
+order: 15
 lead: Each icon set carries the licence of the project it comes from. The core package is MIT.
 ---
 

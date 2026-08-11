@@ -1,7 +1,7 @@
 ---
 title: Dynamically loading icons
 section: Usage
-order: 7
+order: 8
 lead: Registering icons individually is the most common approach, but you may want to load them lazily from a URL or generate an SVG on the fly. An icon loader does that.
 ---
 

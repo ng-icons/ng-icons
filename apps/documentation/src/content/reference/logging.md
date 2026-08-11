@@ -1,7 +1,7 @@
 ---
 title: Logging
 section: Configuration
-order: 11
+order: 12
 lead: By default, warnings and errors are logged to the console, most commonly when an icon is used without being registered.
 ---
 
