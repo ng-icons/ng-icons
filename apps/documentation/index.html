@@ -51,7 +51,17 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <!-- Resolve the theme before first paint so a dark-mode visitor never sees a white flash. -->
+    <!--
+      Resolve the theme before first paint so a dark-mode visitor never sees a
+      white flash.
+
+      The stored value is JSON, because the signal behind it persists through a
+      generic JSON-backed store, so it arrives here quoted as `"dark"`. Comparing
+      it raw made this pick light for someone whose saved preference was dark,
+      and Angular then corrected it a moment later: the exact flash this script
+      exists to prevent. The quotes are stripped rather than parsed so a plain
+      value left by an older visit still works.
+    -->
     <script>
       (function () {
         var stored = null;
@@ -59,6 +69,9 @@
           stored = localStorage.getItem('ng-icons-theme');
         } catch (e) {
           /* private mode */
+        }
+        if (stored) {
+          stored = stored.replace(/^"|"$/g, '');
         }
         var dark = stored
           ? stored === 'dark'

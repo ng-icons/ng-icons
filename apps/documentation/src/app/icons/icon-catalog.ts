@@ -100,7 +100,11 @@ export class IconCatalog {
       if (this.bodyState()[key]) {
         continue;
       }
-      const [slug, variant] = key.split('/');
+      // Split once: the slug cannot contain a slash but a variant id may, and
+      // splitting on every slash silently truncated it to its first segment.
+      const separator = key.indexOf('/');
+      const slug = key.slice(0, separator);
+      const variant = key.slice(separator + 1);
       this.once(key, async () => {
         const bodies = await firstValueFrom(
           this.http.get<Record<string, string>>(

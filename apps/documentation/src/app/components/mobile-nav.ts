@@ -1,8 +1,13 @@
+import { DOCUMENT } from '@angular/common';
 import {
+  afterNextRender,
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
+  ElementRef,
   inject,
   output,
+  viewChild,
 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIcon } from '@ng-icons/core';
@@ -27,7 +32,11 @@ import { provideUiIcons } from '../shared/ui-icons';
     <div
       class="animate-fade-up border-line bg-bg-0 fixed inset-y-0 left-0 z-91 flex w-[min(320px,88vw)] flex-col gap-1.5 border-r p-4 shadow-md"
       role="dialog"
+      aria-modal="true"
       aria-label="Navigation"
+      tabindex="-1"
+      (keydown)="onKeydown($event)"
+      #panel
     >
       <div class="mb-2 flex h-10 items-center gap-2.5">
         <img [src]="logo" alt="" width="24" height="24" class="block" />
@@ -90,7 +99,55 @@ export class MobileNav {
   protected readonly theme = inject(ThemeService);
   protected readonly stats = inject(Stats);
 
+  private readonly panel = viewChild<ElementRef<HTMLElement>>('panel');
+  private readonly document = inject(DOCUMENT);
+
   readonly closed = output<void>();
+
+  constructor() {
+    // The drawer covers the page, so the page should not scroll underneath it.
+    // Restored on destroy rather than toggled, because the drawer only exists
+    // while it is open.
+    const body = this.document.body;
+    const previous = body.style.overflow;
+    body.style.overflow = 'hidden';
+    inject(DestroyRef).onDestroy(() => {
+      body.style.overflow = previous;
+    });
+
+    // Focus moves in, so the keyboard lands inside the dialog rather than
+    // continuing from wherever the trigger was.
+    afterNextRender(() => this.panel()?.nativeElement.focus());
+  }
+
+  /** Keeps Tab inside the drawer for as long as it is open. */
+  protected onKeydown(event: KeyboardEvent): void {
+    if (event.key !== 'Tab') {
+      return;
+    }
+
+    const focusable = this.panel()?.nativeElement.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled])',
+    );
+    if (!focusable?.length) {
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = this.document.activeElement;
+
+    if (
+      event.shiftKey &&
+      (active === first || active === this.panel()?.nativeElement)
+    ) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
 
   protected readonly logo = LOGO;
   protected readonly links = [

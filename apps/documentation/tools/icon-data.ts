@@ -222,17 +222,48 @@ function titleCase(slug: string): string {
     .join(' ');
 }
 
-/** Newest mtime across the entry points, used to skip needless regeneration. */
-export function newestSource(sources: IconSetSource[]): number {
-  // ponytail: mtime of the entry points only. They are regenerated whenever an
-  // icon changes, so nothing else can go stale underneath them.
+/**
+ * Newest mtime across everything the generated data is derived from.
+ *
+ * The entry points are the bulk of it, but not all: the display names, websites
+ * and licences come from `set-meta.ts`, and which entry points exist at all comes
+ * from `tsconfig.base.json`. Keyed on the entry points alone, editing a set's
+ * name left the old `sets.json` in place and the site showed stale metadata
+ * until the directory was deleted by hand.
+ */
+export function newestSource(
+  sources: IconSetSource[],
+  workspaceRoot?: string,
+): number {
   let newest = 0;
+
   for (const source of sources) {
     for (const variant of source.variants) {
       newest = Math.max(newest, statSync(variant.file).mtimeMs);
     }
   }
+
+  for (const path of [
+    join(__dirname, 'set-meta.ts'),
+    ...(workspaceRoot ? [join(workspaceRoot, 'tsconfig.base.json')] : []),
+  ]) {
+    if (existsSync(path)) {
+      newest = Math.max(newest, statSync(path).mtimeMs);
+    }
+  }
+
   return newest;
+}
+
+/** Every file the current dataset should consist of, for pruning what it should not. */
+export function expectedFiles(sets: IconSet[]): string[] {
+  return [
+    'sets.json',
+    ...sets.flatMap(set => [
+      setNamesFile(set.slug),
+      ...set.variants.map(variant => variantBodiesFile(set.slug, variant.id)),
+    ]),
+  ];
 }
 
 /** The version the packages are published at, shown in the header. */

@@ -270,13 +270,20 @@
     background-color: transparent;
   }
   table {
+    /*
+     * Block rather than table, so the box can scroll. The first two columns do
+     * not wrap, so a table of long identifiers is wider than a phone: with
+     * `overflow: hidden` for the rounded corners, the far columns were clipped
+     * with no way to reach them.
+     */
+    display: block;
     margin: 16px 0 0;
     width: 100%;
+    overflow-x: auto;
     border: 1px solid var(--color-line);
     border-radius: 12px;
     border-collapse: separate;
     border-spacing: 0;
-    overflow: hidden;
     font-size: 14px;
     text-align: left;
   }

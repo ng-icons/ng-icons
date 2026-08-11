@@ -317,7 +317,12 @@ export default class IndexPage {
   }
 
   protected copyInstall(): void {
-    this.clipboard.copy(this.install);
+    // `copy` reports whether the write actually happened. Claiming "Copied"
+    // regardless told the reader the command was on their clipboard when a
+    // permission prompt or an unsupported browser had refused it.
+    if (!this.clipboard.copy(this.install)) {
+      return;
+    }
     this.copied.set(true);
     setTimeout(() => this.copied.set(false), 2000);
   }

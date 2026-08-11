@@ -10,6 +10,14 @@ describe('compact', () => {
     expect(compact(999)).toBe('999');
     expect(compact(1000)).toBe('1K');
   });
+
+  /** Rounding up through the boundary used to read as "1000K". */
+  it('crosses into millions rather than printing 1000K', () => {
+    expect(compact(999_499)).toBe('999K');
+    expect(compact(999_500)).toBe('1.0M');
+    expect(compact(999_999)).toBe('1.0M');
+    expect(compact(1_000_000)).toBe('1.0M');
+  });
 });
 
 /**

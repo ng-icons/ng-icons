@@ -97,7 +97,10 @@ export function resultSummary({
     return '';
   }
   if (tab === 'favourites') {
-    return plural(favourites, 'favourite');
+    // Once a query narrows the favourites, the total stops describing the grid.
+    return matching < favourites
+      ? `Showing ${matching.toLocaleString('en-GB')} of ${plural(favourites, 'favourite')}`
+      : plural(favourites, 'favourite');
   }
 
   const scope = `in ${plural(sets, 'set')}`;
@@ -116,6 +119,9 @@ export interface EmptyStateInput {
   sets: number;
   query: string;
   totalSets: number;
+  tab?: 'all' | 'favourites';
+  /** Saved favourites, which decides whether the tab is empty or just filtered. */
+  favourites?: number;
 }
 
 export interface EmptyStateCopy {
@@ -123,7 +129,10 @@ export interface EmptyStateCopy {
   body: string;
   /** Suggested searches only help when there is somewhere to search. */
   showSuggestions: boolean;
-  action: string;
+  /** Omitted when the only useful action is one the reader has to take. */
+  action?: string;
+  /** True when the action widens the search rather than clearing it. */
+  keepsQuery?: boolean;
 }
 
 /**
@@ -137,15 +146,39 @@ export function emptyState({
   sets,
   query,
   totalSets,
+  tab = 'all',
+  favourites = 0,
 }: EmptyStateInput): EmptyStateCopy {
+  if (tab === 'favourites') {
+    // Search suggestions are no help here: nothing can match until something is
+    // saved, and widening the sets does not change what is in the list.
+    return favourites === 0
+      ? {
+          title: 'No favourites yet',
+          body: 'Save an icon with the heart on its tile, and it will be waiting here.',
+          showSuggestions: false,
+        }
+      : {
+          title: query
+            ? `No favourites match “${query}”`
+            : 'No favourites match',
+          body: 'None of your saved icons match the current search or filters.',
+          showSuggestions: false,
+        };
+  }
+
   if (sets === 0) {
     return {
       title: 'No icon sets selected',
       body: 'Choose a set from the filters, or search the whole library.',
       showSuggestions: false,
+      // Selecting the sets is the fix; the query is what the reader was looking
+      // for, so widening the search keeps it.
       action: `Select all ${totalSets} sets`,
+      keepsQuery: true,
     };
   }
+
   return {
     title: query ? `No matches for “${query}”` : 'No matches',
     body: `Nothing in your selected sets matches. Try one of these, or search all ${totalSets} sets.`,

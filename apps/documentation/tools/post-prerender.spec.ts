@@ -30,7 +30,8 @@ const SITEMAP = `<?xml version="1.0" encoding="UTF-8"?>
 `;
 
 describe('fixSitemap', () => {
-  const fixed = fixSitemap(SITEMAP);
+  const NOT_FOUND_URL = 'https://ng-icons.github.io/ng-icons/404';
+  const fixed = fixSitemap(SITEMAP, NOT_FOUND_URL);
 
   /**
    * The schema is published under http://. Declaring https:// makes it a
@@ -66,6 +67,19 @@ describe('fixSitemap', () => {
     expect(fixed.match(/<\/url>/g)).toHaveLength(3);
   });
 
+  /** A real page can legitimately live at a path ending in 404. */
+  it('keeps a real page whose own path ends in /404', () => {
+    const xml = SITEMAP.replace(
+      'https://ng-icons.github.io/ng-icons/404<',
+      'https://ng-icons.github.io/ng-icons/docs/404<',
+    );
+
+    const result = fixSitemap(xml, NOT_FOUND_URL);
+
+    expect(result).toContain('/ng-icons/docs/404');
+    expect(result.match(/<url>/g)).toHaveLength(4);
+  });
+
   /** A page whose path merely ends in 404 is a real page. */
   it('does not drop a page that only looks like the 404', () => {
     const xml = SITEMAP.replace(
@@ -73,7 +87,9 @@ describe('fixSitemap', () => {
       '/ng-icons/docs/error-404-handling<',
     );
 
-    expect(fixSitemap(xml)).toContain('/docs/error-404-handling');
+    expect(fixSitemap(xml, NOT_FOUND_URL)).toContain(
+      '/docs/error-404-handling',
+    );
   });
 });
 

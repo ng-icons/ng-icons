@@ -1,6 +1,8 @@
 import {
+  afterRenderEffect,
   ChangeDetectionStrategy,
   Component,
+  computed,
   HostListener,
   signal,
 } from '@angular/core';
@@ -19,6 +21,7 @@ import { provideUiIcons } from '../shared/ui-icons';
     <aside
       class="border-line bg-bg-0 fixed top-16 bottom-0 left-0 z-88 w-[min(320px,88vw)] overflow-y-auto border-r px-4 py-6 transition-transform duration-200 xl:sticky xl:top-16 xl:h-[calc(100vh-4rem)] xl:w-68 xl:min-w-52 xl:shrink xl:translate-x-0 xl:shadow-none"
       [class]="drawerOpen() ? 'translate-x-0 shadow-md' : '-translate-x-[104%]'"
+      [attr.inert]="hidden() ? '' : null"
     >
       <div class="mb-3.5 flex h-8 items-center xl:hidden">
         <span class="flex-1 text-[15px] font-semibold tracking-[-0.011em]">
@@ -72,7 +75,7 @@ import { provideUiIcons } from '../shared/ui-icons';
     }
 
     <main
-      class="mob:px-8 mob:pt-10 mob:pb-24 max-w-195 min-w-0 flex-[1_1_35rem] px-5 pt-6 pb-20 lg:px-12"
+      class="mob:px-8 mob:pt-10 mob:pb-24 max-w-250 min-w-0 flex-[1_1_35rem] px-5 pt-6 pb-20 lg:px-12"
     >
       <button
         type="button"
@@ -83,13 +86,51 @@ import { provideUiIcons } from '../shared/ui-icons';
         <span>All pages</span>
       </button>
 
-      <router-outlet />
+      <!--
+        The routed page's host is display:contents, so the article and its table
+        of contents become children of this row rather than of the page. Without
+        it they stacked and "On this page" sat below the whole article. A row
+        inside main rather than main itself, so the button above stays put.
+      -->
+      <div class="flex items-start">
+        <router-outlet />
+      </div>
     </main>
   `,
 })
 export default class DocsPage {
   protected readonly sections = toSections(injectDocs());
   protected readonly drawerOpen = signal(false);
+
+  /** Whether the sidebar is a drawer rather than a column beside the page. */
+  private readonly narrow = signal(false);
+
+  /**
+   * True when the sidebar is off-canvas.
+   *
+   * A closed drawer is only translated out of view, so it stayed in the tab
+   * order and in the accessibility tree: Tab walked through every nav link of a
+   * drawer that looked shut. `inert` takes it out of both.
+   *
+   * Decided here rather than in CSS because `inert` is an attribute, not a
+   * style. It starts false so the prerendered HTML carries no `inert` for anyone
+   * without JavaScript, and the first render corrects it.
+   */
+  protected readonly hidden = computed(
+    () => this.narrow() && !this.drawerOpen(),
+  );
+
+  constructor() {
+    // After-render, so it never runs while prerendering, where there is no
+    // window to measure.
+    afterRenderEffect(onCleanup => {
+      const sync = () => this.narrow.set(window.innerWidth < 1280);
+
+      sync();
+      window.addEventListener('resize', sync, { passive: true });
+      onCleanup(() => window.removeEventListener('resize', sync));
+    });
+  }
 
   @HostListener('document:keydown.escape')
   protected onEscape(): void {

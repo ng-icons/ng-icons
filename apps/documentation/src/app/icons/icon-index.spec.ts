@@ -4,8 +4,10 @@ import {
   commonPrefix,
   groupBySet,
   iconAt,
+  iconParam,
   iconStem,
   matchAcrossSets,
+  resolveIconParam,
   searchIndex,
   type IconSet,
 } from './icon-index';
@@ -158,6 +160,27 @@ describe('searchIndex', () => {
 
     expect(miss.positions).toEqual([]);
   });
+
+  /**
+   * The matcher receives the scope so it can cap its results after filtering.
+   * Capping first meant a typo could return nothing when the best matches
+   * across the whole library happened to sit outside the selected sets.
+   */
+  it('hands the scope predicate to the fuzzy matcher', () => {
+    const seen: boolean[] = [];
+
+    searchIndex(
+      index,
+      { text: 'setings', sets: new Set(['lucide']) },
+      (_term, included) => {
+        // Positions 0-2 are lucide, 3-5 are heroicons.
+        seen.push(included(0), included(3));
+        return [];
+      },
+    );
+
+    expect(seen).toEqual([true, false]);
+  });
 });
 
 describe('groupBySet', () => {
@@ -238,5 +261,56 @@ describe('searchIndex with prototype-shaped queries', () => {
     const result = searchIndex(index, { text: 'bin', sets: null });
 
     expect(result.synonym).toBe('delete');
+  });
+});
+
+/**
+ * A bare constant name is not an identity. 5,586 of the real names appear in
+ * more than one set, so `?icon=matDeleteOutline` opened whichever set the index
+ * held first rather than the one that was clicked.
+ */
+describe('icon params', () => {
+  const shared = buildIndex(
+    [
+      { ...sets[0], count: 1 },
+      { ...sets[1], count: 1 },
+    ],
+    {
+      lucide: { default: ['shared', 'lucideOnly'] },
+      heroicons: { outline: ['shared'], solid: [] },
+    },
+  );
+
+  it('qualifies a position with its set', () => {
+    expect(iconParam(shared, 0)).toBe('lucide/shared');
+    expect(iconParam(shared, 2)).toBe('heroicons/shared');
+  });
+
+  it('resolves back to the set that was asked for', () => {
+    expect(resolveIconParam(shared, 'lucide/shared')).toBe(0);
+    expect(resolveIconParam(shared, 'heroicons/shared')).toBe(2);
+  });
+
+  it('round-trips every position', () => {
+    for (let position = 0; position < shared.names.length; position++) {
+      expect(resolveIconParam(shared, iconParam(shared, position))).toBe(
+        position,
+      );
+    }
+  });
+
+  /** Links shared before the set was part of the value still have to work. */
+  it('accepts a bare name, resolving to the first set that has it', () => {
+    expect(resolveIconParam(shared, 'shared')).toBe(0);
+    expect(resolveIconParam(shared, 'lucideOnly')).toBe(1);
+  });
+
+  it('falls back to the name when the set no longer matches', () => {
+    expect(resolveIconParam(shared, 'renamed-set/shared')).toBe(0);
+  });
+
+  it('returns null for something that is not an icon at all', () => {
+    expect(resolveIconParam(shared, 'nope')).toBeNull();
+    expect(resolveIconParam(shared, 'lucide/nope')).toBeNull();
   });
 });

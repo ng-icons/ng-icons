@@ -193,11 +193,21 @@ export default class DocPage {
     effect(() => {
       const page = this.page();
       const slug = this.content()?.slug;
+
       if (page && slug) {
         this.seo.apply({
           title: page.title,
           description: page.lead,
           path: `/docs/${slug}`,
+        });
+      } else if (this.content()) {
+        // An unknown slug renders the not-found branch. Without this it kept
+        // whichever title and canonical the previous page had set, so a client
+        // navigation to a stale link claimed to be that page.
+        this.seo.apply({
+          title: 'Page not found',
+          description: 'That documentation page does not exist.',
+          path: slug ? `/docs/${slug}` : '/docs',
         });
       }
     });

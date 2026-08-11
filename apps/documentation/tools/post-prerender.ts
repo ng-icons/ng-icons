@@ -27,10 +27,15 @@ const HOME_ROUTE = '/';
  * Runs from nitro's `prerender:done` hook, the first point at which every page
  * has been written.
  */
-export function postPrerender(publicDir: string, routes: string[]): void {
+export function postPrerender(
+  publicDir: string,
+  routes: string[],
+  /** The sitemap host, so the 404 entry can be matched exactly. */
+  siteUrl: string,
+): void {
   writeNotFoundPage(publicDir);
   assertPagesRendered(publicDir, routes);
-  rewriteSitemap(publicDir);
+  rewriteSitemap(publicDir, siteUrl);
 }
 
 /**
@@ -127,14 +132,16 @@ function pageFile(publicDir: string, route: string): string {
   return join(publicDir, route.replace(/^\//, ''), 'index.html');
 }
 
-function rewriteSitemap(publicDir: string): void {
+function rewriteSitemap(publicDir: string, siteUrl: string): void {
   const path = join(publicDir, 'sitemap.xml');
 
   if (!existsSync(path)) {
     return;
   }
 
-  writeFileSync(path, fixSitemap(readFileSync(path, 'utf8')));
+  const notFoundUrl = `${siteUrl.replace(/\/$/, '')}${NOT_FOUND_ROUTE}`;
+
+  writeFileSync(path, fixSitemap(readFileSync(path, 'utf8'), notFoundUrl));
 }
 
 /**
@@ -145,11 +152,22 @@ function rewriteSitemap(publicDir: string): void {
  * as an unrecognised document; and every prerendered route becomes an entry,
  * including the 404 page, which should never be offered for indexing.
  */
-export function fixSitemap(xml: string): string {
+export function fixSitemap(xml: string, notFoundUrl: string): string {
   return xml
     .replace(
       'https://www.sitemaps.org/schemas/sitemap/0.9',
       'http://www.sitemaps.org/schemas/sitemap/0.9',
     )
-    .replace(/\s*<url>\s*<loc>[^<]*\/404<\/loc>[\s\S]*?<\/url>/g, '');
+    .replace(urlEntry(notFoundUrl), '');
+}
+
+/**
+ * Matches the one `<url>` entry whose `<loc>` is exactly this URL.
+ *
+ * Matching on a trailing `/404` instead would also drop a real page that
+ * happened to live at `/docs/404`.
+ */
+function urlEntry(loc: string): RegExp {
+  const escaped = loc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`\\s*<url>\\s*<loc>${escaped}</loc>[\\s\\S]*?</url>`, 'g');
 }

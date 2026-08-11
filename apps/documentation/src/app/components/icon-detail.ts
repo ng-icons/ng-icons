@@ -173,7 +173,7 @@ type Snippet = 'import' | 'template';
           Same icon, other sets
         </span>
         <div class="grid grid-cols-[repeat(auto-fill,minmax(72px,1fr))] gap-2">
-          @for (match of related(); track match.name) {
+          @for (match of related(); track match.set.slug + '/' + match.name) {
             <button
               type="button"
               class="border-line text-strong hover:bg-bg-weak flex h-18 flex-col items-center justify-center gap-1.5 rounded-[10px] border"
@@ -277,8 +277,18 @@ export class IconDetail {
     const link = document.createElement('a');
     link.href = url;
     link.download = `${this.icon().name}.svg`;
+
+    // In the document and revoked on a later task: the download is asynchronous,
+    // and revoking in the same tick cancelled it in Firefox, while a detached
+    // anchor never started one at all in older Safari.
+    link.style.display = 'none';
+    document.body.appendChild(link);
     link.click();
-    URL.revokeObjectURL(url);
+
+    setTimeout(() => {
+      link.remove();
+      URL.revokeObjectURL(url);
+    }, 0);
   }
 
   /**

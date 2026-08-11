@@ -11,6 +11,9 @@ import { postPrerender } from './tools/post-prerender';
 const appRoot = __dirname;
 const workspaceRoot = join(appRoot, '../..');
 
+/** The canonical host, shared by the sitemap and the post-prerender fixups. */
+const siteUrl = 'https://ng-icons.github.io/ng-icons/';
+
 /** Where Analog writes the prerendered site, and what the deploy publishes. */
 const prerenderDir = join(
   workspaceRoot,
@@ -106,13 +109,13 @@ export default defineConfig(({ command }) => ({
                 `Failed to prerender: ${[...failedRoutes].join(', ')}`,
               );
             }
-            postPrerender(prerenderDir, prerenderRoutes());
+            postPrerender(prerenderDir, prerenderRoutes(), siteUrl);
           },
         },
       },
       prerender: {
         routes: async () => prerenderRoutes(),
-        sitemap: { host: 'https://ng-icons.github.io/ng-icons/' },
+        sitemap: { host: siteUrl },
       },
     }),
     tailwind(),

@@ -14,10 +14,7 @@ import { SiteHeader } from './components/site-header';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterOutlet, SiteHeader, MobileNav, CommandPalette],
   template: `
-    <app-site-header
-      (menu)="navOpen.set(true)"
-      (openSearch)="paletteOpen.set(true)"
-    />
+    <app-site-header (menu)="navOpen.set(true)" (openSearch)="openPalette()" />
 
     @if (navOpen()) {
       <app-mobile-nav (closed)="navOpen.set(false)" />
@@ -35,11 +32,27 @@ export class App {
   protected readonly navOpen = signal(false);
   protected readonly paletteOpen = signal(false);
 
+  /**
+   * Only one overlay at a time.
+   *
+   * On a narrow viewport the drawer and the palette could both be open, and
+   * choosing a result closed only the palette: the drawer was left sitting over
+   * the page that had just been navigated to.
+   */
+  protected openPalette(): void {
+    this.navOpen.set(false);
+    this.paletteOpen.set(true);
+  }
+
   @HostListener('document:keydown', ['$event'])
   protected onKeydown(event: KeyboardEvent): void {
     if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
       event.preventDefault();
-      this.paletteOpen.update(open => !open);
+      if (this.paletteOpen()) {
+        this.paletteOpen.set(false);
+      } else {
+        this.openPalette();
+      }
     }
     if (event.key === 'Escape') {
       this.paletteOpen.set(false);

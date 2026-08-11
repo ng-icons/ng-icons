@@ -37,11 +37,15 @@ export type BrowseTab = 'all' | 'favourites';
       </div>
     }
 
-    <div class="flex flex-col gap-0.5" role="tablist">
+    <!--
+      A group of pressable buttons rather than tabs: the results they filter are
+      not a tabpanel, and none of the arrow-key behaviour a tab list promises is
+      implemented, so a tab role described a widget that was not there.
+    -->
+    <div class="flex flex-col gap-0.5" role="group" aria-label="Icon list">
       <button
         type="button"
-        role="tab"
-        [attr.aria-selected]="tab() === 'all'"
+        [attr.aria-pressed]="tab() === 'all'"
         class="hover:bg-bg-weak flex h-9 items-center gap-2.5 rounded-lg px-2.5"
         [class.bg-bg-weak]="tab() === 'all'"
         (click)="tab.set('all')"
@@ -57,8 +61,7 @@ export type BrowseTab = 'all' | 'favourites';
       </button>
       <button
         type="button"
-        role="tab"
-        [attr.aria-selected]="tab() === 'favourites'"
+        [attr.aria-pressed]="tab() === 'favourites'"
         class="hover:bg-bg-weak flex h-9 items-center gap-2.5 rounded-lg px-2.5"
         [class.bg-bg-weak]="tab() === 'favourites'"
         (click)="tab.set('favourites')"
@@ -181,9 +184,19 @@ export class BrowseSidebar {
       : this.sets();
   });
 
-  protected readonly allSelected = computed(
-    () => this.sets().length > 0 && this.selected().size === this.sets().length,
-  );
+  /**
+   * Whether every current set is selected.
+   *
+   * Compares membership rather than sizes. The selection comes from the URL, so
+   * a bookmark naming a set that has since been renamed or removed counted
+   * towards the size while leaving a real set unticked, and the sidebar offered
+   * "Clear all" when "Select all" was still the useful action.
+   */
+  protected readonly allSelected = computed(() => {
+    const sets = this.sets();
+    const selected = this.selected();
+    return sets.length > 0 && sets.every(set => selected.has(set.slug));
+  });
   protected readonly anySelected = computed(() => this.selected().size > 0);
 
   protected isSelected(slug: string): boolean {

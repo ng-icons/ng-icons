@@ -1,5 +1,6 @@
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { iconStats } from 'virtual:icon-stats';
 import { compact, lifetimeWindows } from './downloads';
@@ -19,6 +20,7 @@ export const ICON_STATS = iconStats;
 @Injectable({ providedIn: 'root' })
 export class Stats {
   private readonly http = inject(HttpClient);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   readonly stars = signal('586');
   readonly weekly = signal('108K');
@@ -27,7 +29,10 @@ export class Stats {
   private loaded = false;
 
   load(): void {
-    if (this.loaded) {
+    // Skipped while prerendering. Five requests to GitHub and npm per route
+    // slowed the build and made it depend on their rate limits, and the fetched
+    // values would have been baked into static HTML anyway.
+    if (this.loaded || !this.isBrowser) {
       return;
     }
     this.loaded = true;

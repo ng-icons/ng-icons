@@ -144,12 +144,34 @@ describe('resultSummary', () => {
   });
 
   it('counts favourites on the favourites tab', () => {
-    expect(resultSummary({ ...state, tab: 'favourites', favourites: 7 })).toBe(
-      '7 favourites',
-    );
-    expect(resultSummary({ ...state, tab: 'favourites', favourites: 1 })).toBe(
-      '1 favourite',
-    );
+    expect(
+      resultSummary({
+        ...state,
+        tab: 'favourites',
+        favourites: 7,
+        matching: 7,
+      }),
+    ).toBe('7 favourites');
+    expect(
+      resultSummary({
+        ...state,
+        tab: 'favourites',
+        favourites: 1,
+        matching: 1,
+      }),
+    ).toBe('1 favourite');
+  });
+
+  /** A query narrows the favourites, so the total stops describing the grid. */
+  it('counts matching favourites once a query narrows them', () => {
+    expect(
+      resultSummary({
+        ...state,
+        tab: 'favourites',
+        favourites: 12,
+        matching: 3,
+      }),
+    ).toBe('Showing 3 of 12 favourites');
   });
 
   it('says nothing until the index has loaded', () => {
@@ -170,7 +192,22 @@ describe('emptyState', () => {
       body: 'Choose a set from the filters, or search the whole library.',
       showSuggestions: false,
       action: 'Select all 40 sets',
+      keepsQuery: true,
     });
+  });
+
+  /**
+   * The button says "Select all N sets", so it should do that and nothing else.
+   * It shared a handler with "Search all N sets", which also clears the query,
+   * so clicking it threw away what the reader had typed.
+   */
+  it('marks the select-all action as one that keeps the query', () => {
+    expect(emptyState({ sets: 0, query: 'heart', totalSets }).keepsQuery).toBe(
+      true,
+    );
+    expect(emptyState({ sets: 3, query: 'heart', totalSets }).keepsQuery).toBe(
+      undefined,
+    );
   });
 
   it('keeps naming that cause even once something has been typed', () => {
@@ -195,5 +232,55 @@ describe('emptyState', () => {
     expect(emptyState({ sets: 3, query: '', totalSets }).title).toBe(
       'No matches',
     );
+  });
+
+  /**
+   * An empty favourites tab was described as a search miss, so it offered
+   * suggestions and a "search all sets" button, neither of which puts anything
+   * in the list.
+   */
+  describe('on the favourites tab', () => {
+    it('explains how to add one when there are none', () => {
+      const empty = emptyState({
+        sets: 3,
+        query: '',
+        totalSets,
+        tab: 'favourites',
+        favourites: 0,
+      });
+
+      expect(empty.title).toBe('No favourites yet');
+      expect(empty.body).toContain('heart');
+      expect(empty.showSuggestions).toBe(false);
+      expect(empty.action).toBeUndefined();
+    });
+
+    it('says the filters excluded them when some are saved', () => {
+      const empty = emptyState({
+        sets: 3,
+        query: 'zoom',
+        totalSets,
+        tab: 'favourites',
+        favourites: 12,
+      });
+
+      expect(empty.title).toBe('No favourites match \u201Czoom\u201D');
+      expect(empty.showSuggestions).toBe(false);
+      expect(empty.action).toBeUndefined();
+    });
+
+    it('never offers to widen the set selection, which cannot help', () => {
+      for (const favourites of [0, 5]) {
+        const empty = emptyState({
+          sets: 0,
+          query: 'x',
+          totalSets,
+          tab: 'favourites',
+          favourites,
+        });
+
+        expect(empty.action, `favourites: ${favourites}`).toBeUndefined();
+      }
+    });
   });
 });

@@ -18,7 +18,9 @@ export function compact(value: number): string {
     return `${(value / 1_000_000).toFixed(1)}M`;
   }
   if (value >= 1_000) {
-    return `${Math.round(value / 1_000)}K`;
+    const thousands = Math.round(value / 1_000);
+    // 999,500 rounds to 1000, and "1000K" reads like a mistake.
+    return thousands >= 1_000 ? '1.0M' : `${thousands}K`;
   }
   return String(value);
 }

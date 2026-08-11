@@ -143,12 +143,21 @@ export function matchAcrossSets(
 
   const origin = index.setOf[position];
   const bySet = new Map<number, number>();
-  for (let i = 0; i < index.names.length; i++) {
+  for (let i = 0; i < index.lower.length; i++) {
     const set = index.setOf[i];
     if (set === origin || bySet.has(set)) {
       continue;
     }
-    if (iconStem(index.names[i], index.prefixOf[set]) === stem) {
+    // `index.lower` is what `iconStem` would produce anyway, so this scans the
+    // prebuilt lowercase names instead of allocating ~100k new strings on every
+    // open of the detail sheet.
+    const lower = index.lower[i];
+    const prefix = index.prefixOf[set];
+    const candidate = lower.startsWith(prefix)
+      ? lower.slice(prefix.length)
+      : lower;
+
+    if (candidate === stem) {
       bySet.set(set, i);
       if (bySet.size >= limit) {
         break;
@@ -188,6 +197,51 @@ export const SYNONYMS: Record<string, string> = Object.assign(
   },
 );
 
+/**
+ * The `?icon=` value identifying a position, as `set/name`.
+ *
+ * A bare name is not an identity: 5,586 of the constant names appear in more
+ * than one set (`matDeleteOutline` is in both Material Symbols and Material
+ * Icons), so resolving one by name alone opened whichever set came first in the
+ * index rather than the one that was clicked.
+ */
+export function iconParam(index: IconIndex, position: number): string {
+  return `${index.sets[index.setOf[position]].slug}/${index.names[position]}`;
+}
+
+/**
+ * The position a `?icon=` value refers to, or null when nothing matches.
+ *
+ * A value with no slash is treated as a bare name and resolved to the first set
+ * that has it, so links shared before the set was part of the value still open
+ * something sensible.
+ */
+export function resolveIconParam(
+  index: IconIndex,
+  param: string,
+): number | null {
+  const separator = param.indexOf('/');
+
+  if (separator === -1) {
+    const position = index.names.indexOf(param);
+    return position === -1 ? null : position;
+  }
+
+  const slug = param.slice(0, separator);
+  const name = param.slice(separator + 1);
+
+  for (let i = 0; i < index.names.length; i++) {
+    if (index.names[i] === name && index.sets[index.setOf[i]].slug === slug) {
+      return i;
+    }
+  }
+
+  // The set may have been renamed since the link was made; the name alone is
+  // still better than an empty sheet.
+  const fallback = index.names.indexOf(name);
+  return fallback === -1 ? null : fallback;
+}
+
 export interface SearchQuery {
   /** The raw text as typed. */
   text: string;
@@ -212,7 +266,11 @@ export interface SearchResult {
 export function searchIndex(
   index: IconIndex,
   query: SearchQuery,
-  fuzzy?: (term: string) => number[],
+  /**
+   * Receives the scope predicate so it can cap its results after filtering.
+   * Capping first hid matches that were inside the reader's own sets.
+   */
+  fuzzy?: (term: string, included: (position: number) => boolean) => number[],
 ): SearchResult {
   const text = query.text.trim().toLowerCase();
   const synonym = SYNONYMS[text] ?? null;
@@ -236,7 +294,10 @@ export function searchIndex(
   }
 
   return {
-    positions: fuzzy(term).filter(included),
+    // `included` is handed over so the matcher can cap its results *after*
+    // scoping, and applied again here so scope remains this function's
+    // guarantee rather than every matcher's responsibility.
+    positions: fuzzy(term, included).filter(included),
     synonym,
     fuzzy: true,
   };
@@ -268,5 +329,10 @@ export function groupBySet(index: IconIndex, positions: number[]): IconGroup[] {
     }
   }
 
-  return [...groups.values()];
+  // Sorted by set rather than by first appearance. A substring search yields
+  // positions in index order, so the two agree, but the fuzzy fallback yields
+  // them by score and the set groups jumped around between keystrokes.
+  return [...groups.entries()]
+    .sort(([a], [b]) => a - b)
+    .map(([, group]) => group);
 }

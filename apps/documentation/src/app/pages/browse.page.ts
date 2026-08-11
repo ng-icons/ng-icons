@@ -23,6 +23,8 @@ import { IconCatalog } from '../icons/icon-catalog';
 import {
   groupBySet,
   iconAt,
+  iconParam,
+  resolveIconParam,
   searchIndex,
   type IconRef,
   type IconVariant,
@@ -225,13 +227,17 @@ const SUGGESTIONS = ['search', 'zoom', 'filter', 'command'];
               }
             </div>
           }
-          <button
-            type="button"
-            class="bg-primary mt-5 flex h-10 items-center rounded-[10px] px-4.5 text-sm font-medium text-white"
-            (click)="searchEverything()"
-          >
-            {{ empty().action }}
-          </button>
+          @if (empty(); as empty) {
+            @if (empty.action) {
+              <button
+                type="button"
+                class="bg-primary mt-5 flex h-10 items-center rounded-[10px] px-4.5 text-sm font-medium text-white"
+                (click)="searchEverything(empty.keepsQuery ?? false)"
+              >
+                {{ empty.action }}
+              </button>
+            }
+          }
         </div>
       } @else {
         <div class="mob:px-6 mob:pb-16 px-4 pt-5 pb-24">
@@ -493,12 +499,11 @@ export default class BrowsePage {
 
   protected readonly selectedPosition = computed(() => {
     const index = this.index();
-    const name = this.params().get('icon');
-    if (!index || !name) {
+    const param = this.params().get('icon');
+    if (!index || !param) {
       return null;
     }
-    const position = index.names.indexOf(name);
-    return position === -1 ? null : position;
+    return resolveIconParam(index, param);
   });
 
   protected readonly selectedIcon = computed(() => {
@@ -513,6 +518,8 @@ export default class BrowsePage {
       sets: this.selected().size,
       query: this.query(),
       totalSets: ICON_STATS.setCount,
+      tab: this.tab(),
+      favourites: this.favourites.count(),
     }),
   );
 
@@ -623,24 +630,32 @@ export default class BrowsePage {
     });
   }
 
-  protected searchEverything(): void {
+  /**
+   * Selects every set, optionally keeping the query.
+   *
+   * "Select all N sets" and "Search all N sets" share this, but only the second
+   * is a fresh start: clicking the first used to discard what had been typed,
+   * which is not what a button labelled "select" should do.
+   */
+  protected searchEverything(keepQuery = false): void {
     this.patch({
       sets: this.sets()
         .map(set => set.slug)
         .join(','),
-      q: null,
+      ...(keepQuery ? {} : { q: null }),
     });
   }
 
   protected select(position: number): void {
     const index = this.index();
     if (index) {
-      this.patch({ icon: index.names[position] }, 'push');
+      this.patch({ icon: iconParam(index, position) }, 'push');
     }
   }
 
+  /** Qualified with the set, so a name shared by several opens the right one. */
   protected selectIcon(icon: IconRef): void {
-    this.patch({ icon: icon.name }, 'push');
+    this.patch({ icon: `${icon.set.slug}/${icon.name}` }, 'push');
   }
 
   protected clearSelection(): void {

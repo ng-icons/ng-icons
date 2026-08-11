@@ -1,7 +1,9 @@
 import {
   existsSync,
   mkdirSync,
+  readdirSync,
   readFileSync,
+  rmSync,
   statSync,
   writeFileSync,
 } from 'node:fs';
@@ -10,6 +12,7 @@ import type { Plugin } from 'vite';
 import {
   buildIconData,
   discoverIconSets,
+  expectedFiles,
   newestSource,
   readVersion,
   setNamesFile,
@@ -47,17 +50,27 @@ export function iconData(workspaceRoot: string, appRoot: string): Plugin {
 
     if (
       existsSync(setsFile) &&
-      statSync(setsFile).mtimeMs > newestSource(sources)
+      statSync(setsFile).mtimeMs > newestSource(sources, workspaceRoot)
     ) {
       const generated = JSON.parse(
         readFileSync(setsFile, 'utf8'),
       ) as ReturnType<typeof buildIconData>['sets'];
-      stats = {
-        setCount: generated.length,
-        iconCount: generated.reduce((total, set) => total + set.count, 0),
-        version,
-      };
-      return;
+
+      // The mtime says the data is current, but only if all of it is there. A
+      // build interrupted between files, or a partially deleted directory, would
+      // otherwise be trusted for ever.
+      if (
+        expectedFiles(generated).every(file =>
+          existsSync(join(outputDir, file)),
+        )
+      ) {
+        stats = {
+          setCount: generated.length,
+          iconCount: generated.reduce((total, set) => total + set.count, 0),
+          version,
+        };
+        return;
+      }
     }
 
     const data = buildIconData(sources);
@@ -73,6 +86,16 @@ export function iconData(workspaceRoot: string, appRoot: string): Plugin {
           join(outputDir, variantBodiesFile(set.slug, variant.id)),
           JSON.stringify(data.bodies[`${set.slug}/${variant.id}`]),
         );
+      }
+    }
+
+    // Anything left from a previous shape of the data: a set that was removed,
+    // or a variant that was renamed. Left in place it inflates every deploy and
+    // keeps serving icons the library no longer has.
+    const current = new Set(expectedFiles(data.sets));
+    for (const file of readdirSync(outputDir)) {
+      if (!current.has(file)) {
+        rmSync(join(outputDir, file));
       }
     }
 

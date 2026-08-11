@@ -73,7 +73,11 @@ const MAX_DOCS = 4;
             >
               Icons
             </div>
-            @for (icon of icons(); track icon.name; let i = $index) {
+            @for (
+              icon of icons();
+              track icon.set.slug + '/' + icon.name;
+              let i = $index
+            ) {
               <button
                 type="button"
                 class="flex h-11 w-full items-center gap-3 rounded-[10px] px-2.5 text-left"
@@ -269,7 +273,12 @@ export class CommandPalette {
 
   protected openIcon(icon: IconRef): void {
     void this.router.navigate(['/browse'], {
-      queryParams: { sets: icon.set.slug, icon: icon.name },
+      // Qualified with the set: the palette shows one row per set, and several
+      // sets can export the same constant name.
+      queryParams: {
+        sets: icon.set.slug,
+        icon: `${icon.set.slug}/${icon.name}`,
+      },
     });
     this.closed.emit();
   }
