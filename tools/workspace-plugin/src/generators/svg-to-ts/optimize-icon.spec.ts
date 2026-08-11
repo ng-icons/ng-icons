@@ -109,4 +109,46 @@ describe('optimizeIcon', () => {
       expect(output).not.toMatch(HARDCODED_STROKE);
     });
   });
+  /**
+   * A few sources (mono-icons' `filter-1`, four SVGL wordmarks) size themselves
+   * with width/height and ship no viewBox. Those attributes are stripped so the
+   * host controls the size, which used to leave the icon with no coordinate
+   * system to scale against.
+   */
+  describe('missing viewBox', () => {
+    it('derives one from width and height', async () => {
+      const output = await optimizeIcon(
+        '<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h16"/></svg>',
+      );
+
+      expect(output).toContain('viewBox="0 0 24 24"');
+      expect(output).not.toContain('width=');
+      expect(output).not.toContain('height=');
+    });
+
+    it('handles a non-square icon and pixel units', async () => {
+      const output = await optimizeIcon(
+        '<svg width="128px" height="32px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h8"/></svg>',
+      );
+
+      expect(output).toContain('viewBox="0 0 128 32"');
+    });
+
+    it('leaves an existing viewBox alone', async () => {
+      const output = await optimizeIcon(
+        '<svg width="48" height="48" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h8"/></svg>',
+      );
+
+      expect(output).toContain('viewBox="0 0 16 16"');
+    });
+
+    /** A percentage says nothing about the coordinate system. */
+    it('adds nothing when the size is relative', async () => {
+      const output = await optimizeIcon(
+        '<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h8"/></svg>',
+      );
+
+      expect(output).not.toContain('viewBox');
+    });
+  });
 });

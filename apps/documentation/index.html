@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Angular Icons</title>
+    <!--
+      Zooming is spelled out rather than left to the defaults, and deliberately
+      has no `maximum-scale` or `user-scalable=no`: capping the zoom would fail
+      WCAG 1.4.4, and pinch-zoom is how the icon grid gets read on a phone.
+    -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"
+    />
+    <meta
+      name="description"
+      content="Every icon set, one Angular API. Over 100,000 icons from 40 libraries, searchable together and fully tree-shakeable."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0c0c0d"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Angular Icons" />
+    <meta property="og:title" content="Angular Icons" />
+    <meta
+      property="og:description"
+      content="Every icon set, one Angular API. Over 100,000 icons from 40 libraries, searchable together and fully tree-shakeable."
+    />
+    <meta
+      property="og:image"
+      content="https://ng-icons.github.io/ng-icons/assets/logo.png"
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Resolve the theme before first paint so a dark-mode visitor never sees a white flash. -->
+    <script>
+      (function () {
+        var stored = null;
+        try {
+          stored = localStorage.getItem('ng-icons-theme');
+        } catch (e) {
+          /* private mode */
+        }
+        var dark = stored
+          ? stored === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      })();
+    </script>
+  </head>
+  <body>
+    <app-root></app-root>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

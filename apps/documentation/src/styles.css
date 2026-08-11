@@ -1,0 +1,390 @@
+/*
+ * Register ng-icons' cascade layer before Tailwind's so text-colour utilities
+ * win on an <ng-icon>.
+ *
+ * @ng-icons/core styles the component with
+ * `:host { color: var(--ng-icon__color, currentColor) }` inside
+ * `@layer ng-icon`, precisely so global styles can override it. But a layer's
+ * precedence comes from where it is first declared, and the component's styles
+ * are injected after ours, which put `ng-icon` above Tailwind's `utilities`.
+ * The declaration then beat every `text-primary`/`text-sub` class and each icon
+ * silently fell back to inheriting its parent's colour.
+ *
+ * Naming the layer first here makes it the lowest, which is what ng-icons
+ * intends. If a future release renames the layer, colour classes stop applying
+ * again rather than breaking loudly, so `styles.spec.ts` pins the name.
+ */
+@layer ng-icon;
+@import 'tailwindcss';
+
+/*
+ * Design tokens. Tailwind reads these as `bg-weak`, `text-sub`, `border-line`
+ * and so on; dark values are swapped on [data-theme="dark"] below so a single
+ * class works in both appearances.
+ */
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, monospace;
+
+  /*
+   * The redesign switches layout at its own widths, so the defaults are
+   * replaced with the ones it actually uses:
+   *   xs  version badge   sm  star count
+   *   mob sheets/drawers  nav header links
+   *   lg  full-width search field          xl  static side panels
+   *   toc table of contents                md  primitives chip
+   */
+  --breakpoint-*: initial;
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 560px;
+  --breakpoint-mob: 860px;
+  --breakpoint-nav: 880px;
+  --breakpoint-lg: 1120px;
+  --breakpoint-xl: 1180px;
+  --breakpoint-toc: 1240px;
+  --breakpoint-md: 1280px;
+
+  --color-bg-0: #ffffff;
+  --color-bg-weak: #f7f7f7;
+  --color-bg-sub: #f5f5f5;
+  --color-bg-inv: #171717;
+  --color-line: #ebebeb;
+  --color-line-strong: #d1d1d1;
+  --color-strong: #171717;
+  --color-sub: #5c5c5c;
+  --color-soft: #a3a3a3;
+  --color-inv: #ffffff;
+  --color-primary: #fb3748;
+  --color-primary-hover: #d02533;
+  --color-primary-weak: #ffecee;
+  --color-primary-line: #ffc0c5;
+  --color-accent-green: #1fc16b;
+  --color-warning: #fa7319;
+  --color-warning-weak: #fff3ea;
+  --color-warning-line: #ffd4b5;
+  --color-accent-purple: #7d52f4;
+
+  --shadow-xs: 0 1px 2px rgba(10, 13, 20, 0.03);
+  --shadow-md: 0 16px 32px -12px rgba(14, 18, 27, 0.1);
+
+  --ease-sheet: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --animate-shimmer: shimmer 1.4s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.24s ease both;
+  --animate-drift: drift 60s linear infinite;
+  --animate-drift-slow: drift 84s linear infinite reverse;
+  --animate-sheet-up: sheet-up 0.34s var(--ease-sheet) both;
+  --animate-sheet-right: sheet-right 0.3s var(--ease-sheet) both;
+  --animate-scrim-in: scrim-in 0.2s ease both;
+}
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+[data-theme='dark'] {
+  --color-bg-0: #0c0c0d;
+  --color-bg-weak: #161618;
+  --color-bg-sub: #1c1c1f;
+  --color-bg-inv: #f7f7f7;
+  --color-line: #26262a;
+  --color-line-strong: #3a3a40;
+  --color-strong: #f5f5f6;
+  --color-sub: #a0a0a8;
+  --color-soft: #6b6b73;
+  --color-inv: #0c0c0d;
+  --color-primary: #ff5c6c;
+  --color-primary-hover: #ff8590;
+  --color-primary-weak: #3a1519;
+  --color-primary-line: #5e2229;
+  --color-warning: #ff9147;
+  --color-warning-weak: #3a2213;
+  --color-warning-line: #5e3a1f;
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 16px 32px -12px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes sheet-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes scrim-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@layer base {
+  html {
+    background: var(--color-bg-0);
+    color: var(--color-strong);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  /* The design's skeleton shimmer, which needs a gradient rather than a colour. */
+  .skeleton {
+    background: linear-gradient(90deg, #f2f2f2 0%, #fafafa 40%, #f2f2f2 80%);
+    background-size: 800px 100%;
+  }
+  [data-theme='dark'] .skeleton {
+    background: linear-gradient(90deg, #17171a 0%, #202024 40%, #17171a 80%);
+    background-size: 800px 100%;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line-strong);
+    border-radius: 8px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/*
+ * Markdown output. The docs pages render trusted local content, so styling is
+ * done here rather than with classes on generated elements.
+ */
+.markdown {
+  h2 {
+    margin: 40px 0 0;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    scroll-margin-top: 96px;
+  }
+  h3 {
+    margin: 28px 0 0;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.014em;
+    scroll-margin-top: 96px;
+  }
+  p {
+    margin: 12px 0 0;
+    font-size: 15px;
+    line-height: 26px;
+    color: var(--color-sub);
+    text-wrap: pretty;
+  }
+  ul,
+  ol {
+    margin: 12px 0 0;
+    padding-left: 22px;
+    font-size: 15px;
+    line-height: 26px;
+    color: var(--color-sub);
+    list-style: revert;
+  }
+  li {
+    margin-top: 4px;
+  }
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-strong);
+  }
+  pre {
+    margin: 14px 0 0;
+    padding: 18px;
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    background: var(--color-bg-0);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 22px;
+    overflow-x: auto;
+  }
+  pre code {
+    font-size: 13px;
+  }
+
+  /* Shiki emits both themes as variables; pick one per appearance. */
+  .shiki,
+  .shiki span {
+    color: var(--shiki-light);
+    background-color: transparent;
+  }
+  table {
+    margin: 16px 0 0;
+    width: 100%;
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    font-size: 14px;
+    text-align: left;
+  }
+  th {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--color-line);
+    background: var(--color-bg-weak);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-soft);
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-line);
+    line-height: 20px;
+    color: var(--color-sub);
+    vertical-align: top;
+  }
+  tr:last-child td {
+    border-bottom: 0;
+  }
+  td:first-child,
+  td:nth-child(2) {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    white-space: nowrap;
+  }
+  td:first-child {
+    color: var(--color-strong);
+  }
+  td:nth-child(2) {
+    color: var(--color-soft);
+  }
+
+  /*
+   * Callouts. A plain blockquote is a note; add class="warning" for the
+   * cautionary variant.
+   *
+   * The type is set on the blockquote, not on a child paragraph: a `>` quote
+   * gets its text wrapped in a <p> but the raw-HTML warnings do not, so sizing
+   * the paragraph left those rendering at the inherited 16px.
+   */
+  blockquote {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0 0;
+    padding: 14px 16px;
+    border: 1px solid var(--color-primary-line);
+    border-radius: 12px;
+    background: var(--color-primary-weak);
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--color-sub);
+  }
+  /*
+   * A masked SVG rather than a text glyph. The glyph relied on the stylesheet
+   * being decoded as UTF-8 and rendered as mojibake when it was not, at
+   * whatever size the font gave it. Masking also lets the colour follow the
+   * theme, which a data-URL background could not.
+   */
+  blockquote::before {
+    content: '';
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    background-color: var(--color-primary);
+    mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z'/></svg>")
+      center / 18px 18px no-repeat;
+  }
+  blockquote.warning {
+    border-color: var(--color-warning-line);
+    background: var(--color-warning-weak);
+  }
+  blockquote.warning::before {
+    background-color: var(--color-warning);
+    mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M12.8659 3.00017L22.3922 19.5002C22.6684 19.9785 22.5045 20.5901 22.0262 20.8662C21.8742 20.954 21.7017 21.0002 21.5262 21.0002H2.47363C1.92135 21.0002 1.47363 20.5525 1.47363 20.0002C1.47363 19.8246 1.51984 19.6522 1.60761 19.5002L11.1339 3.00017C11.41 2.52187 12.0216 2.358 12.4999 2.63414C12.6519 2.72191 12.7782 2.84815 12.8659 3.00017ZM4.20568 19.0002H19.7941L11.9999 5.50017L4.20568 19.0002ZM10.9999 16.0002H12.9999V18.0002H10.9999V16.0002ZM10.9999 9.00017H12.9999V14.0002H10.9999V9.00017Z'/></svg>");
+  }
+  blockquote p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+[data-theme='dark'] .markdown {
+  .shiki,
+  .shiki span {
+    color: var(--shiki-dark);
+  }
+}
+
+/* Fades the drifting icon rows out at the top and bottom of the hero. */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 18%,
+    #000 62%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 18%,
+    #000 62%,
+    transparent
+  );
+}

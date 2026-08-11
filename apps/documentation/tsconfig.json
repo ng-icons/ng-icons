@@ -1,28 +1,34 @@
 {
   "extends": "../../tsconfig.base.json",
-  "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.editor.json"
-    }
-  ],
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
+    "target": "es2022",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "lib": ["es2022", "dom"],
+    "types": ["vite/client", "node"],
+    "esModuleInterop": true,
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true,
-    "moduleResolution": "bundler",
-    "module": "preserve",
-    "lib": ["dom", "es2022"]
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  }
+    "strictTemplates": true,
+    "extendedDiagnostics": {
+      "checks": {
+        // `{{ count }}` instead of `{{ count() }}` renders the signal object,
+        // which type-checks fine and only shows up as garbled text on screen.
+        // Promoted from a warning so the build refuses it.
+        "interpolatedSignalNotInvoked": "error",
+        "uninvokedFunctionInTextInterpolation": "error"
+      }
+    }
+  },
+  "files": [],
+  "include": [],
+  "references": [{ "path": "./tsconfig.app.json" }]
 }

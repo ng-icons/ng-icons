@@ -1,88 +1,68 @@
-import { logger, names, Tree } from '@nx/devkit';
-import { ast, print, query, replace } from '@phenomnomnominal/tsquery';
-import * as ts from 'typescript';
+import { logger, Tree } from '@nx/devkit';
 import { Schema } from '../schema';
 
+const SET_META_PATH = 'apps/documentation/tools/set-meta.ts';
+
+/**
+ * Registers the new set's display metadata with the documentation site.
+ *
+ * The site discovers sets and their variants from the workspace's TypeScript
+ * paths, so a new package shows up in the browser on its own. All it needs here
+ * is the display name, website and licence; without an entry it still appears,
+ * under a title-cased version of its slug and with no website link.
+ */
 export function addIconsetDocumentation(tree: Tree, schema: Schema): void {
-  // read the apps/documentation/src/app/browse-icons/browse-icons.component.ts file
-  const browseIconsPath =
-    'apps/documentation/src/app/browse-icons/browse-icons.component.ts';
-  const browseIcons = tree.read(browseIconsPath, 'utf-8');
+  const source = tree.read(SET_META_PATH, 'utf-8');
 
-  if (browseIcons === null) {
-    throw new Error(`Could not read ${browseIconsPath}`);
+  if (source === null) {
+    throw new Error(`Could not read ${SET_META_PATH}`);
   }
 
-  const entrypoints =
-    schema.entrypoints
-      ?.split(',')
-      .map(entrypoint => names(entrypoint.trim()).fileName)
-      .filter(Boolean) ?? [];
+  const key = `'@ng-icons/${schema.name}'`;
 
-  let iconsetAst: ts.ObjectLiteralExpression;
-
-  if (entrypoints.length === 0) {
-    const defintion = ast(`const iconset = {
-      name: '${schema.name}',
-      website: '${schema.website}',
-      icon: 'TODO',
-      license: '${schema.license}',
-      package: '@ng-icons/${schema.name}',
-      icons: async () => {
-        return { default: await import('@ng-icons/${schema.name}') };
-      },
-    }`);
-
-    iconsetAst = query<ts.ObjectLiteralExpression>(
-      defintion,
-      'VariableDeclaration:has(Identifier[name="iconset"]) > ObjectLiteralExpression',
-    )[0];
-  } else {
-    const definition = ast(`const iconset = {
-      name: '${schema.name}',
-      website: '${schema.website}',
-      icon: 'TODO',
-      license: '${schema.license}',
-      package: '@ng-icons/${schema.name}',
-      icons: async () => {
-        const [${entrypoints.map(e => names(e).propertyName).join(', ')}] = await Promise.all([
-          ${entrypoints.map(entrypoint => `import('@ng-icons/${schema.name}/${entrypoint}')`).join(',\n')}
-        ]);
-        return { ${entrypoints.join(', ')} };
-      },
-    }`);
-
-    iconsetAst = query<ts.ObjectLiteralExpression>(
-      definition,
-      'ObjectLiteralExpression',
-    )[0];
+  if (source.includes(`${key}:`)) {
+    logger.info(`${key} is already listed in ${SET_META_PATH}.`);
+    return;
   }
 
-  const iconsets = replace(
-    browseIcons,
-    'ClassDeclaration:has(Identifier[name="BrowseIconsComponent"]) > PropertyDeclaration:has(Identifier[name="iconsets"]) > ArrayLiteralExpression',
-    iconset => {
-      if (!ts.isArrayLiteralExpression(iconset)) {
-        throw new Error('Expected iconsets to be an array literal expression');
-      }
+  const entry = [
+    `  ${key}: {`,
+    `    name: '${title(schema.name)}',`,
+    // The site renders the website as its own link text, so it carries no
+    // protocol and no trailing slash.
+    `    website: '${host(schema.website)}',`,
+    `    license: '${schema.license}',`,
+    `  },`,
+  ].join('\n');
 
-      // insert the iconset object into the iconsets array
-      const output = ts.factory.updateArrayLiteralExpression(iconset, [
-        ...iconset.elements,
-        iconsetAst,
-      ]);
-
-      return print(output);
-    },
+  const lines = source.split('\n');
+  // Entries are one per key in alphabetical order; find the first that sorts
+  // after this one, and fall back to the end of the object literal.
+  const at = lines.findIndex(
+    line =>
+      /^ {2}'@ng-icons\/[^']+':/.test(line) &&
+      line.trim().localeCompare(key) > 0,
   );
+  const closing = lines.findIndex(line => line === '};');
 
-  // write the updated file
-  tree.write(
-    'apps/documentation/src/app/browse-icons/browse-icons.component.ts',
-    iconsets,
-  );
+  lines.splice(at === -1 ? closing : at, 0, entry);
+
+  tree.write(SET_META_PATH, lines.join('\n'));
 
   logger.info(
-    '⚠️ Please update the icon in apps/documentation/src/app/browse-icons/browse-icons.component.ts.',
+    `⚠️ Please check the display name for ${key} in ${SET_META_PATH}.`,
   );
+}
+
+/** `material-symbols` -> `Material Symbols`, as a starting point to correct. */
+function title(name: string): string {
+  return name
+    .split(/[-_.]/)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+/** `https://example.com/` -> `example.com` */
+function host(website: string): string {
+  return website.replace(/^https?:\/\//, '').replace(/\/$/, '');
 }

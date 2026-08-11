@@ -55,3 +55,10 @@ jobs:
 
       - run: pnpm exec nx-cloud record -- nx format:check
       - run: pnpm exec nx affected -t lint test build
+
+      # The docs site reads all 40 icon packages off disk from the TypeScript
+      # paths rather than importing them, so Nx's graph only links it to the
+      # four it imports and `affected` skips it when an icon set changes. It
+      # builds in seconds, so always build it: otherwise a bad icon set only
+      # surfaces on `main`, during the deploy.
+      - run: pnpm exec nx build documentation

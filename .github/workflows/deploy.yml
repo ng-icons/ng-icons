@@ -9,6 +9,12 @@ permissions:
   actions: read
   contents: write
 
+# Two pushes in quick succession would otherwise race to force-push `gh-pages`,
+# and with `single-commit` the loser silently overwrites the newer site.
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: true
+
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -53,4 +59,11 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/apps/documentation/browser # The folder the action should deploy.
+          # Analog's prerendered output: an index.html per route plus the
+          # generated icon browser data. It contains a `.nojekyll` (from
+          # `src/public`) because Vite names some chunks `_router-chunk-*.js`
+          # and Jekyll refuses to publish anything starting with an underscore.
+          folder: dist/apps/documentation/analog/public
+          # The icon data is ~100 MB per build, so keep gh-pages to a single
+          # commit rather than accumulating a copy in history every deploy.
+          single-commit: true
