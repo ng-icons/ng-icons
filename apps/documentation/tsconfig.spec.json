@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/apps/documentation-spec",
+    "types": ["vitest/globals", "vite/client", "node"]
+  },
+  "include": ["src/**/*.ts", "tools/**/*.ts", "vite.config.ts"]
+}

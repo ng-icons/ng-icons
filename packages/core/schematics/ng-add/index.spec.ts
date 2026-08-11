@@ -169,60 +169,19 @@ describe('ng-add schematic', () => {
     );
   });
 
-  it('should handle all available iconsets', () => {
-    const allIconsets = [
-      'akar-icons',
-      'bootstrap-icons',
-      'boxicons',
-      'circum-icons',
-      'cryptocurrency-icons',
-      'css-gg',
-      'devicon',
-      'dripicons',
-      'feather-icons',
-      'flag-icons',
-      'font-awesome',
-      'game-icons',
-      'heroicons',
-      'huge-icons',
-      'iconoir',
-      'iconsax',
-      'ionicons',
-      'jam-icons',
-      'lets-icons',
-      'lucide',
-      'material-file-icons',
-      'material-icons',
-      'material-symbols',
-      'mono-icons',
-      'mynaui',
-      'octicons',
-      'phosphor-icons',
-      'radix-icons',
-      'remixicon',
-      'simple-icons',
-      'solar-icons',
-      'svgl',
-      'tabler-icons',
-      'tdesign-icons',
-      'typicons',
-      'ux-aspects',
-    ];
-
-    const options: NgAddOptions = {
-      iconsets: allIconsets,
-    };
-    const rule = ngAdd(options);
+  it('passes iconset slugs through to package names verbatim', () => {
+    // `css.gg` is the one published set whose slug contains a dot, and getting
+    // it wrong is silent: the install just fails to resolve the package.
+    const iconsets = ['lucide', 'heroicons', 'css.gg', 'material-symbols'];
+    const rule = ngAdd({ iconsets });
 
     rule(tree, context);
 
-    // Should call addPackageJsonDependency once for core + once for each iconset
     expect(mockAddPackageJsonDependency).toHaveBeenCalledTimes(
-      1 + allIconsets.length,
+      1 + iconsets.length,
     );
 
-    // Check that all iconsets were added
-    for (const iconset of allIconsets) {
+    for (const iconset of iconsets) {
       expect(mockAddPackageJsonDependency).toHaveBeenCalledWith(
         tree,
         expect.objectContaining({

@@ -28,22 +28,7 @@ export function updateIconCounts(tree: Tree, count: number): void {
 
   tree.write('README.md', updatedReadme);
 
-  // update the icon count on the index page
-  const index = read(
-    tree,
-    'apps/documentation/src/app/index/index.component.html',
-  );
-
-  // the format of the count on the index page is as follows:
-  // Providing over 56,000 icons
-  // we need to replace the number in this string with the new count
-  const updatedIndex = index.replace(
-    /Providing over [\d,]+ icons/,
-    `Providing over ${countString} icons`,
-  );
-
-  tree.write(
-    'apps/documentation/src/app/index/index.component.html',
-    updatedIndex,
-  );
+  // The documentation site no longer needs updating here: it reads the real
+  // counts from `virtual:icon-stats`, which the icon-data Vite plugin computes
+  // from the generated entry points at build time.
 }

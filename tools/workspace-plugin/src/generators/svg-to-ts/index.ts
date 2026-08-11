@@ -139,7 +139,11 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
     iconList.add(iconName);
   }
 
-  iconCount += iconPaths.length;
+  // Counted from the output rather than from `iconPaths`: two source files can
+  // resolve to the same icon name, and the second overwrites the first. Counting
+  // files claimed 129 icons more than the packages actually export, which is
+  // what the documentation site reports.
+  iconCount += Object.keys(output).length;
 
   return output;
 }

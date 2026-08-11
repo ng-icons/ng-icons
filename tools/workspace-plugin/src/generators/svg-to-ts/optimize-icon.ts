@@ -96,6 +96,20 @@ export async function optimizeIcon(
           element: {
             enter: node => {
               if (node.name === 'svg') {
+                // width/height go so the icon takes its size from the host,
+                // but a handful of sources size themselves that way and carry
+                // no viewBox. Removing both leaves nothing to scale against,
+                // and the icon renders at its intrinsic size in a box of a
+                // different one. Derive the viewBox before dropping them.
+                if (!node.attributes['viewBox']) {
+                  const width = intrinsic(node.attributes['width']);
+                  const height = intrinsic(node.attributes['height']);
+
+                  if (width && height) {
+                    node.attributes['viewBox'] = `0 0 ${width} ${height}`;
+                  }
+                }
+
                 delete node.attributes['width'];
                 delete node.attributes['height'];
               } else {
@@ -229,6 +243,20 @@ export async function optimizeIcon(
   });
 
   return result.data;
+}
+
+/**
+ * A width or height as a user-space number, or null if it is not one.
+ *
+ * Only absolute units describe the coordinate system: `50%` is relative to a
+ * viewport the icon does not have, so there is no viewBox to be derived from it.
+ */
+function intrinsic(value: string | undefined): number | null {
+  if (!value) {
+    return null;
+  }
+  const match = /^([0-9]*\.?[0-9]+)(px|pt)?$/.exec(value.trim());
+  return match ? Number(match[1]) : null;
 }
 
 export const detachNodeFromParent = (

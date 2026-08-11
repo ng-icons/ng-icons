@@ -58,3 +58,5 @@ vitest.config.*.timestamp*
 .nx/polygraph
 .nx/self-healing
 .nx/migrate-runs
+# Generated icon browser data for the documentation site (see tools/icon-data-plugin.ts)
+apps/documentation/src/public/assets/icons/

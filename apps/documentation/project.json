@@ -7,64 +7,48 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath.base}"],
+      "executor": "@analogjs/platform:vite",
+      "outputs": ["{workspaceRoot}/dist/apps/documentation"],
+      "cache": false,
       "options": {
-        "outputPath": {
-          "base": "dist/apps/documentation"
-        },
-        "index": "apps/documentation/src/index.html",
-        "polyfills": ["apps/documentation/src/polyfills.ts"],
-        "tsConfig": "apps/documentation/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/documentation/src/favicon.ico",
-          "apps/documentation/src/assets"
-        ],
-        "styles": ["apps/documentation/src/styles.scss"],
-        "scripts": [],
-        "browser": "apps/documentation/src/main.ts"
+        "configFile": "apps/documentation/vite.config.ts",
+        "outputPath": "dist/apps/documentation/client",
+        "main": "apps/documentation/src/main.ts",
+        "tsConfig": "apps/documentation/tsconfig.app.json"
       },
+      "defaultConfiguration": "production",
       "configurations": {
-        "production": {
-          "budgets": [],
-          "optimization": {
-            "fonts": false
-          },
-          "fileReplacements": [
-            {
-              "replace": "apps/documentation/src/environments/environment.ts",
-              "with": "apps/documentation/src/environments/environment.prod.ts"
-            }
-          ],
-          "outputHashing": "all"
-        },
         "development": {
-          "optimization": false,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "buildTarget": "documentation:build:production"
-        },
-        "development": {
-          "buildTarget": "documentation:build:development"
-        }
+      "executor": "@analogjs/platform:vite-dev-server",
+      "options": {
+        "buildTarget": "documentation:build",
+        "port": 4200
       },
       "defaultConfiguration": "development",
+      "configurations": {
+        "development": {
+          "buildTarget": "documentation:build:development"
+        },
+        "production": {
+          "buildTarget": "documentation:build:production"
+        }
+      },
       "continuous": true
     },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "buildTarget": "documentation:build"
+        "reportsDirectory": "{projectRoot}/../../coverage/apps/documentation"
       }
     },
     "lint": {

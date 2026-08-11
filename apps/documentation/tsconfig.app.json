@@ -1,13 +1,15 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
-    "types": [],
-    "target": "ES2022",
-    "useDefineForClassFields": false,
-    "moduleResolution": "bundler"
+    "outDir": "../../dist/out-tsc/apps/documentation",
+    "useDefineForClassFields": false
   },
-  "files": ["src/main.ts", "src/polyfills.ts"],
-  "include": ["src/**/*.d.ts"],
-  "exclude": ["jest.config.ts"]
+  "files": ["src/main.ts", "src/main.server.ts"],
+  "include": [
+    "src/**/*.d.ts",
+    "src/app/pages/**/*.page.ts",
+    "tools/**/*.ts",
+    "vite.config.ts"
+  ],
+  "exclude": ["**/*.spec.ts"]
 }

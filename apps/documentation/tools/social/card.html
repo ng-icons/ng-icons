@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 76px 80px;
+        background: #ffffff;
+        color: #171717;
+        font-family: Inter, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+        overflow: hidden;
+      }
+      .glow {
+        position: absolute;
+        top: -340px;
+        right: -240px;
+        width: 780px;
+        height: 780px;
+        background: radial-gradient(
+          circle,
+          #ffecee 0%,
+          rgba(255, 236, 238, 0) 68%
+        );
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        position: relative;
+      }
+      .brand img {
+        width: 52px;
+        height: 52px;
+        display: block;
+      }
+      .brand span {
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .pill {
+        margin-left: 6px;
+        padding: 7px 15px;
+        border-radius: 999px;
+        background: #ffecee;
+        color: #fb3748;
+        font-size: 17px;
+        font-weight: 500;
+        font-family: 'DM Mono', monospace;
+      }
+      h1 {
+        position: relative;
+        font-size: 82px;
+        line-height: 1.03;
+        font-weight: 600;
+        letter-spacing: -0.035em;
+      }
+      h1 em {
+        font-style: normal;
+        color: #fb3748;
+      }
+      .foot {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        position: relative;
+      }
+      .stats {
+        display: flex;
+        gap: 56px;
+      }
+      .n {
+        font-size: 40px;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+      .l {
+        margin-top: 4px;
+        font-size: 19px;
+        color: #5c5c5c;
+      }
+      .url {
+        font-family: 'DM Mono', monospace;
+        font-size: 20px;
+        color: #5c5c5c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow"></div>
+    <div class="brand">
+      <img src="../../src/public/assets/logo.svg" alt="" />
+      <span>Angular Icons</span>
+      <span class="pill">@ng-icons/core</span>
+    </div>
+    <h1>Every icon set.<br /><em>One Angular API.</em></h1>
+    <div class="foot">
+      <div class="stats">
+        <div>
+          <div class="n">100,000+</div>
+          <div class="l">icons</div>
+        </div>
+        <div>
+          <div class="n">40</div>
+          <div class="l">icon sets</div>
+        </div>
+        <div>
+          <div class="n">MIT</div>
+          <div class="l">licensed core</div>
+        </div>
+      </div>
+      <div class="url">ng-icons.github.io</div>
+    </div>
+  </body>
+</html>
