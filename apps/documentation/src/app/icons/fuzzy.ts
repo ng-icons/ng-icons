@@ -1,56 +1,77 @@
 import Fuse from 'fuse.js';
 import type { IconIndex } from './icon-index';
 
-const cache = new WeakMap<IconIndex, Fuse<{ i: number; n: string }>>();
+type Entry = { i: number; n: string };
 
-/** Results kept after scoping, which is far more than a page ever renders. */
+/** Results returned, which is far more than a page ever renders. */
 const LIMIT = 500;
 
-/**
- * How many of Fuse's ranked matches to look at before giving up.
- *
- * Unbounded, a typo across 107k names materialises every match on the main
- * thread; bounded at `LIMIT`, the cap fell before the scope filter and a set
- * with few matches could come back empty. This is the middle: wide enough that
- * a selected set's matches are almost always inside it, narrow enough not to
- * build a huge array on every keystroke that misses.
- */
-const SCAN = 5_000;
+/** Scoped indexes kept per icon index, so toggling sets back and forth is cheap. */
+const CACHED_SCOPES = 4;
+
+const FUSE_OPTIONS = {
+  keys: ['n' as const],
+  threshold: 0.3,
+  ignoreLocation: true,
+  shouldSort: true,
+};
+
+const caches = new WeakMap<IconIndex, Map<string, Fuse<Entry>>>();
 
 /**
  * Typo-tolerant fallback for when a substring search finds nothing.
  *
- * The cap is applied after `included`, not before. Capping the raw Fuse results
- * at 500 first meant that if the best 500 matches across all 107k names happened
- * to sit in sets the reader had not selected, a typo returned nothing at all even
- * though their own sets contained matches. `SCAN` still bounds the work.
+ * The index is built over the icons in scope rather than over all 107k names,
+ * which is what makes this both correct and affordable. Two earlier attempts
+ * were neither:
  *
- * ponytail: the Fuse index covers every name and is built on first use, which
- * costs a beat the first time someone mistypes. If that ever shows, restrict it
- * to the selected sets and rebuild on selection change.
+ * - Capping the global results at 500 before filtering to the selected sets
+ *   meant a typo could return nothing when the best 500 matches happened to sit
+ *   in sets the reader had not selected.
+ * - Raising that cap did not fix the cost, because Fuse scores and sorts every
+ *   match regardless of `limit`: measured against the real index, `limit: 500`,
+ *   `limit: 5000` and no limit all took ~113ms on the main thread.
+ *
+ * Scoping instead removes both problems. For the four sets selected by default,
+ * building the index costs ~5ms and the search ~25ms, and nothing in the index
+ * is out of scope so no result can be filtered away after the fact.
  */
 export function fuzzyMatcher(
   index: IconIndex,
-): (term: string, included: (position: number) => boolean) => number[] {
-  return (term, included) => {
-    let fuse = cache.get(index);
-    if (!fuse) {
-      fuse = new Fuse(
-        index.names.map((n, i) => ({ i, n })),
-        { keys: ['n'], threshold: 0.3, ignoreLocation: true, shouldSort: true },
-      );
-      cache.set(index, fuse);
+): (
+  term: string,
+  included: (position: number) => boolean,
+  scope: string,
+) => number[] {
+  return (term, included, scope) => {
+    let byScope = caches.get(index);
+    if (!byScope) {
+      byScope = new Map();
+      caches.set(index, byScope);
     }
 
-    const matches: number[] = [];
-    for (const result of fuse.search(term, { limit: SCAN })) {
-      if (included(result.item.i)) {
-        matches.push(result.item.i);
-        if (matches.length >= LIMIT) {
-          break;
+    let fuse = byScope.get(scope);
+    if (!fuse) {
+      const entries: Entry[] = [];
+      for (let i = 0; i < index.names.length; i++) {
+        if (included(i)) {
+          entries.push({ i, n: index.names[i] });
         }
       }
+
+      fuse = new Fuse(entries, FUSE_OPTIONS);
+
+      // Oldest out first. Selections change as sets are ticked, and an index per
+      // combination would otherwise accumulate for the life of the page.
+      if (byScope.size >= CACHED_SCOPES) {
+        const oldest = byScope.keys().next().value;
+        if (oldest !== undefined) {
+          byScope.delete(oldest);
+        }
+      }
+      byScope.set(scope, fuse);
     }
-    return matches;
+
+    return fuse.search(term, { limit: LIMIT }).map(result => result.item.i);
   };
 }

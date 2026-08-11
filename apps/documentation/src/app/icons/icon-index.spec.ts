@@ -181,6 +181,42 @@ describe('searchIndex', () => {
 
     expect(seen).toEqual([true, false]);
   });
+
+  /**
+   * The matcher builds an index per scope, so it needs a key that changes with
+   * the selection and not otherwise. Ranking all 107k names and discarding most
+   * of them cost ~113ms on the main thread.
+   */
+  it('identifies the scope so a matcher can cache per selection', () => {
+    const keys: string[] = [];
+    const run = (sets: string[] | null, only?: string[]) =>
+      searchIndex(
+        index,
+        {
+          text: 'setings',
+          sets: sets ? new Set(sets) : null,
+          only: only ? new Set(only) : undefined,
+        },
+        (_term, _included, scope) => {
+          keys.push(scope);
+          return [];
+        },
+      );
+
+    run(['lucide']);
+    run(['lucide']);
+    run(['heroicons', 'lucide']);
+    run(['lucide', 'heroicons']);
+    run(null);
+    run(['lucide'], ['lucideSettings']);
+
+    // Same selection, same key, whatever order it was given in.
+    expect(keys[0]).toBe(keys[1]);
+    expect(keys[2]).toBe(keys[3]);
+
+    // Different selections are told apart, including the favourites filter.
+    expect(new Set([keys[0], keys[2], keys[4], keys[5]]).size).toBe(4);
+  });
 });
 
 describe('groupBySet', () => {

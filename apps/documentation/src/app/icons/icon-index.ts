@@ -287,10 +287,15 @@ export function searchIndex(
   index: IconIndex,
   query: SearchQuery,
   /**
-   * Receives the scope predicate so it can cap its results after filtering.
-   * Capping first hid matches that were inside the reader's own sets.
+   * Receives the scope, so it can rank only what is in scope rather than rank
+   * everything and discard most of it. `scope` identifies the current selection
+   * so a built index can be reused while it does not change.
    */
-  fuzzy?: (term: string, included: (position: number) => boolean) => number[],
+  fuzzy?: (
+    term: string,
+    included: (position: number) => boolean,
+    scope: string,
+  ) => number[],
 ): SearchResult {
   const text = query.text.trim().toLowerCase();
   const synonym = SYNONYMS[text] ?? null;
@@ -314,13 +319,23 @@ export function searchIndex(
   }
 
   return {
-    // `included` is handed over so the matcher can cap its results *after*
-    // scoping, and applied again here so scope remains this function's
-    // guarantee rather than every matcher's responsibility.
-    positions: fuzzy(term, included).filter(included),
+    // `included` is applied again so scope stays this function's guarantee
+    // rather than every matcher's responsibility.
+    positions: fuzzy(term, included, scopeKey(query)).filter(included),
     synonym,
     fuzzy: true,
   };
+}
+
+/**
+ * A stable identity for a query's scope, so a matcher can cache per selection.
+ *
+ * Computed only on the fuzzy path, which is the one place it is needed.
+ */
+function scopeKey(query: SearchQuery): string {
+  const sets = query.sets ? [...query.sets].sort().join(',') : '*';
+  const only = query.only ? [...query.only].sort().join(',') : '*';
+  return `${sets}|${only}`;
 }
 
 export interface IconGroup {
