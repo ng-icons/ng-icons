@@ -20,6 +20,10 @@ import {
   type IconRef,
 } from '../icons/icon-index';
 import { SvgIcon } from '../icons/svg-icon';
+import {
+  DRAWER_BELOW,
+  SHEET_FROM_BOTTOM_BELOW,
+} from '../shared/drawer-viewport';
 import { Favourites } from '../shared/favourites';
 import { provideUiIcons } from '../shared/ui-icons';
 
@@ -251,7 +255,7 @@ export class IconDetail {
 
   /** Close from the button, matching the swipe motion on small screens. */
   protected close(): void {
-    if (window.innerWidth >= 1180) {
+    if (window.innerWidth >= DRAWER_BELOW) {
       this.dismiss.emit();
       return;
     }
@@ -297,11 +301,11 @@ export class IconDetail {
    */
   protected startDrag(event: PointerEvent, axis: 'x' | 'y'): void {
     const node = this.host.nativeElement;
-    if (event.button > 0 || window.innerWidth >= 1180) {
+    if (event.button > 0 || window.innerWidth >= DRAWER_BELOW) {
       return;
     }
 
-    const vertical = window.innerWidth < 860;
+    const vertical = window.innerWidth < SHEET_FROM_BOTTOM_BELOW;
     if ((vertical && axis !== 'y') || (!vertical && axis !== 'x')) {
       return;
     }
@@ -365,7 +369,9 @@ export class IconDetail {
     void node.offsetHeight;
 
     node.style.transform =
-      window.innerWidth < 860 ? 'translateY(100%)' : 'translateX(100%)';
+      window.innerWidth < SHEET_FROM_BOTTOM_BELOW
+        ? 'translateY(100%)'
+        : 'translateX(100%)';
     setTimeout(() => this.dismiss.emit(), 220);
   }
 }

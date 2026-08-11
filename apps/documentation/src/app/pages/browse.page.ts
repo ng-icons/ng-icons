@@ -30,6 +30,7 @@ import {
   type IconVariant,
 } from '../icons/icon-index';
 import { SvgIcon } from '../icons/svg-icon';
+import { injectDrawerViewport } from '../shared/drawer-viewport';
 import { Favourites } from '../shared/favourites';
 import { Seo } from '../shared/seo';
 import { ICON_STATS } from '../shared/stats';
@@ -52,6 +53,7 @@ const SUGGESTIONS = ['search', 'zoom', 'filter', 'command'];
     <aside
       class="border-line bg-bg-0 fixed top-16 bottom-0 left-0 z-88 w-[min(320px,88vw)] shrink-0 overflow-y-auto border-r transition-transform duration-200 xl:sticky xl:top-16 xl:h-[calc(100vh-4rem)] xl:w-72 xl:translate-x-0 xl:shadow-none"
       [class]="drawerOpen() ? 'translate-x-0 shadow-md' : '-translate-x-[104%]'"
+      [attr.inert]="filtersHidden() ? '' : null"
     >
       <app-browse-sidebar
         [sets]="sets()"
@@ -513,6 +515,19 @@ export default class BrowsePage {
   });
 
   /** Why the grid is empty, which decides what is worth offering. */
+  /**
+   * True while the filters are off-canvas.
+   *
+   * Closed, the drawer is only translated out of view, so its 46 controls stayed
+   * focusable and screen readers walked through the set list of a panel that
+   * looked shut.
+   */
+  protected readonly filtersHidden = computed(
+    () => this.narrowViewport() && !this.drawerOpen(),
+  );
+
+  private readonly narrowViewport = injectDrawerViewport();
+
   protected readonly empty = computed(() =>
     emptyState({
       sets: this.selected().size,
