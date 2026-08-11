@@ -5,9 +5,17 @@ order: 2
 lead: Angular Icons ships as a core package plus one package per icon set. Install the core once, then add each set you intend to use.
 ---
 
+## Add it with the Angular CLI
+
+```bash
+ng add @ng-icons/core
+```
+
+This installs `@ng-icons/core`, then prompts you to pick the icon sets you want and installs those too. It only adds dependencies, so there is nothing to undo in your own code afterwards.
+
 ## Install the core package
 
-You must install `@ng-icons/core`. It contains the component, the providers and the configuration functions.
+If you would rather not use the CLI, install the packages yourself. `@ng-icons/core` is required: it contains the component, the providers and the configuration functions.
 
 ```bash
 npm i @ng-icons/core

@@ -6,12 +6,18 @@ export const SITE_NAME = 'Angular Icons';
 export const SITE_URL = 'https://ng-icons.github.io/ng-icons';
 export const SITE_TAGLINE = 'Every icon set. One Angular API.';
 
-/** The card image shared links show. Dimensions are the file's own. */
+/**
+ * The card image shared links show, rendered by `tools/social/render.mjs`.
+ *
+ * Dimensions are the file's own: 1200x630 at 2x, which is the ratio the large
+ * summary card crops to. The logo was here before, and being nearly square it
+ * came out as a small thumbnail with most of the card given over to padding.
+ */
 const OG_IMAGE = {
-  url: `${SITE_URL}/assets/logo.png`,
-  width: '1102',
-  height: '894',
-  alt: `${SITE_NAME} logo`,
+  url: `${SITE_URL}/assets/og.png`,
+  width: '2400',
+  height: '1260',
+  alt: `${SITE_NAME}: ${SITE_TAGLINE}`,
 };
 
 export interface PageSeo {
@@ -61,7 +67,10 @@ export class Seo {
     });
     this.meta.updateTag({ property: 'og:image:alt', content: OG_IMAGE.alt });
 
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
+    this.meta.updateTag({
+      name: 'twitter:card',
+      content: 'summary_large_image',
+    });
     this.meta.updateTag({ name: 'twitter:title', content: pageTitle });
     this.meta.updateTag({ name: 'twitter:description', content: description });
     this.meta.updateTag({ name: 'twitter:image', content: OG_IMAGE.url });

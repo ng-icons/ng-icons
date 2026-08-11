@@ -5,6 +5,14 @@ order: 3
 lead: Register an icon in a component, then reference it by name in the template. That is the whole workflow.
 ---
 
+## Install
+
+```bash
+ng add @ng-icons/core
+```
+
+The schematic installs the core package and prompts you for the icon sets you want. See [Installation](/docs/installation) for the manual equivalent.
+
 ## Find an icon
 
 Search the browser across every set at once, or narrow to the sets you already use. Each icon shows its constant name, its package and a ready-made import.
