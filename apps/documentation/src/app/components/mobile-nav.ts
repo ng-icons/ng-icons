@@ -83,22 +83,6 @@ import { provideUiIcons } from '../shared/ui-icons';
         <ng-icon name="remixGithubFill" size="18px" />
         <span>GitHub · {{ stats.stars() }}</span>
       </a>
-
-      <div class="flex-1"></div>
-
-      <a
-        href="https://angularprimitives.com"
-        target="_blank"
-        rel="noreferrer"
-        class="bg-primary-weak text-primary flex items-center gap-2.5 rounded-xl p-3"
-      >
-        <span
-          class="bg-bg-0 inline-flex h-5.5 items-center rounded-full px-2 text-[11px] font-medium tracking-[0.02em] uppercase"
-        >
-          New
-        </span>
-        <span class="text-sm font-medium">Meet Angular Primitives ↗</span>
-      </a>
     </div>
   `,
 })

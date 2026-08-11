@@ -64,23 +64,14 @@ import { provideUiIcons } from '../shared/ui-icons';
       target="_blank"
       rel="noreferrer"
       title="Headless, composable primitives for building accessible Angular UI"
-      class="bg-primary-weak text-primary hover:bg-primary-line nav:flex hidden h-7.5 shrink-0 items-center gap-2 rounded-full px-1 text-[13px] font-medium whitespace-nowrap"
+      class="bg-primary-weak text-primary hover:bg-primary-line hidden h-7.5 shrink-0 items-center gap-2 rounded-full px-1 text-[13px] font-medium whitespace-nowrap md:flex"
     >
-      <!--
-        The chip appears alongside the desktop nav rather than only above
-        1280px. Hiding the whole thing left no link to Primitives at all
-        between 880px (where the drawer that holds one stops being reachable)
-        and 1280px, so the badge and the longer wording drop instead.
-      -->
       <span
-        class="bg-bg-0 hidden h-5.5 shrink-0 items-center rounded-full px-2 text-[11px] font-medium tracking-[0.02em] uppercase md:inline-flex"
+        class="bg-bg-0 inline-flex h-5.5 shrink-0 items-center rounded-full px-2 text-[11px] font-medium tracking-[0.02em] uppercase"
       >
         New
       </span>
-      <span class="px-2 whitespace-nowrap md:hidden">Primitives ↗</span>
-      <span class="hidden pr-1.5 whitespace-nowrap md:inline">
-        Meet Angular Primitives ↗
-      </span>
+      <span class="pr-1.5 whitespace-nowrap"> Meet Angular Primitives ↗ </span>
     </a>
 
     <button
