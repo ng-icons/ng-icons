@@ -194,3 +194,49 @@ describe('iconStem and matchAcrossSets', () => {
     expect(matchAcrossSets(index, settings)).toEqual([]);
   });
 });
+
+/**
+ * The query reaches `searchIndex` straight from the `?q=` param and the search
+ * box, so it can be any string at all. With a plain-object synonym map,
+ * `constructor` and `__proto__` resolved to inherited members of
+ * `Object.prototype` and the search threw instead of returning results.
+ */
+describe('searchIndex with prototype-shaped queries', () => {
+  const index = buildIndex(
+    [
+      {
+        slug: 'lucide',
+        name: 'Lucide',
+        pkg: '@ng-icons/lucide',
+        license: 'ISC',
+        count: 2,
+        variants: [{ id: 'default', subpath: '@ng-icons/lucide', count: 2 }],
+      },
+    ],
+    { lucide: { default: ['lucideConstructor', 'lucideHeart'] } },
+  );
+
+  for (const query of ['constructor', 'toString', '__proto__', 'valueOf']) {
+    it(`survives a query of "${query}"`, () => {
+      const search = () =>
+        searchIndex(index, { text: query, sets: null }, undefined);
+
+      expect(search).not.toThrow();
+      expect(search().synonym).toBeNull();
+    });
+  }
+
+  it('still matches on a name that happens to contain such a word', () => {
+    const result = searchIndex(index, { text: 'constructor', sets: null });
+
+    expect(result.positions.map(p => index.names[p])).toEqual([
+      'lucideConstructor',
+    ]);
+  });
+
+  it('still resolves a real synonym', () => {
+    const result = searchIndex(index, { text: 'bin', sets: null });
+
+    expect(result.synonym).toBe('delete');
+  });
+});

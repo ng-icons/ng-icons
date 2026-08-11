@@ -1,0 +1,108 @@
+name: preview
+
+# A Cloudflare Pages deployment per pull request, so the documentation site can
+# be looked at before it is merged.
+#
+# One-time setup:
+#   1. Create a Pages project via direct upload, named `ng-icons-docs`:
+#      `npx wrangler pages project create ng-icons-docs --production-branch main`
+#   2. Add two repository secrets:
+#      CLOUDFLARE_API_TOKEN   - a token with the "Cloudflare Pages: Edit" permission
+#      CLOUDFLARE_ACCOUNT_ID  - the account the project belongs to
+#
+# Without those secrets the job is skipped rather than failed, so the workflow
+# can land before the project exists.
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    # Forks cannot read secrets, so there is nothing to deploy with.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+
+      - name: Check for Cloudflare credentials
+        id: credentials
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Cloudflare credentials are not set, skipping the preview deploy."
+          fi
+
+      # Pages serves a preview from the root of a *.pages.dev host, not from the
+      # /ng-icons/ subdirectory GitHub Pages uses, so the base has to change or
+      # every asset would 404.
+      - name: Build the site for a root-hosted preview
+        if: steps.credentials.outputs.present == 'true'
+        env:
+          SITE_BASE: /
+        run: pnpm exec nx build documentation
+
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        if: steps.credentials.outputs.present == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # `--branch` is what makes this a preview rather than production.
+          command: >-
+            pages deploy dist/apps/documentation/analog/public
+            --project-name=ng-icons-docs
+            --branch=${{ github.head_ref }}
+
+      - name: Comment the preview URL
+        if: steps.credentials.outputs.present == 'true'
+        uses: actions/github-script@v7
+        env:
+          URL: ${{ steps.deploy.outputs.deployment-url }}
+        with:
+          script: |
+            const url = process.env.URL;
+            if (!url) return;
+
+            const marker = '<!-- docs-preview -->';
+            const body = `${marker}\n📖 **Documentation preview:** ${url}\n\nBuilt from ${context.sha.slice(0, 7)} and served from the root, so the paths differ from the \`/ng-icons/\` production base.`;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find(comment => comment.body?.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                ...context.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

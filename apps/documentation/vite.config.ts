@@ -55,7 +55,10 @@ export default defineConfig(({ command }) => ({
   // URL reads `import.meta.env.BASE_URL` (see `shared/asset-url.ts` and the
   // APP_BASE_HREF provider), which this sets. Left at the root in dev so the
   // dev server stays reachable at `/`.
-  base: command === 'build' ? '/ng-icons/' : '/',
+  //
+  // `SITE_BASE` overrides it for hosts that serve from the root, which is what
+  // the Cloudflare Pages branch previews do (`SITE_BASE=/`).
+  base: command === 'build' ? (process.env.SITE_BASE ?? '/ng-icons/') : '/',
   build: {
     outDir: '../../dist/apps/documentation/client',
     emptyOutDir: true,

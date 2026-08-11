@@ -158,24 +158,35 @@ export function matchAcrossSets(
   return [...bySet.values()];
 }
 
-/** Words people search for that aren't in any icon's name. */
-export const SYNONYMS: Record<string, string> = {
-  basket: 'shopping',
-  bin: 'delete',
-  cart: 'shopping',
-  cog: 'settings',
-  envelope: 'mail',
-  gear: 'settings',
-  letter: 'mail',
-  loupe: 'search',
-  magnifier: 'search',
-  'magnifying glass': 'search',
-  photo: 'camera',
-  picture: 'image',
-  rubbish: 'delete',
-  trash: 'delete',
-  tick: 'check',
-};
+/**
+ * Words people search for that aren't in any icon's name.
+ *
+ * Null-prototype, so a lookup only ever finds a synonym that was put here.
+ * A plain object inherits from `Object.prototype`, which made searching for
+ * `constructor`, `toString` or `__proto__` return a function and throw when the
+ * search treated it as a string. The query comes from the URL and the keyboard,
+ * so those are all reachable.
+ */
+export const SYNONYMS: Record<string, string> = Object.assign(
+  Object.create(null) as Record<string, string>,
+  {
+    basket: 'shopping',
+    bin: 'delete',
+    cart: 'shopping',
+    cog: 'settings',
+    envelope: 'mail',
+    gear: 'settings',
+    letter: 'mail',
+    loupe: 'search',
+    magnifier: 'search',
+    'magnifying glass': 'search',
+    photo: 'camera',
+    picture: 'image',
+    rubbish: 'delete',
+    trash: 'delete',
+    tick: 'check',
+  },
+);
 
 export interface SearchQuery {
   /** The raw text as typed. */
