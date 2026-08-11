@@ -78,14 +78,25 @@ jobs:
         if: steps.credentials.outputs.present == 'true'
         uses: actions/github-script@v7
         env:
-          URL: ${{ steps.deploy.outputs.deployment-url }}
+          # The alias is the stable per-branch URL, so the comment keeps working
+          # as the branch is pushed to. The deployment URL is unique per upload,
+          # which is what pins it to a commit.
+          ALIAS_URL: ${{ steps.deploy.outputs.pages-deployment-alias-url }}
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
         with:
           script: |
-            const url = process.env.URL;
+            const alias = process.env.ALIAS_URL;
+            const deployment = process.env.DEPLOYMENT_URL;
+            const url = alias || deployment;
             if (!url) return;
 
+            const exact =
+              deployment && deployment !== url
+                ? ` ([this build](${deployment}))`
+                : '';
+
             const marker = '<!-- docs-preview -->';
-            const body = `${marker}\n📖 **Documentation preview:** ${url}\n\nBuilt from ${context.sha.slice(0, 7)} and served from the root, so the paths differ from the \`/ng-icons/\` production base.`;
+            const body = `${marker}\n📖 **Documentation preview:** ${url}${exact}\n\nBuilt from ${context.sha.slice(0, 7)} and served from the root, so paths differ from the \`/ng-icons/\` production base.`;
 
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo,
