@@ -281,14 +281,60 @@ describe('icon params', () => {
     },
   );
 
-  it('qualifies a position with its set', () => {
-    expect(iconParam(shared, 0)).toBe('lucide/shared');
-    expect(iconParam(shared, 2)).toBe('heroicons/shared');
+  it('qualifies a position with its set and variant', () => {
+    expect(iconParam(shared, 0)).toBe('lucide/default/shared');
+    expect(iconParam(shared, 2)).toBe('heroicons/outline/shared');
   });
 
   it('resolves back to the set that was asked for', () => {
-    expect(resolveIconParam(shared, 'lucide/shared')).toBe(0);
-    expect(resolveIconParam(shared, 'heroicons/shared')).toBe(2);
+    expect(resolveIconParam(shared, 'lucide/default/shared')).toBe(0);
+    expect(resolveIconParam(shared, 'heroicons/outline/shared')).toBe(2);
+  });
+
+  /**
+   * 23 names appear in two variants of the same set, where the variant decides
+   * both the SVG and the import path, so it belongs in the identity.
+   */
+  it('distinguishes variants of the same set', () => {
+    const variants = buildIndex(
+      [
+        {
+          slug: 'material-icons',
+          name: 'Material Icons',
+          pkg: '@ng-icons/material-icons',
+          license: 'Apache 2.0',
+          count: 2,
+          variants: [
+            { id: 'baseline', subpath: '@ng-icons/material-icons', count: 1 },
+            {
+              id: 'outline',
+              subpath: '@ng-icons/material-icons/outline',
+              count: 1,
+            },
+          ],
+        },
+      ],
+      {
+        'material-icons': {
+          baseline: ['matDeleteOutline'],
+          outline: ['matDeleteOutline'],
+        },
+      },
+    );
+
+    expect(iconParam(variants, 1)).toBe(
+      'material-icons/outline/matDeleteOutline',
+    );
+    expect(
+      resolveIconParam(variants, 'material-icons/outline/matDeleteOutline'),
+    ).toBe(1);
+    expect(
+      resolveIconParam(variants, 'material-icons/baseline/matDeleteOutline'),
+    ).toBe(0);
+  });
+
+  it('falls back within the set when only the variant no longer matches', () => {
+    expect(resolveIconParam(shared, 'heroicons/renamed/shared')).toBe(2);
   });
 
   it('round-trips every position', () => {
@@ -299,10 +345,20 @@ describe('icon params', () => {
     }
   });
 
+  it('returns null for a set that does not exist', () => {
+    expect(resolveIconParam(shared, 'nope/default/nope')).toBeNull();
+  });
+
   /** Links shared before the set was part of the value still have to work. */
   it('accepts a bare name, resolving to the first set that has it', () => {
     expect(resolveIconParam(shared, 'shared')).toBe(0);
     expect(resolveIconParam(shared, 'lucideOnly')).toBe(1);
+  });
+
+  /** And the two-part form this shipped with briefly. */
+  it('accepts the set/name form', () => {
+    expect(resolveIconParam(shared, 'heroicons/shared')).toBe(2);
+    expect(resolveIconParam(shared, 'lucide/shared')).toBe(0);
   });
 
   it('falls back to the name when the set no longer matches', () => {

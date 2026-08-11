@@ -11,6 +11,14 @@ import { NgIcon } from '@ng-icons/core';
 import { injectDocs, toSections } from '../docs/docs-nav';
 import { provideUiIcons } from '../shared/ui-icons';
 
+/**
+ * The width below which the sidebar is a drawer rather than a column.
+ *
+ * Mirrors `--breakpoint-xl` in styles.css, which the sidebar's `xl:` classes
+ * resolve against.
+ */
+const DRAWER_BELOW = 1180;
+
 /** Shell for the documentation: sidebar, page, and the sidebar's drawer form. */
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -124,7 +132,11 @@ export default class DocsPage {
     // After-render, so it never runs while prerendering, where there is no
     // window to measure.
     afterRenderEffect(onCleanup => {
-      const sync = () => this.narrow.set(window.innerWidth < 1280);
+      // Must be the same breakpoint as the `xl:` classes on the sidebar, which
+      // is 1180px here, not Tailwind's default. Measuring against 1280 marked
+      // the sidebar inert while it was still displayed as a column, so between
+      // 1180px and 1279px every page link was visible and unusable.
+      const sync = () => this.narrow.set(window.innerWidth < DRAWER_BELOW);
 
       sync();
       window.addEventListener('resize', sync, { passive: true });

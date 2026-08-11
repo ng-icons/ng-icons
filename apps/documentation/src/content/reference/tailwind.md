@@ -85,7 +85,7 @@ Or set the custom property, which an arbitrary-property utility can do inline, i
 Because the default is `1em`, `text-lg` and friends already scale an icon along with the text around it. Reach for an explicit size only when an icon should not track its surrounding type.
 
 <blockquote class="warning">
-Stroke width is written as an inline style on the icon's own paths, so Tailwind's stroke utilities cannot reach it. Use the strokeWidth input or the --ng-icon__stroke-width custom property instead.
+Stroke width is written as an inline style on the icon's SVG, so Tailwind's stroke utilities cannot override it whichever element they land on. Use the strokeWidth input or the --ng-icon__stroke-width custom property instead.
 </blockquote>
 
 ## When a colour class does nothing

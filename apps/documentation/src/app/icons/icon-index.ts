@@ -198,48 +198,68 @@ export const SYNONYMS: Record<string, string> = Object.assign(
 );
 
 /**
- * The `?icon=` value identifying a position, as `set/name`.
+ * The `?icon=` value identifying a position, as `set/variant/name`.
  *
- * A bare name is not an identity: 5,586 of the constant names appear in more
- * than one set (`matDeleteOutline` is in both Material Symbols and Material
- * Icons), so resolving one by name alone opened whichever set came first in the
- * index rather than the one that was clicked.
+ * A name on its own is not an identity. 5,586 of the constant names appear in
+ * more than one set, and 23 appear in more than one variant of the same set
+ * (`matDeleteOutline` is in both Material Icons' baseline and outline), so a
+ * bare name resolved to whichever came first in the index rather than the one
+ * that was clicked. The variant matters as much as the set: it decides both the
+ * SVG shown and the import path offered.
  */
 export function iconParam(index: IconIndex, position: number): string {
-  return `${index.sets[index.setOf[position]].slug}/${index.names[position]}`;
+  const set = index.sets[index.setOf[position]];
+  const variant = set.variants[index.variantOf[position]];
+  return `${set.slug}/${variant.id}/${index.names[position]}`;
 }
 
 /**
  * The position a `?icon=` value refers to, or null when nothing matches.
  *
- * A value with no slash is treated as a bare name and resolved to the first set
- * that has it, so links shared before the set was part of the value still open
- * something sensible.
+ * Accepts the shorter forms links may already be using and degrades one step at
+ * a time: `set/variant/name`, then `set/name`, then a bare `name`. Anything that
+ * still cannot be placed exactly falls back to the first set holding the name,
+ * which is better than an empty sheet when a set or variant has been renamed.
  */
 export function resolveIconParam(
   index: IconIndex,
   param: string,
 ): number | null {
-  const separator = param.indexOf('/');
+  const parts = param.split('/');
+  const name = parts[parts.length - 1];
+  const slug = parts.length > 1 ? parts[0] : null;
+  const variantId = parts.length > 2 ? parts.slice(1, -1).join('/') : null;
 
-  if (separator === -1) {
-    const position = index.names.indexOf(param);
-    return position === -1 ? null : position;
-  }
-
-  const slug = param.slice(0, separator);
-  const name = param.slice(separator + 1);
+  let inSet: number | null = null;
 
   for (let i = 0; i < index.names.length; i++) {
-    if (index.names[i] === name && index.sets[index.setOf[i]].slug === slug) {
+    if (index.names[i] !== name) {
+      continue;
+    }
+
+    const set = index.sets[index.setOf[i]];
+    if (slug !== null && set.slug !== slug) {
+      continue;
+    }
+
+    if (variantId === null) {
       return i;
     }
+
+    if (set.variants[index.variantOf[i]].id === variantId) {
+      return i;
+    }
+
+    // Right set, wrong variant: keep it in case the variant has been renamed.
+    inSet ??= i;
   }
 
-  // The set may have been renamed since the link was made; the name alone is
-  // still better than an empty sheet.
-  const fallback = index.names.indexOf(name);
-  return fallback === -1 ? null : fallback;
+  if (inSet !== null) {
+    return inSet;
+  }
+
+  const anywhere = index.names.indexOf(name);
+  return anywhere === -1 ? null : anywhere;
 }
 
 export interface SearchQuery {

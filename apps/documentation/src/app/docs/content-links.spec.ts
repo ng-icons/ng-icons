@@ -53,10 +53,37 @@ describe('withBaseHref', () => {
     );
   });
 
-  it('does not match an attribute that merely ends in href', () => {
-    const html = '<a data-xhref="/browse">x</a>';
+  /**
+   * These are the cases a `\b` boundary let through. `-` and `:` are non-word
+   * characters, so the boundary matched before the `h` and the value was
+   * rewritten. The original test only used `data-xhref`, where a word character
+   * precedes `href` and the boundary genuinely blocked it, so it passed while
+   * the real cases were broken.
+   */
+  it.each([
+    ['data-href', '<a data-href="/browse">x</a>'],
+    ['xlink:href', '<use xlink:href="/icon.svg#a" />'],
+    ['data-src', '<img data-src="/assets/a.png" alt="">'],
+    ['my:src', '<x my:src="/a" />'],
+  ])(
+    'does not rewrite %s, which only ends in a real attribute name',
+    (_name, html) => {
+      expect(withBaseHref(html, BASE)).toBe(html);
+    },
+  );
 
-    expect(withBaseHref(html, BASE)).toBe(html);
+  it('still rewrites the real attribute beside one that looks like it', () => {
+    expect(
+      withBaseHref('<a data-href="/keep" href="/change">x</a>', BASE),
+    ).toBe('<a data-href="/keep" href="/ng-icons/change">x</a>');
+  });
+
+  it('rewrites an attribute at the start of a multi-line tag', () => {
+    const html = '<a\n  href="/browse"\n  class="x"\n>b</a>';
+
+    expect(withBaseHref(html, BASE)).toBe(
+      '<a\n  href="/ng-icons/browse"\n  class="x"\n>b</a>',
+    );
   });
 
   /** In dev the base is the root, so there is nothing to add. */

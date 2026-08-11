@@ -14,13 +14,18 @@
  */
 
 /**
- * A `href` or `src` whose value starts a path at the root.
+ * A whole `href` or `src` attribute whose value starts a path at the root.
+ *
+ * The attribute name has to be preceded by whitespace. A `\b` boundary was not
+ * enough: `-` and `:` are non-word characters, so it also matched the tail of
+ * `data-href="/x"` and `xlink:href="/x"` and rewrote those values. Inline SVG in
+ * a docs page would have had its `xlink:href` corrupted.
  *
  * `//host/path` is excluded because it is protocol-relative, and so already
  * absolute. Paths shown inside code samples are safe: the renderer escapes
  * their quotes, so `href=&quot;/x&quot;` does not match.
  */
-const ROOT_ATTRIBUTE = /\b(href|src)="\/(?!\/)/g;
+const ROOT_ATTRIBUTE = /(\s)(href|src)="\/(?!\/)/g;
 
 /** Prefixes root-absolute links in rendered content with the base path. */
 export function withBaseHref(html: string, base: string): string {
@@ -30,5 +35,5 @@ export function withBaseHref(html: string, base: string): string {
     return html;
   }
 
-  return html.replace(ROOT_ATTRIBUTE, `$1="${prefix}`);
+  return html.replace(ROOT_ATTRIBUTE, `$1$2="${prefix}`);
 }

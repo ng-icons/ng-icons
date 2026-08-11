@@ -273,11 +273,12 @@ export class CommandPalette {
 
   protected openIcon(icon: IconRef): void {
     void this.router.navigate(['/browse'], {
-      // Qualified with the set: the palette shows one row per set, and several
-      // sets can export the same constant name.
+      // Qualified with set and variant: the palette shows one row per set, and
+      // the same constant name appears in several sets and in several variants
+      // of the same set.
       queryParams: {
         sets: icon.set.slug,
-        icon: `${icon.set.slug}/${icon.name}`,
+        icon: `${icon.set.slug}/${icon.variant.id}/${icon.name}`,
       },
     });
     this.closed.emit();

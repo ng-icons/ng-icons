@@ -269,18 +269,48 @@ describe('emptyState', () => {
       expect(empty.action).toBeUndefined();
     });
 
-    it('never offers to widen the set selection, which cannot help', () => {
-      for (const favourites of [0, 5]) {
-        const empty = emptyState({
-          sets: 0,
-          query: 'x',
-          totalSets,
-          tab: 'favourites',
-          favourites,
-        });
+    /**
+     * Favourites are filtered by the selected sets, so with none selected the
+     * saved icons are hidden rather than absent and selecting them all reveals
+     * them. Withholding the action here left no way out of an empty grid.
+     */
+    it('offers select-all when sets are deselected but favourites exist', () => {
+      const empty = emptyState({
+        sets: 0,
+        query: '',
+        totalSets,
+        tab: 'favourites',
+        favourites: 5,
+      });
 
-        expect(empty.action, `favourites: ${favourites}`).toBeUndefined();
-      }
+      expect(empty.title).toBe('No icon sets selected');
+      expect(empty.action).toBe('Select all 40 sets');
+      expect(empty.keepsQuery).toBe(true);
+    });
+
+    it('offers nothing when there is nothing saved to reveal', () => {
+      const empty = emptyState({
+        sets: 0,
+        query: 'x',
+        totalSets,
+        tab: 'favourites',
+        favourites: 0,
+      });
+
+      expect(empty.title).toBe('No favourites yet');
+      expect(empty.action).toBeUndefined();
+    });
+
+    it('offers no set-widening when sets are selected and nothing matches', () => {
+      const empty = emptyState({
+        sets: 3,
+        query: 'x',
+        totalSets,
+        tab: 'favourites',
+        favourites: 5,
+      });
+
+      expect(empty.action).toBeUndefined();
     });
   });
 });

@@ -97,7 +97,9 @@ export function resultSummary({
     return '';
   }
   if (tab === 'favourites') {
-    // Once a query narrows the favourites, the total stops describing the grid.
+    // `matching` counts unique favourite names, not grid positions: a saved name
+    // that exists in several sets fills several cells, and counting those made
+    // the summary claim more matches than there are favourites.
     return matching < favourites
       ? `Showing ${matching.toLocaleString('en-GB')} of ${plural(favourites, 'favourite')}`
       : plural(favourites, 'favourite');
@@ -151,20 +153,33 @@ export function emptyState({
 }: EmptyStateInput): EmptyStateCopy {
   if (tab === 'favourites') {
     // Search suggestions are no help here: nothing can match until something is
-    // saved, and widening the sets does not change what is in the list.
-    return favourites === 0
-      ? {
-          title: 'No favourites yet',
-          body: 'Save an icon with the heart on its tile, and it will be waiting here.',
-          showSuggestions: false,
-        }
-      : {
-          title: query
-            ? `No favourites match “${query}”`
-            : 'No favourites match',
-          body: 'None of your saved icons match the current search or filters.',
-          showSuggestions: false,
-        };
+    // saved, and a suggested term would not be among the saved names anyway.
+    if (favourites === 0) {
+      return {
+        title: 'No favourites yet',
+        body: 'Save an icon with the heart on its tile, and it will be waiting here.',
+        showSuggestions: false,
+      };
+    }
+
+    // Favourites are filtered by the selected sets too, so with none selected
+    // the saved icons are hidden rather than absent, and selecting them all
+    // brings them back. Offering that is the one action that helps here.
+    if (sets === 0) {
+      return {
+        title: 'No icon sets selected',
+        body: 'Your favourites are filtered by the selected sets, so none can show.',
+        showSuggestions: false,
+        action: `Select all ${totalSets} sets`,
+        keepsQuery: true,
+      };
+    }
+
+    return {
+      title: query ? `No favourites match “${query}”` : 'No favourites match',
+      body: 'None of your saved icons match the current search or filters.',
+      showSuggestions: false,
+    };
   }
 
   if (sets === 0) {

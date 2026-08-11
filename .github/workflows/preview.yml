@@ -30,15 +30,9 @@ jobs:
     # Forks cannot read secrets, so there is nothing to deploy with.
     if: github.event.pull_request.head.repo.full_name == github.repository
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
-
+      # First, and needing no checkout: everything below is gated on it, so that
+      # a repository without the secrets spends nothing and cannot fail the PR
+      # on an unrelated step such as installing dependencies.
       - name: Check for Cloudflare credentials
         id: credentials
         env:
@@ -51,6 +45,19 @@ jobs:
             echo "present=false" >> "$GITHUB_OUTPUT"
             echo "::notice::Cloudflare credentials are not set, skipping the preview deploy."
           fi
+
+      - uses: actions/checkout@v4
+        if: steps.credentials.outputs.present == 'true'
+
+      - uses: pnpm/action-setup@v4
+        if: steps.credentials.outputs.present == 'true'
+      - uses: actions/setup-node@v4
+        if: steps.credentials.outputs.present == 'true'
+        with:
+          node-version: 24
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+        if: steps.credentials.outputs.present == 'true'
 
       # Pages serves a preview from the root of a *.pages.dev host, not from the
       # /ng-icons/ subdirectory GitHub Pages uses, so the base has to change or

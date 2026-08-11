@@ -523,12 +523,27 @@ export default class BrowsePage {
     }),
   );
 
+  /**
+   * Matching favourites counted by name, not by cell.
+   *
+   * A saved name that exists in several sets fills a cell in each of them, so
+   * counting positions could report more matches than there are favourites.
+   */
+  private readonly matchingFavourites = computed(() => {
+    const index = this.index();
+    if (!index) {
+      return 0;
+    }
+    return new Set(this.matches().map(position => index.names[position])).size;
+  });
+
   protected readonly resultLine = computed(() =>
     resultSummary({
       ready: this.catalog.ready(),
       tab: this.tab(),
       favourites: this.favourites.count(),
-      matching: this.total(),
+      matching:
+        this.tab() === 'favourites' ? this.matchingFavourites() : this.total(),
       library: ICON_STATS.iconCount,
       sets: this.selected().size,
     }),
@@ -653,9 +668,12 @@ export default class BrowsePage {
     }
   }
 
-  /** Qualified with the set, so a name shared by several opens the right one. */
+  /** Qualified with set and variant, so a shared name opens the right icon. */
   protected selectIcon(icon: IconRef): void {
-    this.patch({ icon: `${icon.set.slug}/${icon.name}` }, 'push');
+    this.patch(
+      { icon: `${icon.set.slug}/${icon.variant.id}/${icon.name}` },
+      'push',
+    );
   }
 
   protected clearSelection(): void {
