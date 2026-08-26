@@ -1,8 +1,8 @@
-import { computed, Injectable } from '@angular/core';
+import { computed, Service } from '@angular/core';
 import { storedSignal } from './local-storage';
 
 /** Favourited icons, by constant name, kept in localStorage. */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class Favourites {
   private readonly state = storedSignal<string[]>('ng-icons-favourites', []);
 
