@@ -1,7 +1,8 @@
 import { isPlatformBrowser } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
-import { forkJoin } from 'rxjs';
+import { HttpClient, httpResource } from '@angular/common/http';
+import { computed, inject, PLATFORM_ID, Service, signal } from '@angular/core';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { forkJoin, map } from 'rxjs';
 import { iconStats } from 'virtual:icon-stats';
 import { compact, lifetimeWindows } from './downloads';
 
@@ -17,57 +18,66 @@ export const ICON_STATS = iconStats;
  * replaced on load. Left to be bumped by hand, the all-time total sat at 4.0M
  * while the real figure passed 5M.
  */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class Stats {
   private readonly http = inject(HttpClient);
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
-  readonly stars = signal('586');
-  readonly weekly = signal('108K');
-  readonly lifetime = signal('5.0M');
+  // Skipped while prerendering. Five requests to GitHub and npm per route
+  // slowed the build and made it depend on their rate limits, and the fetched
+  // values would have been baked into static HTML anyway.
+  private readonly enabled = signal(false);
+  private readonly shouldLoad = computed(
+    () => this.enabled() && this.isBrowser,
+  );
 
-  private loaded = false;
+  private readonly starsResource = httpResource<{ stargazers_count: number }>(
+    () =>
+      this.shouldLoad()
+        ? 'https://api.github.com/repos/ng-icons/ng-icons'
+        : undefined,
+  );
+
+  private readonly weeklyResource = httpResource<{ downloads: number }>(() =>
+    this.shouldLoad() ? this.downloadsUrl('last-week') : undefined,
+  );
+
+  // One request per 18-month window, summed: four today, five from 2027.
+  private readonly lifetimeResource = rxResource({
+    params: () => (this.shouldLoad() ? true : undefined),
+    stream: () =>
+      forkJoin(lifetimeWindows().map(window => this.downloads(window))).pipe(
+        map(points =>
+          points.reduce((total, point) => total + point.downloads, 0),
+        ),
+      ),
+  });
+
+  readonly stars = computed(() =>
+    this.starsResource.hasValue()
+      ? compact(this.starsResource.value().stargazers_count)
+      : '586',
+  );
+  readonly weekly = computed(() =>
+    this.weeklyResource.hasValue()
+      ? compact(this.weeklyResource.value().downloads)
+      : '108K',
+  );
+  readonly lifetime = computed(() =>
+    this.lifetimeResource.hasValue()
+      ? compact(this.lifetimeResource.value())
+      : '5.0M',
+  );
 
   load(): void {
-    // Skipped while prerendering. Five requests to GitHub and npm per route
-    // slowed the build and made it depend on their rate limits, and the fetched
-    // values would have been baked into static HTML anyway.
-    if (this.loaded || !this.isBrowser) {
-      return;
-    }
-    this.loaded = true;
+    this.enabled.set(true);
+  }
 
-    this.http
-      .get<{
-        stargazers_count: number;
-      }>('https://api.github.com/repos/ng-icons/ng-icons')
-      .subscribe({
-        next: repo => this.stars.set(compact(repo.stargazers_count)),
-        error: () => undefined,
-      });
-
-    this.downloads('last-week').subscribe({
-      next: point => this.weekly.set(compact(point.downloads)),
-      error: () => undefined,
-    });
-
-    // One request per 18-month window, summed: four today, five from 2027.
-    forkJoin(lifetimeWindows().map(window => this.downloads(window))).subscribe(
-      {
-        next: points =>
-          this.lifetime.set(
-            compact(
-              points.reduce((total, point) => total + point.downloads, 0),
-            ),
-          ),
-        error: () => undefined,
-      },
-    );
+  private downloadsUrl(period: string): string {
+    return `https://api.npmjs.org/downloads/point/${period}/@ng-icons/core`;
   }
 
   private downloads(period: string) {
-    return this.http.get<{ downloads: number }>(
-      `https://api.npmjs.org/downloads/point/${period}/@ng-icons/core`,
-    );
+    return this.http.get<{ downloads: number }>(this.downloadsUrl(period));
   }
 }
