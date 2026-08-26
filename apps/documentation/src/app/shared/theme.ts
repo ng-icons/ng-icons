@@ -1,5 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { effect, inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { effect, inject, PLATFORM_ID, Service } from '@angular/core';
 import { storedSignal } from './local-storage';
 
 export type Theme = 'light' | 'dark';
@@ -9,7 +9,7 @@ export type Theme = 'light' | 'dark';
  * index.html before first paint; this service reads back what that decided so
  * the two never disagree, and leaves the prerendered HTML untouched.
  */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class ThemeService {
   private readonly document = inject(DOCUMENT);
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));

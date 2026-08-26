@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { inject, Injectable } from '@angular/core';
+import { inject, Service } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 export const SITE_NAME = 'Angular Icons';
@@ -36,7 +36,7 @@ export interface PageSeo {
  * hydration is invisible to crawlers and to the services that unfurl links,
  * which is how every route ended up sharing the index.html title.
  */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class Seo {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);

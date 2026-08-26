@@ -1,12 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import {
-  computed,
-  inject,
-  Injectable,
-  PLATFORM_ID,
-  signal,
-} from '@angular/core';
+import { computed, inject, PLATFORM_ID, Service, signal } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { assetUrl } from '../shared/asset-url';
 import {
@@ -26,7 +20,7 @@ const DATA_DIR = 'assets/icons';
  * set load once (they power search across all sets and the ⌘K palette), and SVG
  * bodies load per variant only when icons from it are about to render.
  */
-@Injectable({ providedIn: 'root' })
+@Service()
 export class IconCatalog {
   private readonly http = inject(HttpClient);
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
