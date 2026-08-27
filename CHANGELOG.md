@@ -1,3 +1,14 @@
+## 35.1.0 (2026-08-27)
+
+### 🚀 Features
+
+- **core:** add Keyline Icons and Reicon ([#269](https://github.com/ng-icons/ng-icons/pull/269))
+- **documentation:** rebuild the docs site with AnalogJS ([#265](https://github.com/ng-icons/ng-icons/pull/265))
+
+### ❤️ Thank You
+
+- Ashley Hunter
+
 ## 35.0.1 (2026-08-06)
 
 ### 🩹 Fixes
