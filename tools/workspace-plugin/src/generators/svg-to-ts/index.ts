@@ -86,21 +86,28 @@ function cleanupClones(): void {
   cloneCache.clear();
 }
 
-async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
-  let globPattern = iconset.glob;
+/** Raw SVG markup, keyed by the file path each icon was read from. */
+async function readSvgFiles(iconset: Iconset): Promise<Record<string, string>> {
+  const glob = iconset.glob;
+
+  if (!glob) {
+    throw new Error(`Iconset has neither a glob nor icons: ${iconset.output}`);
+  }
+
+  let globPattern = glob;
 
   // If this iconset uses a git repository, resolve its pre-cloned dir
   if (iconset.gitRepo && iconset.gitRef) {
     const tmpDir = cloneCache.get(cloneKey(iconset.gitRepo, iconset.gitRef));
     if (!tmpDir) {
-      throw new Error(`Repo not cloned for iconset: ${iconset.glob}`);
+      throw new Error(`Repo not cloned for iconset: ${glob}`);
     }
 
     // Update glob pattern to point to the cloned repo
     const basePath = iconset.gitPath ? join(tmpDir, iconset.gitPath) : tmpDir;
 
     // Extract the pattern part from the original glob (everything after the last fixed directory)
-    const globParts = iconset.glob.split('/');
+    const globParts = glob.split('/');
     const patternIndex = globParts.findIndex(
       part => part.includes('*') || part.includes('?'),
     );
@@ -119,27 +126,40 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
   }
 
   if (iconPaths.length === 0) {
-    throw new Error('No icons found for iconset: ' + iconset.glob);
+    throw new Error('No icons found for iconset: ' + glob);
   }
 
-  console.log('Found ' + iconPaths.length + ' icons in ' + iconset.glob);
+  console.log('Found ' + iconPaths.length + ' icons in ' + glob);
 
-  // read the contents of each file
-  const output: Record<string, string> = {};
+  const svgs: Record<string, string> = {};
 
   for (const iconPath of iconPaths) {
+    svgs[iconPath] = await readFile(iconPath, 'utf8');
+  }
+
+  return svgs;
+}
+
+async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
+  // Sets that publish no SVG files assemble their own markup instead.
+  const svgs = iconset.icons
+    ? await iconset.icons()
+    : await readSvgFiles(iconset);
+
+  const output: Record<string, string> = {};
+
+  for (const [source, svg] of Object.entries(svgs)) {
     const iconName = iconset.getIconName(
-      names(basename(iconPath, '.svg')).className,
-      iconPath,
+      names(basename(source, '.svg')).className,
+      source,
     );
-    let svg = await readFile(iconPath, 'utf8');
-    svg = await optimizeIcon(svg, iconset.svg, iconset.plugins);
-    output[iconName] = svg;
+
+    output[iconName] = await optimizeIcon(svg, iconset.svg, iconset.plugins);
 
     iconList.add(iconName);
   }
 
-  // Counted from the output rather than from `iconPaths`: two source files can
+  // Counted from the output rather than from the sources: two source files can
   // resolve to the same icon name, and the second overwrites the first. Counting
   // files claimed 129 icons more than the packages actually export, which is
   // what the documentation site reports.

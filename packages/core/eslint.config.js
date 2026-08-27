@@ -15,6 +15,8 @@ module.exports = [
             '@eslint/eslintrc',
             '@eslint/js',
             '@ng-icons/feather-icons',
+            '@ng-icons/keyline-icons',
+            '@ng-icons/reicon',
             'jest-preset-angular',
             '@angular/platform-browser',
             '@angular/router',

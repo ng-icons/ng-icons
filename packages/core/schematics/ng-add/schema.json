@@ -31,6 +31,7 @@
           "iconsax",
           "ionicons",
           "jam-icons",
+          "keyline-icons",
           "lets-icons",
           "lobe-icons",
           "lucide",
@@ -43,6 +44,7 @@
           "phosphor-icons",
           "primeicons",
           "radix-icons",
+          "reicon",
           "remixicon",
           "simple-icons",
           "solar-icons",
@@ -140,6 +142,10 @@
             "label": "Jam Icons"
           },
           {
+            "value": "keyline-icons",
+            "label": "Keyline Icons"
+          },
+          {
             "value": "lets-icons",
             "label": "Lets Icons"
           },
@@ -186,6 +192,10 @@
           {
             "value": "radix-icons",
             "label": "Radix Icons"
+          },
+          {
+            "value": "reicon",
+            "label": "Reicon"
           },
           {
             "value": "remixicon",
