@@ -54,6 +54,8 @@ Currently, we support the following libraries:
 - [Coolicons](https://coolicons.cool/)
 - [Fluent UI](https://fluenticons.co/)
 - [PrimeIcons](https://primeng.org/icons)
+- [Keyline Icons](https://keylineicons.com)
+- [Reicon](https://reicon.dev)
 
 Got suggestions for additional iconsets? Create an issue and we can consider adding them!
 
