@@ -109,6 +109,11 @@ export const SET_META: Record<string, SetMeta> = {
     website: 'jam-icons.com',
     license: 'MIT',
   },
+  '@ng-icons/keyline-icons': {
+    name: 'Keyline Icons',
+    website: 'keylineicons.com',
+    license: 'MIT',
+  },
   '@ng-icons/lets-icons': {
     name: 'Lets Icons',
     website: 'figma.com/community/file/125859360975033444',
@@ -163,6 +168,11 @@ export const SET_META: Record<string, SetMeta> = {
   '@ng-icons/radix-icons': {
     name: 'Radix Icons',
     website: 'icons.radix-ui.com',
+    license: 'MIT',
+  },
+  '@ng-icons/reicon': {
+    name: 'Reicon',
+    website: 'reicon.dev',
     license: 'MIT',
   },
   '@ng-icons/remixicon': {

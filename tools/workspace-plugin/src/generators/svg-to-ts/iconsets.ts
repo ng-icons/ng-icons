@@ -2,6 +2,7 @@
 import { names } from '@nx/devkit';
 import { dirname } from 'path';
 import type { CustomPlugin } from 'svgo';
+import { reiconDuotoneIcons, reiconIcons } from './reicon';
 export const iconsets: Iconset[] = [
   {
     glob: 'node_modules/heroicons/24/outline/**/*.svg',
@@ -622,9 +623,55 @@ export const iconsets: Iconset[] = [
       fillCurrentColor: true,
     },
   },
+  {
+    glob: '*.svg',
+    gitRepo: 'https://github.com/keyline-icons/keyline-icons.git',
+    gitRef: 'e1fd91ba49518389047c5815bc3e1f1d4a8b31bb',
+    gitPath: 'icons/stroke',
+    output: 'packages/keyline-icons/src/index.ts',
+    getIconName: (name: string) => `keyline${name}`,
+  },
+  {
+    glob: '*.svg',
+    gitRepo: 'https://github.com/keyline-icons/keyline-icons.git',
+    gitRef: 'e1fd91ba49518389047c5815bc3e1f1d4a8b31bb',
+    gitPath: 'icons/duotone',
+    output: 'packages/keyline-icons/duotone/src/index.ts',
+    getIconName: (name: string) => `keyline${name}Duotone`,
+  },
+  {
+    glob: '*.svg',
+    gitRepo: 'https://github.com/keyline-icons/keyline-icons.git',
+    gitRef: 'e1fd91ba49518389047c5815bc3e1f1d4a8b31bb',
+    gitPath: 'icons/fill',
+    output: 'packages/keyline-icons/fill/src/index.ts',
+    getIconName: (name: string) => `keyline${name}Fill`,
+  },
+  {
+    icons: () => reiconIcons('Outline'),
+    output: 'packages/reicon/src/index.ts',
+    getIconName: (name: string) => `reicon${name}`,
+  },
+  {
+    icons: () => reiconIcons('Filled'),
+    output: 'packages/reicon/fill/src/index.ts',
+    getIconName: (name: string) => `reicon${name}Fill`,
+  },
+  {
+    icons: reiconDuotoneIcons,
+    output: 'packages/reicon/duotone/src/index.ts',
+    getIconName: (name: string) => `reicon${name}Duotone`,
+    svg: {
+      // A couple of the duotone icons carry a stray fill="white" path that
+      // ignores the icon colour.
+      fillCurrentColor: true,
+    },
+  },
 ];
 export interface Iconset {
-  glob: string;
+  glob?: string; // where the SVG files are; omit when using `icons`
+  // SVG markup by icon name, for sets that publish no SVG files
+  icons?: () => Promise<Record<string, string>>;
   filter?: (name: string) => boolean;
   getIconName: (name: string, path: string) => string;
   output: string;
