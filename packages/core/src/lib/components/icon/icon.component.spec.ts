@@ -2,10 +2,6 @@ import { Component, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
-import {
-  featherAlertCircle,
-  featherAlertTriangle,
-} from '@ng-icons/feather-icons';
 import { vi } from 'vitest';
 import { NgIconsModule } from '../../icon.module';
 import { withContentSecurityPolicy } from '../../providers/features/csp';
@@ -16,6 +12,13 @@ import {
 } from '../../providers/icon-loader.provider';
 import { provideIcons } from '../../providers/icon.provider';
 import { NgIcon } from './icon.component';
+
+// Lifted verbatim from `@ng-icons/feather-icons` and kept in-source: every icon
+// package now type-imports `@ng-icons/core` to contribute its names to
+// `NgIconNameMap`, so importing one back into core would make the two projects
+// depend on each other.
+const featherAlertCircle = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--ng-icon__stroke-width, 2)"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`;
+const featherAlertTriangle = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="stroke-width:var(--ng-icon__stroke-width, 2)"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`;
 
 describe('Icon', () => {
   let fixture: ComponentFixture<NgIcon>;

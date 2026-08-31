@@ -11,6 +11,12 @@ export function addPackageJsonFields(tree: Tree, schema: Schema) {
     json.dependencies = {
       tslib: '^2.2.0',
     };
+    // The generated icons contribute their names to `NgIconNameMap` in
+    // `@ng-icons/core`, so the package depends on core's types.
+    json.peerDependencies = {
+      ...json.peerDependencies,
+      '@ng-icons/core': `^${json.version}`,
+    };
 
     return json;
   });

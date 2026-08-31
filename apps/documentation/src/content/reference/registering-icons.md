@@ -29,3 +29,20 @@ The keys you pass are the names used in templates, so an icon can be registered 
 ```ts
 providers: [provideIcons({ menu: featherMenu })];
 ```
+
+## Name autocomplete
+
+The `name` input suggests the icons you have installed. Each icon package contributes its names to an interface in `@ng-icons/core`, so the suggestions follow your imports: install `@ng-icons/heroicons` and import from `@ng-icons/heroicons/outline`, and that entry point's icons are offered. Icons from sets you have not installed are not.
+
+Any string is still accepted. A renamed icon, an icon fetched by an [icon loader](/docs/icon-loaders), or one from your own set will never appear in a package's names, and none of them are errors.
+
+To get the same suggestions for your own icons, add their names to the interface once, anywhere in your application:
+
+```ts
+declare module '@ng-icons/core' {
+  interface NgIconNameMap {
+    companyLogo: true;
+    menu: true;
+  }
+}
+```

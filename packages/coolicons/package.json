@@ -5,5 +5,8 @@
     "url": "https://github.com/ng-icons/ng-icons"
   },
   "homepage": "https://ng-icons.github.io/ng-icons/",
-  "license": "CC-BY-4.0"
+  "license": "CC-BY-4.0",
+  "peerDependencies": {
+    "@ng-icons/core": "^35.1.0"
+  }
 }
