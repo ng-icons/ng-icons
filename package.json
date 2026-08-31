@@ -122,6 +122,7 @@
     "marked-shiki": "1.2.1",
     "ng-packagr": "22.0.1",
     "nx": "23.1.0",
+    "pkg-pr-new": "^0.0.88",
     "playwright": "^1.56.0",
     "postcss": "^8.4.5",
     "postcss-import": "~14.1.0",

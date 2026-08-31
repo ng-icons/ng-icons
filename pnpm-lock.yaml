@@ -327,6 +327,9 @@ importers:
       nx:
         specifier: 23.1.0
         version: 23.1.0(@swc-node/register@1.12.0(@swc/core@1.15.8(@swc/helpers@0.5.23))(@swc/types@0.1.27)(typescript@6.0.3))(@swc/core@1.15.8(@swc/helpers@0.5.23))
+      pkg-pr-new:
+        specifier: ^0.0.88
+        version: 0.0.88
       playwright:
         specifier: ^1.56.0
         version: 1.56.0
@@ -10313,6 +10316,10 @@ packages:
   pkg-dir@8.0.0:
     resolution: {integrity: sha512-4peoBq4Wks0riS0z8741NVv+/8IiTvqnZAr8QGgtdifrtpdXbNw/FxRS1l6NFqm4EMzuS0EDqNNx4XGaz8cuyQ==}
     engines: {node: '>=18'}
+
+  pkg-pr-new@0.0.88:
+    resolution: {integrity: sha512-Xc6PMJ2gher0WZP+rtjefFk26hIb7V1PTLL30bmy1Z2vsRmSvqiss7Ag1XUdyplTGYzIlFNJp4L3vMNmK44N6g==}
+    hasBin: true
 
   pkg-types@1.3.1:
     resolution: {integrity: sha512-/Jm5M4RvtBFVkKWRu2BLUTNP8/M2a+UwuAX+ae4770q1qVGtfjG+WTCupoZixokjmHiry8uI+dlY8KXYV5HVVQ==}
@@ -25045,6 +25052,8 @@ snapshots:
   pkg-dir@8.0.0:
     dependencies:
       find-up-simple: 1.0.1
+
+  pkg-pr-new@0.0.88: {}
 
   pkg-types@1.3.1:
     dependencies:

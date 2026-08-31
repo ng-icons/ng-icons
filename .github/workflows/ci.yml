@@ -62,3 +62,27 @@ jobs:
       # builds in seconds, so always build it: otherwise a bad icon set only
       # surfaces on `main`, during the deploy.
       - run: pnpm exec nx build documentation
+
+      # Publish a preview build of the packages this commit touched, so a pull
+      # request can be installed and tried before it is released:
+      #
+      #   pnpm add https://pkg.pr.new/@ng-icons/core@<sha>
+      #
+      # `nx affected` above already left dist/packages holding just those
+      # packages and whatever they build against, so the glob scopes itself: a
+      # PR touching one icon set uploads a few MB rather than the ~76 MB all 43
+      # packages weigh together. A change to a shared input, such as the root
+      # package.json or the lockfile, affects every project and does publish all
+      # of them.
+      #
+      # Skipped when nothing in packages/ was affected, e.g. a docs-only or
+      # workflow-only PR, because the glob would match nothing and the CLI
+      # treats an empty publish as an error.
+      #
+      # One-time setup: install the pkg.pr.new GitHub App on the repository
+      # (https://github.com/apps/pkg-pr-new). There is no token or secret - it
+      # authenticates from the workflow run itself, which is also why this works
+      # on pull requests from forks.
+      - name: Publish preview packages
+        if: hashFiles('dist/packages/*/package.json') != ''
+        run: pnpm exec pkg-pr-new publish --commentWithSha './dist/packages/*'
