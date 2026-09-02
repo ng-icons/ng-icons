@@ -108,15 +108,17 @@ function check(main: string, packages: Record<string, string> = {}): Fixture {
 }
 
 describe('IconName', () => {
-  it('should be empty when no icon package is imported', () => {
+  it('should fall back to string when no icon package is imported', () => {
+    // `keyof` an empty interface is `never`, which makes every annotation an
+    // error in a project that legitimately has no icon package - one that
+    // renders everything through an icon loader, say. There is nothing to be
+    // strict about there, so the type opens up instead.
     const { errors } = check(`
       import type { IconName } from '@ng-icons/core';
-      export const name: IconName = 'monoAdd';
+      export const name: IconName = 'anything-at-all';
     `);
 
-    expect(errors).toEqual([
-      `Type '"monoAdd"' is not assignable to type 'never'.`,
-    ]);
+    expect(errors).toEqual([]);
   });
 
   it('should contain the icons of an imported package', () => {
@@ -259,6 +261,52 @@ describe('the declaration emitted for NgIcon', () => {
       .find(line => line.includes('readonly name'));
 
     expect(name).toContain('IconType');
+  });
+
+  it('should keep the alias for a library that infers rather than annotates', () => {
+    // The same reduction, reached from outside this repo. A wrapper library
+    // that writes `input<IconType>()` with no icon package of its own would
+    // bake the reduced type into its own `.d.ts` and cost its consumers their
+    // autocomplete, without anything warning it. `IconName` being a deferred
+    // conditional stops the union reducing, so the alias survives inference
+    // and library authors do not have to know this rule exists.
+    const files: Record<string, string> = {
+      '/core.ts': readFileSync(CORE_TYPES, 'utf8'),
+      '/lib.ts': `import type { IconType } from '@ng-icons/core';
+        declare function input<T>(): { value: T | undefined };
+        export const name = input<IconType>();`,
+    };
+
+    const options: ts.CompilerOptions = {
+      ...COMPILER_OPTIONS,
+      noEmit: false,
+      declaration: true,
+      emitDeclarationOnly: true,
+    };
+
+    const host = ts.createCompilerHost(options);
+    const readFileFallback = host.readFile.bind(host);
+    const getSourceFileFallback = host.getSourceFile.bind(host);
+    const fileExistsFallback = host.fileExists.bind(host);
+
+    host.getSourceFile = (fileName, languageVersion, ...rest) =>
+      files[fileName]
+        ? ts.createSourceFile(fileName, files[fileName], languageVersion, true)
+        : getSourceFileFallback(fileName, languageVersion, ...rest);
+    host.fileExists = fileName =>
+      fileName in files || fileExistsFallback(fileName);
+    host.readFile = fileName => files[fileName] ?? readFileFallback(fileName);
+
+    let declaration = '';
+    host.writeFile = (fileName, text) => {
+      if (fileName.endsWith('lib.d.ts')) {
+        declaration = text;
+      }
+    };
+
+    ts.createProgram(['/lib.ts'], options, host).emit();
+
+    expect(declaration).toContain('IconType');
   });
 });
 

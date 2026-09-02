@@ -22,8 +22,23 @@
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type, @typescript-eslint/no-empty-interface
 export interface NgIconNameMap {}
 
-/** The names of the icons exported by the icon packages you have imported. */
-export type IconName = keyof NgIconNameMap;
+type InstalledIconNames = keyof NgIconNameMap;
+
+/**
+ * The names of the icons exported by the icon packages you have imported.
+ *
+ * Falls back to `string` when nothing has contributed a name, which does two
+ * things. A project with no icon package - one rendering everything through an
+ * icon loader, say - has nothing to be strict about, and gets a usable type
+ * rather than `never`. And because the fallback is a conditional, the union in
+ * `IconType` no longer reduces when the map is empty, so declaration emit keeps
+ * writing the alias by name. That matters outside this repository: a library
+ * wrapping `ng-icon` would otherwise bake the reduced type into its own
+ * `.d.ts` and cost its consumers their autocomplete.
+ */
+export type IconName = [InstalledIconNames] extends [never]
+  ? string
+  : InstalledIconNames;
 
 /**
  * The name of an icon to render.

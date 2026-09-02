@@ -63,6 +63,14 @@ jobs:
       # surfaces on `main`, during the deploy.
       - run: pnpm exec nx build documentation
 
+      # `NgIconNameMap` only reaches consumers if ng-packagr keeps each entry
+      # point's `declare module` block when it bundles the .d.ts. If a future
+      # version drops it, every package still builds and publishes and the only
+      # symptom is that everyone's `<ng-icon name="">` autocomplete goes empty.
+      - name: Check the published types still carry the icon names
+        if: hashFiles('dist/packages/*/package.json') != ''
+        run: node tools/check-published-icon-types.mjs
+
       # Publish a preview build of the packages this commit touched, so a pull
       # request can be installed and tried before it is released:
       #
