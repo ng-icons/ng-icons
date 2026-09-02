@@ -2,197 +2,21 @@
 
 ### 🚀 Features
 
-- ⚠️  **core:** scope IconName to the icon packages you install ([#272](https://github.com/ng-icons/ng-icons/pull/272), [#243](https://github.com/ng-icons/ng-icons/issues/243))
+- ⚠️ **core:** scope IconName to the icon packages you install ([#272](https://github.com/ng-icons/ng-icons/pull/272), [#270](https://github.com/ng-icons/ng-icons/issues/270))
 
-### ⚠️  Breaking Changes
+### ⚠️ Breaking Changes
 
-- **core:** scope IconName to the icon packages you install  ([#272](https://github.com/ng-icons/ng-icons/pull/272), [#243](https://github.com/ng-icons/ng-icons/issues/243))
-  IconName no longer contains every icon ng-icons ships, only
-  the ones you import. Annotating a value as IconName with a name from a set
-  you have not installed is now an error; the ng-icon name input still accepts
-  any string.
-  * feat(core): fall back to string when no icon package contributes a name
-  `keyof` an empty NgIconNameMap is `never`, which made every IconName
-  annotation an error in a project that legitimately has no icon package, such
-  as one rendering everything through an icon loader.
-  Making the fallback a conditional also stops the union in IconType reducing
-  when the map is empty, which fixes a second and quieter problem outside this
-  repository: a library wrapping ng-icon that writes input<IconType>() rather
-  than annotating would otherwise bake the reduced type into its own .d.ts and
-  cost its consumers their autocomplete, with nothing to warn it.
-  Adds the guards for the failure modes that stay silent:
-  - the emitted declaration keeps the IconType alias for an inferring library
-  - every icon package declares the @ng-icons/core peer dependency, which is
-    what stops a package manager resolving a second copy of core and detaching
-    the augmentation from the core the application imports
-  - a post-build check that ng-packagr still carries each entry point's
-    declare module block into the published types
-  * docs: explain IconName and IconType, and the editor reload caveat
-  The two types answer different questions and neither was documented. Also
-  notes that a newly imported set's names arrive through a type declaration,
-  which editors do not always pick up until the TypeScript server restarts.
-  * fix(repo): stage the files the pre-commit hook formats
-  The hook runs `nx format:write`, which rewrites files in the working tree
-  but does not stage them. For any staged file that needed formatting the
-  commit therefore kept the unformatted version and left the formatted one
-  behind as an unstaged change, so CI failed `format:check` on exactly what
-  the hook had just fixed.
-  Only paths that were already staged are re-added, so the hook still cannot
-  pull unrelated work into a commit.
-  * fix(ci): stop the release workflow failing on a redundant commit step
-  Every release since #243 has finished with a red X. The release itself
-  succeeded each time: nx release changelog commits, tags, pushes and creates
-  the GitHub Release, so by the time the hand-written 'Commit and tag release'
-  step ran there was nothing left to commit and git exited 1.
-  #243 moved createRelease into nx.json, which turned on those git operations,
-  but kept the step that had been doing them by hand. Removing it lets the run
-  report what actually happened, and stops a genuine future failure being lost
-  among runs that are always red.
-  Push to main stays as a no-op safety net in case that push is ever disabled."
-  M	.github/workflows/ci.yml
-  M	.github/workflows/release.yml
-  M	.husky/pre-commit
-  M	apps/documentation/src/content/reference/ng-icon-component.md
-  M	apps/documentation/src/content/reference/registering-icons.md
-  M	packages/akar-icons/package.json
-  M	packages/akar-icons/src/index.ts
-  M	packages/bootstrap-icons/package.json
-  M	packages/bootstrap-icons/src/index.ts
-  M	packages/boxicons/logos/src/index.ts
-  M	packages/boxicons/package.json
-  M	packages/boxicons/regular/src/index.ts
-  M	packages/boxicons/solid/src/index.ts
-  M	packages/circum-icons/package.json
-  M	packages/circum-icons/src/index.ts
-  M	packages/coolicons/package.json
-  M	packages/coolicons/src/index.ts
-  M	packages/core/eslint.config.js
-  M	packages/core/src/lib/components/icon/icon-name.ts
-  A	packages/core/src/lib/components/icon/icon-name.type-spec.ts
-  M	packages/core/src/lib/components/icon/icon-theming.spec.ts
-  M	packages/core/src/lib/components/icon/icon.component.spec.ts
-  M	packages/core/src/lib/components/icon/icon.component.ts
-  M	packages/core/vite.config.mts
-  M	packages/cryptocurrency-icons/colored/src/index.ts
-  M	packages/cryptocurrency-icons/package.json
-  M	packages/cryptocurrency-icons/src/index.ts
-  M	packages/css-gg/package.json
-  M	packages/css-gg/src/index.ts
-  M	packages/devicon/line/src/index.ts
-  M	packages/devicon/original/src/index.ts
-  M	packages/devicon/package.json
-  M	packages/devicon/plain/src/index.ts
-  M	packages/dripicons/package.json
-  M	packages/dripicons/src/index.ts
-  M	packages/feather-icons/package.json
-  M	packages/feather-icons/src/index.ts
-  M	packages/flag-icons/package.json
-  M	packages/flag-icons/square/src/index.ts
-  M	packages/flag-icons/src/index.ts
-  M	packages/fluent-ui/filled/src/index.ts
-  M	packages/fluent-ui/package.json
-  M	packages/fluent-ui/src/index.ts
-  M	packages/font-awesome/brands/src/index.ts
-  M	packages/font-awesome/package.json
-  M	packages/font-awesome/regular/src/index.ts
-  M	packages/font-awesome/solid/src/index.ts
-  M	packages/game-icons/package.json
-  M	packages/game-icons/src/index.ts
-  M	packages/heroicons/micro/src/index.ts
-  M	packages/heroicons/mini/src/index.ts
-  M	packages/heroicons/outline/src/index.ts
-  M	packages/heroicons/package.json
-  M	packages/heroicons/solid/src/index.ts
-  M	packages/huge-icons/package.json
-  M	packages/huge-icons/src/index.ts
-  M	packages/iconoir/package.json
-  M	packages/iconoir/regular/src/index.ts
-  M	packages/iconoir/solid/src/index.ts
-  M	packages/iconsax/bold/src/index.ts
-  M	packages/iconsax/bulk/src/index.ts
-  M	packages/iconsax/outline/src/index.ts
-  M	packages/iconsax/package.json
-  M	packages/ionicons/package.json
-  M	packages/ionicons/src/index.ts
-  M	packages/jam-icons/package.json
-  M	packages/jam-icons/src/index.ts
-  M	packages/keyline-icons/duotone/src/index.ts
-  M	packages/keyline-icons/fill/src/index.ts
-  M	packages/keyline-icons/package.json
-  M	packages/keyline-icons/src/index.ts
-  M	packages/lets-icons/duotone-line/src/index.ts
-  M	packages/lets-icons/duotone/src/index.ts
-  M	packages/lets-icons/fill/src/index.ts
-  M	packages/lets-icons/light/src/index.ts
-  M	packages/lets-icons/package.json
-  M	packages/lets-icons/regular/src/index.ts
-  M	packages/lobe-icons/color/src/index.ts
-  M	packages/lobe-icons/package.json
-  M	packages/lobe-icons/src/index.ts
-  M	packages/lucide/package.json
-  M	packages/lucide/src/index.ts
-  M	packages/material-file-icons/colored/src/index.ts
-  M	packages/material-file-icons/package.json
-  M	packages/material-file-icons/uncolored/src/index.ts
-  M	packages/material-icons/baseline/src/index.ts
-  M	packages/material-icons/outline/src/index.ts
-  M	packages/material-icons/package.json
-  M	packages/material-icons/round/src/index.ts
-  M	packages/material-icons/sharp/src/index.ts
-  M	packages/material-symbols/outline/src/index.ts
-  M	packages/material-symbols/round/src/index.ts
-  M	packages/material-symbols/sharp/src/index.ts
-  M	packages/mono-icons/package.json
-  M	packages/mono-icons/src/index.ts
-  M	packages/mynaui/outline/src/index.ts
-  M	packages/mynaui/package.json
-  M	packages/mynaui/solid/src/index.ts
-  M	packages/octicons/large/src/index.ts
-  M	packages/octicons/package.json
-  M	packages/octicons/src/index.ts
-  M	packages/phosphor-icons/bold/src/index.ts
-  M	packages/phosphor-icons/duotone/src/index.ts
-  M	packages/phosphor-icons/fill/src/index.ts
-  M	packages/phosphor-icons/light/src/index.ts
-  M	packages/phosphor-icons/package.json
-  M	packages/phosphor-icons/regular/src/index.ts
-  M	packages/phosphor-icons/thin/src/index.ts
-  M	packages/primeicons/package.json
-  M	packages/primeicons/src/index.ts
-  M	packages/radix-icons/package.json
-  M	packages/radix-icons/src/index.ts
-  M	packages/reicon/duotone/src/index.ts
-  M	packages/reicon/fill/src/index.ts
-  M	packages/reicon/package.json
-  M	packages/reicon/src/index.ts
-  M	packages/remixicon/package.json
-  M	packages/remixicon/src/index.ts
-  M	packages/simple-icons/package.json
-  M	packages/simple-icons/src/index.ts
-  M	packages/solar-icons/bold-duotone/src/index.ts
-  M	packages/solar-icons/bold/src/index.ts
-  M	packages/solar-icons/broken/src/index.ts
-  M	packages/solar-icons/duotone/src/index.ts
-  M	packages/solar-icons/linear/src/index.ts
-  M	packages/solar-icons/outline/src/index.ts
-  M	packages/solar-icons/package.json
-  M	packages/svgl/package.json
-  M	packages/svgl/src/index.ts
-  M	packages/tabler-icons/fill/src/index.ts
-  M	packages/tabler-icons/package.json
-  M	packages/tabler-icons/src/index.ts
-  M	packages/tdesign-icons/package.json
-  M	packages/tdesign-icons/src/index.ts
-  M	packages/typicons/package.json
-  M	packages/typicons/src/index.ts
-  M	packages/ux-aspects/package.json
-  M	packages/ux-aspects/src/index.ts
-  A	tools/check-published-icon-types.mjs
-  M	tools/workspace-plugin/src/generators/icon-library/utils/add-package-json-fields.ts
-  A	tools/workspace-plugin/src/generators/svg-to-ts/icon-name-augmentation.spec.ts
-  A	tools/workspace-plugin/src/generators/svg-to-ts/icon-name-augmentation.ts
-  A	tools/workspace-plugin/src/generators/svg-to-ts/icon-packages.spec.ts
-  M	tools/workspace-plugin/src/generators/svg-to-ts/index.ts
+- **core:** `IconName` no longer contains every icon ng-icons ships, only the ones you import ([#272](https://github.com/ng-icons/ng-icons/pull/272))
+
+  Each icon entry point now contributes its names to an `NgIconNameMap` interface in `@ng-icons/core`, so `IconName` holds only icons you have actually imported. Annotating a value as `IconName` with a name from a set you have not installed is now an error, and autocomplete no longer offers icons that would render nothing.
+
+  Templates are unaffected: the `name` input is typed `IconType`, which still accepts any string, so aliases registered with `provideIcons`, names resolved by an icon loader, and custom sets all keep working. Nothing changed at runtime.
+
+  If an `IconName` annotation stops compiling, import the package that provides the icon, or annotate with `IconType` if you deliberately want to accept any string.
+
+  Every icon package now declares `@ng-icons/core` as a peer dependency. Packages are released in lockstep, so upgrading them together satisfies it.
+
+  See the [release notes](https://github.com/ng-icons/ng-icons/releases/tag/v36.0.0) for the full migration guide.
 
 ### ❤️ Thank You
 
