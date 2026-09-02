@@ -1,1 +1,11 @@
+# `nx format:write` rewrites files in the working tree but does not stage them.
+# Without re-staging, a commit keeps the unformatted version of a file the hook
+# just fixed, and CI fails on `format:check` for the very thing the hook exists
+# to prevent. Only paths that were already staged are re-added.
+staged=$(git diff --cached --name-only --diff-filter=d)
+
 pnpm format
+
+if [ -n "$staged" ]; then
+  printf '%s\n' "$staged" | xargs git add --
+fi
