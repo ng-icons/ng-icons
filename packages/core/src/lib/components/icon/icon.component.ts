@@ -8,12 +8,13 @@ import {
   inject,
   Injector,
   input,
+  InputSignal,
   OnDestroy,
   PLATFORM_ID,
   Renderer2,
   runInInjectionContext,
 } from '@angular/core';
-import type { IconName } from '../../components/icon/icon-name';
+import type { IconType } from '../../components/icon/icon-name';
 import {
   injectNgIconPostProcessor,
   injectNgIconPreProcessor,
@@ -28,9 +29,6 @@ import { injectNgIcons } from '../../providers/icon.provider';
 import { coerceLoaderResult } from '../../utils/async';
 import { coerceCssPixelValue } from '../../utils/coercion';
 import { toPropertyName } from '../../utils/format';
-
-// This is a typescript type to prevent inference from collapsing the union type to a string to improve type safety
-export type IconType = IconName | (string & {});
 
 let uniqueId = 0;
 
@@ -85,7 +83,11 @@ export class NgIcon implements OnDestroy {
   private readonly logger = injectLogger();
 
   /** Define the name of the icon to display */
-  readonly name = input<IconType>();
+  // Annotated rather than inferred: `IconName` is empty until an icon package
+  // augments it, so the inferred type reduces to `string & {}` and declaration
+  // emit would bake that into the published `.d.ts`, costing every consumer
+  // their `<ng-icon name="">` autocomplete.
+  readonly name: InputSignal<IconType | undefined> = input<IconType>();
 
   /** Define the svg of the icon to display */
   readonly svg = input<string>();

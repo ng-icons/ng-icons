@@ -48,6 +48,17 @@ export default defineConfig(() => ({
           ],
         },
       },
+      {
+        extends: true,
+        test: {
+          // `*.type-spec.ts` rather than `*.spec.ts`: these drive the
+          // TypeScript compiler API over real package sources, so they belong
+          // in node and are deliberately not matched by the `core` project.
+          name: 'core-types',
+          environment: 'node',
+          include: ['src/**/*.type-spec.ts'],
+        },
+      },
     ],
   },
 }));

@@ -77,13 +77,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit and tag release
-        run: |
-          VERSION=$(node -p "require('./packages/core/package.json').version")
-          git add -A
-          git commit -m "chore(release): publish ${VERSION}"
-          git tag -a "v${VERSION}" -m "v${VERSION}"
-
+      # `nx release changelog` above already commits, tags and pushes. This is a
+      # no-op safety net for the case where that push is ever turned off, and
+      # exits cleanly ("Everything up-to-date") when it has already happened.
       - name: Push to main
         run: git push origin HEAD:main --follow-tags
 

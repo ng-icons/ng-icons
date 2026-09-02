@@ -1,4 +1,4 @@
-import { formatFiles, joinPathFragments, names, Tree } from '@nx/devkit';
+import { formatFiles, names, Tree } from '@nx/devkit';
 import { exec } from 'child_process';
 import { mkdtempSync, rmSync } from 'fs';
 import { readFile } from 'fs-extra';
@@ -7,13 +7,12 @@ import { tmpdir } from 'os';
 import { basename, join } from 'path';
 import * as ts from 'typescript';
 import { promisify } from 'util';
+import { createIconNameAugmentation } from './icon-name-augmentation';
 import { Iconset, iconsets } from './iconsets';
 import { optimizeIcon } from './optimize-icon';
 import { updateIconCounts } from './update-counts';
 
 let iconCount = 0;
-
-const iconList = new Set<string>();
 
 // Maps a `${gitRepo}#${gitRef}` key to the tmp dir it was cloned into, so a repo
 // used by multiple iconsets (font-awesome, iconsax) is cloned once, not per style.
@@ -155,8 +154,6 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
     );
 
     output[iconName] = await optimizeIcon(svg, iconset.svg, iconset.plugins);
-
-    iconList.add(iconName);
   }
 
   // Counted from the output rather than from the sources: two source files can
@@ -196,6 +193,19 @@ async function createIconset(iconset: Iconset): Promise<string> {
 
   const output: string[] = [];
 
+  // Contribute this entry point's names to `IconName` in `@ng-icons/core`. The
+  // names are taken from `createIconDeclaration`'s identifier so the
+  // augmentation can never drift from what the file actually exports.
+  const augmentation = createIconNameAugmentation(
+    Object.keys(icons).map(icon => names(icon).propertyName),
+  );
+
+  if (augmentation) {
+    // The empty entry is a blank line once `output` is joined, separating the
+    // type contribution from the icons themselves.
+    output.push(augmentation, '');
+  }
+
   for (const icon in icons) {
     const node = createIconDeclaration(icon, icons[icon]);
 
@@ -219,27 +229,6 @@ async function createIconset(iconset: Iconset): Promise<string> {
   }
 
   return output.join('\n');
-}
-
-async function generateIconNameType(tree: Tree): Promise<void> {
-  const sortedNames = Array.from(iconList).sort((a, b) => a.localeCompare(b));
-  const union = sortedNames.length
-    ? sortedNames.map(name => `'${name}'`).join(' | ')
-    : 'never';
-  const iconNamesType = `export type IconName = ${union};`;
-
-  tree.write(
-    joinPathFragments(
-      'packages',
-      'core',
-      'src',
-      'lib',
-      'components',
-      'icon',
-      'icon-name.ts',
-    ),
-    iconNamesType,
-  );
 }
 
 async function processIconsetsInParallel(
@@ -282,7 +271,6 @@ export async function iconGenerator(tree: Tree): Promise<void> {
     cleanupClones();
   }
 
-  await generateIconNameType(tree);
   updateIconCounts(tree, iconCount);
 
   console.log(`✅ Generated ${iconCount} icons.`);
