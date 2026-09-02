@@ -1,6 +1,6 @@
 {
   "name": "@ng-icons/reicon",
-  "version": "35.1.0",
+  "version": "36.0.0",
   "sideEffects": false,
   "license": "MIT",
   "repository": {
@@ -9,6 +9,6 @@
   "homepage": "https://ng-icons.github.io/ng-icons/",
   "dependencies": {},
   "peerDependencies": {
-    "@ng-icons/core": "^35.1.0"
+    "@ng-icons/core": "^36.0.0"
   }
 }

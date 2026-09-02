@@ -1,6 +1,6 @@
 {
   "name": "@ng-icons/font-awesome",
-  "version": "35.1.0",
+  "version": "36.0.0",
   "sideEffects": false,
   "license": "CC BY 4.0",
   "repository": {
@@ -8,6 +8,6 @@
   },
   "homepage": "https://ng-icons.github.io/ng-icons/",
   "peerDependencies": {
-    "@ng-icons/core": "^35.1.0"
+    "@ng-icons/core": "^36.0.0"
   }
 }
