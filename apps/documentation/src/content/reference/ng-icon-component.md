@@ -18,12 +18,12 @@ export class Profile {}
 
 ## Inputs
 
-| Name          | Type               | Description                                                             |
-| ------------- | ------------------ | ----------------------------------------------------------------------- |
-| `name`        | `string`           | The name of a registered icon.                                          |
-| `svg`         | `string`           | An SVG string to render directly, instead of a registered icon.         |
-| `size`        | `string`           | The size of the icon. Defaults to the current font size.                |
-| `color`       | `string`           | The colour of the icon. Defaults to the current text colour.            |
-| `strokeWidth` | `string \| number` | The stroke width of the icon. Only works on icon sets that use strokes. |
+| Name          | Type               | Description                                                                                                                                     |
+| ------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`        | `IconType`         | The name of a registered icon. Any string, with autocomplete for the icons you have imported. See [Name autocomplete](/docs/registering-icons). |
+| `svg`         | `string`           | An SVG string to render directly, instead of a registered icon.                                                                                 |
+| `size`        | `string`           | The size of the icon. Defaults to the current font size.                                                                                        |
+| `color`       | `string`           | The colour of the icon. Defaults to the current text colour.                                                                                    |
+| `strokeWidth` | `string \| number` | The stroke width of the icon. Only works on icon sets that use strokes.                                                                         |
 
 > Only icons from Angular Icons icon sets support the `color`, `size` and `strokeWidth` inputs.
