@@ -284,7 +284,7 @@ export const iconsets: Iconset[] = [
   {
     glob: '*.svg',
     gitRepo: 'https://github.com/FortAwesome/Font-Awesome.git',
-    gitRef: '840c215f894f429b26b8c1402a65da835dc5a450',
+    gitRef: '14c65a3747d0f3b751f15831fc719236aea8729d', // Font Awesome Free 7.3.1
     gitPath: 'svgs/solid',
     output: 'packages/font-awesome/solid/src/index.ts',
     getIconName: (name: string) => `faSolid${name}`,
@@ -295,7 +295,7 @@ export const iconsets: Iconset[] = [
   {
     glob: '*.svg',
     gitRepo: 'https://github.com/FortAwesome/Font-Awesome.git',
-    gitRef: '840c215f894f429b26b8c1402a65da835dc5a450',
+    gitRef: '14c65a3747d0f3b751f15831fc719236aea8729d', // Font Awesome Free 7.3.1
     gitPath: 'svgs/regular',
     output: 'packages/font-awesome/regular/src/index.ts',
     getIconName: (name: string) => `fa${name}`,
@@ -306,7 +306,7 @@ export const iconsets: Iconset[] = [
   {
     glob: '*.svg',
     gitRepo: 'https://github.com/FortAwesome/Font-Awesome.git',
-    gitRef: '840c215f894f429b26b8c1402a65da835dc5a450',
+    gitRef: '14c65a3747d0f3b751f15831fc719236aea8729d', // Font Awesome Free 7.3.1
     gitPath: 'svgs/brands',
     output: 'packages/font-awesome/brands/src/index.ts',
     getIconName: (name: string) => `faBrand${name}`,

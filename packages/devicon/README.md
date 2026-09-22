@@ -9,7 +9,7 @@
 # Ng Icons
 
 The all-in-one icon library for Angular. This allows you to use icons from multiple icon sets with a single icon component.
-Containing over 115,600 icons for you to use in your projects.
+Containing over 116,500 icons for you to use in your projects.
 
 📖 [Documentation](https://ng-icons.github.io/ng-icons/docs/introduction) · 🔍 [Browse icons](https://ng-icons.github.io/ng-icons/browse) · 📦 [Icon sets](https://ng-icons.github.io/ng-icons/iconsets)
 
@@ -147,6 +147,15 @@ The following packages are available:
 | `@ng-icons/primeicons`           | MIT                                   |
 | `@ng-icons/keyline-icons`        | MIT                                   |
 | `@ng-icons/reicon`               | MIT                                   |
+
+## Font Awesome 7
+
+`@ng-icons/font-awesome` uses [Font Awesome Free 7.3.1](https://github.com/FortAwesome/Font-Awesome/releases/tag/7.3.1), pinned to commit `14c65a3747d0f3b751f15831fc719236aea8729d`.
+The `/solid`, `/regular`, and `/brands` entry points keep their `faSolid`, `fa`, and `faBrand` prefixes. The upstream SVGs include aliases as well as new icons.
+
+When upgrading from Font Awesome 6, **`faSolidVectorSquare` is no longer exported**. Upstream renamed it to `draw-square`, which is absent from the Free 7.3.1 SVGs; there is no `faSolidDrawSquare` replacement in this package. Choose another icon or register your own SVG with `provideIcons`. All other previous exports remain available. Artwork and view boxes have changed, so review icon alignment when upgrading. See the [upstream migration guide](https://docs.fontawesome.com/upgrade/whats-changed).
+
+Icons by [Font Awesome](https://fontawesome.com), copyright 2026 Fonticons, Inc., licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ng Icons optimizes the SVGs and converts them to TypeScript exports. Brand icons are trademarks of their respective owners. See the [Font Awesome Free license and attribution](https://github.com/FortAwesome/Font-Awesome/blob/14c65a3747d0f3b751f15831fc719236aea8729d/LICENSE.txt).
 
 ## Usage
 
