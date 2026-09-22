@@ -17,12 +17,12 @@ describe('Font Awesome Free 7.3.1', () => {
     ['brands', brands, 609],
   ] as const)('exports the complete %s SVG set', (_style, icons, count) => {
     expect(Object.keys(icons)).toHaveLength(count);
-    for (const svg of Object.values(icons)) {
+    for (const [name, svg] of Object.entries(icons)) {
       const document = new DOMParser().parseFromString(svg, 'image/svg+xml');
-      expect(document.querySelector('parsererror')).toBeNull();
-      expect(document.documentElement.tagName).toBe('svg');
-      expect(document.documentElement.hasAttribute('viewBox')).toBe(true);
-      expect(svg).toContain('currentColor');
+      expect(document.querySelector('parsererror'), name).toBeNull();
+      expect(document.documentElement.tagName, name).toBe('svg');
+      expect(document.documentElement.hasAttribute('viewBox'), name).toBe(true);
+      expect(svg, name).toContain('currentColor');
     }
   });
 
