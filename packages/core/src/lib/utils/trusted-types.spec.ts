@@ -18,13 +18,20 @@ describe('trustedHTMLFromString', () => {
 
   it('should create the policy once and reuse it', async () => {
     const createPolicy = vi.fn(
-      (_name: string, rules: { createHTML(html: string): string }) => rules,
+      (_name: string, rules: { createHTML(html: string): string }) => ({
+        createHTML: (html: string) => ({ trusted: rules.createHTML(html) }),
+      }),
     );
     vi.stubGlobal('trustedTypes', { createPolicy });
     const { trustedHTMLFromString } = await importFresh();
 
-    trustedHTMLFromString('<svg></svg>');
-    trustedHTMLFromString('<svg></svg>');
+    // both calls go through the policy, not just the one that created it
+    expect(trustedHTMLFromString('<svg></svg>')).toEqual({
+      trusted: '<svg></svg>',
+    });
+    expect(trustedHTMLFromString('<svg></svg>')).toEqual({
+      trusted: '<svg></svg>',
+    });
     expect(createPolicy).toHaveBeenCalledOnce();
     expect(createPolicy).toHaveBeenCalledWith('ng-icons', expect.anything());
   });
