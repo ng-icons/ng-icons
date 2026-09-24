@@ -48,11 +48,3 @@ import { heroUsers } from '@ng-icons/heroicons/outline';
 })
 export class App {}
 ```
-
-## Upgrading to Font Awesome 7
-
-`@ng-icons/font-awesome` now uses Font Awesome Free 7.3.1. The `/solid`, `/regular`, and `/brands` entry points and their `faSolid`, `fa`, and `faBrand` prefixes are unchanged.
-
-**`faSolidVectorSquare` has been removed.** Upstream renamed `vector-square` to `draw-square`, but neither icon is included in Free 7.3.1, so `faSolidDrawSquare` is not available in this package. Replace imports and registered names with another icon, or supply your own [custom SVG](/docs/custom-svgs).
-
-All other previously exported Font Awesome names remain available. Existing artwork and view boxes have changed, so check icon alignment after upgrading. See [what changed in Font Awesome 7](https://docs.fontawesome.com/upgrade/whats-changed) for upstream details.
