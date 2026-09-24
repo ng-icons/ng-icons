@@ -16,6 +16,19 @@ describe('trustedHTMLFromString', () => {
     expect(String(html)).toBe('<svg></svg>');
   });
 
+  it('should create the policy once and reuse it', async () => {
+    const createPolicy = vi.fn(
+      (_name: string, rules: { createHTML(html: string): string }) => rules,
+    );
+    vi.stubGlobal('trustedTypes', { createPolicy });
+    const { trustedHTMLFromString } = await importFresh();
+
+    trustedHTMLFromString('<svg></svg>');
+    trustedHTMLFromString('<svg></svg>');
+    expect(createPolicy).toHaveBeenCalledOnce();
+    expect(createPolicy).toHaveBeenCalledWith('ng-icons', expect.anything());
+  });
+
   it('should return the string when Trusted Types are unavailable', async () => {
     vi.stubGlobal('trustedTypes', undefined);
     const { trustedHTMLFromString } = await importFresh();
