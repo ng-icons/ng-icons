@@ -1,3 +1,20 @@
+## 36.1.0 (2026-09-25)
+
+### 🚀 Features
+
+- **core:** support Trusted Types when inserting icon svgs ([#275](https://github.com/ng-icons/ng-icons/pull/275), [#274](https://github.com/ng-icons/ng-icons/issues/274))
+- ⚠️  **font-awesome:** upgrade to Font Awesome Free 7.3.1 ([#273](https://github.com/ng-icons/ng-icons/pull/273))
+
+### ⚠️  Breaking Changes
+
+- **font-awesome:** upgrade to Font Awesome Free 7.3.1  ([#273](https://github.com/ng-icons/ng-icons/pull/273))
+
+### ❤️ Thank You
+
+- Anton Pieper @AntonPieper
+- apieper
+- Ashley Hunter
+
 # 36.0.0 (2026-09-02)
 
 ### 🚀 Features
