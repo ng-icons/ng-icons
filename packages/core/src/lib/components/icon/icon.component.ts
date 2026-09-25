@@ -29,6 +29,7 @@ import { injectNgIcons } from '../../providers/icon.provider';
 import { coerceLoaderResult } from '../../utils/async';
 import { coerceCssPixelValue } from '../../utils/coercion';
 import { toPropertyName } from '../../utils/format';
+import { trustedHTMLFromString } from '../../utils/trusted-types';
 
 let uniqueId = 0;
 
@@ -207,7 +208,11 @@ export class NgIcon implements OnDestroy {
 
     svg = this.replaceIds(svg);
 
-    this.renderer.setProperty(template, 'innerHTML', this.preProcessor(svg));
+    this.renderer.setProperty(
+      template,
+      'innerHTML',
+      trustedHTMLFromString(this.preProcessor(svg)),
+    );
 
     this.svgElement = template.content.firstElementChild as SVGElement;
     this.postProcessor(this.svgElement);

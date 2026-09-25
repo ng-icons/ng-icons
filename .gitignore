@@ -60,3 +60,6 @@ vitest.config.*.timestamp*
 .nx/migrate-runs
 # Generated icon browser data for the documentation site (see tools/icon-data-plugin.ts)
 apps/documentation/src/public/assets/icons/
+
+# vitest browser mode failure screenshots
+.vitest-attachments
