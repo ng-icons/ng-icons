@@ -1,0 +1,1 @@
+import{B as e,Pn as t}from"./_router-chunk-BE_4R8PD.js";var n=1180;function r(){let r=t(!1);return e(e=>{let t=()=>r.set(window.innerWidth<n);t(),window.addEventListener(`resize`,t,{passive:!0}),e(()=>window.removeEventListener(`resize`,t))}),r.asReadonly()}export{r as n,n as t};

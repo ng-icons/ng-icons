@@ -1,0 +1,1 @@
+import{i as e}from"./analogjs-content-6nB1cpzZ.js";function t(){return e(e=>e.filename.includes(`/content/reference/`)).map(e=>({...e.attributes,slug:e.slug})).sort((e,t)=>e.order-t.order)}export{t};

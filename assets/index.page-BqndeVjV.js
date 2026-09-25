@@ -1,0 +1,1 @@
+import{On as e,St as t,u as n}from"./_router-chunk-BE_4R8PD.js";var r=class r{constructor(){e(n).navigate([`/docs/introduction`],{replaceUrl:!0})}static{this.ɵfac=function(e){return new(e||r)}}static{this.ɵcmp=t({type:r,selectors:[[`ng-component`]],decls:0,vars:0,template:function(e,t){},encapsulation:2})}};export{r as default};
