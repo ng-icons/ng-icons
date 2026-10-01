@@ -472,6 +472,10 @@ export default class BrowsePage {
    * as that allows: dividing the page between 40 selected sets would otherwise
    * leave six icons each, which reads as though most icons were filtered out.
    * It also bounds the SVG data fetched, since only rendered sets are loaded.
+   *
+   * Sets with every variant muted are always shown and take no share of the
+   * page: they add no icons, so paging past them never happened and their
+   * chips, the only way to unmute them, went unrendered.
    */
   protected readonly groups = computed(() => {
     const index = this.index();
@@ -481,10 +485,14 @@ export default class BrowsePage {
     }
     const { perGroup, groupsShown } = planPage(
       this.limit(),
-      groups.length,
+      groups.filter(group => group.positions.length > 0).length,
       MIN_PER_GROUP,
     );
-    return groups.slice(0, groupsShown).map(group => ({
+    let slots = groupsShown;
+    const visible = groups.filter(
+      group => group.positions.length === 0 || slots-- > 0,
+    );
+    return visible.map(group => ({
       set: group.set,
       // Every variant the set has, so a muted chip can be switched back on.
       variants: group.set.variants,

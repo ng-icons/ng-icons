@@ -247,6 +247,10 @@ describe('groupBySet', () => {
       'heroicons',
     ]);
     expect(groups[1].positions).toEqual([]);
+    expect(groups[1].variants.map(variant => variant.id)).toEqual([
+      'outline',
+      'solid',
+    ]);
     expect(groups[0].positions).toHaveLength(1);
   });
 });

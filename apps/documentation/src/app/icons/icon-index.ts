@@ -368,7 +368,7 @@ export function groupBySet(
     }
 
     const variant = group.set.variants[index.variantOf[position]];
-    if (!muted.has(`${group.set.slug}/${variant.id}`)) {
+    if (muted.size === 0 || !muted.has(`${group.set.slug}/${variant.id}`)) {
       group.positions.push(position);
     }
     if (!group.variants.includes(variant)) {
