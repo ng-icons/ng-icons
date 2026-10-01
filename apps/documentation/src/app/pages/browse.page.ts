@@ -458,7 +458,9 @@ export default class BrowsePage {
 
   private readonly allGroups = computed(() => {
     const index = this.index();
-    return index ? groupBySet(index, this.matches()) : [];
+    return index
+      ? groupBySet(index, this.search().positions, this.mutedVariants())
+      : [];
   });
 
   /**

@@ -345,8 +345,18 @@ export interface IconGroup {
   variants: IconVariant[];
 }
 
-/** Group results by set, preserving the index's set ordering. */
-export function groupBySet(index: IconIndex, positions: number[]): IconGroup[] {
+/**
+ * Group results by set, preserving the index's set ordering.
+ *
+ * Muted variants (keyed `slug/variant`) are left out of `positions` but still
+ * keep their set's group. Grouping the already-filtered results dropped a set
+ * once every variant was muted, taking the chips needed to unmute it with it.
+ */
+export function groupBySet(
+  index: IconIndex,
+  positions: number[],
+  muted: ReadonlySet<string> = new Set(),
+): IconGroup[] {
   const groups = new Map<number, IconGroup>();
 
   for (const position of positions) {
@@ -356,9 +366,11 @@ export function groupBySet(index: IconIndex, positions: number[]): IconGroup[] {
       group = { set: index.sets[setIndex], positions: [], variants: [] };
       groups.set(setIndex, group);
     }
-    group.positions.push(position);
 
     const variant = group.set.variants[index.variantOf[position]];
+    if (!muted.has(`${group.set.slug}/${variant.id}`)) {
+      group.positions.push(position);
+    }
     if (!group.variants.includes(variant)) {
       group.variants.push(variant);
     }

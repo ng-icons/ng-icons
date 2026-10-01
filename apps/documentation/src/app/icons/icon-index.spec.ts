@@ -233,6 +233,22 @@ describe('groupBySet', () => {
       'solid',
     ]);
   });
+
+  it('keeps a set whose every variant is muted, so its chips can unmute it', () => {
+    const { positions } = searchIndex(index, { text: 'arrow', sets: null });
+    const groups = groupBySet(
+      index,
+      positions,
+      new Set(['heroicons/outline', 'heroicons/solid']),
+    );
+
+    expect(groups.map(group => group.set.slug)).toEqual([
+      'lucide',
+      'heroicons',
+    ]);
+    expect(groups[1].positions).toEqual([]);
+    expect(groups[0].positions).toHaveLength(1);
+  });
 });
 
 describe('iconStem and matchAcrossSets', () => {
