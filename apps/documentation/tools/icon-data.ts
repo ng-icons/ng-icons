@@ -32,6 +32,8 @@ export interface IconSet {
   pkg: string;
   website?: string;
   license: string;
+  /** Short caveat for the set, e.g. that it is frozen. */
+  note?: string;
   count: number;
   variants: IconVariant[];
 }
@@ -205,6 +207,7 @@ export function buildIconData(sources: IconSetSource[]): IconData {
       pkg: source.pkg,
       website: meta?.website,
       license: meta?.license ?? 'See project',
+      note: meta?.note,
       count: variants.reduce((total, variant) => total + variant.count, 0),
       variants,
     });

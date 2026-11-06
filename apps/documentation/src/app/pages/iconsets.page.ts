@@ -54,6 +54,13 @@ const PREVIEW_COUNT = 6;
               }
             </div>
 
+            @if (card.set.note) {
+              <p class="text-sub mt-4 text-xs leading-[18px]">
+                <span class="font-medium">Frozen.</span>
+                {{ card.set.note }}
+              </p>
+            }
+
             <div
               class="border-line mt-4.5 flex items-center gap-2 border-t pt-3.5"
             >

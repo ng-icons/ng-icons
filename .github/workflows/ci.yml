@@ -45,6 +45,12 @@ jobs:
 
       - uses: nrwl/nx-set-shas@v4
 
+      # primeicons 8.0.0+ is not MIT and forbids redistribution, so
+      # @ng-icons/primeicons is frozen at 7.0.0 (issue #268). Fail if anything
+      # bumps it.
+      - name: Check primeicons is still pinned to 7.0.0
+        run: node tools/check-primeicons-pin.mjs
+
       # Regenerate the icon sets and the per-package READMEs, then fail if the
       # committed output is stale. Generation is deterministic (all sources are
       # pinned), so any diff means someone bumped a source or hand-edited

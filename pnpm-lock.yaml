@@ -50,6 +50,9 @@ importers:
       '@ng-icons/svgs':
         specifier: git://github.com/ng-icons/svgs
         version: svgs@https://codeload.github.com/ng-icons/svgs/tar.gz/aafbe5e46f13cf29855c04413ca78c0d7611da3f
+      '@openng/icons':
+        specifier: 1.0.0
+        version: 1.0.0
       '@pheralb/svgl':
         specifier: github:pheralb/svgl#268c2720acf9ec7038d6e21cbc4a878327f57973
         version: https://codeload.github.com/pheralb/svgl/tar.gz/268c2720acf9ec7038d6e21cbc4a878327f57973(shikiji@0.10.2)(svelte@5.43.14)(tailwindcss@4.3.3)(typescript@6.0.3)
@@ -3980,6 +3983,9 @@ packages:
   '@oozcitak/util@10.0.0':
     resolution: {integrity: sha512-hAX0pT/73190NLqBPPWSdBVGtbY6VOhWYK3qqHqtXQ1gK7kS2yz4+ivsN07hpJ6I3aeMtKP6J6npsEKOAzuTLA==}
     engines: {node: '>=20.0'}
+
+  '@openng/icons@1.0.0':
+    resolution: {integrity: sha512-BdTSHu74S3WRfbmfoT2WfmvaM3Ei32K3WiZBJTw7nVTlCvQbpCNsBqzrD5rAe4nb5IoTPjeuRb5WTG2gzrTQtw==}
 
   '@oxc-parser/binding-android-arm-eabi@0.121.0':
     resolution: {integrity: sha512-n07FQcySwOlzap424/PLMtOkbS7xOu8nsJduKL8P3COGHKgKoDYXwoAHCbChfgFpHnviehrLWIPX0lKGtbEk/A==}
@@ -17524,6 +17530,8 @@ snapshots:
       '@oozcitak/util': 10.0.0
 
   '@oozcitak/util@10.0.0': {}
+
+  '@openng/icons@1.0.0': {}
 
   '@oxc-parser/binding-android-arm-eabi@0.121.0':
     optional: true

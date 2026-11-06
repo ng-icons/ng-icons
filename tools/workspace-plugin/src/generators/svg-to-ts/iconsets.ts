@@ -613,12 +613,26 @@ export const iconsets: Iconset[] = [
     },
   },
   {
+    // FROZEN: do not upgrade `primeicons` past 7.0.0, the last MIT release.
+    // 8.0.0+ is under the PrimeUI license, which forbids redistribution.
+    // Enforced by tools/check-primeicons-pin.mjs. See issue #268.
     glob: 'node_modules/primeicons/raw-svg/*.svg',
     output: 'packages/primeicons/src/index.ts',
     getIconName: (name: string) => `prime${name}`,
     svg: {
       // Older icons have no fill (colorAttr adds currentColor to the root);
       // newer ones ship fill="black" on paths (fillCurrentColor rewrites those).
+      colorAttr: 'fill',
+      fillCurrentColor: true,
+    },
+  },
+  {
+    // Successor to the frozen primeicons set: the MIT continuation of the final
+    // MIT release of PrimeIcons. See issue #268.
+    glob: 'node_modules/@openng/icons/raw-svg/*.svg',
+    output: 'packages/openng-icons/src/index.ts',
+    getIconName: (name: string) => `openng${name}`,
+    svg: {
       colorAttr: 'fill',
       fillCurrentColor: true,
     },
