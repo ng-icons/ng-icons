@@ -627,6 +627,17 @@ export const iconsets: Iconset[] = [
     },
   },
   {
+    // Successor to the frozen primeicons set: the MIT continuation of the final
+    // MIT release of PrimeIcons. See issue #268.
+    glob: 'node_modules/@openng/icons/raw-svg/*.svg',
+    output: 'packages/openng-icons/src/index.ts',
+    getIconName: (name: string) => `openng${name}`,
+    svg: {
+      colorAttr: 'fill',
+      fillCurrentColor: true,
+    },
+  },
+  {
     glob: '*.svg',
     gitRepo: 'https://github.com/keyline-icons/keyline-icons.git',
     gitRef: 'e1fd91ba49518389047c5815bc3e1f1d4a8b31bb',

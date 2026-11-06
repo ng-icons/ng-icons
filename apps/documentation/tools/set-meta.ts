@@ -157,6 +157,11 @@ export const SET_META: Record<string, SetMeta> = {
     website: 'github.com/primer/octicons',
     license: 'MIT',
   },
+  '@ng-icons/openng-icons': {
+    name: 'OpenNG Icons',
+    website: 'openng.org',
+    license: 'MIT',
+  },
   '@ng-icons/phosphor-icons': {
     name: 'Phosphor Icons',
     website: 'phosphoricons.com',
