@@ -53,7 +53,7 @@ Currently, we support the following libraries:
 - [Lucide Icons](https://lucide.dev/)
 - [Coolicons](https://coolicons.cool/)
 - [Fluent UI](https://fluenticons.co/)
-- [PrimeIcons](https://primeng.org/icons)
+- [PrimeIcons](https://primeng.org/icons) (frozen at 7.0.0, see [#268](https://github.com/ng-icons/ng-icons/issues/268))
 - [Keyline Icons](https://keylineicons.com)
 - [Reicon](https://reicon.dev)
 
@@ -144,7 +144,7 @@ The following packages are available:
 | `@ng-icons/lucide`               | MIT                                   |
 | `@ng-icons/coolicons`            | CC-BY-4.0                             |
 | `@ng-icons/fluent-ui`            | MIT                                   |
-| `@ng-icons/primeicons`           | MIT                                   |
+| `@ng-icons/primeicons`           | MIT (frozen at primeicons 7.0.0)      |
 | `@ng-icons/keyline-icons`        | MIT                                   |
 | `@ng-icons/reicon`               | MIT                                   |
 

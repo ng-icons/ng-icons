@@ -1,3 +1,10 @@
+> [!WARNING]
+> **`@ng-icons/primeicons` is frozen at `primeicons@7.0.0` and will not receive further icon updates.**
+>
+> PrimeTek released `primeicons` 8.0.0 and later under the PrimeUI Community/Commercial License, which prohibits redistributing the icons. `7.0.0` is the last MIT-licensed release, and PrimeTek has confirmed existing MIT releases stay MIT. This package keeps working as is, but it is intentionally pinned and will not move past `7.0.0`.
+>
+> For future icon updates, a MIT-licensed continuation based on the final MIT release of PrimeIcons is tracked in [ng-icons#268](https://github.com/ng-icons/ng-icons/issues/268).
+
 <img width="600" alt="logo" src="https://github.com/ng-icons/ng-icons/assets/20795331/8781b0a9-2c8a-4a7f-9afd-13e47d14cffe">
 
 <div style="margin-top: 1rem;">
@@ -53,7 +60,7 @@ Currently, we support the following libraries:
 - [Lucide Icons](https://lucide.dev/)
 - [Coolicons](https://coolicons.cool/)
 - [Fluent UI](https://fluenticons.co/)
-- [PrimeIcons](https://primeng.org/icons)
+- [PrimeIcons](https://primeng.org/icons) (frozen at 7.0.0, see [#268](https://github.com/ng-icons/ng-icons/issues/268))
 - [Keyline Icons](https://keylineicons.com)
 - [Reicon](https://reicon.dev)
 
@@ -144,7 +151,7 @@ The following packages are available:
 | `@ng-icons/lucide`               | MIT                                   |
 | `@ng-icons/coolicons`            | CC-BY-4.0                             |
 | `@ng-icons/fluent-ui`            | MIT                                   |
-| `@ng-icons/primeicons`           | MIT                                   |
+| `@ng-icons/primeicons`           | MIT (frozen at primeicons 7.0.0)      |
 | `@ng-icons/keyline-icons`        | MIT                                   |
 | `@ng-icons/reicon`               | MIT                                   |
 

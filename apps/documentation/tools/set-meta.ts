@@ -10,6 +10,8 @@ export interface SetMeta {
   name: string;
   website?: string;
   license: string;
+  /** Short caveat shown on the set's card, e.g. that the set is frozen. */
+  note?: string;
 }
 
 export const SET_META: Record<string, SetMeta> = {
@@ -164,6 +166,7 @@ export const SET_META: Record<string, SetMeta> = {
     name: 'PrimeIcons',
     website: 'primeng.org/icons',
     license: 'MIT',
+    note: 'Frozen at primeicons 7.0.0, the last MIT release. Later versions use a license that forbids redistribution, so this set will not be updated.',
   },
   '@ng-icons/radix-icons': {
     name: 'Radix Icons',
