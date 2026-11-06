@@ -1,0 +1,1 @@
+import{En as e,Pn as t}from"./_router-chunk-BE_4R8PD.js";function n(n,i){let a=t(r(n)??i);return e(()=>{let e=a();try{localStorage.setItem(n,JSON.stringify(e))}catch{}}),a}function r(e){try{let t=localStorage.getItem(e);return t===null?null:JSON.parse(t)}catch{return null}}export{n as t};
