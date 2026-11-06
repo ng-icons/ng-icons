@@ -613,6 +613,9 @@ export const iconsets: Iconset[] = [
     },
   },
   {
+    // FROZEN: do not upgrade `primeicons` past 7.0.0, the last MIT release.
+    // 8.0.0+ is under the PrimeUI license, which forbids redistribution.
+    // Enforced by tools/check-primeicons-pin.mjs. See issue #268.
     glob: 'node_modules/primeicons/raw-svg/*.svg',
     output: 'packages/primeicons/src/index.ts',
     getIconName: (name: string) => `prime${name}`,
