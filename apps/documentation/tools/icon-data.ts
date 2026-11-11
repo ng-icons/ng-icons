@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import type { IconSet, IconVariant } from '../src/app/icons/icon-index';
 import { SET_META } from './set-meta';
 
 /** The variant id used for a package's root entry point, e.g. `@ng-icons/lucide`. */
@@ -18,24 +19,6 @@ export interface IconSetSource {
   slug: string;
   pkg: string;
   variants: IconVariantSource[];
-}
-
-export interface IconVariant {
-  id: string;
-  subpath: string;
-  count: number;
-}
-
-export interface IconSet {
-  slug: string;
-  name: string;
-  pkg: string;
-  website?: string;
-  license: string;
-  /** Short caveat for the set, e.g. that it is frozen. */
-  note?: string;
-  count: number;
-  variants: IconVariant[];
 }
 
 /** One set's icon names, grouped by variant, in declaration order. */

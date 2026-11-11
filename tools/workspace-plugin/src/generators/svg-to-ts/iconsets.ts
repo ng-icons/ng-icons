@@ -613,9 +613,8 @@ export const iconsets: Iconset[] = [
     },
   },
   {
-    // FROZEN: do not upgrade `primeicons` past 7.0.0, the last MIT release.
-    // 8.0.0+ is under the PrimeUI license, which forbids redistribution.
-    // Enforced by tools/check-primeicons-pin.mjs. See issue #268.
+    // 8.0.0+ forbids redistribution. See issue #268.
+    frozenAt: { pkg: 'primeicons', version: '7.0.0' },
     glob: 'node_modules/primeicons/raw-svg/*.svg',
     output: 'packages/primeicons/src/index.ts',
     getIconName: (name: string) => `prime${name}`,
@@ -692,6 +691,9 @@ export interface Iconset {
   svg?: SvgOptions;
   deprecated?: boolean;
   deprecatedMessage?: string;
+  // Generation fails unless node_modules/<pkg> is exactly this version, so a
+  // dependency bump cannot silently move a set that must not be updated.
+  frozenAt?: { pkg: string; version: string };
   plugins?: CustomPlugin[];
   // Git repository support
   gitRepo?: string; // e.g., 'https://github.com/owner/repo.git'
