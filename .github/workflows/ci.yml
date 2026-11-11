@@ -29,8 +29,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       # Cache the Playwright browser binary (only `core`'s browser test needs it).
-      # ponytail: system deps assumed present on the runner on a cache hit; if a
-      # future runner image drops them, add `playwright install-deps` to the hit path.
       - uses: actions/cache@v4
         id: playwright-cache
         with:
@@ -40,8 +38,12 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
       # On a cache hit the binary is restored but the apt system deps aren't, so
       # install just those (fast) to avoid missing-library flakiness.
+      # Non-fatal: the ubuntu-26.04 image already ships every library Chromium
+      # needs, so this only adds fonts our tests don't use. An Ubuntu mirror
+      # outage (azure.archive.ubuntu.com failing DNS) should not fail CI.
       - run: pnpm exec playwright install-deps chromium
         if: steps.playwright-cache.outputs.cache-hit == 'true'
+        continue-on-error: true
 
       - uses: nrwl/nx-set-shas@v4
 
