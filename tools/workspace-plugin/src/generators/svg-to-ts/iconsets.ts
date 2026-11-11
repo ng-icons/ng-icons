@@ -613,12 +613,25 @@ export const iconsets: Iconset[] = [
     },
   },
   {
+    // 8.0.0+ forbids redistribution. See issue #268.
+    frozenAt: { pkg: 'primeicons', version: '7.0.0' },
     glob: 'node_modules/primeicons/raw-svg/*.svg',
     output: 'packages/primeicons/src/index.ts',
     getIconName: (name: string) => `prime${name}`,
     svg: {
       // Older icons have no fill (colorAttr adds currentColor to the root);
       // newer ones ship fill="black" on paths (fillCurrentColor rewrites those).
+      colorAttr: 'fill',
+      fillCurrentColor: true,
+    },
+  },
+  {
+    // Successor to the frozen primeicons set: the MIT continuation of the final
+    // MIT release of PrimeIcons. See issue #268.
+    glob: 'node_modules/@openng/icons/raw-svg/*.svg',
+    output: 'packages/openng-icons/src/index.ts',
+    getIconName: (name: string) => `openng${name}`,
+    svg: {
       colorAttr: 'fill',
       fillCurrentColor: true,
     },
@@ -678,6 +691,9 @@ export interface Iconset {
   svg?: SvgOptions;
   deprecated?: boolean;
   deprecatedMessage?: string;
+  // Generation fails unless node_modules/<pkg> is exactly this version, so a
+  // dependency bump cannot silently move a set that must not be updated.
+  frozenAt?: { pkg: string; version: string };
   plugins?: CustomPlugin[];
   // Git repository support
   gitRepo?: string; // e.g., 'https://github.com/owner/repo.git'

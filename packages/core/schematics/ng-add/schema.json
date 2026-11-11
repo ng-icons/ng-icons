@@ -41,6 +41,7 @@
           "mono-icons",
           "mynaui",
           "octicons",
+          "openng-icons",
           "phosphor-icons",
           "primeicons",
           "radix-icons",
@@ -180,6 +181,10 @@
           {
             "value": "octicons",
             "label": "Octicons"
+          },
+          {
+            "value": "openng-icons",
+            "label": "OpenNG Icons"
           },
           {
             "value": "phosphor-icons",

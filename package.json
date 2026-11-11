@@ -28,6 +28,7 @@
     "@material-symbols/svg-400": "^0.45.5",
     "@mynaui/icons": "^0.4.8",
     "@ng-icons/svgs": "git://github.com/ng-icons/svgs",
+    "@openng/icons": "1.0.0",
     "@pheralb/svgl": "github:pheralb/svgl#268c2720acf9ec7038d6e21cbc4a878327f57973",
     "@phosphor-icons/core": "^2.1.1",
     "@primer/octicons": "19.29.1",

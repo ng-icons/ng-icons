@@ -187,6 +187,7 @@
       "@ng-icons/fluent-ui/filled": [
         "./packages/fluent-ui/filled/src/index.ts"
       ],
+      "@ng-icons/openng-icons": ["./packages/openng-icons/src/index.ts"],
       "@ng-icons/primeicons": ["./packages/primeicons/src/index.ts"],
       "@ng-icons/keyline-icons": ["./packages/keyline-icons/src/index.ts"],
       "@ng-icons/keyline-icons/duotone": [

@@ -9,6 +9,8 @@ export async function optimizeIcon(
   customPlugins: CustomPlugin[] = [],
 ): Promise<string> {
   const plugins: PluginConfig[] = [
+    // svgl's Litecoin ships an empty <script>; core inserts markup as HTML.
+    'removeScriptElement',
     {
       name: 'removeComments',
       params: {
@@ -266,3 +268,17 @@ export const detachNodeFromParent = (
   // avoid splice to not break for loops
   parentNode.children = parentNode.children.filter(child => child !== node);
 };
+
+// Core inserts icon markup as HTML, so a source that starts shipping scripts,
+// event handlers or embedded HTML must fail generation rather than be published.
+// `javascript:` is matched anywhere, not only in href, because <set> and
+// <animate> can write it into href through their `to`/`values` attributes.
+const ACTIVE_CONTENT =
+  /<script|<foreignObject|\son[a-z]+\s*=|javascript:|data:text\/html/i;
+
+export function assertInert(name: string, svg: string): void {
+  const match = ACTIVE_CONTENT.exec(svg);
+  if (match) {
+    throw new Error(`${name} contains active content: ${match[0]}`);
+  }
+}

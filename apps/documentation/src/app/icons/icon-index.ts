@@ -19,6 +19,8 @@ export interface IconSet {
   pkg: string;
   website?: string;
   license: string;
+  /** Short caveat for the set, e.g. that it is frozen. */
+  note?: string;
   count: number;
   variants: IconVariant[];
 }

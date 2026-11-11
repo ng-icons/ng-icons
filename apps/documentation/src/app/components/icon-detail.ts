@@ -69,6 +69,11 @@ type Snippet = 'import' | 'template';
           </span>
           <span class="text-soft text-xs">{{ icon().set.license }}</span>
         </div>
+        @if (icon().set.note) {
+          <p class="text-sub mt-2 text-xs leading-[18px]">
+            {{ icon().set.note }}
+          </p>
+        }
       </div>
       <button
         type="button"

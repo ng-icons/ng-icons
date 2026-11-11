@@ -1,5 +1,5 @@
 import { iconsets } from './iconsets';
-import { optimizeIcon } from './optimize-icon';
+import { assertInert, optimizeIcon } from './optimize-icon';
 
 // Fixtures below are lifted verbatim from the upstream `solar-icons` package
 // (`node_modules/solar-icons/icons/SVG/Line Duotone/Security/...`). They are
@@ -150,5 +150,30 @@ describe('optimizeIcon', () => {
 
       expect(output).not.toContain('viewBox');
     });
+  });
+});
+
+describe('assertInert', () => {
+  it.each([
+    '<svg><script>alert(1)</script></svg>',
+    '<svg><path onload="alert(1)"/></svg>',
+    '<svg><foreignObject><div/></foreignObject></svg>',
+    '<svg><a href="javascript:alert(1)"/></svg>',
+    '<svg><a><set attributeName="href" to="javascript:alert(1)"/></a></svg>',
+  ])('rejects %s', svg => {
+    expect(() => assertInert('icon', svg)).toThrow('active content');
+  });
+
+  it('accepts plain markup', () => {
+    expect(() =>
+      assertInert('icon', '<svg><path d="M0 0" opacity="0.5"/></svg>'),
+    ).not.toThrow();
+  });
+
+  it('strips script elements during optimisation', async () => {
+    const svg = await optimizeIcon(
+      '<svg xmlns="http://www.w3.org/2000/svg"><path d="M0 0h1"/><script xmlns=""></script></svg>',
+    );
+    expect(svg).not.toContain('script');
   });
 });

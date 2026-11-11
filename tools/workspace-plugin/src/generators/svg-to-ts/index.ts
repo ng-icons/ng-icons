@@ -1,6 +1,6 @@
 import { formatFiles, names, Tree } from '@nx/devkit';
 import { exec } from 'child_process';
-import { mkdtempSync, rmSync } from 'fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync } from 'fs';
 import { readFile } from 'fs-extra';
 import { sync } from 'glob';
 import { tmpdir } from 'os';
@@ -9,7 +9,7 @@ import * as ts from 'typescript';
 import { promisify } from 'util';
 import { createIconNameAugmentation } from './icon-name-augmentation';
 import { Iconset, iconsets } from './iconsets';
-import { optimizeIcon } from './optimize-icon';
+import { assertInert, optimizeIcon } from './optimize-icon';
 import { updateIconCounts } from './update-counts';
 
 let iconCount = 0;
@@ -139,7 +139,23 @@ async function readSvgFiles(iconset: Iconset): Promise<Record<string, string>> {
   return svgs;
 }
 
+function assertFrozen({ frozenAt, output }: Iconset): void {
+  if (!frozenAt) return;
+  const manifest = join('node_modules', frozenAt.pkg, 'package.json');
+  if (!existsSync(manifest)) {
+    throw new Error(`${output} is frozen but ${manifest} is missing`);
+  }
+  const { version } = JSON.parse(readFileSync(manifest, 'utf8'));
+  if (version !== frozenAt.version) {
+    throw new Error(
+      `${output} is frozen at ${frozenAt.pkg}@${frozenAt.version}, but ${version} is installed`,
+    );
+  }
+}
+
 async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
+  assertFrozen(iconset);
+
   // Sets that publish no SVG files assemble their own markup instead.
   const svgs = iconset.icons
     ? await iconset.icons()
@@ -154,6 +170,7 @@ async function loadIconset(iconset: Iconset): Promise<Record<string, string>> {
     );
 
     output[iconName] = await optimizeIcon(svg, iconset.svg, iconset.plugins);
+    assertInert(iconName, output[iconName]);
   }
 
   // Counted from the output rather than from the sources: two source files can
